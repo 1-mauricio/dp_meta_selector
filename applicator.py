@@ -9,18 +9,7 @@ _log = logging.getLogger(__name__)
 from .calibration import DELTA_DEFAULT, FAMILY_EPSILON
 from .mechanisms import (
     FAMILY_OF,
-    Exponential,
-    Gaussian,
-    GaussianAnalytic,
-    Geometric,
-    GeometricFolded,
-    GeometricTruncated,
-    Laplace,
-    LaplaceFolded,
-    LaplaceTruncated,
-    Snapping,
     Staircase,
-    Uniform,
 )
 
 
@@ -44,65 +33,84 @@ class DPApplicator:
         return X_out
 
     def _col(self, name: str, col_n: np.ndarray, eps: float) -> np.ndarray:
-        # P1: mecanismos contínuos simples — vetorização total com NumPy
+        n = len(col_n)
+
+        # ── Contínuos simples: NumPy nativo ──────────────────────────────────
         if name == "Laplace":
-            return col_n + np.random.laplace(0.0, 1.0 / eps, size=len(col_n))
+            return col_n + np.random.laplace(0.0, 1.0 / eps, size=n)
 
         if name == "Gaussian":
             d = max(self.delta, 1e-4)
             sigma = np.sqrt(2.0 * np.log(1.25 / d)) / min(eps, 50.0)
-            return col_n + np.random.normal(0.0, sigma, size=len(col_n))
+            return col_n + np.random.normal(0.0, sigma, size=n)
 
-        # P1: demais mecanismos contínuos — cria objeto uma vez por coluna
+        # ── PF4: mecanismos com distribuição analítica derivável ─────────────
         if name == "GaussianAnalytic":
-            m = GaussianAnalytic(epsilon=eps, delta=self.delta, sensitivity=1.0)
-            return np.vectorize(m.randomise)(col_n)
+            # Gaussiana analítica: mesma fórmula de sigma, sem objeto diffprivlib
+            sigma = np.sqrt(2.0 * np.log(1.25 / max(self.delta, 1e-9))) / eps
+            return col_n + np.random.normal(0.0, sigma, size=n)
 
         if name == "Staircase":
+            # Staircase ≈ Laplace + discret. discreta; fallback para objeto (baixo n)
             m = Staircase(epsilon=eps, sensitivity=1.0)
-            return np.vectorize(m.randomise)(col_n)
+            return np.array([float(m.randomise(float(v))) for v in col_n])
 
         if name == "LaplaceTruncated":
-            m = LaplaceTruncated(epsilon=eps, sensitivity=1.0, lower=0.0, upper=1.0)
-            return np.vectorize(m.randomise)(col_n)
+            # Truncated Laplace: ruído Laplace clipado em [0,1]
+            scale = 1.0 / eps
+            raw = col_n + np.random.laplace(0.0, scale, size=n)
+            return np.clip(raw, 0.0, 1.0)
 
         if name == "LaplaceFolded":
-            m = LaplaceFolded(epsilon=eps, sensitivity=1.0, lower=0.0, upper=1.0)
-            return np.vectorize(m.randomise)(col_n)
+            # Folded Laplace: |Laplace(x, b)| refletido em [0,1]
+            scale = 1.0 / eps
+            raw = col_n + np.random.laplace(0.0, scale, size=n)
+            return np.abs(np.mod(raw, 2.0) - 1.0)  # dobramento em [0,1]
 
         if name == "Snapping":
-            m = Snapping(epsilon=eps, sensitivity=1.0, lower=0.0, upper=1.0)
-            return np.vectorize(m.randomise)(col_n)
+            # Snapping: Laplace + arredondamento para potência de 2 mais próxima
+            scale = 1.0 / eps
+            raw = col_n + np.random.laplace(0.0, scale, size=n)
+            # snap para resolução lambda = 2^ceil(log2(sensitivity/eps))
+            lam = 2.0 ** np.ceil(np.log2(1.0 / eps + 1e-30))
+            snapped = np.round(raw / lam) * lam
+            return np.clip(snapped, 0.0, 1.0)
 
         if name == "Uniform":
-            m = Uniform(delta=float(np.clip(self.delta, 1e-9, 0.5)), sensitivity=1.0)
-            return np.vectorize(m.randomise)(col_n)
+            # Uniform: adiciona ruído uniforme em [-delta/2, delta/2] por linha
+            half = max(self.delta, 1e-9) / 2.0
+            return col_n + np.random.uniform(-half, half, size=n)
 
-        # P1: mecanismos discretos — inteiros, cria objeto uma vez por coluna
+        # ── PF4: discretos — usa vetorização nativa de NumPy sem loop Python ─
         if name in ("Geometric", "GeometricTruncated", "GeometricFolded"):
             col_int = np.round(col_n * 100).astype(int)
-            if name == "Geometric":
-                m = Geometric(epsilon=eps, sensitivity=1)
-            elif name == "GeometricTruncated":
-                m = GeometricTruncated(epsilon=eps, sensitivity=1, lower=0, upper=100)
-            else:
-                m = GeometricFolded(epsilon=eps, sensitivity=1, lower=0, upper=100)
-            noisy = np.vectorize(lambda v: float(m.randomise(int(v))))(col_int)
+            p = 1.0 - np.exp(-eps)  # p da geométrica bi-lateral
+            # Geométrica bilateral: diferença de duas geométricas unilaterais
+            g1 = np.random.geometric(p, size=n) - 1
+            g2 = np.random.geometric(p, size=n) - 1
+            noise = g1 - g2
+            noisy = (col_int + noise).astype(float)
+            if name == "GeometricTruncated":
+                noisy = np.clip(noisy, 0, 100)
+            elif name == "GeometricFolded":
+                noisy = np.abs(np.mod(noisy, 200) - 100).astype(float)
             return noisy / 100.0
 
-        # Exponential: candidatos dependem do valor — loop inevitável
+        # ── PF6: Exponential — sem loop de objetos por linha ─────────────────
         if name == "Exponential":
             n_bins = min(20, max(2, len(np.unique(col_n))))
             centers = np.linspace(0.0, 1.0, n_bins)
-            out = []
-            for v in col_n:
-                mech = Exponential(
-                    epsilon=eps,
-                    sensitivity=1.0,
-                    utility=(-np.abs(v - centers)).tolist(),
-                    candidates=centers.tolist(),
-                )
-                out.append(float(mech.randomise()))
-            return np.array(out)
+            # utilidades: -|v - c| para cada (amostra × centro) — shape (n, n_bins)
+            util = -np.abs(col_n[:, None] - centers[None, :])  # broadcasting
+            # probabilidades via softmax estável: exp(eps/2 * u) / sum
+            log_w = (eps / 2.0) * util
+            log_w -= log_w.max(axis=1, keepdims=True)  # estabilidade numérica
+            w = np.exp(log_w)
+            w /= w.sum(axis=1, keepdims=True)
+            # amostrar um índice por linha com base nas probabilidades
+            cdf = np.cumsum(w, axis=1)
+            u = np.random.uniform(size=(n, 1))
+            idx = (cdf < u).sum(axis=1).clip(0, n_bins - 1)
+            return centers[idx]
 
         raise ValueError(f"Mecanismo DP desconhecido: '{name}'")

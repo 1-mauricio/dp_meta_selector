@@ -5,6 +5,7 @@ from typing import List, Optional
 
 import numpy as np
 import pandas as pd
+from joblib import Parallel, delayed
 from sklearn.preprocessing import LabelEncoder
 from tqdm import tqdm
 
@@ -17,6 +18,7 @@ from .utility import (
     DPUtilityEvaluator,
     UtilityProfile,
     UtilityResultCache,
+    _data_fingerprint,
 )
 
 _log = logging.getLogger(__name__)
@@ -33,6 +35,7 @@ class MetaDatasetBuilder:
         baseline_store: Optional[BaselineStore] = None,
         baseline_registry: Optional[BaselineRegistry] = None,
         baseline_id: str = "meta_logreg",
+        n_jobs: int = -1,  # PF1: paralelismo de datasets
     ):
         registry = baseline_registry or DEFAULT_BASELINE_REGISTRY
         self.extractor = MetaFeatureExtractor(fast_landmarks=fast_landmarks)
@@ -45,9 +48,30 @@ class MetaDatasetBuilder:
             baseline_registry=registry,
             baseline_id=baseline_id,
         )
+        self.n_jobs = n_jobs
+
+    def _process_one(self, item) -> Optional[dict]:
+        """PF1: processa um dataset — chamado em paralelo por build()."""
+        X, y, name = item
+        y = LabelEncoder().fit_transform(y)
+        meta = self.extractor.extract(X, y)
+        meta["dataset_name"] = name
+        # PF5: calcula fingerprint uma vez e repassa para baseline + evaluate_all
+        fp = _data_fingerprint(X, y)
+        meta["baseline_acc"] = self.evaluator.baseline(X, y, dataset_id=name, fp=fp)
+        dp = self.evaluator.evaluate_all(X, y)
+        for k, v in dp.items():
+            meta[f"acc_{k}"] = v
+        base = meta["baseline_acc"] + 1e-9
+        rel = {m: dp[m] / base for m in dp}
+        best_rel = max(rel.values())
+        # ML1: tie-breaking determinístico pela ordem em MECHANISM_NAMES
+        candidates = [m for m in MECHANISM_NAMES if rel.get(m, 0.0) >= best_rel - 1e-9]
+        meta["best_mechanism"] = candidates[0] if candidates else max(rel, key=rel.get)
+        meta["best_relative_acc"] = max(rel.values())
+        return meta
 
     def build(self, datasets) -> pd.DataFrame:
-        rows = []
         _log.info(
             "[meta-build] perfil=%s screening=%s clf=%s cv=%d runs=%d",
             self.evaluator.profile.name,
@@ -56,27 +80,38 @@ class MetaDatasetBuilder:
             self.evaluator.profile.cv_splits,
             self.evaluator.profile.n_runs,
         )
-        for X, y, name in tqdm(datasets, desc="Construindo meta-dataset"):
-            y = LabelEncoder().fit_transform(y)
-            meta = self.extractor.extract(X, y)
-            meta["dataset_name"] = name
-            meta["baseline_acc"] = self.evaluator.baseline(X, y, dataset_id=name)
-            dp = self.evaluator.evaluate_all(X, y)
-            for k, v in dp.items():
-                meta[f"acc_{k}"] = v
-            base = meta["baseline_acc"] + 1e-9
-            rel = {m: dp[m] / base for m in dp}
-            best_rel = max(rel.values())
-            # ML1: tie-breaking determinístico pela ordem em MECHANISM_NAMES
-            candidates = [m for m in MECHANISM_NAMES if rel.get(m, 0.0) >= best_rel - 1e-9]
-            meta["best_mechanism"] = candidates[0] if candidates else max(rel, key=rel.get)
-            meta["best_relative_acc"] = max(rel.values())
-            rows.append(meta)
+
+        # PF1: converte para lista de tuplas (X, y, name) para serialização joblib
+        items = [(ds.X, ds.y, ds.name) if hasattr(ds, "X") else ds for ds in datasets]
+        n = len(items)
+
+        effective_jobs = self.n_jobs
+        # Com poucos datasets, o overhead de processos não compensa
+        if n <= 4:
+            effective_jobs = 1
+
+        if effective_jobs == 1:
+            rows = []
+            for item in tqdm(items, desc="Construindo meta-dataset"):
+                r = self._process_one(item)
+                if r is not None:
+                    rows.append(r)
+        else:
+            _log.info("[meta-build] paralelo: n_jobs=%s datasets=%d", effective_jobs, n)
+            # prefer="threads": numpy/sklearn liberam o GIL → paralelismo real sem fork
+            # (evita o problema de subprocessos sem acesso ao venv)
+            results = Parallel(n_jobs=effective_jobs, prefer="threads", verbose=0)(
+                delayed(self._process_one)(item)
+                for item in tqdm(items, desc="Construindo meta-dataset")
+            )
+            rows = [r for r in results if r is not None]
+
         df = pd.DataFrame(rows)
         self._log_diagnostics(df)
         _log.info("[meta-build] %s", self.evaluator.cache.summary())
         if self.evaluator.baseline_store is not None:
             _log.info("[meta-build] %s", self.evaluator.baseline_store.summary())
+        return df
         return df
 
     def _log_diagnostics(self, df):

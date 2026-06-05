@@ -64,6 +64,7 @@ class DPMechanismSelector:
             n_runs=n_runs,
             baseline_store=self._baseline_store,
             baseline_id="meta_logreg",
+            n_jobs=-1,  # PF1: paralelismo de datasets habilitado por padrão
         )
         self._learner = MetaLearner(fast_mode=fast_meta_models, fast_landmarks=True)
         self._applicator = DPApplicator(delta=delta)
@@ -186,3 +187,17 @@ class DPMechanismSelector:
 
     def load(self, path="dp_meta_selector.joblib"):
         self._learner.load(path)
+
+    @classmethod
+    def load_from(cls, path="dp_meta_selector.joblib") -> "DPMechanismSelector":
+        """Carrega um seletor já treinado a partir de um arquivo joblib.
+
+        Exemplo::
+
+            selector = DPMechanismSelector.load_from("dp_meta_selector.joblib")
+            rec = selector.recommend(X, y)
+        """
+        selector = cls()
+        selector._learner.load(path)
+        _log.info("[DPMechanismSelector] Modelo carregado de '%s'", path)
+        return selector

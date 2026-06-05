@@ -7,6 +7,7 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn.calibration import CalibratedClassifierCV
+from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.model_selection import (
     LeaveOneOut,
@@ -92,14 +93,43 @@ class MetaLearner:
             {k: int(v) for k, v in zip(self.label_encoder.classes_, np.bincount(y_meta))},
         )
 
+        # Caso degenerado: apenas 1 classe — usa DummyClassifier (most_frequent)
+        if n_cls < 2:
+            _log.warning(
+                "[MetaLearner] Apenas 1 classe no treino — usando DummyClassifier (most_frequent)."
+            )
+            dummy = DummyClassifier(strategy="most_frequent")
+            dummy.fit(X_meta, y_meta)
+            self.models = {"Dummy": dummy}
+            self.best_model_name = "Dummy"
+            return {"Dummy": float("nan")}
+
         scores = {}
-        for name, model in self.models.items():
+        failed_fit = []
+        for name, model in list(self.models.items()):
             try:
                 s = cross_val_score(model, X_meta, y_meta, cv=cv, scoring="f1_macro")
                 scores[name] = float(s.mean())
-            except Exception:
+            except Exception as exc:
+                _log.debug("[MetaLearner] CV falhou para %s: %s", name, exc)
                 scores[name] = float("nan")
-            model.fit(X_meta, y_meta)
+            try:
+                model.fit(X_meta, y_meta)
+            except Exception as exc:
+                _log.warning("[MetaLearner] fit() falhou para %s: %s — removido.", name, exc)
+                failed_fit.append(name)
+
+        for name in failed_fit:
+            del self.models[name]
+            scores.pop(name, None)
+
+        if not self.models:
+            _log.warning("[MetaLearner] Todos os modelos falharam — usando DummyClassifier.")
+            dummy = DummyClassifier(strategy="most_frequent")
+            dummy.fit(X_meta, y_meta)
+            self.models = {"Dummy": dummy}
+            self.best_model_name = "Dummy"
+            return {"Dummy": float("nan")}
 
         # ML2: calibração de probabilidade após treino (Platt scaling)
         if len(X_meta) >= 10:

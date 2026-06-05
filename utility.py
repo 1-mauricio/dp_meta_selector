@@ -113,7 +113,10 @@ def _data_fingerprint(X: np.ndarray, y: np.ndarray) -> str:
 
 
 class UtilityResultCache:
-    """Cache em disco de acurácias pós-DP por (dados, mecanismo, perfil)."""
+    """Cache em disco de acurácias pós-DP por (dados, mecanismo, perfil).
+    
+    PF7: L1 in-memory dict como camada rápida antes do disco.
+    """
 
     def __init__(
         self,
@@ -129,6 +132,7 @@ class UtilityResultCache:
         self.hits = 0
         self.misses = 0
         self._lock = threading.Lock()
+        self._mem: Dict[str, float] = {}  # PF7: L1 cache in-memory
 
     def _inc_hits(self) -> None:
         with self._lock:
@@ -138,10 +142,12 @@ class UtilityResultCache:
         with self._lock:
             self.misses += 1
 
-    def _path(self, fp: str, mechanism: str, profile: UtilityProfile) -> Path:
-        key = hashlib.md5(
+    def _cache_key(self, fp: str, mechanism: str, profile: UtilityProfile) -> str:
+        return hashlib.md5(
             f"{fp}|{mechanism}|{profile.cache_key()}".encode()
         ).hexdigest()
+
+    def _path(self, key: str) -> Path:
         return self.cache_dir / f"{key}.joblib"
 
     def _is_expired(self, p: Path) -> bool:
@@ -154,19 +160,31 @@ class UtilityResultCache:
     def get(self, fp: str, mechanism: str, profile: UtilityProfile) -> Optional[float]:
         if not self.enabled:
             return None
-        p = self._path(fp, mechanism, profile)
+        key = self._cache_key(fp, mechanism, profile)
+        # PF7: verifica L1 primeiro — zero I/O
+        with self._lock:
+            if key in self._mem:
+                self.hits += 1
+                return self._mem[key]
+        p = self._path(key)
         if p.is_file():
             if self._is_expired(p):
                 p.unlink(missing_ok=True)
                 return None
-            self._inc_hits()
-            return float(joblib.load(p))
+            val = float(joblib.load(p))
+            with self._lock:
+                self._mem[key] = val  # popula L1
+                self.hits += 1
+            return val
         return None
 
     def set(self, fp: str, mechanism: str, profile: UtilityProfile, score: float) -> None:
         if not self.enabled:
             return
-        joblib.dump(float(score), self._path(fp, mechanism, profile))
+        key = self._cache_key(fp, mechanism, profile)
+        with self._lock:
+            self._mem[key] = float(score)  # PF7: grava em L1 imediatamente
+        joblib.dump(float(score), self._path(key))  # persiste em disco
 
     def prune(self) -> int:
         """Q3: remove entradas expiradas; retorna número de arquivos removidos."""
@@ -188,7 +206,8 @@ class UtilityResultCache:
         if total == 0:
             return "cache=empty"
         ttl_str = f" ttl={self.max_age_days}d" if self.max_age_days else ""
-        return f"cache hits={self.hits} misses={self.misses} ({100*self.hits/total:.0f}%){ttl_str}"
+        mem_str = f" mem={len(self._mem)}"
+        return f"cache hits={self.hits} misses={self.misses} ({100*self.hits/total:.0f}%){ttl_str}{mem_str}"
 
 
 class DPUtilityEvaluator:
@@ -226,7 +245,8 @@ class DPUtilityEvaluator:
         )
 
     def _cv_score(
-        self, X: np.ndarray, y: np.ndarray, profile: Optional[UtilityProfile] = None
+        self, X: np.ndarray, y: np.ndarray, profile: Optional[UtilityProfile] = None,
+        n_jobs: int = 1,  # PF2: default 1 para evitar nested parallelism
     ) -> float:
         profile = profile or self.profile
         n_splits = min(profile.cv_splits, int(np.min(np.bincount(y))))
@@ -236,7 +256,7 @@ class DPUtilityEvaluator:
         pipe = _make_utility_pipeline(profile)
         try:
             return float(
-                cross_val_score(pipe, X, y, cv=cv, scoring="accuracy", n_jobs=-1).mean()
+                cross_val_score(pipe, X, y, cv=cv, scoring="accuracy", n_jobs=n_jobs).mean()
             )
         except Exception:
             return 0.0
@@ -248,6 +268,7 @@ class DPUtilityEvaluator:
         profile: Optional[UtilityProfile] = None,
         dataset_id: Optional[str] = None,
         baseline_id: Optional[str] = None,
+        fp: Optional[str] = None,  # PF5: aceita fingerprint pré-calculado
     ) -> float:
         profile = profile or self.profile
         bid = baseline_id or self._default_baseline_id
@@ -258,7 +279,7 @@ class DPUtilityEvaluator:
             from sklearn.preprocessing import LabelEncoder
 
             y_enc = LabelEncoder().fit_transform(y)
-            fp = _data_fingerprint(X, y_enc)
+            fp = fp or _data_fingerprint(X, y_enc)  # PF5: reutiliza se já calculado
             ds_id = dataset_id or fp
             cached = self.baseline_store.get(ds_id, bid, fp)
             if cached is not None:
@@ -286,7 +307,7 @@ class DPUtilityEvaluator:
         for _run in range(profile.n_runs):
             try:
                 X_dp = self.applicator.apply(mechanism, X)
-                accs.append(self._cv_score(X_dp, y, profile))
+                accs.append(self._cv_score(X_dp, y, profile))  # PF2: n_jobs=1 (default)
             except Exception as exc:
                 _log.warning(
                     "Mecanismo '%s' falhou (run %d): %s", mechanism, _run + 1, exc
@@ -305,6 +326,8 @@ class DPUtilityEvaluator:
         fp: str,
     ) -> Dict[str, float]:
         if profile.parallel and len(mechanisms) > 1:
+            # PF2: prefer="threads" — mecanismos são I/O+compute bound, threads evitam GIL issues
+            # n_jobs limitado a min(len, cores) para não oversaturar
             pairs = Parallel(n_jobs=-1, prefer="threads")(
                 delayed(self._score_mechanism)(m, X, y, profile, fp) for m in mechanisms
             )
@@ -326,6 +349,7 @@ class DPUtilityEvaluator:
         )
 
     def evaluate_all(self, X: np.ndarray, y: np.ndarray) -> Dict[str, float]:
+        # PF5: fingerprint calculado uma única vez e repassado para todos os sub-métodos
         fp = _data_fingerprint(X, y)
         profile = self.profile
 

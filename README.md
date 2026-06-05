@@ -64,6 +64,24 @@ Rodar apenas pré-computação dos baselines e encerrar:
 python -m dp_meta_selector --precompute-baselines
 ```
 
+Testar rapidamente o recomendador carregando o modelo salvo (`dp_meta_selector.joblib`):
+
+```bash
+/Users/1mmauricio/Workspace/college/mestrado/dp_meta_selector/venv/bin/python test.py
+```
+
+Se o ambiente virtual já estiver ativado, também funciona:
+
+```bash
+python test.py
+```
+
+O script `test.py` valida o fluxo ponta a ponta:
+- carrega o modelo salvo;
+- executa `recommend()` em dados sintéticos;
+- aplica o mecanismo recomendado com `apply()`;
+- verifica formato e sanidade da saída (shape e valores finitos).
+
 ## Opções da CLI
 
 - `--precompute-baselines`: calcula baselines e encerra.

@@ -30,8 +30,11 @@ class MetaFeatureExtractor:
         nc = len(np.unique(y))
         ms = X.mean(0)
         ss = X.std(0) + 1e-9
-        sk = np.array([stats.skew(X[:, j]) for j in range(d)])
-        ku = np.array([stats.kurtosis(X[:, j]) for j in range(d)])
+        # PF3: scipy vetorizado sobre toda a matriz — sem loop por coluna
+        sk = stats.skew(X, axis=0, nan_policy="omit")
+        ku = stats.kurtosis(X, axis=0, nan_policy="omit")
+        sk = np.nan_to_num(sk, nan=0.0)
+        ku = np.nan_to_num(ku, nan=0.0)
         rng = X.max(0) - X.min(0) + 1e-9
         nd = sum(
             1 for j in range(d) if len(np.unique(X[:, j])) <= max(10, 0.05 * n)
@@ -78,7 +81,11 @@ class MetaFeatureExtractor:
         xb = np.digitize(x, np.histogram_bin_edges(x, bins=bins))
         hx = self._entropy(xb)
         hy = self._entropy(y)
-        hxy = self._entropy(np.array([f"{a}_{b}" for a, b in zip(xb, y)]))
+        # PF8: joint entropy via ravel_multi_index — sem alocação de strings
+        n_xb = int(xb.max()) + 1
+        n_y  = int(y.max())  + 1
+        joint_idx = np.ravel_multi_index([xb, y.astype(int)], dims=[n_xb, n_y])
+        hxy = self._entropy(joint_idx)
         return max(0.0, hx + hy - hxy)
 
     def _info(self, X, y):
@@ -94,6 +101,8 @@ class MetaFeatureExtractor:
     def _land(self, X, y):
         cv = StratifiedKFold(n_splits=3, shuffle=True, random_state=42)
         Xs = StandardScaler().fit_transform(X)
+        # PF2: n_jobs=1 aqui — evita nested parallelism quando chamado de Parallel externo
+        n_jobs_cv = 1
 
         if self.fast_landmarks:
             clfs = {
@@ -110,7 +119,7 @@ class MetaFeatureExtractor:
         out = {}
         for k, clf in clfs.items():
             try:
-                s = cross_val_score(clf, Xs, y, cv=cv, scoring="accuracy", n_jobs=-1)
+                s = cross_val_score(clf, Xs, y, cv=cv, scoring="accuracy", n_jobs=n_jobs_cv)
                 out[k] = float(s.mean())
             except Exception:
                 out[k] = 0.5
