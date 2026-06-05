@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "dp_meta_selector"
+version = "0.5.0"
+description = "Seleção automática de mecanismos de Privacidade Diferencial via meta-aprendizagem"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+keywords = ["differential privacy", "meta-learning", "machine learning", "privacy"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "diffprivlib>=0.6",
+    "scikit-learn>=1.3",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "tqdm>=4.64",
+    "openml>=0.14",
+    "joblib>=1.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "mypy>=1.5",
+    "ruff>=0.1",
+    "black>=23",
+]
+
+[project.scripts]
+dp-meta-selector = "dp_meta_selector.__main__:main"
+
+[tool.setuptools]
+# pacote raiz = este diretório; todas as fontes estão no mesmo nível
+packages = ["dp_meta_selector"]
+package-dir = {"dp_meta_selector" = "."}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_ignores = true
