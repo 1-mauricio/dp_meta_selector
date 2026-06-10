@@ -65,8 +65,22 @@ class MetaDatasetBuilder:
         base = meta["baseline_acc"] + 1e-9
         rel = {m: dp[m] / base for m in dp}
         best_rel = max(rel.values())
-        # ML1: tie-breaking determinístico pela ordem em MECHANISM_NAMES
-        candidates = [m for m in MECHANISM_NAMES if rel.get(m, 0.0) >= best_rel - 1e-9]
+
+        # utility_gap: diferença entre o 1º e 2º melhor mecanismo
+        # Datasets com gap alto → label mais confiável; gap baixo → mecanismos empatados
+        sorted_rel = sorted(rel.values(), reverse=True)
+        meta["utility_gap"] = float(sorted_rel[0] - sorted_rel[1]) if len(sorted_rel) > 1 else 0.0
+        meta["utility_best_abs"] = float(max(dp.values()))
+        meta["utility_worst_abs"] = float(min(dp.values()))
+        meta["utility_range"] = meta["utility_best_abs"] - meta["utility_worst_abs"]
+
+        # Margem mínima: só considera "melhor" se vantagem relativa ≥ 0.5%
+        # Evita labels ruidosos quando mecanismos estão empatados
+        MARGIN = 0.005
+        candidates = [m for m in MECHANISM_NAMES if rel.get(m, 0.0) >= best_rel - MARGIN]
+        if len(candidates) > 1:
+            # Desempate: maior acurácia absoluta; se ainda empatar, menor epsilon (mais privado)
+            candidates.sort(key=lambda m: (-dp[m], MECHANISM_NAMES.index(m)))
         meta["best_mechanism"] = candidates[0] if candidates else max(rel, key=rel.get)
         meta["best_relative_acc"] = max(rel.values())
         return meta
@@ -111,7 +125,6 @@ class MetaDatasetBuilder:
         _log.info("[meta-build] %s", self.evaluator.cache.summary())
         if self.evaluator.baseline_store is not None:
             _log.info("[meta-build] %s", self.evaluator.baseline_store.summary())
-        return df
         return df
 
     def _log_diagnostics(self, df):

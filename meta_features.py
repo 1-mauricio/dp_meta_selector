@@ -30,15 +30,40 @@ class MetaFeatureExtractor:
         nc = len(np.unique(y))
         ms = X.mean(0)
         ss = X.std(0) + 1e-9
-        # PF3: scipy vetorizado sobre toda a matriz — sem loop por coluna
-        sk = stats.skew(X, axis=0, nan_policy="omit")
-        ku = stats.kurtosis(X, axis=0, nan_policy="omit")
-        sk = np.nan_to_num(sk, nan=0.0)
-        ku = np.nan_to_num(ku, nan=0.0)
+        import warnings as _w
+        with _w.catch_warnings():
+            _w.simplefilter("ignore", RuntimeWarning)
+            sk = stats.skew(X, axis=0, nan_policy="omit")
+            ku = stats.kurtosis(X, axis=0, nan_policy="omit")
+        sk = np.nan_to_num(sk, nan=0.0, posinf=0.0, neginf=0.0)
+        ku = np.nan_to_num(ku, nan=0.0, posinf=0.0, neginf=0.0)
         rng = X.max(0) - X.min(0) + 1e-9
-        nd = sum(
-            1 for j in range(d) if len(np.unique(X[:, j])) <= max(10, 0.05 * n)
-        )
+
+        # Contagem de colunas com poucos valores únicos (ratio_discrete original)
+        unique_counts = np.array([len(np.unique(X[:, j])) for j in range(d)])
+        nd = int(np.sum(unique_counts <= max(10, 0.05 * n)))
+
+        # Novas features discriminadoras para família discrete vs continuous
+        # ratio_integer_cols: % de colunas onde todos os valores são inteiros
+        int_mask = np.array([
+            np.all(np.isfinite(X[:, j])) and np.allclose(X[:, j], np.floor(X[:, j]))
+            for j in range(d)
+        ])
+        ratio_integer_cols = float(int_mask.mean())
+
+        # ratio_binary_cols: % de colunas com apenas 2 valores únicos
+        ratio_binary_cols = float(np.mean(unique_counts == 2))
+
+        # mean_log_unique_ratio: média de log(unique/n) — discrimina muito bem contínuo vs discreto
+        # valores perto de 0 = discreto, perto de -inf (i.e., muito negativo) = binário, perto de log(1)=0 = contínuo
+        log_unique = np.log(unique_counts.astype(float) / n + 1e-9)
+        mean_log_unique_ratio = float(log_unique.mean())
+        std_log_unique_ratio  = float(log_unique.std())
+
+        # median_unique_per_col: mediana de valores únicos por coluna (valor absoluto)
+        median_unique_per_col = float(np.median(unique_counts))
+        max_unique_per_col    = float(np.max(unique_counts))
+
         return {
             "n_samples": n,
             "n_features": d,
@@ -57,6 +82,12 @@ class MetaFeatureExtractor:
             "mean_range": rng.mean(),
             "max_range": rng.max(),
             "ratio_discrete": nd / d,
+            "ratio_integer_cols": ratio_integer_cols,
+            "ratio_binary_cols": ratio_binary_cols,
+            "mean_log_unique_ratio": mean_log_unique_ratio,
+            "std_log_unique_ratio": std_log_unique_ratio,
+            "median_unique_per_col": median_unique_per_col,
+            "max_unique_per_col": max_unique_per_col,
             "mean_corr": self._corr(X),
             "sparsity": np.sum(X == 0) / X.size,
             "coeff_var": (ss / (np.abs(ms) + 1e-9)).mean(),
@@ -66,8 +97,16 @@ class MetaFeatureExtractor:
         if X.shape[1] < 2:
             return 0.0
         try:
-            c = np.corrcoef(X.T)
-            return float(np.abs(c[np.triu(np.ones(c.shape, dtype=bool), k=1)]).mean())
+            # Remove colunas constantes (std=0) para evitar NaN no corrcoef
+            mask = X.std(0) > 1e-9
+            Xv = X[:, mask]
+            if Xv.shape[1] < 2:
+                return 0.0
+            c = np.corrcoef(Xv.T)
+            tri = np.triu(np.ones(c.shape, dtype=bool), k=1)
+            vals = c[tri]
+            vals = vals[np.isfinite(vals)]
+            return float(np.abs(vals).mean()) if len(vals) else 0.0
         except Exception:
             return 0.0
 
