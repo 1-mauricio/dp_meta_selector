@@ -23,7 +23,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 from .applicator import DPApplicator
-from .calibration import DELTA_DEFAULT
+from .calibration import COMPARISON_EPSILON, DELTA_DEFAULT
 from .config import DEFAULT_CACHE_DIR, FINGERPRINT_SAMPLE_SIZE
 from .mechanisms import (
     FAMILY_OF,
@@ -143,8 +143,9 @@ class UtilityResultCache:
             self.misses += 1
 
     def _cache_key(self, fp: str, mechanism: str, profile: UtilityProfile) -> str:
+        # Inclui epsilon de comparação na chave para auto-invalidar quando mudar
         return hashlib.md5(
-            f"{fp}|{mechanism}|{profile.cache_key()}".encode()
+            f"{fp}|{mechanism}|{profile.cache_key()}|eps={COMPARISON_EPSILON:.4f}".encode()
         ).hexdigest()
 
     def _path(self, key: str) -> Path:
@@ -246,8 +247,13 @@ class DPUtilityEvaluator:
 
     def _cv_score(
         self, X: np.ndarray, y: np.ndarray, profile: Optional[UtilityProfile] = None,
-        n_jobs: int = 1,  # PF2: default 1 para evitar nested parallelism
+        n_jobs: int = 1,
     ) -> float:
+        """Métrica composta: f1_macro + balanced_accuracy.
+
+        f1_macro é mais discriminativa que balanced_accuracy quando mecanismos
+        introduzem ruído assimétrico por classe.
+        """
         profile = profile or self.profile
         n_splits = min(profile.cv_splits, int(np.min(np.bincount(y))))
         if n_splits < 2:
@@ -255,11 +261,36 @@ class DPUtilityEvaluator:
         cv = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
         pipe = _make_utility_pipeline(profile)
         try:
-            return float(
-                cross_val_score(pipe, X, y, cv=cv, scoring="accuracy", n_jobs=n_jobs).mean()
-            )
+            f1  = float(cross_val_score(pipe, X, y, cv=cv, scoring="f1_macro",          n_jobs=n_jobs).mean())
+            bal = float(cross_val_score(pipe, X, y, cv=cv, scoring="balanced_accuracy", n_jobs=n_jobs).mean())
+            return 0.6 * f1 + 0.4 * bal
         except Exception:
             return 0.0
+
+    @staticmethod
+    def _histogram_score(X_orig: np.ndarray, X_dp: np.ndarray, n_bins: int = 20) -> float:
+        """Mede preservação de histograma coluna a coluna (Opção 3).
+
+        Discrimina Geometric (caudas finas = menos outliers) de Laplace
+        (caudas pesadas = mais valores extremos) ao mesmo nível médio de ruído.
+        Retorna valor em [0, 1] onde 1 = histogramas idênticos.
+        """
+        scores = []
+        for j in range(X_orig.shape[1]):
+            col_orig = X_orig[:, j]
+            col_dp   = X_dp[:, j]
+            c_min, c_max = col_orig.min(), col_orig.max()
+            if c_max - c_min < 1e-9:
+                scores.append(1.0)
+                continue
+            edges = np.linspace(c_min, c_max + 1e-9, n_bins + 1)
+            hist_orig, _ = np.histogram(col_orig, bins=edges)
+            hist_dp,   _ = np.histogram(np.clip(col_dp, c_min, c_max), bins=edges)
+            total = hist_orig.sum() + 1e-9
+            # Usa intersecção de histogramas (métrica mais robusta que MAE)
+            intersection = np.minimum(hist_orig, hist_dp).sum() / total
+            scores.append(float(intersection))
+        return float(np.mean(scores)) if scores else 0.0
 
     def baseline(
         self,
@@ -302,16 +333,21 @@ class DPUtilityEvaluator:
         cached = self.cache.get(fp, mechanism, profile)
         if cached is not None:
             return cached
-        self.cache._inc_misses()  # B1: thread-safe
+        self.cache._inc_misses()
         accs = []
         for _run in range(profile.n_runs):
             try:
                 X_dp = self.applicator.apply(mechanism, X)
-                accs.append(self._cv_score(X_dp, y, profile))  # PF2: n_jobs=1 (default)
+                clf_score  = self._cv_score(X_dp, y, profile)
+                hist_score = self._histogram_score(X, X_dp)
+                # Blend: classificador + preservação de histograma
+                # O histograma discrimina Geometric (quase sem perda) de Laplace
+                # (ruído massivo com ε=1.0) em dados discretos/inteiros
+                accs.append(0.6 * clf_score + 0.4 * hist_score)
             except Exception as exc:
                 _log.warning(
                     "Mecanismo '%s' falhou (run %d): %s", mechanism, _run + 1, exc
-                )  # B3: log em vez de silêncio
+                )
                 accs.append(0.0)
         score = float(np.mean(accs)) if accs else 0.0
         self.cache.set(fp, mechanism, profile, score)

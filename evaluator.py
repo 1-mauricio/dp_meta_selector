@@ -109,6 +109,22 @@ class FrameworkEvaluator:
         print(f"  Laplace fixo        : {df['laplace_acc'].mean():.4f}")
         print(f"  Oracle (melhor real): {df['best_acc'].mean():.4f}")
 
+        # Métrica mais informativa: ganho normalizado sobre Laplace fixo
+        df["delta_laplace"] = df["rec_acc"] - df["laplace_acc"]
+        df["spread"] = df["best_acc"] - df["random_acc"] + 1e-9
+        df["norm_ganho"] = df["delta_laplace"] / df["spread"]
+        n_melhor = (df["delta_laplace"] > 1e-6).sum()
+        n_pior   = (df["delta_laplace"] < -1e-6).sum()
+        n_igual  = n - n_melhor - n_pior
+        print(
+            f"\n  Modelo vs Laplace fixo (por dataset):"
+            f"\n    melhor em {n_melhor}/{n} ({n_melhor/n:.1%})  "
+            f"| igual em {n_igual}/{n} ({n_igual/n:.1%})  "
+            f"| pior em {n_pior}/{n} ({n_pior/n:.1%})"
+            f"\n    Ganho médio normalizado: {df['norm_ganho'].mean():+.4f}"
+            f"  (>0 = modelo agrega valor)"
+        )
+
         # E2: Breakdown por família do mecanismo oracle
         print("\nBreakdown por família (oracle):")
         for fam in sorted(set(FAMILY_OF.values())):

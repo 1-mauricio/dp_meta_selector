@@ -6,7 +6,7 @@ import numpy as np
 
 _log = logging.getLogger(__name__)
 
-from .calibration import DELTA_DEFAULT, FAMILY_EPSILON
+from .calibration import DELTA_DEFAULT, FAMILY_EPSILON, MECHANISM_EPSILON
 from .mechanisms import (
     FAMILY_OF,
     Staircase,
@@ -18,7 +18,8 @@ class DPApplicator:
         self.delta = delta
 
     def apply(self, name: str, X: np.ndarray) -> np.ndarray:
-        eps = FAMILY_EPSILON[FAMILY_OF[name]]
+        # Per-mechanism calibration takes precedence over per-family.
+        eps = MECHANISM_EPSILON.get(name) or FAMILY_EPSILON[FAMILY_OF[name]]
         X_orig = X.astype(float).copy()
         X_out = X_orig.copy()
         for j in range(X_orig.shape[1]):
@@ -77,8 +78,8 @@ class DPApplicator:
             return np.clip(snapped, 0.0, 1.0)
 
         if name == "Uniform":
-            # Uniform: adiciona ruído uniforme em [-delta/2, delta/2] por linha
-            half = max(self.delta, 1e-9) / 2.0
+            # Uniform: adiciona ruído uniforme em [-1/(2ε), 1/(2ε)] por linha
+            half = 1.0 / (2.0 * eps)
             return col_n + np.random.uniform(-half, half, size=n)
 
         # ── PF4: discretos — usa vetorização nativa de NumPy sem loop Python ─

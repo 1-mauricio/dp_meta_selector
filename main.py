@@ -2,6 +2,7 @@
 
 import argparse
 import logging
+import time
 from pathlib import Path
 
 import numpy as np
@@ -14,17 +15,37 @@ from .baseline_store import (
 from .config import DEFAULT_CACHE_DIR, DEFAULT_MODEL_PATH, FRAMEWORK_VERSION, LOG_FORMAT
 from .datasets import load_openml_training_datasets, split_meta_datasets
 from .evaluator import FrameworkEvaluator
+from .reporter import generate_report
 from .selector import DPMechanismSelector
 from .utility import EVAL_FAST_PROFILE, EVAL_FULL_PROFILE, META_FAST_PROFILE, UtilityProfile
 
 _log = logging.getLogger(__name__)
 
 
-def _setup_logging(verbose: bool = False) -> None:
-    """Configura o sistema de logging para uso via CLI."""
+def _setup_logging(verbose: bool = False, log_file: Path | None = None) -> None:
+    """Configura o sistema de logging para uso via CLI.
+
+    Parameters
+    ----------
+    verbose:
+        Ativa nível DEBUG (padrão: INFO).
+    log_file:
+        Caminho do arquivo onde os logs serão gravados em paralelo ao console.
+        O diretório pai é criado automaticamente se não existir.
+        Se ``None``, grava somente no console.
+    """
     level = logging.DEBUG if verbose else logging.INFO
-    logging.basicConfig(level=level, format=LOG_FORMAT)
-    # reduz verbosidade de bibliotecas externas ruidosas
+    handlers: list[logging.Handler] = [logging.StreamHandler()]
+
+    if log_file is not None:
+        log_file = Path(log_file)
+        log_file.parent.mkdir(parents=True, exist_ok=True)
+        file_handler = logging.FileHandler(log_file, encoding="utf-8")
+        file_handler.setFormatter(logging.Formatter(LOG_FORMAT))
+        handlers.append(file_handler)
+        print(f"[INFO] Logs salvos em: {log_file.resolve()}")
+
+    logging.basicConfig(level=level, format=LOG_FORMAT, handlers=handlers)
     for noisy in ("openml", "urllib3", "requests", "sklearn"):
         logging.getLogger(noisy).setLevel(logging.WARNING)
 
@@ -85,16 +106,20 @@ def main(
     full_oracle_test: bool = False,
     precompute_baselines_first: bool = True,
     extra_baseline_ids: list[str] | None = None,
+    log_file: Path | None = None,
+    report_dir: Path | None = None,
 ):
+    start_time = time.time()
     _log.info("=" * 65)
     _log.info("  DP META-SELECTOR v%s — perfis de custo", FRAMEWORK_VERSION)
+    if log_file is not None:
+        _log.info("  Log file: %s", Path(log_file).resolve())
     _log.info("=" * 65)
 
     np.random.seed(42)
 
     _log.info("[1/5] Carregando datasets de treino (OpenML)...")
     datasets = load_openml_training_datasets()
-
     if precompute_baselines_first and use_cache:
         bid = _baseline_ids_for_run(meta_profile, eval_profile, extra_baseline_ids)
         store = BaselineStore(db_path=DEFAULT_CACHE_DIR / "baselines.sqlite")
@@ -128,6 +153,20 @@ def main(
     X_test, y_test = test_ds[0][:2]
     rec = selector.recommend(X_test, y_test)
     selector.apply(X_test, rec["recommended_mechanism"])
+
+    # Relatório completo
+    _log.info("[6/6] Gerando relatório estruturado...")
+    _report_dir = Path(report_dir) if report_dir else Path("reports")
+    generate_report(
+        selector=selector,
+        results_df=results_df,
+        train_ds=train_ds,
+        test_ds=test_ds,
+        all_ds=datasets,
+        start_time=start_time,
+        output_dir=_report_dir,
+        log_file=Path(log_file) if log_file else None,
+    )
 
     _log.info("=" * 65)
     _log.info("FIM")
@@ -178,6 +217,21 @@ def cli():
         help="Exporta tabela de baselines (Parquet ou CSV) após pré-computo.",
     )
     parser.add_argument(
+        "--report-dir",
+        metavar="DIR",
+        default="reports",
+        help="Diretório onde o relatório JSON da run será salvo (padrão: reports/).",
+    )
+    parser.add_argument(
+        "--log-file",
+        metavar="PATH",
+        default=None,
+        help=(
+            "Salva todos os logs da run em arquivo (além do console). "
+            "Ex.: --log-file logs/run_2024-01.log"
+        ),
+    )
+    parser.add_argument(
         "--verbose", "-v",
         action="store_true",
         help="Ativa logging detalhado (DEBUG).",
@@ -188,7 +242,8 @@ def cli():
         help="Não pré-computa baselines antes do treino (usa store sob demanda).",
     )
     args = parser.parse_args()
-    _setup_logging(verbose=args.verbose)  # Q7: configura logging antes de tudo
+    log_file = Path(args.log_file) if args.log_file else None
+    _setup_logging(verbose=args.verbose, log_file=log_file)
 
     eval_profile = EVAL_FULL_PROFILE if args.eval_full else EVAL_FAST_PROFILE
     use_cache = not args.no_cache
@@ -208,6 +263,8 @@ def cli():
         full_oracle_test=args.full_oracle_test,
         precompute_baselines_first=not args.skip_baseline_precompute,
         extra_baseline_ids=args.baseline_ids,
+        log_file=log_file,
+        report_dir=Path(args.report_dir),
     )
 
 
