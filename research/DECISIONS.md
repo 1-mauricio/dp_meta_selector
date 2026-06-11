@@ -511,7 +511,7 @@ python -m dp_meta_selector --diagnostics
 
 ### Estudo Comparativo: Qual Mecanismo DP é Melhor?
 
-Executamos um estudo comparativo em 60 datasets reais do OpenML para responder:
+Executamos um estudo comparativo em **489 datasets reais** do OpenML para responder:
 **"Existe um mecanismo DP universalmente melhor, ou depende do dataset?"**
 
 **Script:** `scripts/compare_dp_mechanisms.py`  
@@ -523,66 +523,77 @@ Executamos um estudo comparativo em 60 datasets reais do OpenML para responder:
 
 ---
 
-### Resultados Principais
+### Resultados Principais (489 datasets)
 
 #### 1. Distribuição do Melhor Mecanismo
 
 | Mecanismo | Datasets | % | Barra |
 |-----------|----------|---|-------|
-| **GaussianAnalytic** | 36 | 60.0% | ██████████████████████████████ |
-| **Exponential** | 13 | 21.7% | ██████████ |
-| **Laplace** | 11 | 18.3% | █████████ |
+| **GaussianAnalytic** | 255 | 52.1% | ██████████████████████████ |
+| **Laplace** | 135 | 27.6% | █████████████ |
+| **Exponential** | 99 | 20.2% | ██████████ |
 
-**Conclusão:** Laplace, o mecanismo mais comum, é o melhor em **apenas 18%** dos datasets.
+**Conclusão:** Laplace, o mecanismo mais comum, é o melhor em **apenas 27.6%** dos datasets. Outros mecanismos são melhores em **72.4%** dos casos.
 
 #### 2. Gap de Performance vs Laplace Fixo
 
 | Estatística | Valor |
 |-------------|-------|
-| Gap médio | +3.73pp |
-| Gap mediano | +1.14pp |
-| Gap máximo | +32.9pp |
+| Gap médio | +2.18pp |
+| Gap mediano | +0.60pp |
+| Gap máximo | +32.3pp |
 | Gap mínimo | 0.00pp |
-| Desvio padrão | 7.66pp |
+| Desvio padrão | 4.74pp |
 
-**Conclusão:** Um seletor perfeito (oracle) daria **+3.73pp de acurácia média** sobre Laplace fixo.
+**Conclusão:** Um seletor perfeito (oracle) daria **+2.18pp de acurácia média** sobre Laplace fixo.
 
 #### 3. Padrões por Dimensionalidade
 
-| Categoria | n_features | GA | Exp | Laplace |
-|-----------|------------|----|----|---------|
-| SMALL | <10 | 50% | 7% | **43%** |
-| MEDIUM | 10-50 | **48%** | **38%** | 14% |
-| LARGE | >50 | **87.5%** | 6% | 6% |
+| Categoria | n_features | n_datasets | GA | Laplace | Exp |
+|-----------|------------|------------|----|----|---------|
+| SMALL | <10 | 217 | **46.5%** | 35.5% | 18.0% |
+| MEDIUM | 10-50 | 204 | **49.0%** | 25.0% | 26.0% |
+| LARGE | >50 | 61 | **78.7%** | 11.5% | 9.8% |
 
 **Conclusões:**
-- Datasets pequenos: Laplace é competitivo
+- Datasets pequenos: GaussianAnalytic lidera, mas Laplace é competitivo
 - Datasets médios: GaussianAnalytic e Exponential dominam
-- Datasets grandes (alta dim): **GaussianAnalytic domina com 87.5%**
+- Datasets grandes (alta dim): **GaussianAnalytic domina com 78.7%**
 
-#### 4. Casos Extremos (Maior Ganho sobre Laplace)
+#### 4. Casos Extremos (Top 10 - Maior Ganho sobre Laplace)
 
 | Dataset | Melhor Mecanismo | Gap vs Laplace | Acc Laplace | Acc Melhor |
 |---------|------------------|----------------|-------------|------------|
-| pc3 | Exponential | **+32.9pp** | 56.8% | 89.8% |
-| pc1 | Exponential | **+27.5pp** | 65.5% | 93.1% |
-| kc2 | Exponential | **+27.0pp** | 52.2% | 79.2% |
-| jm1 | Exponential | **+25.2pp** | 55.1% | 80.3% |
-| hill-valley | Exponential | **+22.1pp** | 62.4% | 84.5% |
-| pc4 | Exponential | **+19.9pp** | 67.9% | 87.8% |
-| cnae-9 | GaussianAnalytic | +6.9pp | 43.8% | 50.7% |
-| chip | GaussianAnalytic | +5.0pp | 75.1% | 80.1% |
+| pc3 | Exponential | **+32.3pp** | 57.4% | 89.8% |
+| kc2 | Exponential | **+31.7pp** | 47.8% | 79.5% |
+| PizzaCutter3 | Exponential | **+29.1pp** | 58.7% | 87.8% |
+| PieChart3 | Exponential | **+29.1pp** | 58.4% | 87.5% |
+| pc1 | Exponential | **+28.3pp** | 64.7% | 93.1% |
+| jm1[sub=3000] | Exponential | **+25.9pp** | 54.5% | 80.3% |
+| mental-health-in-tech-survey | Exponential | **+24.1pp** | 51.7% | 75.8% |
+| PieChart1 | Exponential | **+22.7pp** | 68.6% | 91.3% |
+| hill-valley | Exponential | **+21.8pp** | 62.7% | 84.5% |
+| total_score | Exponential | **+21.8pp** | 36.2% | 58.0% |
 
-**Conclusão:** Em datasets categóricos (pc*, kc2, jm1), Exponential pode dar **+20-33pp de ganho**.
+**Conclusão:** Em datasets categóricos, Exponential pode dar **+20-33pp de ganho**.
 
-#### 5. Impacto do DP na Acurácia
+#### 5. Performance Relativa ao Laplace
+
+| Mecanismo | Melhor que Laplace | Igual | Pior |
+|-----------|-------------------|-------|------|
+| GaussianAnalytic | 287 (58.7%) | 45 (9.2%) | 157 (32.1%) |
+| Exponential | 110 (22.5%) | 31 (6.3%) | 348 (71.2%) |
+
+**Conclusão:** GaussianAnalytic supera Laplace em **58.7%** dos datasets.
+
+#### 6. Impacto do DP na Acurácia
 
 | Métrica | Valor |
 |---------|-------|
-| Queda média com DP | 10.57pp |
-| Queda mediana | 6.29pp |
-| Melhor caso | -8.72pp (ganho!) |
-| Pior caso | 52.13pp |
+| Queda média com DP | 7.31pp |
+| Queda mediana | 2.94pp |
+| Melhor caso | -15.9pp (DP melhorou!) |
+| Pior caso | 56.4pp |
 
 ---
 
@@ -591,30 +602,29 @@ Executamos um estudo comparativo em 60 datasets reais do OpenML para responder:
 ```
 CENÁRIO 1: Sempre usar Laplace (baseline ingênuo)
 ─────────────────────────────────────────────────
-• Laplace é o melhor em apenas 18.3% dos datasets
-• Perda média por não escolher corretamente: 3.73pp de acurácia
-• Perda máxima em casos extremos: 32.9pp
+• Laplace é o melhor em apenas 27.6% dos datasets (135/489)
+• Perda média por não escolher corretamente: 2.18pp de acurácia
+• Perda máxima em casos extremos: 32.3pp
 
 CENÁRIO 2: Usar seletor perfeito (oracle)
 ─────────────────────────────────────────────────
 • Acerta 100% das vezes
-• Ganho médio sobre Laplace: +3.73pp
-• Ganho em casos extremos: +32.9pp
+• Ganho médio sobre Laplace: +2.18pp
+• Quando outro mecanismo vence, ganho médio: +3.01pp
 
 CENÁRIO 3: Usar nosso framework (v16)
 ─────────────────────────────────────────────────
 • Hit rate atual: 62-68%
 • F1-macro: 0.70
-• Supera Laplace em 20.8% dos datasets
-• Ganho estimado: ~0.8-1.5pp sobre Laplace fixo
+• Ganho estimado: ~0.6-1.0pp sobre Laplace fixo
 ```
 
 **Conclusão Final:**
 O framework se justifica porque:
-1. **Laplace não é universal** — só é o melhor em 18% dos casos
-2. **O ganho potencial é significativo** — até +33pp em casos extremos
-3. **Existe padrão aprendível** — alta dimensionalidade favorece GA, dados categóricos favorecem Exponential
-4. **Mesmo um seletor imperfeito agrega valor** — nosso framework com 62-68% de hit rate já supera Laplace em 21% dos casos
+1. **Laplace não é universal** — só é o melhor em 27.6% dos casos (489 datasets)
+2. **O ganho potencial é significativo** — até +32pp em casos extremos
+3. **Existe padrão aprendível** — alta dimensionalidade favorece GA (78.7%), dados categóricos favorecem Exponential
+4. **Mesmo um seletor imperfeito agrega valor** — nosso framework com 62-68% de hit rate captura parte do ganho potencial de 2.18pp
 
 ---
 
@@ -623,5 +633,5 @@ O framework se justifica porque:
 | Arquivo | Descrição |
 |---------|-----------|
 | `scripts/compare_dp_mechanisms.py` | Script de comparação |
-| `dp_comparison.csv` | Resultados detalhados por dataset |
+| `research/dp_comparison_full.csv` | Resultados detalhados (489 datasets) |
 | `research/DECISIONS.md` | Esta documentação |

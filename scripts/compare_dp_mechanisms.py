@@ -56,7 +56,7 @@ def evaluate_baseline(X: np.ndarray, y: np.ndarray) -> float:
 
 def main():
     parser = argparse.ArgumentParser(description="Compara mecanismos DP em datasets reais")
-    parser.add_argument("--n-datasets", type=int, default=50, help="Número de datasets a avaliar")
+    parser.add_argument("--n-datasets", type=int, default=500, help="Número de datasets a avaliar")
     parser.add_argument("--output", type=str, default="dp_comparison.csv", help="Arquivo de saída")
     parser.add_argument("--n-runs", type=int, default=3, help="Número de runs por mecanismo")
     args = parser.parse_args()
