@@ -32,6 +32,7 @@ O `dp_meta_selector` é um framework que seleciona automaticamente o melhor meca
 | [07_lessons_learned.md](07_lessons_learned.md) | Lições aprendidas consolidadas |
 | [08_datasets.md](08_datasets.md) | Detalhes dos datasets utilizados |
 | [09_results_summary.md](09_results_summary.md) | Resumo de resultados por versão |
+| [10_technical_architecture.md](10_technical_architecture.md) | **Arquitetura técnica completa** (pipeline, algoritmos, fórmulas) |
 
 ---
 
