@@ -1,27 +1,66 @@
 # Decisões de Design — DP Meta-Selector
 
-Registro cronológico de todas as decisões técnicas, experimentos e seus resultados.
-Atualizado em: 2026-06-12.
+> **NOTA:** Esta documentação foi reorganizada em arquivos separados para facilitar o uso na dissertação.
+> Veja a pasta `research/docs/` para a documentação completa e organizada por tópico.
 
 ---
 
-## Contexto
+## Índice da Documentação
 
-O `dp_meta_selector` é um framework de meta-aprendizagem que seleciona automaticamente
-o melhor mecanismo de Privacidade Diferencial (DP) para um dataset tabular, sem necessidade
-de intervenção manual.
-
-**Fluxo geral (v13, atual):**
-1. Extrair meta-features do dataset
-2. CAT1: pré-filtro binário Exponential (threshold ≥ 0.90) com dual-gate família (p_cat ≥ 0.20)
-3. Ensemble ExtraTrees + portão hierárquico HIER (hard gate 0.65 / soft boost)
-4. Aplicar o mecanismo escolhido com o ε calibrado por família
+| Arquivo | Descrição |
+|---------|-----------|
+| [00_index.md](docs/00_index.md) | Visão geral e estrutura do framework |
+| [01_baseline_analysis.md](docs/01_baseline_analysis.md) | Análise do baseline e diagnóstico inicial |
+| [02_categorical_prefilter.md](docs/02_categorical_prefilter.md) | Pré-filtro categórico (CAT1) e dual-gate |
+| [03_family_hierarchy.md](docs/03_family_hierarchy.md) | Portão hierárquico (HIER) e decisões sobre Geometric |
+| [04_gaussian_optimization.md](docs/04_gaussian_optimization.md) | Otimização do GaussianAnalytic e thresholds |
+| [05_improvements_v14_v16.md](docs/05_improvements_v14_v16.md) | Melhorias das versões v14 a v16 |
+| [06_mechanism_comparison.md](docs/06_mechanism_comparison.md) | Estudo comparativo de mecanismos DP (489 datasets) |
+| [07_lessons_learned.md](docs/07_lessons_learned.md) | Lições aprendidas consolidadas |
+| [08_datasets.md](docs/08_datasets.md) | Detalhes dos datasets utilizados |
+| [09_results_summary.md](docs/09_results_summary.md) | Resumo de resultados por versão |
 
 ---
 
-## Linha do Tempo de Decisões
+## Dados de Suporte
+
+| Arquivo | Descrição |
+|---------|-----------|
+| `dp_comparison_full.csv` | Resultados da comparação de mecanismos (489 datasets) |
+| `datasets_summary.csv` | Resumo dos datasets com métricas principais |
 
 ---
+
+## Referência Rápida
+
+### Resultados Principais (v16)
+
+| Métrica | Valor |
+|---------|-------|
+| Hit rate | 61.9% |
+| F1-macro | 0.70 |
+| Exp recall | 56% |
+| GA recall | 59% |
+
+### Estudo Comparativo (489 datasets)
+
+| Mecanismo | % Best |
+|-----------|--------|
+| GaussianAnalytic | 52.1% |
+| Laplace | 27.6% |
+| Exponential | 20.2% |
+
+Gap médio vs Laplace: **+2.18pp**
+
+---
+
+## Histórico Completo (para referência)
+
+O conteúdo original deste arquivo foi preservado abaixo para referência histórica.
+Consulte os arquivos em `docs/` para a versão organizada e atualizada.
+
+---
+
 
 ### DEC-001 — Métricas de avaliação primárias
 
