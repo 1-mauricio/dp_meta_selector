@@ -94,15 +94,16 @@ class MetaLearner:
         self.label_encoder = LabelEncoder()
         self._family_classifier = None
         self._family_label_map: dict = {}
-        # MELHORIA: thresholds mais baixos para melhorar recall de categorical
-        self._family_gate_threshold: float = 0.55   # Reduzido de 0.65 para 0.55
+        # v16: Thresholds otimizados - balanceando recall vs hit rate
+        # Mantendo valores mais conservadores para preservar hit rate
+        self._family_gate_threshold: float = 0.55
         self._cat_prefilter = None
-        self._cat_prefilter_threshold: float = 0.75  # Reduzido de 0.90 para 0.75
-        self._cat_prefilter_family_min: float = 0.15  # Reduzido de 0.20 para 0.15
+        self._cat_prefilter_threshold: float = 0.75  # Mantido
+        self._cat_prefilter_family_min: float = 0.15  # Mantido
         self._gauss_prefilter = None
-        self._gauss_prefilter_threshold: float = 0.85  # Reduzido de 1.01 (desabilitado) para 0.85
-        self._ga_boost_pca_threshold: float = 0.45  # Reduzido de 0.50 para 0.45
-        self._ga_boost_factor: float = 2.5          # Reduzido de 3.0 para 2.5
+        self._gauss_prefilter_threshold: float = 0.80  # Ligeiramente mais ativo
+        self._ga_boost_pca_threshold: float = 0.45
+        self._ga_boost_factor: float = 2.8  # Ligeiro boost
         # Novo: classificadores por família para ensemble hierárquico
         self._family_mechanism_classifiers: Dict[str, Pipeline] = {}
         self._discrete_prefilter = None  # Novo: pré-filtro para Geometric

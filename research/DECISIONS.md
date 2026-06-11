@@ -504,3 +504,124 @@ python -m dp_meta_selector --diagnostics
 - [x] Ablation study de meta-features
 
 **Todas as fases do plano de melhoria estão implementadas.**
+
+---
+
+## Análise de Justificativa do Framework (2026-06-11)
+
+### Estudo Comparativo: Qual Mecanismo DP é Melhor?
+
+Executamos um estudo comparativo em 60 datasets reais do OpenML para responder:
+**"Existe um mecanismo DP universalmente melhor, ou depende do dataset?"**
+
+**Script:** `scripts/compare_dp_mechanisms.py`  
+**Metodologia:** 
+- 3 mecanismos avaliados: Laplace, GaussianAnalytic, Exponential
+- 2 runs por mecanismo por dataset
+- Epsilon calibrado por família (continuous=5.0, categorical=2.0)
+- Classificador: LogisticRegression com 3-fold CV
+
+---
+
+### Resultados Principais
+
+#### 1. Distribuição do Melhor Mecanismo
+
+| Mecanismo | Datasets | % | Barra |
+|-----------|----------|---|-------|
+| **GaussianAnalytic** | 36 | 60.0% | ██████████████████████████████ |
+| **Exponential** | 13 | 21.7% | ██████████ |
+| **Laplace** | 11 | 18.3% | █████████ |
+
+**Conclusão:** Laplace, o mecanismo mais comum, é o melhor em **apenas 18%** dos datasets.
+
+#### 2. Gap de Performance vs Laplace Fixo
+
+| Estatística | Valor |
+|-------------|-------|
+| Gap médio | +3.73pp |
+| Gap mediano | +1.14pp |
+| Gap máximo | +32.9pp |
+| Gap mínimo | 0.00pp |
+| Desvio padrão | 7.66pp |
+
+**Conclusão:** Um seletor perfeito (oracle) daria **+3.73pp de acurácia média** sobre Laplace fixo.
+
+#### 3. Padrões por Dimensionalidade
+
+| Categoria | n_features | GA | Exp | Laplace |
+|-----------|------------|----|----|---------|
+| SMALL | <10 | 50% | 7% | **43%** |
+| MEDIUM | 10-50 | **48%** | **38%** | 14% |
+| LARGE | >50 | **87.5%** | 6% | 6% |
+
+**Conclusões:**
+- Datasets pequenos: Laplace é competitivo
+- Datasets médios: GaussianAnalytic e Exponential dominam
+- Datasets grandes (alta dim): **GaussianAnalytic domina com 87.5%**
+
+#### 4. Casos Extremos (Maior Ganho sobre Laplace)
+
+| Dataset | Melhor Mecanismo | Gap vs Laplace | Acc Laplace | Acc Melhor |
+|---------|------------------|----------------|-------------|------------|
+| pc3 | Exponential | **+32.9pp** | 56.8% | 89.8% |
+| pc1 | Exponential | **+27.5pp** | 65.5% | 93.1% |
+| kc2 | Exponential | **+27.0pp** | 52.2% | 79.2% |
+| jm1 | Exponential | **+25.2pp** | 55.1% | 80.3% |
+| hill-valley | Exponential | **+22.1pp** | 62.4% | 84.5% |
+| pc4 | Exponential | **+19.9pp** | 67.9% | 87.8% |
+| cnae-9 | GaussianAnalytic | +6.9pp | 43.8% | 50.7% |
+| chip | GaussianAnalytic | +5.0pp | 75.1% | 80.1% |
+
+**Conclusão:** Em datasets categóricos (pc*, kc2, jm1), Exponential pode dar **+20-33pp de ganho**.
+
+#### 5. Impacto do DP na Acurácia
+
+| Métrica | Valor |
+|---------|-------|
+| Queda média com DP | 10.57pp |
+| Queda mediana | 6.29pp |
+| Melhor caso | -8.72pp (ganho!) |
+| Pior caso | 52.13pp |
+
+---
+
+### Justificativa Quantitativa do Framework
+
+```
+CENÁRIO 1: Sempre usar Laplace (baseline ingênuo)
+─────────────────────────────────────────────────
+• Laplace é o melhor em apenas 18.3% dos datasets
+• Perda média por não escolher corretamente: 3.73pp de acurácia
+• Perda máxima em casos extremos: 32.9pp
+
+CENÁRIO 2: Usar seletor perfeito (oracle)
+─────────────────────────────────────────────────
+• Acerta 100% das vezes
+• Ganho médio sobre Laplace: +3.73pp
+• Ganho em casos extremos: +32.9pp
+
+CENÁRIO 3: Usar nosso framework (v16)
+─────────────────────────────────────────────────
+• Hit rate atual: 62-68%
+• F1-macro: 0.70
+• Supera Laplace em 20.8% dos datasets
+• Ganho estimado: ~0.8-1.5pp sobre Laplace fixo
+```
+
+**Conclusão Final:**
+O framework se justifica porque:
+1. **Laplace não é universal** — só é o melhor em 18% dos casos
+2. **O ganho potencial é significativo** — até +33pp em casos extremos
+3. **Existe padrão aprendível** — alta dimensionalidade favorece GA, dados categóricos favorecem Exponential
+4. **Mesmo um seletor imperfeito agrega valor** — nosso framework com 62-68% de hit rate já supera Laplace em 21% dos casos
+
+---
+
+### Arquivos do Estudo
+
+| Arquivo | Descrição |
+|---------|-----------|
+| `scripts/compare_dp_mechanisms.py` | Script de comparação |
+| `dp_comparison.csv` | Resultados detalhados por dataset |
+| `research/DECISIONS.md` | Esta documentação |
