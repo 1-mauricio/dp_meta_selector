@@ -14,6 +14,7 @@ from .baseline_store import (
 )
 from .config import DEFAULT_CACHE_DIR, DEFAULT_MODEL_PATH, FRAMEWORK_VERSION, LOG_FORMAT
 from .datasets import load_openml_training_datasets, split_meta_datasets
+from .diagnostics import run_full_diagnostics
 from .evaluator import FrameworkEvaluator
 from .reporter import generate_report
 from .selector import DPMechanismSelector
@@ -108,6 +109,7 @@ def main(
     extra_baseline_ids: list[str] | None = None,
     log_file: Path | None = None,
     report_dir: Path | None = None,
+    run_diagnostics: bool = False,
 ):
     start_time = time.time()
     _log.info("=" * 65)
@@ -120,6 +122,12 @@ def main(
 
     _log.info("[1/5] Carregando datasets de treino (OpenML)...")
     datasets = load_openml_training_datasets()
+    
+    # MELHORIA: Adiciona datasets sintéticos para melhor cobertura de famílias
+    from .synthetic_datasets import augment_training_datasets
+    datasets = augment_training_datasets(datasets, synthetic_ratio=0.2, min_synthetic=30)
+    _log.info("      Total (com sintéticos): %d datasets", len(datasets))
+    
     if precompute_baselines_first and use_cache:
         bid = _baseline_ids_for_run(meta_profile, eval_profile, extra_baseline_ids)
         store = BaselineStore(db_path=DEFAULT_CACHE_DIR / "baselines.sqlite")
@@ -167,6 +175,17 @@ def main(
         output_dir=_report_dir,
         log_file=Path(log_file) if log_file else None,
     )
+
+    # Diagnósticos avançados (opcional)
+    if run_diagnostics:
+        _log.info("[7/7] Executando diagnósticos avançados...")
+        run_full_diagnostics(
+            selector=selector,
+            results_df=results_df,
+            train_datasets=train_ds,
+            test_datasets=test_ds,
+            output_dir=_report_dir,
+        )
 
     _log.info("=" * 65)
     _log.info("FIM")
@@ -237,6 +256,11 @@ def cli():
         help="Ativa logging detalhado (DEBUG).",
     )
     parser.add_argument(
+        "--diagnostics",
+        action="store_true",
+        help="Executa diagnósticos avançados (F1 por família, confusion matrix, calibração).",
+    )
+    parser.add_argument(
         "--skip-baseline-precompute",
         action="store_true",
         help="Não pré-computa baselines antes do treino (usa store sob demanda).",
@@ -265,6 +289,7 @@ def cli():
         extra_baseline_ids=args.baseline_ids,
         log_file=log_file,
         report_dir=Path(args.report_dir),
+        run_diagnostics=args.diagnostics,
     )
 
 

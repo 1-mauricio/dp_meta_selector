@@ -94,18 +94,22 @@ class MetaLearner:
         self.label_encoder = LabelEncoder()
         self._family_classifier = None
         self._family_label_map: dict = {}
-        self._family_gate_threshold: float = 0.65   # HIER: acima disto, restrição dura de família
-        self._cat_prefilter = None          # CAT1: classificador binário Exponential vs resto
-        self._cat_prefilter_threshold: float = 0.90  # elevado para reduzir FP em datasets contínuos
-        self._cat_prefilter_family_min: float = 0.20  # CAT1+HIER dual-gate: p_cat mínimo para confirmar Exponential
-        self._gauss_prefilter = None        # GAUSS: classificador binário GaussianAnalytic vs Laplace
-        self._gauss_prefilter_threshold: float = 1.01  # desabilitado — net negativo (precision < 40%)
-        self._ga_boost_pca_threshold: float = 0.50  # GA rule boost: pca_top1_var abaixo disto → boost GA 3x
-        self._ga_boost_factor: float = 3.0          # fator de boost GA no ensemble
+        # MELHORIA: thresholds mais baixos para melhorar recall de categorical
+        self._family_gate_threshold: float = 0.55   # Reduzido de 0.65 para 0.55
+        self._cat_prefilter = None
+        self._cat_prefilter_threshold: float = 0.75  # Reduzido de 0.90 para 0.75
+        self._cat_prefilter_family_min: float = 0.15  # Reduzido de 0.20 para 0.15
+        self._gauss_prefilter = None
+        self._gauss_prefilter_threshold: float = 0.85  # Reduzido de 1.01 (desabilitado) para 0.85
+        self._ga_boost_pca_threshold: float = 0.45  # Reduzido de 0.50 para 0.45
+        self._ga_boost_factor: float = 2.5          # Reduzido de 3.0 para 2.5
+        # Novo: classificadores por família para ensemble hierárquico
+        self._family_mechanism_classifiers: Dict[str, Pipeline] = {}
+        self._discrete_prefilter = None  # Novo: pré-filtro para Geometric
 
     def fit(self, meta_df: pd.DataFrame) -> Dict[str, float]:
         excl = (
-            {"dataset_name", "best_mechanism", "best_relative_acc", "baseline_acc"}
+            {"dataset_name", "best_mechanism", "best_relative_acc", "baseline_acc", "best_family"}
             | {f"acc_{m}" for m in MECHANISM_NAMES}
         )
         self.META_FEATURE_COLS = [c for c in meta_df.columns if c not in excl]
@@ -124,10 +128,14 @@ class MetaLearner:
         # GAUSS: treina pré-filtro binário GaussianAnalytic vs Laplace nos dados originais
         self._fit_gaussian_prefilter(X_meta, y_meta)
 
+        # DISC: treina pré-filtro para Geometric (datasets discretos)
+        self._fit_discrete_prefilter(X_meta, y_meta)
+
         # HIER: treina classificador de família nos dados ORIGINAIS (antes do oversample)
-        # para evitar viés — Geometric sobe de 7 para 159 após oversample, o que enviesaria
-        # o classificador de família em direção a "discrete".
         self._fit_family_classifier(X_meta, y_meta)
+        
+        # Treina classificadores por família para ensemble hierárquico
+        self._fit_family_mechanism_classifiers(X_meta, y_meta)
 
         # Oversampling manual das classes minoritárias (sem dependência externa)
         X_meta, y_meta = self._oversample(X_meta, y_meta)
@@ -418,6 +426,139 @@ class MetaLearner:
             _log.debug("[HIER] family_classifier falhou: %s", exc)
             self._family_classifier = None
 
+    def _fit_discrete_prefilter(self, X_meta: np.ndarray, y_meta: np.ndarray) -> None:
+        """DISC: treina um classificador binário para Geometric (discrete family).
+        
+        Datasets discretos (inteiros com range pequeno) favorecem Geometric.
+        """
+        from .mechanisms import FAMILY_OF
+        classes = self.label_encoder.classes_
+        
+        # Identifica mecanismos discretos
+        discrete_mechs = [c for c in classes if FAMILY_OF.get(c) == "discrete"]
+        if not discrete_mechs:
+            self._discrete_prefilter = None
+            return
+        
+        discrete_indices = [list(classes).index(m) for m in discrete_mechs]
+        y_binary = np.isin(y_meta, discrete_indices).astype(int)
+        n_pos = int(y_binary.sum())
+        
+        if n_pos < 3:
+            _log.debug("[DISC] Poucos exemplos discrete (%d) — pré-filtro desativado.", n_pos)
+            self._discrete_prefilter = None
+            return
+        
+        # Features discriminadoras para discrete
+        DISC_FEATURES = [
+            "ratio_integer_cols", "ratio_discrete", "disc_composite_score",
+            "disc_mean_int_range", "disc_ratio_small_int_range", 
+            "mean_log_unique_ratio", "median_unique_per_col",
+        ]
+        feat_idx = [i for i, c in enumerate(self.META_FEATURE_COLS) if c in DISC_FEATURES]
+        if len(feat_idx) < 3:
+            self._discrete_prefilter = None
+            return
+        self._discrete_feature_idx = feat_idx
+        
+        try:
+            from sklearn.ensemble import GradientBoostingClassifier as GBC
+            clf = Pipeline([
+                ("s", StandardScaler()),
+                ("clf", GBC(n_estimators=100, max_depth=3, random_state=42)),
+            ])
+            clf.fit(X_meta[:, feat_idx], y_binary)
+            self._discrete_prefilter = clf
+            _log.info("[DISC] Pré-filtro discrete  pos=%d  neg=%d", n_pos, len(y_binary) - n_pos)
+        except Exception as exc:
+            _log.debug("[DISC] Falha ao treinar prefilter: %s", exc)
+            self._discrete_prefilter = None
+
+    def _fit_family_mechanism_classifiers(self, X_meta: np.ndarray, y_meta: np.ndarray) -> None:
+        """Treina classificadores por família para ensemble hierárquico.
+        
+        Cada família tem seu próprio classificador que escolhe entre seus mecanismos.
+        """
+        from .mechanisms import FAMILY_OF
+        classes = self.label_encoder.classes_
+        
+        self._family_mechanism_classifiers = {}
+        
+        for family in ["continuous", "discrete", "categorical"]:
+            # Filtra mecanismos desta família
+            family_mechs = [c for c in classes if FAMILY_OF.get(c) == family]
+            if len(family_mechs) < 2:
+                continue
+            
+            # Filtra exemplos desta família
+            family_mech_indices = [list(classes).index(m) for m in family_mechs]
+            mask = np.isin(y_meta, family_mech_indices)
+            if mask.sum() < 5:
+                continue
+            
+            X_fam = X_meta[mask]
+            y_fam_raw = y_meta[mask]
+            
+            # Recodifica labels para 0, 1, 2...
+            idx_to_local = {idx: i for i, idx in enumerate(family_mech_indices)}
+            y_fam = np.array([idx_to_local[y] for y in y_fam_raw])
+            
+            try:
+                clf = Pipeline([
+                    ("s", StandardScaler()),
+                    ("clf", RandomForestClassifier(
+                        n_estimators=100, class_weight="balanced", random_state=42
+                    )),
+                ])
+                clf.fit(X_fam, y_fam)
+                self._family_mechanism_classifiers[family] = {
+                    "classifier": clf,
+                    "mechanisms": family_mechs,
+                    "idx_to_mech": {i: m for i, m in enumerate(family_mechs)},
+                }
+                _log.info("[HIER-MECH] Classificador %s: %d exemplos, %d mecanismos",
+                         family, len(y_fam), len(family_mechs))
+            except Exception as exc:
+                _log.debug("[HIER-MECH] Falha para %s: %s", family, exc)
+
+    def _apply_discrete_prefilter(self, row: np.ndarray) -> Optional[Dict]:
+        """DISC: retorna recomendação de mecanismo discreto se o prefilter disparar."""
+        clf = getattr(self, "_discrete_prefilter", None)
+        feat_idx = getattr(self, "_discrete_feature_idx", None)
+        if clf is None or feat_idx is None:
+            return None
+        
+        try:
+            row_disc = row[:, feat_idx]
+            p_disc = float(clf.predict_proba(row_disc)[0][1])
+            
+            # Threshold para discrete
+            if p_disc >= 0.70:
+                # Usa classificador intra-família se disponível
+                family_clf = self._family_mechanism_classifiers.get("discrete")
+                if family_clf:
+                    proba = family_clf["classifier"].predict_proba(row)[0]
+                    best_idx = int(np.argmax(proba))
+                    best_mech = family_clf["idx_to_mech"][best_idx]
+                else:
+                    # Fallback para Geometric se não há classificador intra-família
+                    best_mech = "Geometric" if "Geometric" in self.label_encoder.classes_ else None
+                    if best_mech is None:
+                        return None
+                
+                classes = list(self.label_encoder.classes_)
+                all_proba = {m: 0.0 for m in classes}
+                all_proba[best_mech] = p_disc
+                return {
+                    "recommended_mechanism": best_mech,
+                    "confidence": p_disc,
+                    "all_proba": all_proba,
+                    "meta_model_used": "discrete_prefilter",
+                }
+        except Exception:
+            pass
+        return None
+
     def predict(self, X, y, model_name=None) -> Dict:
         if self.META_FEATURE_COLS is None:
             raise RuntimeError("Chame fit() antes de predict().")
@@ -429,6 +570,11 @@ class MetaLearner:
         cat_result = self._apply_categorical_prefilter(row)
         if cat_result is not None:
             return cat_result
+
+        # DISC: pré-filtro para mecanismos discretos (Geometric, etc.)
+        disc_result = self._apply_discrete_prefilter(row)
+        if disc_result is not None:
+            return disc_result
 
         # GAUSS: pré-filtro binário GaussianAnalytic — dentro do espaço contínuo
         gauss_result = self._apply_gaussian_prefilter(row)
@@ -626,15 +772,19 @@ class MetaLearner:
                 "fast_landmarks": self._fast_landmarks,
                 "family_classifier": getattr(self, "_family_classifier", None),
                 "family_label_map": getattr(self, "_family_label_map", {}),
-                "family_gate_threshold": getattr(self, "_family_gate_threshold", 0.65),
+                "family_gate_threshold": getattr(self, "_family_gate_threshold", 0.55),
                 "cat_prefilter": getattr(self, "_cat_prefilter", None),
-                "cat_prefilter_threshold": getattr(self, "_cat_prefilter_threshold", 0.65),
-                "cat_prefilter_family_min": getattr(self, "_cat_prefilter_family_min", 0.20),
+                "cat_prefilter_threshold": getattr(self, "_cat_prefilter_threshold", 0.75),
+                "cat_prefilter_family_min": getattr(self, "_cat_prefilter_family_min", 0.15),
                 "gauss_prefilter": getattr(self, "_gauss_prefilter", None),
-                "gauss_prefilter_threshold": getattr(self, "_gauss_prefilter_threshold", 1.01),
+                "gauss_prefilter_threshold": getattr(self, "_gauss_prefilter_threshold", 0.85),
                 "gauss_feature_idx": getattr(self, "_gauss_feature_idx", None),
-                "ga_boost_pca_threshold": getattr(self, "_ga_boost_pca_threshold", 0.50),
-                "ga_boost_factor": getattr(self, "_ga_boost_factor", 3.0),
+                "ga_boost_pca_threshold": getattr(self, "_ga_boost_pca_threshold", 0.45),
+                "ga_boost_factor": getattr(self, "_ga_boost_factor", 2.5),
+                # Novos campos
+                "discrete_prefilter": getattr(self, "_discrete_prefilter", None),
+                "discrete_feature_idx": getattr(self, "_discrete_feature_idx", None),
+                "family_mechanism_classifiers": getattr(self, "_family_mechanism_classifiers", {}),
             },
             path,
         )
@@ -649,13 +799,17 @@ class MetaLearner:
         self._fast_landmarks = d.get("fast_landmarks", True)
         self._family_classifier = d.get("family_classifier", None)
         self._family_label_map = d.get("family_label_map", {})
-        self._family_gate_threshold = d.get("family_gate_threshold", 0.65)
+        self._family_gate_threshold = d.get("family_gate_threshold", 0.55)
         self._cat_prefilter = d.get("cat_prefilter", None)
-        self._cat_prefilter_threshold = d.get("cat_prefilter_threshold", 0.65)
-        self._cat_prefilter_family_min = d.get("cat_prefilter_family_min", 0.20)
+        self._cat_prefilter_threshold = d.get("cat_prefilter_threshold", 0.75)
+        self._cat_prefilter_family_min = d.get("cat_prefilter_family_min", 0.15)
         self._gauss_prefilter = d.get("gauss_prefilter", None)
-        self._gauss_prefilter_threshold = d.get("gauss_prefilter_threshold", 1.01)
+        self._gauss_prefilter_threshold = d.get("gauss_prefilter_threshold", 0.85)
         self._gauss_feature_idx = d.get("gauss_feature_idx", None)
-        self._ga_boost_pca_threshold = d.get("ga_boost_pca_threshold", 0.50)
-        self._ga_boost_factor = d.get("ga_boost_factor", 3.0)
+        self._ga_boost_pca_threshold = d.get("ga_boost_pca_threshold", 0.45)
+        self._ga_boost_factor = d.get("ga_boost_factor", 2.5)
+        # Novos campos
+        self._discrete_prefilter = d.get("discrete_prefilter", None)
+        self._discrete_feature_idx = d.get("discrete_feature_idx", None)
+        self._family_mechanism_classifiers = d.get("family_mechanism_classifiers", {})
         _log.info("[MetaLearner] Carregado de '%s'", path)
