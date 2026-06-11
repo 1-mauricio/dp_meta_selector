@@ -16,6 +16,7 @@ from .meta_learner import MetaLearner
 from .baseline_store import DEFAULT_BASELINE_REGISTRY, BaselineStore
 from .utility import (
     EVAL_FAST_PROFILE,
+    META_ALIGNED_PROFILE,
     META_FAST_PROFILE,
     DPUtilityEvaluator,
     UtilityProfile,

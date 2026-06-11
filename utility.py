@@ -63,6 +63,18 @@ META_FAST_PROFILE = UtilityProfile(
     parallel=True,
 )
 
+# Perfil de rotulagem alinhado com EVAL_FAST: mesmos clf/cv/runs → labels menos ruidosas.
+META_ALIGNED_PROFILE = UtilityProfile(
+    name="meta_aligned",
+    clf="rf",
+    n_estimators=30,
+    cv_splits=3,
+    n_runs=2,
+    use_screening=True,
+    refine_top_k=5,
+    parallel=True,
+)
+
 EVAL_FAST_PROFILE = UtilityProfile(
     name="eval_fast",
     clf="rf",

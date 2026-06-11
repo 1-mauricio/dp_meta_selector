@@ -40,9 +40,6 @@ DP_MECHANISMS = [
     DPMechanism("LaplaceTruncated", "Laplace truncado [0,1]", "continuous"),
     DPMechanism("LaplaceFolded", "Laplace folded [0,1]", "continuous"),
     DPMechanism("Snapping", "Snapping Mironov", "continuous"),
-    DPMechanism("Geometric", "Geométrico sobre inteiros", "discrete"),
-    DPMechanism("GeometricTruncated", "Geométrico truncado [0,100]", "discrete"),
-    DPMechanism("GeometricFolded", "Geométrico folded [0,100]", "discrete"),
     DPMechanism("Exponential", "Exponencial (candidatos)", "categorical"),
     DPMechanism("Uniform", "Uniform δ-DP", "continuous"),
 ]
@@ -51,7 +48,7 @@ MECHANISM_NAMES = [m.name for m in DP_MECHANISMS]
 FAMILY_OF: Dict[str, str] = {m.name: m.family for m in DP_MECHANISMS}
 
 # Um representante por família para screening rápido (fase 1).
-SCREENING_MECHANISMS = ["Laplace", "GaussianAnalytic", "Geometric", "Exponential"]
+SCREENING_MECHANISMS = ["Laplace", "GaussianAnalytic", "Exponential"]
 
 # Re-exporta classes diffprivlib usadas pelo aplicador.
 __all__ = [

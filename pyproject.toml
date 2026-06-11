@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "dp_meta_selector"
@@ -21,7 +21,7 @@ classifiers = [
 ]
 dependencies = [
     "diffprivlib>=0.6",
-    "scikit-learn>=1.3",
+    "scikit-learn>=1.3,<1.6",
     "pandas>=2.0",
     "numpy>=1.24",
     "scipy>=1.10",
@@ -40,6 +40,7 @@ dev = [
 
 [project.scripts]
 dp-meta-selector = "dp_meta_selector.__main__:main"
+dp-meta-viability = "dp_meta_selector.viability:main"
 
 [tool.setuptools]
 # pacote raiz = este diretório; todas as fontes estão no mesmo nível
