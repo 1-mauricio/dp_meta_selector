@@ -25,6 +25,7 @@ class MetaFeatureExtractor:
         f.update(self._dp_relevance(X, y))  # ML4
         f.update(self._categorical_signal(X, y))  # CAT1
         f.update(self._discrete_signal(X, y))     # DISC
+        f.update(self._family_discriminators(X, y))  # MELHORIA: novos discriminadores
         return f
 
     def _stat(self, X, y):
@@ -352,4 +353,87 @@ class MetaFeatureExtractor:
             "ga_pca_spread": ga_pca_spread,
             "ga_pca_n50pct": ga_pca_n50pct,
             "ga_composite_score": ga_composite_score,
+        }
+
+    def _family_discriminators(self, X: np.ndarray, y: np.ndarray) -> Dict[str, float]:
+        """MELHORIA: meta-features adicionais para discriminação de família.
+        
+        Estas features ajudam a distinguir quando usar:
+        - Continuous (Laplace, Gaussian): dados contínuos com alta cardinalidade
+        - Discrete (Geometric): dados inteiros com range pequeno
+        - Categorical (Exponential): dados com poucos valores únicos
+        """
+        n, d = X.shape
+        
+        # Análise de tipo de dados por coluna
+        unique_counts = np.array([len(np.unique(X[:, j])) for j in range(d)])
+        col_ranges = X.max(0) - X.min(0) + 1e-9
+        
+        # Máscara de colunas inteiras
+        int_mask = np.array([
+            np.all(np.isfinite(X[:, j])) and np.allclose(X[:, j], np.floor(X[:, j]))
+            for j in range(d)
+        ])
+        
+        # Score de "continuidade": 1.0 = totalmente contínuo, 0.0 = totalmente discreto
+        # Baseado em: alta cardinalidade + valores não-inteiros
+        continuity_per_col = unique_counts / n  # 0 a 1
+        continuity_score = float(np.mean(continuity_per_col) * (1 - int_mask.mean()))
+        
+        # Score de "discretude": 1.0 = totalmente discreto, 0.0 = contínuo
+        # Baseado em: colunas inteiras + range pequeno
+        small_range_mask = col_ranges <= 100
+        discreteness_score = float(int_mask.mean() * small_range_mask.mean())
+        
+        # Score de "categoricidade": 1.0 = categórico, 0.0 = não-categórico
+        # Baseado em: baixa cardinalidade (<= 10 valores únicos)
+        categorical_mask = unique_counts <= 10
+        categoricity_score = float(categorical_mask.mean())
+        
+        # Gini impurity médio por coluna de feature
+        # Alta impureza = mais uniforme = melhor para Exponential
+        gini_per_col = []
+        for j in range(d):
+            _, counts = np.unique(X[:, j], return_counts=True)
+            p = counts / counts.sum()
+            gini = 1.0 - np.sum(p ** 2)
+            gini_per_col.append(gini)
+        mean_gini = float(np.mean(gini_per_col)) if gini_per_col else 0.0
+        
+        # Proporção de colunas com distribuição uniforme (alta entropia)
+        uniform_threshold = 0.9 * np.log2(10)  # ~90% da entropia máxima para 10 valores
+        uniform_mask = []
+        for j in range(d):
+            _, counts = np.unique(X[:, j], return_counts=True)
+            p = counts / counts.sum()
+            entropy = -np.sum(p * np.log2(p + 1e-9))
+            max_entropy = np.log2(len(counts) + 1e-9)
+            uniform_mask.append(entropy >= 0.9 * max_entropy if max_entropy > 0 else False)
+        ratio_uniform_cols = float(np.mean(uniform_mask))
+        
+        # One-hot encoding detection: muitas colunas binárias esparsas
+        binary_mask = unique_counts == 2
+        if binary_mask.any():
+            binary_cols = X[:, binary_mask]
+            sparsity = np.mean(binary_cols == 0, axis=0)
+            is_onehot = float(np.mean(sparsity >= 0.7))
+        else:
+            is_onehot = 0.0
+        
+        # Score composto de família
+        # Usa soft-max para normalizar os três scores
+        scores = np.array([continuity_score, discreteness_score, categoricity_score])
+        exp_scores = np.exp(scores * 3)  # Temperatura
+        family_proba = exp_scores / exp_scores.sum()
+        
+        return {
+            "fam_continuity_score": continuity_score,
+            "fam_discreteness_score": discreteness_score,
+            "fam_categoricity_score": categoricity_score,
+            "fam_mean_gini": mean_gini,
+            "fam_ratio_uniform_cols": ratio_uniform_cols,
+            "fam_is_onehot": is_onehot,
+            "fam_p_continuous": float(family_proba[0]),
+            "fam_p_discrete": float(family_proba[1]),
+            "fam_p_categorical": float(family_proba[2]),
         }

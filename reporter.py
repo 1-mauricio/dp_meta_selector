@@ -134,7 +134,7 @@ def _section_meta_dataset(selector) -> Dict:
         return {}
 
     excl = (
-        {"dataset_name", "best_mechanism", "best_relative_acc", "baseline_acc"}
+        {"dataset_name", "best_mechanism", "best_relative_acc", "baseline_acc", "best_family"}
         | {f"acc_{m}" for m in MECHANISM_NAMES}
     )
     feature_cols = [c for c in meta_df.columns if c not in excl]
@@ -142,11 +142,11 @@ def _section_meta_dataset(selector) -> Dict:
     class_dist = meta_df["best_mechanism"].value_counts().to_dict()
     n = len(meta_df)
 
-    # Stats por meta-feature
+    # Stats por meta-feature (apenas numéricos)
     feat_stats = {}
     for col in feature_cols:
         s = meta_df[col].dropna()
-        if len(s) > 0:
+        if len(s) > 0 and s.dtype.kind in 'iufb':  # int, uint, float, bool
             feat_stats[col] = {
                 "mean": _safe(s.mean()),
                 "std": _safe(s.std()),

@@ -75,6 +75,17 @@ from .datasets import (
     load_openml_training_datasets,
     split_meta_datasets,
 )
+from .diagnostics import (
+    ablation_study,
+    compute_calibration_data,
+    compute_confusion_matrix,
+    compute_family_f1_scores,
+    dataset_level_kfold_cv,
+    print_calibration_report,
+    print_confusion_matrix,
+    print_family_f1_report,
+    run_full_diagnostics,
+)
 from .evaluator import FrameworkEvaluator
 from .main import cli, main, run_precompute_baselines
 from .mechanisms import (
@@ -135,10 +146,19 @@ __all__ = [
     "TARGET_NOISE_RATIO",
     "UtilityProfile",
     "UtilityResultCache",
+    "ablation_study",
     "build_openml_training_specs",
     "calibrate_epsilon",
     "cli",
+    "compute_calibration_data",
+    "compute_confusion_matrix",
+    "compute_family_f1_scores",
+    "dataset_level_kfold_cv",
     "precompute_baselines",
+    "print_calibration_report",
+    "print_confusion_matrix",
+    "print_family_f1_report",
+    "run_full_diagnostics",
     "run_precompute_baselines",
     "load_openml_dataset",
     "load_openml_training_datasets",
