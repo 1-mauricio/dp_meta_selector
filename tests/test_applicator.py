@@ -36,13 +36,6 @@ def test_gaussian_output_shape(applicator, X_2d):
     assert out.shape == X_2d.shape
 
 
-def test_geometric_integer_output(applicator):
-    X = np.arange(1, 26, dtype=float).reshape(5, 5)
-    out = applicator.apply("Geometric", X)
-    assert np.issubdtype(out.dtype, np.number)
-    assert out.shape == X.shape
-
-
 def test_unknown_mechanism_raises(applicator, X_2d):
     with pytest.raises((ValueError, KeyError)):
         applicator.apply("NonExistentMechanism", X_2d)

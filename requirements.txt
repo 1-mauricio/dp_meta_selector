@@ -1,6 +1,6 @@
 # Dependências de execução
 diffprivlib>=0.6
-scikit-learn>=1.3
+scikit-learn>=1.3,<1.6
 pandas>=2.0
 numpy>=1.24
 scipy>=1.10
