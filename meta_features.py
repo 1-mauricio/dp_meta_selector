@@ -426,6 +426,59 @@ class MetaFeatureExtractor:
         exp_scores = np.exp(scores * 3)  # Temperatura
         family_proba = exp_scores / exp_scores.sum()
         
+        # ========== NOVAS FEATURES v16 ==========
+        
+        # Features para melhorar recall de Exponential (categorical)
+        max_cardinality = int(unique_counts.max()) if d > 0 else 0
+        pct_cols_under_10 = float((unique_counts < 10).mean())
+        pct_cols_under_5 = float((unique_counts < 5).mean())
+        mean_cardinality = float(unique_counts.mean())
+        
+        # Razão valor/linha por coluna (baixa = mais categórico)
+        value_count_ratios = unique_counts / n
+        mean_value_ratio = float(value_count_ratios.mean())
+        min_value_ratio = float(value_count_ratios.min()) if d > 0 else 0.0
+        
+        # Features para melhorar recall de GaussianAnalytic
+        # GA performa melhor em alta dimensionalidade e features correlacionadas
+        feature_to_sample_ratio = d / n
+        is_high_dim = float(feature_to_sample_ratio > 0.1)  # mais features que 10% das amostras
+        
+        # Correlação média entre features (alta = bom para GA)
+        try:
+            if d >= 2 and n >= 10:
+                corr_matrix = np.corrcoef(X.T)
+                # Pega triângulo superior (sem diagonal)
+                upper_tri = np.triu_indices(d, k=1)
+                correlations = np.abs(corr_matrix[upper_tri])
+                mean_feature_corr = float(np.nanmean(correlations))
+                max_feature_corr = float(np.nanmax(correlations))
+            else:
+                mean_feature_corr = 0.0
+                max_feature_corr = 0.0
+        except Exception:
+            mean_feature_corr = 0.0
+            max_feature_corr = 0.0
+        
+        # PCA: variância explicada pelos primeiros componentes
+        try:
+            if d >= 3 and n >= 10:
+                X_scaled = (X - X.mean(0)) / (X.std(0) + 1e-9)
+                pca = PCA(n_components=min(3, d, n))
+                pca.fit(X_scaled)
+                pca_var_top3 = float(sum(pca.explained_variance_ratio_[:3]))
+            else:
+                pca_var_top3 = 1.0
+        except Exception:
+            pca_var_top3 = 1.0
+        
+        # Score composto para GA (alta dim + alta correlação + variância concentrada)
+        ga_score = (
+            0.3 * is_high_dim + 
+            0.3 * mean_feature_corr + 
+            0.4 * (1 - pca_var_top3)  # Se variância NÃO está concentrada = muitas dimensões úteis
+        )
+        
         return {
             "fam_continuity_score": continuity_score,
             "fam_discreteness_score": discreteness_score,
@@ -436,4 +489,17 @@ class MetaFeatureExtractor:
             "fam_p_continuous": float(family_proba[0]),
             "fam_p_discrete": float(family_proba[1]),
             "fam_p_categorical": float(family_proba[2]),
+            # Novas features v16
+            "fam_max_cardinality": max_cardinality,
+            "fam_pct_cols_under_10": pct_cols_under_10,
+            "fam_pct_cols_under_5": pct_cols_under_5,
+            "fam_mean_cardinality": mean_cardinality,
+            "fam_mean_value_ratio": mean_value_ratio,
+            "fam_min_value_ratio": min_value_ratio,
+            "fam_feature_to_sample_ratio": feature_to_sample_ratio,
+            "fam_is_high_dim": is_high_dim,
+            "fam_mean_feature_corr": mean_feature_corr,
+            "fam_max_feature_corr": max_feature_corr,
+            "fam_pca_var_top3": pca_var_top3,
+            "fam_ga_score": ga_score,
         }
