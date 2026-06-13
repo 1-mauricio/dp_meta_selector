@@ -107,6 +107,9 @@ class MetaLearner:
         # Novo: classificadores por família para ensemble hierárquico
         self._family_mechanism_classifiers: Dict[str, Pipeline] = {}
         self._discrete_prefilter = None  # Novo: pré-filtro para Geometric
+        # v17: Fallback seguro para Laplace
+        self._laplace_fallback_enabled: bool = True
+        self._laplace_fallback_threshold: float = 0.65  # Confiança mínima para alternativa
 
     def fit(self, meta_df: pd.DataFrame) -> Dict[str, float]:
         excl = (
@@ -625,11 +628,28 @@ class MetaLearner:
                     _log.debug("[GUARD] Exponential suprimido (p_cat=%.3f < 0.60); novo melhor=%s",
                                p_cat, classes[best])
 
+        # v17: LAPLACE FALLBACK - se alternativa com baixa confiança, usa Laplace
+        recommended = classes[best]
+        confidence = float(proba[best])
+        fallback_applied = False
+        
+        if self._laplace_fallback_enabled and recommended != "Laplace":
+            if confidence < self._laplace_fallback_threshold:
+                if "Laplace" in classes:
+                    lap_idx = list(classes).index("Laplace")
+                    lap_conf = float(proba[lap_idx])
+                    _log.debug("[FALLBACK] %s (conf=%.3f < %.2f) → Laplace (conf=%.3f)",
+                               recommended, confidence, self._laplace_fallback_threshold, lap_conf)
+                    recommended = "Laplace"
+                    confidence = lap_conf
+                    fallback_applied = True
+
         return {
-            "recommended_mechanism": classes[best],
-            "confidence": float(proba[best]),
+            "recommended_mechanism": recommended,
+            "confidence": confidence,
             "all_proba": dict(zip(classes, proba.tolist())),
             "meta_model_used": used_name,
+            "fallback_applied": fallback_applied,
         }
 
     def _get_family_confidence(self, row: np.ndarray, family: str) -> float:

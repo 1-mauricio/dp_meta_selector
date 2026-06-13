@@ -137,6 +137,63 @@ class FrameworkEvaluator:
                     f"rel={sub['relative_performance'].mean():.3f}"
                 )
 
+        # v17: MÉTRICAS FOCADAS EM OPORTUNIDADE
+        print("\n" + "=" * 70)
+        print("MÉTRICAS DE OPORTUNIDADE (v17)")
+        print("=" * 70)
+        
+        # 1. Casos onde Laplace NÃO é ótimo
+        df["laplace_suboptimal"] = df["best_mech"] != "Laplace"
+        n_subopt = df["laplace_suboptimal"].sum()
+        pct_subopt = n_subopt / n
+        print(f"\n1. OPORTUNIDADE DE MELHORIA:")
+        print(f"   Datasets onde Laplace NÃO é ótimo: {n_subopt}/{n} ({pct_subopt:.1%})")
+        
+        # 2. Ganho capturado nesses casos
+        subopt_df = df[df["laplace_suboptimal"]]
+        if len(subopt_df) > 0:
+            # Gap disponível = best_acc - laplace_acc
+            subopt_df = subopt_df.copy()
+            subopt_df["gap_available"] = subopt_df["best_acc"] - subopt_df["laplace_acc"]
+            subopt_df["gap_captured"] = subopt_df["rec_acc"] - subopt_df["laplace_acc"]
+            subopt_df["capture_ratio"] = subopt_df["gap_captured"] / (subopt_df["gap_available"] + 1e-9)
+            
+            avg_gap_available = subopt_df["gap_available"].mean() * 100
+            avg_gap_captured = subopt_df["gap_captured"].mean() * 100
+            avg_capture_ratio = subopt_df[subopt_df["gap_available"] > 0.001]["capture_ratio"].mean()
+            
+            print(f"   Gap médio disponível: +{avg_gap_available:.2f}pp vs Laplace")
+            print(f"   Gap médio capturado:  +{avg_gap_captured:.2f}pp")
+            print(f"   Taxa de captura: {avg_capture_ratio:.1%} do ganho possível")
+            
+            # Hit rate específico nesses casos
+            subopt_hit = subopt_df["hit"].mean()
+            print(f"   Hit rate em casos subótimos: {subopt_hit:.1%}")
+        
+        # 3. Worst-case: quantas vezes modelo é PIOR que Laplace
+        df["worse_than_laplace"] = df["rec_acc"] < df["laplace_acc"] - 1e-6
+        n_worse = df["worse_than_laplace"].sum()
+        pct_worse = n_worse / n
+        print(f"\n2. SEGURANÇA (worst-case):")
+        print(f"   Modelo pior que Laplace: {n_worse}/{n} ({pct_worse:.1%})")
+        
+        if n_worse > 0:
+            worse_df = df[df["worse_than_laplace"]]
+            avg_loss = (worse_df["laplace_acc"] - worse_df["rec_acc"]).mean() * 100
+            max_loss = (worse_df["laplace_acc"] - worse_df["rec_acc"]).max() * 100
+            print(f"   Perda média quando pior: -{avg_loss:.2f}pp")
+            print(f"   Perda máxima: -{max_loss:.2f}pp")
+        else:
+            print(f"   ✓ Framework NUNCA é pior que Laplace!")
+        
+        # 4. Top-K datasets com maior ganho
+        print(f"\n3. TOP-10 GANHOS vs Laplace:")
+        df_sorted = df.sort_values("delta_laplace", ascending=False)
+        for i, row in df_sorted.head(10).iterrows():
+            delta = row["delta_laplace"] * 100
+            if delta > 0:
+                print(f"   {row['dataset'][:40]:<40} +{delta:.2f}pp ({row['rec_mech']} vs Laplace)")
+
         print(f"\n  {self.selector._cache.summary()}")
 
         return df
