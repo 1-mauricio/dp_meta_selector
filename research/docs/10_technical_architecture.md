@@ -15,56 +15,67 @@ A escolha do mecanismo DP impacta diretamente a utilidade dos dados privatizados
 - **GaussianAnalytic** domina em datasets de alta dimensionalidade (~79% quando >50 features)
 - **Exponential** pode dar ganhos de +20-33pp em datasets categóricos
 
-O framework automatiza essa escolha usando meta-aprendizagem.
+O framework automatiza essa escolha usando meta-aprendizagem com **116 meta-features** incluindo sinais DP-específicos e contexto do usuário.
 
-### 1.2 Fluxo de Processamento
+### 1.2 Fluxo de Processamento (v17)
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    FASE DE TREINAMENTO                          │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  Datasets      Meta-Feature      Avaliação DP      Meta-Dataset │
-│  de Treino  →  Extraction    →   (Oracle)      →   (X, y)      │
-│  (n=350+)      (39 features)     (9 mecanismos)    (labels)     │
-│                                                                 │
-│                           ↓                                     │
-│                                                                 │
-│              ┌────────────────────────────────────┐             │
-│              │     TREINAMENTO DO META-MODELO     │             │
-│              ├────────────────────────────────────┤             │
-│              │  1. CAT1 Prefilter (Exponential)   │             │
-│              │  2. GAUSS Prefilter (GA)           │             │
-│              │  3. HIER Family Classifier         │             │
-│              │  4. Ensemble ExtraTrees            │             │
-│              └────────────────────────────────────┘             │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────┐
+│                       FASE DE TREINAMENTO                            │
+├──────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  Datasets      Meta-Feature       Avaliação DP        Meta-Dataset   │
+│  de Treino  →  Extraction     →   (Oracle, n_runs≥5) →  (X, y, loss)│
+│  (n=350+)      (116 features)     (9 mecanismos)       (labels+reg)  │
+│              ├DP-clipping signal                                      │
+│              ├DP-sparsity dim.                                        │
+│              ├DP-subgroup entropy                                     │
+│              └context(ε, task)                                        │
+│                           ↓                                          │
+│                                                                      │
+│              ┌──────────────────────────────────────────┐            │
+│              │        TREINAMENTO DO META-MODELO        │            │
+│              ├──────────────────────────────────────────┤            │
+│              │  1. CAT1 Prefilter (Exponential)         │            │
+│              │  2. DISC Prefilter (Geometric)           │            │
+│              │  3. GAUSS Prefilter (GaussianAnalytic)   │            │
+│              │  4. Regressor MultiOutput (utility loss) │ ← NOVO     │
+│              │  5. HIER Family Classifier               │            │
+│              │  6. Ensemble ExtraTrees                  │            │
+│              └──────────────────────────────────────────┘            │
+│                                                                      │
+└──────────────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────────┐
-│                    FASE DE INFERÊNCIA                           │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  Dataset     Meta-Feature    Pipeline de        Mecanismo       │
-│  Novo    →   Extraction  →   Decisão        →   Recomendado     │
-│                              Hierárquica                        │
-│                                                                 │
-│              ┌─────────────────────────────────┐                │
-│              │   1. CAT1: p_exp ≥ 0.75?        │                │
-│              │      └─ AND p_cat ≥ 0.15?       │                │
-│              │         └─ → Exponential        │                │
-│              │                                 │                │
-│              │   2. GAUSS: p_ga ≥ 0.80?        │                │
-│              │         └─ → GaussianAnalytic   │                │
-│              │                                 │                │
-│              │   3. HIER: família ≥ 0.55?      │                │
-│              │         └─ Ajusta probabilidades│                │
-│              │                                 │                │
-│              │   4. Ensemble: argmax(proba)    │                │
-│              │         └─ → Mecanismo final    │                │
-│              └─────────────────────────────────┘                │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────┐
+│                       FASE DE INFERÊNCIA                             │
+├──────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  Dataset     Meta-Feature       Pipeline de          Mecanismo       │
+│  + epsilon →  Extraction    →   Decisão          →   Recomendado     │
+│  + task_type  (116 features)    Hierárquica                          │
+│                                                                      │
+│              ┌───────────────────────────────────────┐               │
+│              │  1. CAT1: p_exp ≥ 0.75?               │               │
+│              │     └─ AND p_cat ≥ 0.15?              │               │
+│              │        └─ → Exponential               │               │
+│              │                                       │               │
+│              │  2. DISC: p_disc ≥ 0.70?              │               │
+│              │        └─ → Geometric                 │               │
+│              │                                       │               │
+│              │  3. GAUSS: p_ga ≥ 0.80?               │               │
+│              │        └─ → GaussianAnalytic          │               │
+│              │                                       │               │
+│              │  4. Regressor: argmin(utility_loss)   │  ← NOVO       │
+│              │        └─ → Mecanismo menor perda     │               │
+│              │                                       │               │
+│              │  5. [Fallback] HIER: fam ≥ 0.55?     │               │
+│              │        └─ Ajusta probabilidades       │               │
+│              │                                       │               │
+│              │  6. [Fallback] Ensemble: argmax(proba)│               │
+│              │        └─ → Mecanismo final           │               │
+│              └───────────────────────────────────────┘               │
+│                                                                      │
+└──────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -163,7 +174,7 @@ class DPApplicator:
 
 ### 4.1 Categorias de Meta-Features
 
-O sistema extrai **39 meta-features** organizadas em 7 categorias:
+O sistema extrai **116 meta-features** organizadas em 11 categorias (v17):
 
 #### 4.1.1 Features Estatísticas (15 features)
 
@@ -224,7 +235,7 @@ O sistema extrai **39 meta-features** organizadas em 7 categorias:
 | `pca_intrinsic_dim_ratio` | Dim. intrínseca via PCA |
 | `pca_top1_var` | Variância explicada pelo PC1 |
 
-#### 4.1.6 Features Categóricas - CAT1 (7 features)
+#### 4.1.6 Features Categóricas — CAT1 (7 features)
 
 | Feature | Descrição |
 |---------|-----------|
@@ -236,7 +247,7 @@ O sistema extrai **39 meta-features** organizadas em 7 categorias:
 | `cat_target_entropy_ratio` | Entropia/Entropia máxima |
 | `cat_ratio_dominant_cols` | % colunas com valor dominante |
 
-#### 4.1.7 Features de Família (12 features v16)
+#### 4.1.7 Features de Família (12 features)
 
 | Feature | Descrição |
 |---------|-----------|
@@ -253,42 +264,136 @@ O sistema extrai **39 meta-features** organizadas em 7 categorias:
 | `fam_is_high_dim` | Flag: >50 features |
 | `fam_ga_score` | Score composto para GA |
 
-### 4.2 Implementação
+#### 4.1.8 ⚡ Sinal de Clipping DP — `_dp_clipping_signal()` (10 features) — NOVO v17
+
+Prevê o impacto do **clipping** (truncamento de outliers) nos mecanismos de ruído aditivo. Valores extremos inflam a sensibilidade global e aumentam o ruído necessário.
+
+| Feature | Fórmula | Relevância DP |
+|---------|---------|---------------|
+| `dp_max_median_ratio_mean` | mean(max_j / median_j) | Sensibilidade global por coluna |
+| `dp_max_median_ratio_max` | max(max_j / median_j) | Outlier extremo mais crítico |
+| `dp_max_median_ratio_std` | std(max_j / median_j) | Variabilidade entre colunas |
+| `dp_kurtosis_mean` | mean(kurt_j) | Caudas pesadas → maior perda de clipping |
+| `dp_kurtosis_max` | max(kurt_j) | Coluna mais problemática |
+| `dp_kurtosis_std` | std(kurt_j) | Heterogeneidade de curtose |
+| `dp_iqr_ratio_mean` | mean(IQR_j / range_j) | Concentração do sinal útil |
+| `dp_iqr_ratio_min` | min(IQR_j / range_j) | Coluna com range mais esparso |
+| `dp_clipping_loss_est` | mean(frac dados além de 2σ) | Estimativa de perda por clipping |
+| `dp_global_sensitivity_mean` | mean(max_j − min_j) | Sensibilidade L1 média |
+
+#### 4.1.9 ⚡ Esparsidade e Dimensionalidade — `_dp_sparsity_dimensionality()` (11 features) — NOVO v17
+
+Avalia o **colapso de utilidade** em alta dimensionalidade: quando d é grande e os dados são esparsos, o ruído DP se distribui por muitas dimensões, degradando métricas downstream.
+
+| Feature | Fórmula | Relevância DP |
+|---------|---------|---------------|
+| `dp_zero_ratio` | zeros_total / n_elements | Esparsidade pura |
+| `dp_near_zero_ratio` | \|x\| < 1e-6 / total | Quase-zeros |
+| `dp_sparsity_variance` | var(zero_ratio_por_coluna) | Heterogeneidade de esparsidade |
+| `dp_svd_rank` | rank numérico (SVD, tol=1e-5) | Dimensionalidade real |
+| `dp_effective_rank` | exp(H(σ²/Σσ²)) | Rank efetivo (entropia espectral) |
+| `dp_condition_number_log` | log(σ_max/σ_min) | Amplificação de ruído (escala log) |
+| `dp_intrinsic_dim_ratio` | effective_rank / n_features | Redundância dimensional |
+| `dp_rank_ratio` | svd_rank / n_features | Rank fracionário |
+| `dp_variance_concentration` | σ²_max / Σσ² | Dominância do 1º componente |
+| `dp_low_variance_col_ratio` | % colunas com var < 1e-6 | Colunas quasi-constantes |
+| `dp_dimensionality_risk` | (n_features / n_samples) × condition | Risco composto |
+
+#### 4.1.10 ⚡ Entropia de Subgrupos — `_dp_subgroup_entropy()` (9 features) — NOVO v17
+
+Avalia o risco de **Disparate Impact**: o ruído DP afeta grupos minoritários desproporcionalmente porque têm menos exemplos para "absorver" o ruído.
+
+| Feature | Fórmula | Relevância DP |
+|---------|---------|---------------|
+| `dp_minority_class_ratio` | min_class_count / n | Grupo mais vulnerável |
+| `dp_majority_class_ratio` | max_class_count / n | Grupo dominante |
+| `dp_class_balance_ratio` | min / max class count | Desequilíbrio relativo |
+| `dp_gini_impurity` | 1 − Σp² | Grau de desbalanceamento |
+| `dp_class_entropy` | −Σp·log(p) | Entropia de distribuição de classes |
+| `dp_normalized_entropy` | H / log(\|C\|) | Entropia normalizada pelo máximo |
+| `dp_disparate_impact_risk` | 1 − min_class_frac | Risco de disparate impact (0=ausente, 1=máximo) |
+| `dp_n_minority_subgroups` | \|{c: p_c < 0.05}\| | Contagem de classes com < 5% dos dados |
+| `dp_minority_subgroup_mass` | Σp_c para p_c < 0.05 | Massa total em subgrupos vulneráveis |
+
+#### 4.1.11 ⚡ Contexto do Usuário — `_context_features()` (8 features) — NOVO v17
+
+Variáveis de contexto **obrigatórias** que o meta-modelo não consegue inferir apenas do dataset. Passar ε e task_type permite ao modelo calibrar a recomendação para o caso de uso real.
+
+| Feature | Descrição | Comportamento padrão |
+|---------|-----------|---------------------|
+| `ctx_epsilon` | Orçamento ε do usuário | 1.0 se não fornecido |
+| `ctx_log_epsilon` | log(ε + 1) | Captura não-linearidade |
+| `ctx_epsilon_small` | ε ≤ 0.5 (one-hot) | Alto ruído, regime restrito |
+| `ctx_epsilon_medium` | 0.5 < ε ≤ 2.0 (one-hot) | Regime padrão |
+| `ctx_epsilon_large` | ε > 2.0 (one-hot) | Baixo ruído, mais utilidade |
+| `ctx_task_classification` | Tarefa = classificação (one-hot) | Default = 1.0 |
+| `ctx_task_regression` | Tarefa = regressão (one-hot) | Default = 0.0 |
+| `ctx_task_queries` | Tarefa = queries/analytics (one-hot) | Default = 0.0 |
+
+**API:**
+```python
+from dp_meta_selector import TASK_CLASSIFICATION, TASK_REGRESSION, TASK_QUERIES
+
+result = selector.recommend(
+    X, y,
+    epsilon=0.5,            # orçamento ε do usuário
+    task_type=TASK_CLASSIFICATION   # tipo de tarefa
+)
+```
+
+### 4.2 Implementação Atualizada (v17)
 
 ```python
 class MetaFeatureExtractor:
-    def extract(self, X: np.ndarray, y: np.ndarray) -> Dict[str, float]:
+    def extract(
+        self,
+        X: np.ndarray,
+        y: np.ndarray,
+        epsilon: Optional[float] = None,
+        task_type: Optional[str] = None
+    ) -> Dict[str, float]:
         f = {}
-        f.update(self._stat(X, y))           # Estatísticas básicas
-        f.update(self._info(X, y))           # Teoria da informação
-        f.update(self._land(X, y))           # Landmarks
-        f.update(self._dp_relevance(X, y))   # Relevância para DP
-        f.update(self._categorical_signal(X, y))  # Sinal categórico
-        f.update(self._discrete_signal(X, y))     # Sinal discreto
-        f.update(self._family_discriminators(X, y))  # Discriminadores
-        return f  # 39 features
+        f.update(self._stat(X, y))                           # 15 features
+        f.update(self._info(X, y))                           # 5 features
+        f.update(self._land(X, y))                           # 2 features
+        f.update(self._dp_relevance(X, y))                   # 5 features
+        f.update(self._categorical_signal(X, y))             # 7 features
+        f.update(self._discrete_signal(X, y))                # (interno)
+        f.update(self._family_discriminators(X, y))          # 12 features
+        # ↓ NOVOS em v17
+        f.update(self._dp_clipping_signal(X, y))             # 10 features
+        f.update(self._dp_sparsity_dimensionality(X, y))     # 11 features
+        f.update(self._dp_subgroup_entropy(X, y))            # 9 features
+        f.update(self._context_features(epsilon, task_type)) # 8 features
+        return f  # 116 features totais
 ```
 
 ---
 
 ## 5. Pipeline de Meta-Aprendizagem
 
-### 5.1 Construção do Meta-Dataset
+### 5.1 Construção do Meta-Dataset (v17)
 
 ```
 Para cada dataset D_i no conjunto de treino:
-    1. Extrair meta-features: X_meta[i] = extract(D_i.X, D_i.y)
-    2. Avaliar todos os mecanismos:
+    1. Extrair meta-features: X_meta[i] = extract(D_i.X, D_i.y, ε, task)
+    2. Avaliar todos os mecanismos (n_runs ≥ 5 com META_STABLE_PROFILE):
        Para cada mecanismo M_j:
-           acc[j] = cross_val_score(
-               classifier, 
-               M_j.apply(D_i.X), 
-               D_i.y, 
-               cv=3
-           )
-    3. Selecionar melhor mecanismo: y_meta[i] = argmax(acc)
-    4. Aplicar desempate por família se necessário
+           accs = [cross_val_score(clf, M_j.apply(D_i.X), D_i.y, cv=3, seed=s)
+                   for s in range(n_runs)]
+           acc[j] = mean(accs)               # média robusta ao ruído DP
+    3. Selecionar melhor mecanismo (oracle):
+       y_meta[i] = argmax(acc)
+    4. Calcular perda de utilidade por mecanismo:
+       utility_loss[i][j] = max(0, (baseline_acc - acc[j]) / baseline_acc) * 100
+       (target do regressor)
+    5. Aplicar desempate por família se necessário
 ```
+
+O meta-dataset final contém:
+- `X_meta`: 116 features (inclui contexto)
+- `y_meta`: mecanismo oracle (target do classificador)
+- `utility_loss_{mechanism}`: perda relativa % (target do regressor, 9 colunas)
 
 ### 5.2 Seleção do Melhor Mecanismo (Oracle)
 
@@ -379,7 +484,61 @@ def _fit_family_classifier(self, X_meta, y_meta):
     self._family_classifier = clf
 ```
 
-#### 5.3.4 Ensemble Principal
+#### 5.3.4 ⚡ Regressão Multi-Output de Utilidade — NOVO v17
+
+```python
+def _fit_regression(self, X_orig, y_orig, df_meta):
+    """
+    Treina regressor para prever a perda de utilidade (%) de cada mecanismo.
+    
+    Entrada: meta-features (116)
+    Saída: utility_loss_{mechanism} para 9 mecanismos
+    
+    Nota: usa X_meta_orig (pré-oversample) para preservar distribuição real.
+    """
+    loss_cols = [c for c in df_meta.columns if c.startswith("utility_loss_")]
+    Y_reg = df_meta[loss_cols].values  # shape: (n_datasets, 9)
+    
+    reg = Pipeline([
+        ("scaler", StandardScaler()),
+        ("reg", MultiOutputRegressor(RandomForestRegressor(
+            n_estimators=200,
+            max_depth=None,
+            n_jobs=-1
+        )))
+    ])
+    reg.fit(X_orig, Y_reg)
+    self._regressor = reg
+    self._reg_loss_cols = loss_cols
+
+def _predict_regression(self, row):
+    """
+    Converte perdas previstas em ranking de mecanismos.
+    
+    Usa softmin com temperatura T=10 para manter compatibilidade
+    com all_proba (API interna), onde maior probabilidade = melhor.
+    """
+    losses = self._regressor.predict(row)[0]  # shape: (9,)
+    T = 10.0  # temperatura de normalização
+    
+    # softmin: menor perda → maior probabilidade
+    exp_neg = np.exp(-losses / T)
+    proba = exp_neg / exp_neg.sum()
+    
+    mechs = [c.replace("utility_loss_", "") for c in self._reg_loss_cols]
+    all_proba = dict(zip(mechs, proba))
+    best = mechs[int(np.argmin(losses))]
+    
+    return {
+        "recommended_mechanism": best,
+        "confidence": proba[int(np.argmin(losses))],
+        "all_proba": all_proba,
+        "predicted_losses": dict(zip(mechs, losses.tolist())),
+        "meta_model_used": "regression"
+    }
+```
+
+#### 5.3.5 Ensemble Principal
 
 ```python
 def _fit_ensemble(self, X_meta, y_meta):
@@ -422,12 +581,12 @@ def _fit_ensemble(self, X_meta, y_meta):
 
 ## 6. Pipeline de Inferência
 
-### 6.1 Fluxo de Decisão Hierárquico
+### 6.1 Fluxo de Decisão Hierárquico (v17)
 
 ```python
-def predict(self, X, y) -> Dict:
-    # 1. Extrai meta-features
-    features = self.extractor.extract(X, y)
+def predict(self, X, y, epsilon=None, task_type=None) -> Dict:
+    # 1. Extrai meta-features com contexto
+    features = self.extractor.extract(X, y, epsilon=epsilon, task_type=task_type)
     row = np.array([[features[c] for c in self.META_FEATURE_COLS]])
     
     # 2. Obtém probabilidades de família
@@ -445,7 +604,15 @@ def predict(self, X, y) -> Dict:
                     "confidence": p_exp,
                     "meta_model_used": "cat_prefilter"}
     
-    # 4. GAUSS: verifica pré-filtro gaussiano
+    # 4. DISC: verifica pré-filtro discreto
+    if self._disc_prefilter:
+        p_disc = self._disc_prefilter.predict_proba(row)[0, 1]
+        if p_disc >= 0.70:
+            return {"recommended_mechanism": "Geometric",
+                    "confidence": p_disc,
+                    "meta_model_used": "disc_prefilter"}
+    
+    # 5. GAUSS: verifica pré-filtro gaussiano
     if self._gauss_prefilter:
         p_ga = self._gauss_prefilter.predict_proba(row)[0, 1]
         if p_ga >= 0.80:
@@ -453,19 +620,25 @@ def predict(self, X, y) -> Dict:
                     "confidence": p_ga,
                     "meta_model_used": "gauss_prefilter"}
     
-    # 5. Ensemble com portão de família
+    # ── NOVO v17 ────────────────────────────────────────────────────
+    # 6. Regressão: escolhe mecanismo com menor perda de utilidade prevista
+    if self._regressor is not None:
+        return self._predict_regression(row)
+    # ────────────────────────────────────────────────────────────────
+    
+    # 7. [Fallback] Ensemble com portão de família
     proba = self.best_model.predict_proba(row)[0]
     all_proba = {c: p for c, p in zip(self.CLASSES, proba)}
     
-    # 6. HIER: aplica portão de família
+    # 8. HIER: aplica portão de família
     if self._family_classifier:
         all_proba = self._apply_family_gate(all_proba, family_probs)
     
-    # 7. Boost para GaussianAnalytic em alta dimensionalidade
+    # 9. Boost para GaussianAnalytic em alta dimensionalidade
     if features.get("pca_top1_var", 1) < 0.45:
         all_proba["GaussianAnalytic"] *= 2.8
     
-    # 8. Normaliza e retorna
+    # 10. Normaliza e retorna
     total = sum(all_proba.values())
     all_proba = {k: v/total for k, v in all_proba.items()}
     
@@ -502,10 +675,11 @@ def _apply_family_gate(self, all_proba, family_probs, threshold=0.55):
 
 ### 7.1 Thresholds de Decisão
 
-| Parâmetro | Valor (v16) | Descrição |
+| Parâmetro | Valor (v17) | Descrição |
 |-----------|-------------|-----------|
 | `_cat_prefilter_threshold` | 0.75 | Confiança mínima CAT1 |
 | `_cat_prefilter_family_min` | 0.15 | Família mínima (dual-gate) |
+| `_disc_prefilter_threshold` | 0.70 | Confiança mínima DISC |
 | `_gauss_prefilter_threshold` | 0.80 | Confiança mínima GAUSS |
 | `_family_gate_threshold` | 0.55 | Confiança mínima HIER |
 | `_ga_boost_pca_threshold` | 0.45 | PCA var para boost GA |
@@ -517,9 +691,26 @@ def _apply_family_gate(self, all_proba, family_probs, threshold=0.55):
 | Parâmetro | Valor | Descrição |
 |-----------|-------|-----------|
 | CV splits (meta) | 3-5 | Validação cruzada |
-| n_estimators (RF) | 200 | Árvores do ExtraTrees |
+| n_estimators (RF/ET) | 200 | Árvores do ExtraTrees e regressor |
 | max_depth (GBC) | 3 | Profundidade do GradientBoosting |
 | learning_rate (GBC) | 0.1 | Taxa de aprendizado |
+
+### 7.3 ⚡ Perfis de Avaliação (v17)
+
+| Perfil | n_runs | CV | Uso |
+|--------|--------|----|-----|
+| `META_FAST_PROFILE` | 1 | 3 | Geração rápida (ruidosa) |
+| `META_STABLE_PROFILE` | **5** | 5 | **Geração confiável** (labels para regressor) |
+
+### 7.4 ⚡ Configurações do Regressor (v17)
+
+| Parâmetro | Valor | Descrição |
+|-----------|-------|-----------|
+| Modelo base | RandomForestRegressor | n_estimators=200 |
+| Wrapper | MultiOutputRegressor | 1 modelo por mecanismo |
+| Pré-processamento | StandardScaler | Normaliza features |
+| Temperatura softmin | T=10 | Conversão perda→probabilidade |
+| Treinamento em | X_meta_orig | Pré-oversample (distribuição real) |
 
 ---
 
@@ -581,7 +772,13 @@ def _data_fingerprint(X, y, sample_size=1000):
 ### 9.1 API Python
 
 ```python
-from dp_meta_selector import DPMechanismSelector
+from dp_meta_selector import (
+    DPMechanismSelector,
+    META_STABLE_PROFILE,
+    TASK_CLASSIFICATION,
+    TASK_REGRESSION,
+    TASK_QUERIES
+)
 
 # Inicialização
 selector = DPMechanismSelector(
@@ -593,10 +790,19 @@ selector = DPMechanismSelector(
 # Treinamento
 selector.fit(training_datasets)
 
-# Recomendação
-result = selector.recommend(X_new, y_new)
+# Recomendação com contexto (v17)
+result = selector.recommend(
+    X_new, y_new,
+    epsilon=0.5,                   # orçamento ε do usuário
+    task_type=TASK_CLASSIFICATION  # tipo de tarefa
+)
 print(f"Mecanismo: {result['recommended_mechanism']}")
 print(f"Confiança: {result['confidence']:.2%}")
+
+# Se regressor foi usado, exibe perdas previstas
+if "predicted_losses" in result:
+    for mech, loss in sorted(result["predicted_losses"].items(), key=lambda x: x[1]):
+        print(f"  {mech}: {loss:.1f}% de perda prevista")
 
 # Aplicação de DP
 X_private = selector.apply(X_new, result['recommended_mechanism'])
@@ -640,6 +846,7 @@ selector = DPMechanismSelector.load_from("dp_meta_selector.joblib")
 | **Regret** | E[acc_oracle - acc_model] | Perda vs. escolha ótima |
 | **Model Accuracy** | E[acc(model_choice)] | Acurácia média do modelo |
 | **Relative Performance** | model_acc / oracle_acc | Performance relativa |
+| ⚡ **MAE-CV** | mean(\|loss_pred - loss_real\|) | Erro médio do regressor de utilidade |
 
 ### 10.2 Métricas por Família
 
@@ -660,4 +867,15 @@ diagnostics = run_full_diagnostics(meta_df, y_pred, y_true)
 # - Expected Calibration Error (ECE)
 # - K-fold cross-validation
 # - Ablation study
+# - MAE por mecanismo (regressor)
 ```
+
+### 10.4 ⚡ Resultados v17
+
+| Métrica | Valor | Contexto |
+|---------|-------|---------|
+| F1-macro (ExtraTrees, 5-fold CV) | **0.87** | Classificador com 116 features |
+| MAE-CV (regressor) | **4.16%** | Erro médio de previsão de perda |
+| Hit rate geral (classificador) | **66.4%** | 366 treino / 123 teste |
+| Hit rate geral (regressor) | 29.4% | Com META_FAST_PROFILE (n_runs=1) |
+| Hit rate (regressor + META_STABLE) | esperado ~50%+ | Com META_STABLE_PROFILE (n_runs=5) |

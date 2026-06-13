@@ -97,6 +97,21 @@ EVAL_FULL_PROFILE = UtilityProfile(
     parallel=True,
 )
 
+# Perfil estável para construção de meta-dataset de alta qualidade.
+# Usa n_runs=5 para calcular a média sobre múltiplas sementes aleatórias,
+# eliminando o ruído estocástico da DP dos labels de treino do metamodelo.
+# Recomendado quando se quer labels de treino confiáveis (mais lento que META_FAST).
+META_STABLE_PROFILE = UtilityProfile(
+    name="meta_stable",
+    clf="rf",
+    n_estimators=30,
+    cv_splits=3,
+    n_runs=5,
+    use_screening=True,
+    refine_top_k=3,
+    parallel=True,
+)
+
 
 def _make_utility_pipeline(profile: UtilityProfile) -> Pipeline:
     if profile.clf == "logreg":

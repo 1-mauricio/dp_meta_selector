@@ -18,6 +18,7 @@ from .utility import (
     EVAL_FAST_PROFILE,
     META_ALIGNED_PROFILE,
     META_FAST_PROFILE,
+    META_STABLE_PROFILE,
     DPUtilityEvaluator,
     UtilityProfile,
     UtilityResultCache,
@@ -123,8 +124,41 @@ class DPMechanismSelector:
         _log.info("  Melhor meta-modelo: %s", self._learner.best_model_name)
         return self
 
-    def recommend(self, X, y, meta_model=None, verbose=True) -> Dict:
-        result = self._learner.predict(X, y, model_name=meta_model)
+    def recommend(
+        self,
+        X,
+        y,
+        meta_model=None,
+        verbose=True,
+        epsilon: float = None,
+        task_type: str = None,
+    ) -> Dict:
+        """Recomenda o melhor mecanismo DP para um dataset.
+        
+        Parameters
+        ----------
+        X : np.ndarray
+            Matriz de features do dataset
+        y : np.ndarray
+            Vetor de labels
+        meta_model : str, optional
+            Nome do meta-modelo específico a usar
+        verbose : bool
+            Se True, imprime logs detalhados
+        epsilon : float, optional
+            Orçamento de privacidade desejado pelo usuário.
+            Valores típicos: 0.1-0.5 (forte), 1.0 (padrão), 5.0+ (fraco)
+        task_type : str, optional
+            Tipo de tarefa: "classification", "regression", ou "queries"
+        
+        Returns
+        -------
+        Dict
+            recommended_mechanism, confidence, all_proba, meta_model_used
+        """
+        result = self._learner.predict(
+            X, y, model_name=meta_model, epsilon=epsilon, task_type=task_type
+        )
         if verbose:
             mech = result["recommended_mechanism"]
             fam = FAMILY_OF.get(mech, "?")
@@ -132,15 +166,29 @@ class DPMechanismSelector:
             _log.info("=" * 65)
             _log.info("  RECOMENDAÇÃO DE MECANISMO DP")
             _log.info("=" * 65)
+            if epsilon is not None:
+                _log.info("  Epsilon (usuário): %.3f", epsilon)
+            if task_type is not None:
+                _log.info("  Tarefa           : %s", task_type)
             _log.info("  Mecanismo  : %s", mech)
             _log.info("  Família    : %s  (ε = %.3f)", fam, eps)
             _log.info("  Confiança  : %.2f%%", result["confidence"] * 100)
             _log.info("  Meta-modelo: %s", result["meta_model_used"])
-            _log.info("  Todas as probabilidades:")
-            for m, p in sorted(result["all_proba"].items(), key=lambda x: -x[1]):
-                fam_m = FAMILY_OF.get(m, "?")
-                bar = "█" * int(p * 28)
-                _log.info("   %-22s %.3f  [%-12s]  %s", m, p, fam_m, bar)
+
+            # Se usou regressão, exibe perda prevista por mecanismo
+            if "predicted_utility_loss" in result:
+                _log.info("  Perda de utilidade prevista (menor = melhor):")
+                losses = result["predicted_utility_loss"]
+                for m, loss in sorted(losses.items(), key=lambda x: x[1]):
+                    fam_m = FAMILY_OF.get(m, "?")
+                    marker = " ◄ recomendado" if m == mech else ""
+                    _log.info("   %-22s %5.1f%%  [%-12s]%s", m, loss, fam_m, marker)
+            else:
+                _log.info("  Todas as probabilidades:")
+                for m, p in sorted(result["all_proba"].items(), key=lambda x: -x[1]):
+                    fam_m = FAMILY_OF.get(m, "?")
+                    bar = "█" * int(p * 28)
+                    _log.info("   %-22s %.3f  [%-12s]  %s", m, p, fam_m, bar)
         return result
 
     def apply(self, X, mechanism: str, verbose=True) -> np.ndarray:

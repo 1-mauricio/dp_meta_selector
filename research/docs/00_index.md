@@ -2,7 +2,7 @@
 
 > Framework de meta-aprendizagem para seleção automática de mecanismos de Privacidade Diferencial.
 
-**Atualizado em:** 2026-06-11
+**Atualizado em:** 2026-06-13
 
 ---
 
@@ -10,12 +10,14 @@
 
 O `dp_meta_selector` é um framework que seleciona automaticamente o melhor mecanismo de Privacidade Diferencial (DP) para um dataset tabular, sem necessidade de intervenção manual.
 
-**Fluxo geral (v16, atual):**
-1. Extrair meta-features do dataset (39 features)
+**Fluxo geral (v17, atual):**
+1. Extrair meta-features do dataset (**116 features** — inclui features DP-específicas e contexto do usuário)
 2. CAT1: pré-filtro binário Exponential (threshold ≥ 0.75) com dual-gate família (p_cat ≥ 0.15)
-3. GAUSS: pré-filtro para GaussianAnalytic (threshold ≥ 0.80)
-4. Ensemble ExtraTrees + portão hierárquico HIER (gate 0.55)
-5. Aplicar o mecanismo escolhido com ε calibrado por família
+3. DISC: pré-filtro para mecanismos discretos/Geometric (threshold ≥ 0.70)
+4. GAUSS: pré-filtro para GaussianAnalytic (threshold ≥ 0.80)
+5. **Regressão multi-output** de perda de utilidade — recomenda o mecanismo com **menor perda prevista** (padrão)
+6. Ensemble ExtraTrees + portão hierárquico HIER (gate 0.55) — fallback
+7. Aplicar o mecanismo escolhido com ε calibrado por família
 
 ---
 
@@ -46,20 +48,24 @@ O `dp_meta_selector` é um framework que seleciona automaticamente o melhor meca
 | **cat_hit** | Hit rate em datasets categóricos |
 | **cont_hit** | Hit rate em datasets contínuos |
 | **F1-macro** | F1-score macro do meta-modelo |
+| **MAE-CV** | ⚡ NOVO: Erro médio da regressão de perda de utilidade |
 
 ---
 
 ## Evolução do Framework
 
-| Versão | Hit Rate | Principais Mudanças |
-|--------|----------|---------------------|
-| v0 (baseline) | 53.1% | Meta-modelo básico |
-| v1 | 53.7% | +CAT1 prefilter |
-| v2b | 68.0% | +HIER gate (corrigido) |
-| v8b | 64.6% | +Dual-gate T2=0.20 |
-| v13 | 67.4% | T1=0.90 (otimizado) |
-| v14 | 67.6% | +Sintéticos, +family discriminators |
-| **v16** | **61.9%** | Thresholds ajustados para F1-macro (0.70) |
+| Versão | Hit Rate | F1-macro | Principais Mudanças |
+|--------|----------|----------|---------------------|
+| v0 (baseline) | 53.1% | — | Meta-modelo básico |
+| v1 | 53.7% | — | +CAT1 prefilter |
+| v2b | 68.0% | — | +HIER gate (corrigido) |
+| v8b | 64.6% | — | +Dual-gate T2=0.20 |
+| v13 | 67.4% | 0.55 | T1=0.90 (otimizado) |
+| v14 | 67.6% | 0.55 | +Sintéticos, +family discriminators |
+| v16 | 61.9% | **0.70** | Thresholds ajustados para recall balanceado |
+| **v17** | **66.4%** | **0.87** | ⚡ +40 meta-features DP, regressão de utilidade, variáveis de contexto |
+
+> **v17** é a versão com a refatoração DP-aware. Ver [09_results_summary.md](09_results_summary.md) para análise detalhada.
 
 ---
 
@@ -69,13 +75,14 @@ O `dp_meta_selector` é um framework que seleciona automaticamente o melhor meca
 dp_meta_selector/
 ├── __init__.py
 ├── main.py              # CLI principal
-├── selector.py          # DPSelector (API)
-├── meta_learner.py      # MetaLearner (modelo)
-├── meta_features.py     # Extração de features
-├── meta_dataset.py      # Construção do meta-dataset
+├── selector.py          # DPSelector (API) — aceita epsilon e task_type
+├── meta_learner.py      # MetaLearner — classificação + regressão de perda
+├── meta_features.py     # Extração de features (116 features, inclui DP e contexto)
+├── meta_dataset.py      # Construção do meta-dataset (inclui utility_loss_*)
 ├── mechanisms.py        # Mecanismos DP disponíveis
 ├── calibration.py       # Calibração de epsilon
 ├── applicator.py        # Aplicação de DP
+├── utility.py           # Perfis de avaliação (inclui META_STABLE_PROFILE n_runs=5)
 ├── diagnostics.py       # Métricas avançadas
 ├── synthetic_datasets.py # Geradores de sintéticos
 └── scripts/
@@ -89,4 +96,6 @@ dp_meta_selector/
 - **Mecanismos ativos:** Laplace, Gaussian, GaussianAnalytic, Staircase, LaplaceTruncated, LaplaceFolded, Snapping, Exponential, Uniform
 - **Mecanismos de screening:** Laplace, GaussianAnalytic, Exponential
 - **Epsilon por família:** continuous=5.0, categorical=2.0
-- **Meta-features:** 39 features (estatísticas + família + discriminadores)
+- **Meta-features:** 116 features (estatísticas + família + discriminadores + **DP-específicas** + **contexto**)
+- **Variáveis de contexto obrigatórias:** `epsilon` (orçamento), `task_type` (classificação/regressão/queries)
+- **Target do regressor:** `utility_loss_{mechanism}` = perda relativa % por mecanismo
