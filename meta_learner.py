@@ -116,9 +116,14 @@ class MetaLearner:
         self._regression_model = None
         self._regression_mechanisms: List[str] = []
         self._regression_cv_mae: float = float("nan")
-        # v18: Ensemble Híbrido — Classificador como Filtro de Sobrevivência + Regressor como Fine-Tuner
-        # Top-K mecanismos do classificador passam ao regressor para fine-tuning por perda.
-        self._hybrid_top_k: int = 4
+        # v18/v19: Ensemble Híbrido — Classificador como Filtro de Sobrevivência + Regressor como Fine-Tuner.
+        # top_k=3: calibrado offline na v19 (tune_meta_models.py) — top_k≥2 converge para o mesmo
+        #          resultado; 3 garante cobertura caso o 1º sobrevivente não esteja no regressor.
+        self._hybrid_top_k: int = 3
+        # v19: margem de fallback conservador — sweet spot calibrado offline com grid 5×8 (40 combos):
+        #   margin=0.5pp → Hit Rate=50.5%, Pior-que-Laplace=3.0% (era 31.8% sem calibração).
+        #   Valores ≥2pp colapsam para Laplace em quase todos os casos (hit rate cai para ~48%).
+        self._hybrid_laplace_margin: float = 0.5
 
     def fit(self, meta_df: pd.DataFrame) -> Dict[str, float]:
         # Colunas de perda de utilidade são targets de regressão, não features
@@ -708,19 +713,16 @@ class MetaLearner:
             best_loss = survivor_losses[best_mech]
 
             # ── v19: Fallback Conservador ──────────────────────────────────────────────
-            # Se a perda prevista do vencedor não for claramente melhor que Laplace,
-            # o regressor provavelmente está confuso (labels ruidosas). Recorre ao
-            # classificador puro (top-1 do soft-voting) que é mais robusto ao ruído.
-            # Margem: 2pp — o regressor precisa prever uma vantagem real sobre Laplace.
+            # Se o vencedor não supera Laplace por self._hybrid_laplace_margin, o regressor
+            # pode estar confuso → recorre ao top-1 do classificador (mais robusto ao ruído).
+            # Margem calibrada offline (tune_meta_models.py v19): 0.5pp é o sweet spot.
             _laplace_loss = loss_dict.get("Laplace", float("inf"))
-            _hybrid_laplace_margin: float = 2.0  # pp de vantagem mínima sobre Laplace
-            if best_mech != "Laplace" and best_loss > _laplace_loss - _hybrid_laplace_margin:
-                # Usa o top-1 do classificador puro como decisão final
+            if best_mech != "Laplace" and best_loss > _laplace_loss - self._hybrid_laplace_margin:
                 clf_best = sorted_by_clf[0][0]
                 _log.debug(
-                    "[Híbrido v19] Fallback conservador: reg vencedor=%s (loss=%.1f%%) "
-                    "não supera Laplace (loss=%.1f%%) por %.1fpp → usa clf top-1=%s",
-                    best_mech, best_loss, _laplace_loss, _hybrid_laplace_margin, clf_best,
+                    "[Híbrido v19] Fallback: reg=%s (loss=%.1f%%) não supera Laplace "
+                    "(loss=%.1f%%) por %.1fpp → clf top-1=%s",
+                    best_mech, best_loss, _laplace_loss, self._hybrid_laplace_margin, clf_best,
                 )
                 best_mech = clf_best
                 best_loss = loss_dict.get(clf_best, best_loss)
@@ -1079,8 +1081,9 @@ class MetaLearner:
                 "regression_model": getattr(self, "_regression_model", None),
                 "regression_mechanisms": getattr(self, "_regression_mechanisms", []),
                 "regression_cv_mae": getattr(self, "_regression_cv_mae", float("nan")),
-                # v18: Ensemble Híbrido
-                "hybrid_top_k": getattr(self, "_hybrid_top_k", 4),
+                # v18/v19: Ensemble Híbrido
+                "hybrid_top_k": getattr(self, "_hybrid_top_k", 3),
+                "hybrid_laplace_margin": getattr(self, "_hybrid_laplace_margin", 0.5),
             },
             path,
         )
@@ -1112,6 +1115,7 @@ class MetaLearner:
         self._regression_model = d.get("regression_model", None)
         self._regression_mechanisms = d.get("regression_mechanisms", [])
         self._regression_cv_mae = d.get("regression_cv_mae", float("nan"))
-        # v18: Ensemble Híbrido
-        self._hybrid_top_k = d.get("hybrid_top_k", 4)
+        # v18/v19: Ensemble Híbrido
+        self._hybrid_top_k = d.get("hybrid_top_k", 3)
+        self._hybrid_laplace_margin = d.get("hybrid_laplace_margin", 0.5)
         _log.info("[MetaLearner] Carregado de '%s'", path)
