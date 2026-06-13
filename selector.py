@@ -138,6 +138,7 @@ class DPMechanismSelector:
         verbose=True,
         epsilon: float = None,
         task_type: str = None,
+        return_top_k: int = 1,
     ) -> Dict:
         """Recomenda o melhor mecanismo DP para um dataset.
         
@@ -156,14 +157,22 @@ class DPMechanismSelector:
             Valores típicos: 0.1-0.5 (forte), 1.0 (padrão), 5.0+ (fraco)
         task_type : str, optional
             Tipo de tarefa: "classification", "regression", ou "queries"
+        return_top_k : int, optional
+            Número de mecanismos alternativos a retornar (padrão=1).
+            Com return_top_k=2 ativa o modo "Human-in-the-Loop": retorna as duas
+            melhores opções com perda prevista de cada uma, permitindo ao engenheiro
+            de dados escolher com contexto. Hit Rate Top-2 do v19 Hybrid: 94.3%.
         
         Returns
         -------
         Dict
-            recommended_mechanism, confidence, all_proba, meta_model_used
+            recommended_mechanism, confidence, all_proba, meta_model_used.
+            Se return_top_k > 1, inclui também 'top_k_recommendations':
+            lista ordenada de {rank, mechanism, predicted_loss, confidence}.
         """
         result = self._learner.predict(
-            X, y, model_name=meta_model, epsilon=epsilon, task_type=task_type
+            X, y, model_name=meta_model, epsilon=epsilon, task_type=task_type,
+            return_top_k=return_top_k,
         )
         if verbose:
             mech = result["recommended_mechanism"]
@@ -200,6 +209,19 @@ class DPMechanismSelector:
                     fam_m = FAMILY_OF.get(m, "?")
                     bar = "█" * int(p * 28)
                     _log.info("   %-22s %.3f  [%-12s]  %s", m, p, fam_m, bar)
+
+            # Human-in-the-Loop: exibe as top-K alternativas quando solicitado
+            top_k_recs = result.get("top_k_recommendations")
+            if top_k_recs and len(top_k_recs) > 1:
+                _log.info("  Top-%d para Human-in-the-Loop:", len(top_k_recs))
+                for rec in top_k_recs:
+                    fam_m = FAMILY_OF.get(rec["mechanism"], "?")
+                    loss_str = (f"  perda_prevista={rec['predicted_loss']:.1f}%"
+                                if rec["predicted_loss"] is not None
+                                else f"  confiança={rec['confidence']:.3f}")
+                    marker = " ◄ recomendado" if rec["rank"] == 1 else ""
+                    _log.info("   #%d %-22s [%-12s]%s%s",
+                              rec["rank"], rec["mechanism"], fam_m, loss_str, marker)
         return result
 
     def apply(self, X, mechanism: str, verbose=True) -> np.ndarray:

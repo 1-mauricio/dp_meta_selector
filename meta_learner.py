@@ -803,6 +803,7 @@ class MetaLearner:
         model_name=None,
         epsilon: float = None,
         task_type: str = None,
+        return_top_k: int = 1,
     ) -> Dict:
         """Prediz o melhor mecanismo DP para um dataset.
         
@@ -818,11 +819,18 @@ class MetaLearner:
             Orçamento de privacidade desejado (contexto obrigatório para DP)
         task_type : str, optional
             Tipo de tarefa: "classification", "regression", ou "queries"
+        return_top_k : int, optional
+            Número de mecanismos a retornar em ordem decrescente de recomendação.
+            Por padrão 1 (comportamento original). Com return_top_k=2, retorna os
+            dois melhores com previsão de perda de utilidade de cada um — útil para
+            o padrão "Human-in-the-Loop" (Hit Rate Top-2 do v19 Hybrid: 94.3%).
         
         Returns
         -------
         Dict
             Dicionário com recommended_mechanism, confidence, all_proba, etc.
+            Se return_top_k > 1, inclui também 'top_k_recommendations': lista de
+            dicts [{mechanism, rank, predicted_loss, confidence}, ...].
         """
         if self.META_FEATURE_COLS is None:
             raise RuntimeError("Chame fit() antes de predict().")
@@ -832,20 +840,42 @@ class MetaLearner:
         )
         row = np.array([[feats.get(c, 0.0) for c in self.META_FEATURE_COLS]])
 
+        # Helper local: enriquece qualquer resultado com top_k_recommendations
+        def _enrich(result: Dict) -> Dict:
+            if return_top_k <= 1:
+                return result
+            loss_dict  = result.get("predicted_utility_loss", {})
+            proba_dict = result.get("all_proba", {})
+            # Ordena: por perda prevista (se disponível), senão por probabilidade
+            if loss_dict:
+                ordered = sorted(loss_dict.items(), key=lambda x: x[1])
+            else:
+                ordered = sorted(proba_dict.items(), key=lambda x: -x[1])
+            top_k_list = []
+            for rank_i, (mech, score) in enumerate(ordered[:return_top_k], start=1):
+                top_k_list.append({
+                    "rank":            rank_i,
+                    "mechanism":       mech,
+                    "predicted_loss":  score if loss_dict else None,
+                    "confidence":      proba_dict.get(mech, 0.0),
+                })
+            result["top_k_recommendations"] = top_k_list
+            return result
+
         # CAT1: pré-filtro binário Exponential — intercepta categorical antes do portão de família
         cat_result = self._apply_categorical_prefilter(row)
         if cat_result is not None:
-            return cat_result
+            return _enrich(cat_result)
 
         # DISC: pré-filtro para mecanismos discretos (Geometric, etc.)
         disc_result = self._apply_discrete_prefilter(row)
         if disc_result is not None:
-            return disc_result
+            return _enrich(disc_result)
 
         # GAUSS: pré-filtro binário GaussianAnalytic — dentro do espaço contínuo
         gauss_result = self._apply_gaussian_prefilter(row)
         if gauss_result is not None:
-            return gauss_result
+            return _enrich(gauss_result)
 
         # v18: Ensemble Híbrido — Filtro de Sobrevivência (Classificador) + Fine-Tuning (Regressor).
         # O classificador elimina mecanismos claramente inadequados; o regressor ordena os finalistas
@@ -854,7 +884,7 @@ class MetaLearner:
         if model_name is None:
             hybrid_result = self._predict_hybrid(row)
             if hybrid_result is not None:
-                return hybrid_result
+                return _enrich(hybrid_result)
 
         if model_name is not None:
             proba = self.models[model_name].predict_proba(row)[0]
@@ -915,13 +945,13 @@ class MetaLearner:
                     confidence = lap_conf
                     fallback_applied = True
 
-        return {
+        return _enrich({
             "recommended_mechanism": recommended,
             "confidence": confidence,
             "all_proba": dict(zip(classes, proba.tolist())),
             "meta_model_used": used_name,
             "fallback_applied": fallback_applied,
-        }
+        })
 
     def _get_family_confidence(self, row: np.ndarray, family: str) -> float:
         """Retorna a confiança do family classifier para a família solicitada."""
