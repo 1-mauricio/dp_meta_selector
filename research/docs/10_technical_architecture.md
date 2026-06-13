@@ -879,3 +879,43 @@ diagnostics = run_full_diagnostics(meta_df, y_pred, y_true)
 | Hit rate geral (classificador) | **66.4%** | 366 treino / 123 teste |
 | Hit rate geral (regressor) | 29.4% | Com META_FAST_PROFILE (n_runs=1) |
 | Hit rate (regressor + META_STABLE) | esperado ~50%+ | Com META_STABLE_PROFILE (n_runs=5) |
+
+### 10.5 ⚡ Resultados v18/v19 — Hybrid Ensemble
+
+| Métrica | v18 | v19 raw | v19-tuned |
+|---------|:---:|:-------:|:---------:|
+| F1-macro (CV) | 0.855 | **0.910** | **0.910** |
+| MAE-CV regressor | 3.99% | 3.85% | 3.85% |
+| Hit Rate (pipeline) | 36.4% | 53.2% | 68.3%* |
+| Pior-que-Laplace | 48.6% | 31.8% | 10.2%* |
+| Max Regret | — | — | **14.04pp*** |
+| `_hybrid_top_k` | 4 | 4 | **3** |
+| `_hybrid_laplace_margin` | local 2.0pp | local 2.0pp | **0.5pp (attr)** |
+| Labels | n_runs=1 | n_runs=5 | n_runs=5 |
+
+> *Métricas de 5-fold CV (`research/benchmark_evaluator.py`), sem pré-filtros hierárquicos.  
+> Pipeline completo com pré-filtros reporta F1=0.910 e Hit Rate ~53%+ (com margem original).
+
+### 10.6 ⚡ Benchmark Comparativo Final (5-fold CV, 401 datasets)
+
+| Seletor | Hit1 | Hit2 | Avg Regret | Max Regret | Catástrofe |
+|---------|:----:|:----:|:----------:|:----------:|:----------:|
+| Random Baseline | 13.5% | 23.4% | 1.66pp | 27.31pp | 68.1% |
+| Always Laplace | 60.8% | 82.0% | 0.81pp | 15.57pp | 0.0% |
+| Vanilla AutoML v16 | **75.8%** | 93.8% | **0.50pp** | 25.73pp | 8.0% |
+| **v19 Hybrid** | 68.3% | **94.3%** | 0.65pp | **14.04pp** | 10.2% |
+
+**Achado central:** O v19 troca −7.5pp em Hit Rate Top-1 por −45% no Max Regret (pior caso). Escolha matematicamente justificada para ambientes DP críticos.
+
+### 10.7 ⚡ Human-in-the-Loop: `return_top_k`
+
+```python
+# Top-2: mecanismo ideal está no top-2 em 94.3% dos casos
+result = selector.recommend(X, y, epsilon=1.0, task_type="classification", return_top_k=2)
+for rec in result["top_k_recommendations"]:
+    print(f"#{rec['rank']} {rec['mechanism']:<22} perda_prevista={rec['predicted_loss']:.1f}%")
+# #1 Laplace                perda_prevista=2.1%
+# #2 Exponential            perda_prevista=2.2%
+```
+
+`top_k_recommendations` inclui: `rank`, `mechanism`, `predicted_loss` (%), `confidence`.

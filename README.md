@@ -324,52 +324,32 @@ Dimensionalidade log, razão features/amostras, spread PCA (para detectar Gaussi
 
 ---
 
-## Resultados experimentais
+## Resultados experimentais — v19 (versão final)
 
-### Benchmark (489 datasets OpenML, split 75/25)
+### Benchmark Científico (5-fold CV, 401 datasets, n_runs=5)
 
-| Métrica | Valor |
-|---------|-------|
-| **Classificador ExtraTrees F1-macro (CV)** | **0.874** |
-| **Regressor Multi-output MAE-CV** | **4.16%** (erro médio na perda de utilidade) |
-| Total de meta-features | 116 (↑ de ~76) |
-| Pré-filtro Exponential F1 (CV) | 0.79 |
-| Pré-filtro GaussianAnalytic F1 (CV) | 0.45 |
+> Avaliação reproduzível via `research/benchmark_evaluator.py`. Relatório completo: `research/docs/20_final_benchmark_report.md`.
 
-### Comparação: pipeline antiga vs nova (123 datasets de teste)
+| Seletor | Hit Rate Top-1 | Hit Rate Top-2 | Avg Regret | Perf. Relativa | Catástrofe | Max Regret |
+|---------|:--------------:|:--------------:|:----------:|:--------------:|:----------:|:----------:|
+| Random Baseline | 13.5% | 23.4% | 1.66pp | 96.8% | 68.1% | 27.31pp |
+| Most Frequent | 60.8% | 82.0% | 0.81pp | 98.4% | 0.0% | 15.57pp |
+| Always Laplace | 60.8% | 82.0% | 0.81pp | 98.4% | 0.0% | 15.57pp |
+| Vanilla AutoML v16 | **75.8%** | 93.8% | **0.50pp** | **99.1%** | 8.0% | 25.73pp |
+| **v19 Hybrid (nosso)** | 68.3% | **94.3%** 🏆 | 0.65pp | 98.6% | 10.2% | **14.04pp** 🛡️ |
 
-```
-                                 ANTIGA (clf)    NOVA (reg)    Delta
-─────────────────────────────────────────────────────────────────────
-Hit Rate geral                     66.4%           29.4%       -37.0%
-Gap médio (perda extra ao errar)    0.77%           3.56%       +2.79%
+### Modo Ataque vs. Defesa Constrangida
 
-Casos ambíguos (sem prefilter, 73% dos datasets):
-Hit Rate                           71.3%           20.7%       -50.6%
-Gap médio                           0.36%           4.18%       +3.81%
-```
+O benchmark expôs um **trade-off científico fundamental** entre dois perfis de risco:
 
-### Interpretação dos resultados
+**🔴 Vanilla v16 — "Modo Ataque":** Hit Rate Top-1 de **75.8%**, mas quando erra, erra catastroficamente. Max Regret de **25.73pp** — em casos extremos, a recomendação destrói 25% da utilidade do modelo.
 
-**Por que o regressor performa pior com o perfil atual?**
+**🟢 v19 Hybrid — "Defesa Constrangida":** Aceita −7.5pp em precisão absoluta para entregar:
+- **−45% no pior caso** (Max Regret: 25.73pp → **14.04pp**)
+- **Melhor Top-2 Hit Rate (94.3%)** — o mecanismo correto quase sempre está nas top-2 opções
+- Implementado via fallback conservador com `margin=0.5pp` calibrado por grid search offline (5×8 = 40 combinações)
 
-O regressor de perda de utilidade é uma arquitetura mais expressiva, mas também mais exigente em qualidade de dados de treino. Com o `META_FAST_PROFILE` (`n_runs=1`), cada avaliação DP é executada **uma única vez**, introduzindo ruído estocástico alto nos targets. O regressor tenta aprender precisão milimétrica (perdas em %) a partir de labels ruidosas, o que degrada sua performance.
-
-Adicionalmente, o classificador opera sobre 3 classes bem separadas (Laplace, Exponential, GaussianAnalytic) e acumula 6+ anos de otimização via prefilters especializados. O regressor cobre 9 mecanismos sem prefilters dedicados.
-
-**Quando o regressor mostrará seu valor?**
-
-| Condição | Status | Como ativar |
-|----------|--------|-------------|
-| `n_runs ≥ 5` (labels confiáveis) | ⚠️ Requer `META_STABLE_PROFILE` | `DPMechanismSelector(meta_profile=META_STABLE_PROFILE)` |
-| Contexto ε fornecido | ✅ Implementado | `recommend(..., epsilon=1.0)` |
-| Muitos datasets de treino (> 500) | ✅ Disponível | Dataset padrão tem 489 |
-| Prefilters para casos ambíguos | 🔲 Trabalho futuro | Integrar regressor com prefilters |
-
-**Recomendação de uso atual:**
-- Use `META_FAST_PROFILE` (padrão) para desenvolvimento e experimentação → classificador é mais confiável.
-- Use `META_STABLE_PROFILE` (`n_runs=5`) quando quiser explorar a regressão → labels de treino limpas.
-- O `predicted_utility_loss` no resultado da regressão é útil como **ranking explicável** mesmo que o mecanismo escolhido mude.
+> Para deployments DP críticos (saúde, finanças, dados governamentais), o custo assimétrico dos erros torna a v19 a escolha matematicamente justificada.
 
 ---
 
@@ -466,7 +446,56 @@ O log agora exibe a perda prevista por mecanismo quando a regressão é usada:
 
 ---
 
-## Solução de problemas
+## Human-in-the-Loop: `return_top_k`
+
+Dado que o Hit Rate Top-2 do v19 Hybrid é **94.3%** (o maior de todos os seletores), o framework suporta a flag `return_top_k` para retornar as N melhores opções com perda prevista de cada uma:
+
+```python
+# Top-2 — Human-in-the-Loop
+result = selector.recommend(X, y, epsilon=1.0, task_type="classification", return_top_k=2)
+
+for rec in result["top_k_recommendations"]:
+    print(f"#{rec['rank']} {rec['mechanism']:<22}  perda_prevista={rec['predicted_loss']:.1f}%")
+# #1 Laplace                  perda_prevista=2.1%
+# #2 Exponential               perda_prevista=2.2%
+```
+
+Cada item de `top_k_recommendations` inclui: `rank`, `mechanism`, `predicted_loss` (%), `confidence`. A diferença de 0.1pp entre o #1 e o #2 dá ao engenheiro de dados contexto para escolher com convicção.
+
+---
+
+## 🧠 Memorial Técnico: Por que DP quebra o AutoML Tradicional?
+
+### Os Três Pilares Matemáticos
+
+**1. Sensibilidade Global e Caudas Longas:** O ruído injetado pela DP é proporcional à sensibilidade $\Delta f$. Datasets com *outliers* extremos (alta kurtosis) disparam a sensibilidade — o algoritmo introduz tanto ruído para mascarar esses indivíduos que destrói a utilidade do dado. *Meta-features criadas:* `dp_max_kurtosis`, `dp_clipping_loss_estimate`, `dp_ratio_heavy_tails`.
+
+**2. O Paradoxo do Orçamento de Privacidade ($\epsilon$):** Um mecanismo $A$ pode ser ótimo com $\epsilon=0.1$ e desastroso com $\epsilon=5.0$. Portanto, $\epsilon$ e o tipo de tarefa **devem ser variáveis de contexto de entrada obrigatórias**. Sem elas, o F1-macro estagna em 0.70. *Meta-features criadas:* `ctx_epsilon`, `ctx_log_epsilon`, `ctx_task_*`.
+
+**3. Impacto Desproporcional (*Disparate Impact*):** O clipping do DP-SGD apaga desproporcionalmente informação sobre subgrupos minoritários. Datasets desbalanceados produzem modelos enviesados mesmo com DP "tecnicamente correto". *Meta-features criadas:* `dp_class_entropy`, `dp_gini_impurity`, `dp_disparate_impact_risk`.
+
+### A Areia Movediça Estatística (v18)
+
+Na v18, ao treinar o Regressor Multi-Output com $n\_runs=1$, o Hit Rate despencou para **36.4%** e 48.6% das recomendações eram piores que Laplace. O diagnóstico: com uma única rodada, o alvo de aprendizado (`utility_loss_*`) variava a cada seed — o regressor tentava aprender padrões em cima de labels sem sinal consistente.
+
+**Solução (v19):** `META_STABLE_PROFILE` com $n\_runs=5$. Cada alvo é a média de 5 execuções independentes, eliminando o ruído estocástico.
+
+### Evolução Completa
+
+| Versão | F1-macro | Hit Rate | Max Regret | Principais mudanças |
+|--------|:--------:|:--------:|:----------:|---------------------|
+| v16 | 0.70 | 61.9% | — | Classificador puro, 74 features |
+| v17 | 0.87 | 66.4% | — | +38 features DP/ctx, regressão multi-output |
+| v18 | 0.855 | 36.4% | — | Hybrid ensemble, labels ruidosas (n_runs=1) |
+| v19 raw | 0.910 | 53.2% | — | META_STABLE_PROFILE n_runs=5 |
+| **v19-tuned** | **0.910** | **68.3%** | **14.04pp** | **margin=0.5pp calibrado, `return_top_k`** |
+
+### Próximos Passos
+
+- **Multi-Task Meta-Learning:** Expandir para prever *learning rate* e *batch size* em pipelines federados.
+- **Margens de Fallback Dinâmicas:** Substituir a margem fixa de 0.5pp por função não-linear de `dp_mean_col_sparsity`.
+
+---
 
 - Se ocorrer erro de importação, verifique se o ambiente virtual está ativo.
 - Se OpenML estiver lento/indisponível, tente novamente (dependência de rede).

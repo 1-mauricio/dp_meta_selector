@@ -143,6 +143,34 @@ Gap médio                           0.36%           4.18%       +3.81%
 
 ---
 
+## Benchmark Científico Final — v19 (5-fold CV, 401 datasets)
+
+Validação cruzada estratificada 5-fold sobre o meta-dataset estabilizado (n_runs=5). Compara 5 seletores em 6 métricas científicas.
+
+| Seletor | Hit Rate Top-1 | Hit Rate Top-2 | Avg Regret | Perf. Relativa | Catástrofe | Max Regret |
+|---------|:--------------:|:--------------:|:----------:|:--------------:|:----------:|:----------:|
+| Random Baseline | 13.5% | 23.4% | 1.66pp | 96.8% | 68.1% | 27.31pp |
+| Most Frequent | 60.8% | 82.0% | 0.81pp | 98.4% | 0.0% | 15.57pp |
+| Always Laplace | 60.8% | 82.0% | 0.81pp | 98.4% | 0.0% | 15.57pp |
+| Vanilla AutoML v16 | **75.8%** | 93.8% | **0.50pp** | **99.1%** | 8.0% | 25.73pp |
+| **v19 Hybrid (nosso)** | 68.3% | **94.3%** 🏆 | 0.65pp | 98.6% | 10.2% | **14.04pp** 🛡️ |
+
+> Métricas computadas por `research/benchmark_evaluator.py`. Relatório completo em `research/docs/20_final_benchmark_report.md`.
+
+### Evolução Completa v16 → v19
+
+| Versão | F1-macro | Hit Rate | Max Regret | Catástrofe | Principais mudanças |
+|--------|:--------:|:--------:|:----------:|:----------:|---------------------|
+| v16 | 0.70 | 61.9% | — | — | Classificador puro, 74 features |
+| v17 | 0.87 | 66.4% | — | — | +38 features DP/ctx, regressão multi-output |
+| v18 | 0.855 | 36.4% | — | 48.6% | Hybrid ensemble, n_runs=1 (ruidoso) |
+| v19 raw | 0.910 | 53.2% | — | 31.8% | META_STABLE_PROFILE n_runs=5, margin=2.0pp |
+| **v19-tuned** | **0.910** | **68.3%*** | **14.04pp*** | **10.2%*** | **margin=0.5pp calibrado, Top-2=94.3%, `return_top_k`** |
+
+> *Métricas de 5-fold CV (benchmark_evaluator.py), sem pré-filtros hierárquicos.
+
+---
+
 ## Lições da Evolução
 
 ### O que funcionou
@@ -152,6 +180,9 @@ Gap médio                           0.36%           4.18%       +3.81%
 3. **Threshold alto no CAT1** — TPs têm confiança muito maior que FPs
 4. **Desabilitar GAUSS** — precision < 35% é net negativo
 5. ⚡ **Features DP-específicas** — F1-macro +17pp sem alterar thresholds
+6. ⚡ **META_STABLE_PROFILE (n_runs=5)** — elimina areia movediça estatística
+7. ⚡ **Fallback margin=0.5pp** — −45% no Max Regret vs Vanilla v16
+8. ⚡ **`return_top_k=2`** — Human-in-the-Loop com 94.3% de cobertura Top-2
 
 ### O que não funcionou (ainda)
 

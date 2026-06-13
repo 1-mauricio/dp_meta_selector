@@ -304,3 +304,67 @@ META-LEARNING
 ├── Features DP-específicas: +17pp F1-macro  ← novo
 └── Contexto ε/task_type é não-opcional  ← novo
 ```
+
+---
+
+## 🧠 Memorial Técnico v17–v19: Fundamentos, Descobertas e Evolução
+
+> Aprendizados teóricos e de engenharia da v17 à v19 — da introdução das meta-features DP-específicas à calibração do ensemble híbrido.
+
+---
+
+### Por que DP quebra o AutoML Tradicional?
+
+Meta-features estáticas clássicas (linhas, colunas, tipo de dado) são **insuficientes** para prever o comportamento de mecanismos de DP. Três pilares matemáticos explicam por quê:
+
+#### A. Sensibilidade Global e Caudas Longas
+O ruído injetado por Laplace/Gaussiano é proporcional à sensibilidade $\Delta f$ da consulta. Datasets com *outliers* extremos ou caudas pesadas (alta kurtosis) disparam a sensibilidade, destruindo a utilidade. **Aprendizado:** As features `dp_max_kurtosis`, `dp_clipping_loss_estimate` e `dp_ratio_heavy_tails` são insubstituíveis.
+
+#### B. O Paradoxo do Orçamento de Privacidade ($\epsilon$)
+Um mecanismo $A$ pode ser ótimo com $\epsilon=0.1$ e desastroso com $\epsilon=5.0$. Portanto, $\epsilon$ e `task_type` **devem ser variáveis de contexto obrigatórias de entrada** — sem elas, o F1-macro estagna em 0.70.
+
+#### C. Impacto Desproporcional (*Disparate Impact*)
+O clipping do DP-SGD apaga desproporcionalmente informação sobre subgrupos minoritários. Features de entropia e Gini de subgrupos (`dp_class_entropy`, `dp_gini_impurity`, `dp_disparate_impact_risk`) são necessárias para detectar esse risco.
+
+---
+
+### O Erro da v18: A Areia Movediça Estatística
+
+Ao mudar a função objetivo para Regressor Multi-Output com $n\_runs=1$, o Hit Rate despencou de 66.4% para **36.4%**:
+
+- Com $n\_runs=1$, o alvo de aprendizado (`utility_loss_*`) variava a cada seed — o ruído da DP é aleatório.
+- O regressor tentava aprender padrões em cima de labels sem sinal consistente.
+- Consequência: **48.6%** das recomendações piores que o baseline Laplace.
+
+**Solução (v19):** `META_STABLE_PROFILE` com $n\_runs=5$. Cada alvo é a média de 5 execuções independentes.
+
+---
+
+### O Grande Achado: Gerenciamento de Risco em Ambientes Críticos
+
+| Dimensão | Vanilla v16 ("Modo Ataque") | v19 Hybrid ("Defesa Constrangida") |
+|---|:---:|:---:|
+| Hit Rate Top-1 | **75.8%** | 68.3% |
+| Hit Rate Top-2 | 93.8% | **94.3%** 🏆 |
+| Max Regret (pior caso) | 25.73pp | **14.04pp** 🛡️ |
+| Catastrophic Failure | 8.0% | 10.2% |
+
+**Interpretação:** O fallback conservador (`margin=0.5pp`, calibrado por grid search 5×8) aceita −7.5pp em precisão absoluta para comprar **−45% no pior caso**. Para deployments DP críticos (finanças, saúde, dados governamentais), o custo assimétrico dos erros justifica matematicamente essa troca.
+
+**Human-in-the-Loop:** Com Top-2 de 94.3%, o mecanismo correto quase sempre está na segunda posição quando não é o primeiro. A flag `return_top_k=2` expõe esse comportamento — o engenheiro de dados recebe as duas melhores opções com perda prevista de cada uma.
+
+---
+
+### Regras de Engenharia Cristalizadas (v17–v19)
+
+1. **Regressor sempre em dados originais:** `MultiOutputRF` treinado *antes* do oversample — oversample distorce a distribuição das perdas.
+2. **CSV persistence é obrigatório:** 19 min de pipeline (401 × 9 × 5 avaliações). `meta_features.csv` + `meta_targets.csv` devem ser salvos para iterar na calibração sem reprocessar.
+3. **Grid Search offline vs. re-treino:** Todo parâmetro do ensemble (top_k, margin) calibrável em segundos lendo os CSVs. Ver `research/tuning/tune_meta_models.py`.
+4. **Margem de fallback não-linear (próximo passo):** Substituir a margem fixa de 0.5pp por função de `dp_mean_col_sparsity` — afrouxar em geometrias previsíveis, apertar em datasets heterogêneos.
+
+---
+
+### Próximos Passos Identificados
+
+* **Multi-Task Meta-Learning:** Expandir para prever dinamicamente *learning rate* e *batch size* em pipelines federados, além do mecanismo tabular.
+* **Margens Dinâmicas:** Função não-linear de sparsidade em vez de margem fixa global.

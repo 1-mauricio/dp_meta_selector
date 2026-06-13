@@ -63,9 +63,12 @@ O `dp_meta_selector` é um framework que seleciona automaticamente o melhor meca
 | v13 | 67.4% | 0.55 | T1=0.90 (otimizado) |
 | v14 | 67.6% | 0.55 | +Sintéticos, +family discriminators |
 | v16 | 61.9% | **0.70** | Thresholds ajustados para recall balanceado |
-| **v17** | **66.4%** | **0.87** | ⚡ +40 meta-features DP, regressão de utilidade, variáveis de contexto |
+| **v17** | **66.4%** | **0.87** | ⚡ +38 meta-features DP/ctx, regressão multi-output |
+| v18 | 36.4% | 0.855 | Hybrid ensemble, n_runs=1 (labels ruidosas) |
+| v19 raw | 53.2% | **0.910** | META_STABLE_PROFILE n_runs=5, margin=2.0pp |
+| **v19-tuned** | **68.3%*** | **0.910** | **margin=0.5pp calibrado, Max Regret −45%, `return_top_k`** |
 
-> **v17** é a versão com a refatoração DP-aware. Ver [09_results_summary.md](09_results_summary.md) para análise detalhada.
+> *Hit Rate medido via 5-fold CV (`benchmark_evaluator.py`). Pipeline completo com pré-filtros: ~53% (v19 raw).
 
 ---
 
@@ -75,18 +78,21 @@ O `dp_meta_selector` é um framework que seleciona automaticamente o melhor meca
 dp_meta_selector/
 ├── __init__.py
 ├── main.py              # CLI principal
-├── selector.py          # DPSelector (API) — aceita epsilon e task_type
-├── meta_learner.py      # MetaLearner — classificação + regressão de perda
-├── meta_features.py     # Extração de features (116 features, inclui DP e contexto)
-├── meta_dataset.py      # Construção do meta-dataset (inclui utility_loss_*)
+├── selector.py          # DPSelector (API) — epsilon, task_type, return_top_k
+├── meta_learner.py      # MetaLearner — clf + regressão + hybrid ensemble v19
+├── meta_features.py     # Extração de 112 features (DP-específicas + contexto)
+├── meta_dataset.py      # Construção do meta-dataset + checkpoint + CSV persistence
 ├── mechanisms.py        # Mecanismos DP disponíveis
 ├── calibration.py       # Calibração de epsilon
 ├── applicator.py        # Aplicação de DP
 ├── utility.py           # Perfis de avaliação (inclui META_STABLE_PROFILE n_runs=5)
 ├── diagnostics.py       # Métricas avançadas
-├── synthetic_datasets.py # Geradores de sintéticos
-└── scripts/
-    └── compare_dp_mechanisms.py  # Comparação de mecanismos
+├── meta_datasets_v19/   # CSVs estáveis (401×112 features, 401×9 targets)
+├── research/
+│   ├── benchmark_evaluator.py      # 5 seletores × 6 métricas
+│   ├── tuning/tune_meta_models.py  # Grid search offline
+│   └── docs/                       # Documentação científica completa
+└── tests/               # 33 testes unitários
 ```
 
 ---
@@ -96,6 +102,9 @@ dp_meta_selector/
 - **Mecanismos ativos:** Laplace, Gaussian, GaussianAnalytic, Staircase, LaplaceTruncated, LaplaceFolded, Snapping, Exponential, Uniform
 - **Mecanismos de screening:** Laplace, GaussianAnalytic, Exponential
 - **Epsilon por família:** continuous=5.0, categorical=2.0
-- **Meta-features:** 116 features (estatísticas + família + discriminadores + **DP-específicas** + **contexto**)
+- **Meta-features:** 112 features (estatísticas + família + discriminadores + **DP-específicas** + **contexto**)
 - **Variáveis de contexto obrigatórias:** `epsilon` (orçamento), `task_type` (classificação/regressão/queries)
 - **Target do regressor:** `utility_loss_{mechanism}` = perda relativa % por mecanismo
+- **Ensemble híbrido:** `_hybrid_top_k=3`, `_hybrid_laplace_margin=0.5pp` (calibrado offline, grade 5×8)
+- **Human-in-the-Loop:** `selector.recommend(..., return_top_k=2)` → Top-2 Hit Rate **94.3%**
+- **Benchmark:** `research/benchmark_evaluator.py` · relatório em `research/docs/20_final_benchmark_report.md`
