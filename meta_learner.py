@@ -116,6 +116,9 @@ class MetaLearner:
         self._regression_model = None
         self._regression_mechanisms: List[str] = []
         self._regression_cv_mae: float = float("nan")
+        # v18: Ensemble Híbrido — Classificador como Filtro de Sobrevivência + Regressor como Fine-Tuner
+        # Top-K mecanismos do classificador passam ao regressor para fine-tuning por perda.
+        self._hybrid_top_k: int = 4
 
     def fit(self, meta_df: pd.DataFrame) -> Dict[str, float]:
         # Colunas de perda de utilidade são targets de regressão, não features
@@ -654,6 +657,105 @@ class MetaLearner:
             _log.warning("[Regressão] predict falhou: %s — fallback para classificação.", exc)
             return None
 
+    def _predict_hybrid(self, row: np.ndarray) -> Optional[Dict]:
+        """v18: Ensemble Híbrido — Filtro de Sobrevivência (Classificador) + Fine-Tuning (Regressor).
+
+        Estratégia:
+        1. Classificador (soft-voting ensemble) gera probabilidades para todos os mecanismos.
+        2. Filtro de Sobrevivência: mantém os top-K mecanismos com maior probabilidade.
+        3. Regressor: ordena os finalistas pela menor perda de utilidade prevista.
+        4. v19 Fallback conservador: se regressor não confia que o vencedor é melhor que
+           Laplace (dentro de margem), usa a recomendação do classificador puro em vez disso.
+           Estanca o problema de 48.6% "piores que Laplace" causado por labels ruidosas (n_runs=1).
+        """
+        reg_model = getattr(self, "_regression_model", None)
+        reg_mechs = getattr(self, "_regression_mechanisms", [])
+        if reg_model is None or not reg_mechs:
+            return None
+
+        # 1. Classificador: soft-voting ensemble → probabilidades por mecanismo
+        probas = []
+        for m in self.models.values():
+            try:
+                probas.append(m.predict_proba(row)[0])
+            except Exception:
+                pass
+        if not probas:
+            return None
+
+        clf_proba = np.mean(probas, axis=0)
+        classes = list(self.label_encoder.inverse_transform(np.arange(len(clf_proba))))
+        clf_proba_dict = dict(zip(classes, clf_proba.tolist()))
+
+        # 2. Filtro de Sobrevivência: top-K mecanismos por probabilidade do classificador
+        sorted_by_clf = sorted(clf_proba_dict.items(), key=lambda x: -x[1])
+        survivors = [m for m, _ in sorted_by_clf[: self._hybrid_top_k] if m in reg_mechs]
+        if not survivors:
+            top_mech = sorted_by_clf[0][0]
+            survivors = [top_mech] if top_mech in reg_mechs else list(reg_mechs[:1])
+
+        # 3. Regressor: fine-tuning entre os finalistas pela menor perda prevista
+        try:
+            all_predicted_losses = reg_model.predict(row)[0]
+            all_predicted_losses = np.clip(all_predicted_losses, 0.0, 100.0)
+            loss_dict = dict(zip(reg_mechs, all_predicted_losses.tolist()))
+
+            survivor_losses = {m: loss_dict[m] for m in survivors if m in loss_dict}
+            if not survivor_losses:
+                return None
+
+            best_mech = min(survivor_losses, key=survivor_losses.get)
+            best_loss = survivor_losses[best_mech]
+
+            # ── v19: Fallback Conservador ──────────────────────────────────────────────
+            # Se a perda prevista do vencedor não for claramente melhor que Laplace,
+            # o regressor provavelmente está confuso (labels ruidosas). Recorre ao
+            # classificador puro (top-1 do soft-voting) que é mais robusto ao ruído.
+            # Margem: 2pp — o regressor precisa prever uma vantagem real sobre Laplace.
+            _laplace_loss = loss_dict.get("Laplace", float("inf"))
+            _hybrid_laplace_margin: float = 2.0  # pp de vantagem mínima sobre Laplace
+            if best_mech != "Laplace" and best_loss > _laplace_loss - _hybrid_laplace_margin:
+                # Usa o top-1 do classificador puro como decisão final
+                clf_best = sorted_by_clf[0][0]
+                _log.debug(
+                    "[Híbrido v19] Fallback conservador: reg vencedor=%s (loss=%.1f%%) "
+                    "não supera Laplace (loss=%.1f%%) por %.1fpp → usa clf top-1=%s",
+                    best_mech, best_loss, _laplace_loss, _hybrid_laplace_margin, clf_best,
+                )
+                best_mech = clf_best
+                best_loss = loss_dict.get(clf_best, best_loss)
+            # ──────────────────────────────────────────────────────────────────────────
+
+            # Confiança composta: softmin sobre sobreviventes + probabilidade do classificador
+            surv_list = list(survivor_losses.keys())
+            surv_arr = np.array([survivor_losses[m] for m in surv_list])
+            T = 10.0
+            log_p = -surv_arr / T
+            log_p -= log_p.max()
+            surv_proba = np.exp(log_p)
+            surv_proba /= surv_proba.sum()
+            best_surv_idx = surv_list.index(best_mech) if best_mech in surv_list else 0
+            reg_conf = float(surv_proba[best_surv_idx])
+            clf_conf = clf_proba_dict.get(best_mech, 0.0)
+            composite_conf = 0.4 * clf_conf + 0.6 * reg_conf
+
+            _log.debug(
+                "[Híbrido] sobreviventes=%s → recomendado=%s (loss=%.1f%%)",
+                survivors, best_mech, best_loss,
+            )
+
+            return {
+                "recommended_mechanism": best_mech,
+                "confidence": composite_conf,
+                "all_proba": clf_proba_dict,
+                "hybrid_survivors": survivors,
+                "predicted_utility_loss": loss_dict,
+                "meta_model_used": "hybrid_ensemble",
+            }
+        except Exception as exc:
+            _log.warning("[Híbrido] predict falhou: %s — fallback para classificação.", exc)
+            return None
+
     def _apply_discrete_prefilter(self, row: np.ndarray) -> Optional[Dict]:
         """DISC: retorna recomendação de mecanismo discreto se o prefilter disparar."""
         clf = getattr(self, "_discrete_prefilter", None)
@@ -743,13 +845,14 @@ class MetaLearner:
         if gauss_result is not None:
             return gauss_result
 
-        # FASE 2: Regressão de Perda de Utilidade — decisão principal para mecanismos contínuos.
-        # Usa o regressor multi-output treinado para prever a perda (%) de cada mecanismo
-        # e recomenda o que minimiza a perda prevista. Fallback para classificação se ausente.
+        # v18: Ensemble Híbrido — Filtro de Sobrevivência (Classificador) + Fine-Tuning (Regressor).
+        # O classificador elimina mecanismos claramente inadequados; o regressor ordena os finalistas
+        # pela menor perda de utilidade prevista. Combina robustez do classificador com a precisão
+        # ordinal do regressor. Fallback para classificação pura se regressor indisponível.
         if model_name is None:
-            reg_result = self._predict_regression(row)
-            if reg_result is not None:
-                return reg_result
+            hybrid_result = self._predict_hybrid(row)
+            if hybrid_result is not None:
+                return hybrid_result
 
         if model_name is not None:
             proba = self.models[model_name].predict_proba(row)[0]
@@ -976,6 +1079,8 @@ class MetaLearner:
                 "regression_model": getattr(self, "_regression_model", None),
                 "regression_mechanisms": getattr(self, "_regression_mechanisms", []),
                 "regression_cv_mae": getattr(self, "_regression_cv_mae", float("nan")),
+                # v18: Ensemble Híbrido
+                "hybrid_top_k": getattr(self, "_hybrid_top_k", 4),
             },
             path,
         )
@@ -1007,4 +1112,6 @@ class MetaLearner:
         self._regression_model = d.get("regression_model", None)
         self._regression_mechanisms = d.get("regression_mechanisms", [])
         self._regression_cv_mae = d.get("regression_cv_mae", float("nan"))
+        # v18: Ensemble Híbrido
+        self._hybrid_top_k = d.get("hybrid_top_k", 4)
         _log.info("[MetaLearner] Carregado de '%s'", path)

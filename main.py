@@ -18,7 +18,7 @@ from .diagnostics import run_full_diagnostics
 from .evaluator import FrameworkEvaluator
 from .reporter import generate_report
 from .selector import DPMechanismSelector
-from .utility import EVAL_FAST_PROFILE, EVAL_FULL_PROFILE, META_FAST_PROFILE, UtilityProfile
+from .utility import EVAL_FAST_PROFILE, EVAL_FULL_PROFILE, META_FAST_PROFILE, META_STABLE_PROFILE, UtilityProfile
 
 _log = logging.getLogger(__name__)
 
@@ -110,6 +110,9 @@ def main(
     log_file: Path | None = None,
     report_dir: Path | None = None,
     run_diagnostics: bool = False,
+    checkpoint_path: Path | None = None,  # v18
+    checkpoint_every: int = 25,           # v18: padrão mais granular para runs longas
+    save_meta_dataset: Path | None = None, # v19
 ):
     start_time = time.time()
     _log.info("=" * 65)
@@ -147,6 +150,9 @@ def main(
         eval_profile=eval_profile,
         use_cache=use_cache,
         fast_meta_models=True,
+        checkpoint_path=checkpoint_path,
+        checkpoint_every=checkpoint_every,
+        save_path=save_meta_dataset,
     )
     selector.fit(train_ds)
 
@@ -261,6 +267,41 @@ def cli():
         help="Executa diagnósticos avançados (F1 por família, confusion matrix, calibração).",
     )
     parser.add_argument(
+        "--stable",
+        action="store_true",
+        help=(
+            "v19: usa META_STABLE_PROFILE (n_runs=5) para gerar meta-dataset de alta "
+            "qualidade. Labels são médias de 5 runs → regressor mais preciso. "
+            "~5× mais lento que o padrão."
+        ),
+    )
+    parser.add_argument(
+        "--save-meta-dataset",
+        metavar="DIR",
+        default=None,
+        help=(
+            "v19: salva meta_features_{profile}.csv e meta_targets_{profile}.csv no "
+            "diretório especificado assim que o loop de datasets terminar. "
+            "Permite retunar modelos ML sem recalcular n_runs=5."
+        ),
+    )
+    parser.add_argument(
+        "--checkpoint",
+        metavar="FILE",
+        default=None,
+        help=(
+            "v18: arquivo de checkpoint (.joblib) para retomada após interrupção. "
+            "Ex.: --checkpoint .dp_meta_cache/ckpt_stable.joblib"
+        ),
+    )
+    parser.add_argument(
+        "--checkpoint-every",
+        metavar="N",
+        type=int,
+        default=25,
+        help="v18: salva checkpoint a cada N datasets (padrão: 25).",
+    )
+    parser.add_argument(
         "--skip-baseline-precompute",
         action="store_true",
         help="Não pré-computa baselines antes do treino (usa store sob demanda).",
@@ -269,6 +310,7 @@ def cli():
     log_file = Path(args.log_file) if args.log_file else None
     _setup_logging(verbose=args.verbose, log_file=log_file)
 
+    meta_profile = META_STABLE_PROFILE if args.stable else META_FAST_PROFILE
     eval_profile = EVAL_FULL_PROFILE if args.eval_full else EVAL_FAST_PROFILE
     use_cache = not args.no_cache
 
@@ -281,7 +323,7 @@ def cli():
         return None, None
 
     return main(
-        meta_profile=META_FAST_PROFILE,
+        meta_profile=meta_profile,
         eval_profile=eval_profile,
         use_cache=use_cache,
         full_oracle_test=args.full_oracle_test,
@@ -290,6 +332,9 @@ def cli():
         log_file=log_file,
         report_dir=Path(args.report_dir),
         run_diagnostics=args.diagnostics,
+        checkpoint_path=Path(args.checkpoint) if args.checkpoint else None,
+        checkpoint_every=args.checkpoint_every,
+        save_meta_dataset=Path(args.save_meta_dataset) if args.save_meta_dataset else None,
     )
 
 

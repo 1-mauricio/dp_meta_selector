@@ -47,6 +47,9 @@ class DPMechanismSelector:
         use_cache: bool = True,
         fast_meta_models: bool = True,
         baseline_store: Optional[BaselineStore] = None,
+        checkpoint_path: Optional[Path] = None,  # v18: checkpoint para geração do meta-dataset
+        checkpoint_every: int = 10,              # v18: frequência de checkpoint (datasets)
+        save_path: Optional[Path] = None,        # v19: diretório para persistir meta-dataset em CSV
     ):
         self.delta = delta
         self.n_runs = n_runs
@@ -67,6 +70,9 @@ class DPMechanismSelector:
             baseline_store=self._baseline_store,
             baseline_id="meta_logreg",
             n_jobs=-1,  # PF1: paralelismo de datasets habilitado por padrão
+            checkpoint_path=checkpoint_path,
+            checkpoint_every=checkpoint_every,
+            save_path=save_path,
         )
         self._learner = MetaLearner(fast_mode=fast_meta_models, fast_landmarks=True)
         self._applicator = DPApplicator(delta=delta)
@@ -175,14 +181,19 @@ class DPMechanismSelector:
             _log.info("  Confiança  : %.2f%%", result["confidence"] * 100)
             _log.info("  Meta-modelo: %s", result["meta_model_used"])
 
-            # Se usou regressão, exibe perda prevista por mecanismo
+            # Se usou regressão ou ensemble híbrido, exibe perda prevista por mecanismo
             if "predicted_utility_loss" in result:
+                survivors = result.get("hybrid_survivors", [])
+                if survivors:
+                    _log.info("  Filtro de Sobrevivência (top-%d do clf): %s",
+                              len(survivors), ", ".join(survivors))
                 _log.info("  Perda de utilidade prevista (menor = melhor):")
                 losses = result["predicted_utility_loss"]
                 for m, loss in sorted(losses.items(), key=lambda x: x[1]):
                     fam_m = FAMILY_OF.get(m, "?")
+                    is_survivor = "★" if m in survivors else " "
                     marker = " ◄ recomendado" if m == mech else ""
-                    _log.info("   %-22s %5.1f%%  [%-12s]%s", m, loss, fam_m, marker)
+                    _log.info("   %s %-22s %5.1f%%  [%-12s]%s", is_survivor, m, loss, fam_m, marker)
             else:
                 _log.info("  Todas as probabilidades:")
                 for m, p in sorted(result["all_proba"].items(), key=lambda x: -x[1]):

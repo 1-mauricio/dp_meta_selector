@@ -41,6 +41,7 @@ class MetaDatasetBuilder:
         n_jobs: int = -1,  # PF1: paralelismo de datasets
         checkpoint_path: Optional[Path] = None,  # v18: checkpoint para retomada após interrupção
         checkpoint_every: int = 10,  # v18: salva checkpoint a cada N datasets
+        save_path: Optional[Path] = None,  # v19: diretório para persistir meta-dataset em CSV
     ):
         registry = baseline_registry or DEFAULT_BASELINE_REGISTRY
         self.extractor = MetaFeatureExtractor(fast_landmarks=fast_landmarks)
@@ -56,6 +57,7 @@ class MetaDatasetBuilder:
         self.n_jobs = n_jobs
         self.checkpoint_path = Path(checkpoint_path) if checkpoint_path else None
         self.checkpoint_every = checkpoint_every
+        self.save_path = Path(save_path) if save_path else None
 
     def _save_checkpoint(self, rows: List[dict], processed: Set[str]) -> None:
         """Salva progresso em disco para permitir retomada após interrupção."""
@@ -174,35 +176,104 @@ class MetaDatasetBuilder:
 
         # PF1: converte para lista de tuplas (X, y, name) para serialização joblib
         items = [(ds.X, ds.y, ds.name) if hasattr(ds, "X") else ds for ds in datasets]
-        n = len(items)
+        n_total = len(items)
+
+        # v18: retoma de checkpoint se disponível
+        rows, processed_names = self._load_checkpoint()
+        items_todo = [
+            item for item in items
+            if (item[2] if isinstance(item, tuple) else getattr(item, "name", "")) not in processed_names
+        ]
+        n_done_start = len(rows)
+        if n_done_start > 0:
+            _log.info(
+                "[meta-build] Retomando: %d/%d datasets já processados, %d restantes.",
+                n_done_start, n_total, len(items_todo),
+            )
 
         effective_jobs = self.n_jobs
-        # Com poucos datasets, o overhead de processos não compensa
-        if n <= 4:
+        if n_total <= 4:
             effective_jobs = 1
 
+        t0 = time.time()
+
         if effective_jobs == 1:
-            rows = []
-            for item in tqdm(items, desc="Construindo meta-dataset"):
+            for i, item in enumerate(tqdm(items_todo, desc="Construindo meta-dataset",
+                                          initial=n_done_start, total=n_total)):
                 r = self._process_one(item)
                 if r is not None:
                     rows.append(r)
+                    processed_names.add(r.get("dataset_name", f"idx_{n_done_start + i}"))
+
+                # v18: checkpoint periódico + log de progresso com ETA
+                n_done = len(rows)
+                if (i + 1) % self.checkpoint_every == 0:
+                    self._save_checkpoint(rows, processed_names)
+                    elapsed = time.time() - t0
+                    remaining = n_total - n_done
+                    eta = (elapsed / max(n_done - n_done_start, 1)) * remaining
+                    _log.info(
+                        "[progresso] %d/%d  elapsed=%ds  ETA=%ds  (%.0f%% concluído)",
+                        n_done, n_total, int(elapsed), int(eta),
+                        100.0 * n_done / n_total,
+                    )
         else:
-            _log.info("[meta-build] paralelo: n_jobs=%s datasets=%d", effective_jobs, n)
+            _log.info("[meta-build] paralelo: n_jobs=%s datasets=%d", effective_jobs, len(items_todo))
             # prefer="threads": numpy/sklearn liberam o GIL → paralelismo real sem fork
-            # (evita o problema de subprocessos sem acesso ao venv)
             results = Parallel(n_jobs=effective_jobs, prefer="threads", verbose=0)(
                 delayed(self._process_one)(item)
-                for item in tqdm(items, desc="Construindo meta-dataset")
+                for item in tqdm(items_todo, desc="Construindo meta-dataset",
+                                 initial=n_done_start, total=n_total)
             )
-            rows = [r for r in results if r is not None]
+            new_rows = [r for r in results if r is not None]
+            rows.extend(new_rows)
+            for r in new_rows:
+                processed_names.add(r.get("dataset_name", ""))
+
+        # Salva checkpoint final
+        self._save_checkpoint(rows, processed_names)
+        elapsed_total = time.time() - t0
+        _log.info(
+            "[meta-build] Concluído: %d datasets em %.0fs (%.1f s/dataset)",
+            len(rows), elapsed_total, elapsed_total / max(len(rows), 1),
+        )
 
         df = pd.DataFrame(rows)
         self._log_diagnostics(df)
+        self._save_meta_dataset(df)  # v19: persiste features + targets em CSV
         _log.info("[meta-build] %s", self.evaluator.cache.summary())
         if self.evaluator.baseline_store is not None:
             _log.info("[meta-build] %s", self.evaluator.baseline_store.summary())
         return df
+
+    def _save_meta_dataset(self, df: pd.DataFrame) -> None:
+        """v19: persiste meta-features (X) e targets de regressão (Y) em CSV.
+
+        Salva dois arquivos no diretório self.save_path:
+          - meta_features_{profile}.csv   — todas as 116 features + dataset_name
+          - meta_targets_{profile}.csv    — utility_loss_* por mecanismo + dataset_name
+
+        Isso permite retunar os modelos ML sem recalcular o loop caro de n_runs=5.
+        """
+        if self.save_path is None:
+            return
+        self.save_path.mkdir(parents=True, exist_ok=True)
+        profile_tag = self.evaluator.profile.name
+
+        from .mechanisms import MECHANISM_NAMES
+        loss_cols = [f"utility_loss_{m}" for m in MECHANISM_NAMES if f"utility_loss_{m}" in df.columns]
+        meta_cols  = [c for c in df.columns if c not in loss_cols]
+
+        features_path = self.save_path / f"meta_features_{profile_tag}.csv"
+        targets_path  = self.save_path / f"meta_targets_{profile_tag}.csv"
+
+        df[meta_cols].to_csv(features_path, index=False)
+        df[["dataset_name"] + loss_cols].to_csv(targets_path, index=False)
+
+        _log.info(
+            "[meta-build] Meta-dataset salvo em '%s'  (features=%d  targets=%d  rows=%d)",
+            self.save_path, len(meta_cols), len(loss_cols), len(df),
+        )
 
     def _log_diagnostics(self, df):
         _log.info("[Meta-Dataset] Distribuição de melhores mecanismos:")
