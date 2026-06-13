@@ -304,3 +304,139 @@ A versão v16 sacrifica hit rate geral para melhorar recall de classes minoritá
 12. **Thresholds otimizados para precision prejudicam recall:** O equilíbrio precision/recall deve ser reavaliado quando a quantidade de dados de treino muda.
 
 13. **F1-macro vs hit rate é um trade-off:** Melhorar recall de minoritárias pode piorar o hit rate geral, mas resulta em modelo mais equilibrado.
+
+---
+
+## DEC-023 — Refatoração DP-Aware: Meta-Features Específicas e Regressão de Utilidade (v17)
+
+**Data:** 2026-06-13
+
+### Problema
+
+As meta-features existentes (~76 features) não capturavam as propriedades matemáticas fundamentais que determinam o sucesso de mecanismos DP:
+- **Sensibilidade global** (impacto de outliers no clipping)
+- **Dimensionalidade efetiva** (colapso de utilidade em alta dimensão)
+- **Disparate Impact** de subgrupos minoritários
+- **Contexto do usuário** (ε desejado, tipo de tarefa) ignorado na decisão
+
+Além disso, a função objetivo era classificação direta ("qual mecanismo é melhor") em vez de quantificação de perda de utilidade.
+
+### Decisão
+
+Implementar 4 melhorias em paralelo:
+
+#### 1. Meta-features DP-específicas (40 novas features)
+
+**`_dp_clipping_signal()`** — 10 features para prever impacto do clipping:
+
+| Feature | Fórmula | Relevância DP |
+|---------|---------|---------------|
+| `dp_max_median_ratio_mean` | mean(max/median por coluna) | Sensibilidade global |
+| `dp_max_median_ratio_max` | max(max/median por coluna) | Outlier extremo |
+| `dp_kurtosis_mean` | mean(kurtosis por coluna) | Caudas pesadas |
+| `dp_kurtosis_max` | max(kurtosis) | Coluna crítica |
+| `dp_iqr_ratio_mean` | mean(IQR/range) | Concentração do sinal |
+| `dp_clipping_loss_est` | fração de dados além de 2σ | Estimativa de perda |
+| `dp_global_sensitivity_mean` | mean(max - min por coluna) | Range de sensibilidade |
+
+**`_dp_sparsity_dimensionality()`** — 11 features para colapso de utilidade:
+
+| Feature | Fórmula | Relevância DP |
+|---------|---------|---------------|
+| `dp_zero_ratio` | zeros / total | Esparsidade |
+| `dp_near_zero_ratio` | |x| < 1e-6 | Quase-zeros |
+| `dp_svd_rank` | rank numérico (SVD) | Dimensionalidade real |
+| `dp_effective_rank` | exp(H(σ²/Σσ²)) | Rank efetivo |
+| `dp_condition_number` | σ_max/σ_min | Amplificação de ruído |
+| `dp_intrinsic_dim_ratio` | effective_rank / n_features | Redundância |
+
+**`_dp_subgroup_entropy()`** — 9 features para disparate impact:
+
+| Feature | Fórmula | Relevância DP |
+|---------|---------|---------------|
+| `dp_minority_class_ratio` | min_class / total | Grupo minoritário |
+| `dp_gini_impurity` | 1 - Σp² | Desbalanceamento |
+| `dp_class_entropy` | -Σp·log(p) | Entropia de classes |
+| `dp_disparate_impact_risk` | min_class_frac | Risco de DI |
+| `dp_n_minority_subgroups` | classes com frac < 5% | Contagem minoritárias |
+
+#### 2. Variáveis de Contexto Obrigatórias (8 features)
+
+**`_context_features(epsilon, task_type)`**:
+
+| Feature | Descrição |
+|---------|-----------|
+| `ctx_epsilon` | Orçamento ε do usuário |
+| `ctx_log_epsilon` | log(ε + 1) |
+| `ctx_epsilon_small` | ε ≤ 0.5 (one-hot) |
+| `ctx_epsilon_medium` | 0.5 < ε ≤ 2.0 (one-hot) |
+| `ctx_epsilon_large` | ε > 2.0 (one-hot) |
+| `ctx_task_classification` | Tarefa = classificação |
+| `ctx_task_regression` | Tarefa = regressão |
+| `ctx_task_queries` | Tarefa = queries |
+
+**API atualizada:**
+```python
+# selector.py
+result = selector.recommend(X, y, epsilon=0.5, task_type="classification")
+```
+
+#### 3. Regressão Multi-Output de Perda de Utilidade
+
+**Target:** `utility_loss_{mechanism}` = `max(0, (baseline_acc - dp_acc) / baseline_acc) * 100`
+
+**Decisão:** Em vez de classificar "qual mecanismo é melhor", prever a perda % de utilidade para cada um dos 9 mecanismos e escolher o que tem **menor perda prevista**.
+
+**Modelo:** `MultiOutputRegressor(RandomForestRegressor)` com `StandardScaler`
+
+**Ordem de decisão no `predict()` (v17):**
+1. `cat_prefilter` (p_exp ≥ 0.75 AND p_cat ≥ 0.15) → Exponential
+2. `disc_prefilter` (p_disc ≥ 0.70) → Geometric
+3. `gauss_prefilter` (p_ga ≥ 0.80) → GaussianAnalytic
+4. **`_predict_regression()`** → mecanismo com menor perda prevista ← NOVO
+5. Ensemble ExtraTrees + HIER gate (fallback)
+
+**Conversão de perda em "probabilidade"** (softmin com T=10):
+```
+p_i = exp(-loss_i / T) / Σ exp(-loss_j / T)
+```
+
+#### 4. `META_STABLE_PROFILE` com `n_runs=5`
+
+Adicionado em `utility.py` para eliminar o ruído estocástico da DP durante a geração do meta-dataset. Labels são médias sobre 5 execuções com seeds diferentes.
+
+```python
+META_STABLE_PROFILE = MetaBuildProfile(
+    clf="ExtraTrees",
+    cv_splits=5,
+    n_runs=5,          # ← novo: 5 execuções para labels robustos
+    timeout_per_ds=120,
+    sample_size=5000,
+)
+```
+
+### Resultados
+
+| Métrica | Antes (v16) | Depois (v17) | Delta |
+|---------|-------------|--------------|-------|
+| Nº de meta-features | ~76 | **116** | +40 |
+| F1-macro (ExtraTrees) | 0.70 | **0.87** | +0.17 |
+| Hit Rate pipeline (clf) | 61.9% | **66.4%** | +4.5pp |
+| Regressor MAE-CV | — | **4.16%** | — |
+
+### Trade-off Identificado
+
+O regressor com `META_FAST_PROFILE` (n_runs=1) tem hit rate de apenas 29.4% porque aprende perdas precisas (%) a partir de labels ruidosas (1 run da DP ≠ perda real). O classificador é robusto ao ruído porque só precisa saber *qual* mecanismo é melhor, não *quanto*.
+
+**Conclusão:** O regressor é a abordagem correta, mas requer `META_STABLE_PROFILE` durante a geração do meta-dataset para atingir seu potencial.
+
+### Arquivos Modificados (v17)
+
+| Arquivo | Mudanças |
+|---------|----------|
+| `meta_features.py` | +4 métodos DP-aware, `extract()` aceita `epsilon`/`task_type`, +40 features |
+| `meta_learner.py` | Regressão multi-output, decisão por perda mínima, `save()/load()` atualizado |
+| `meta_dataset.py` | `_process_one()` gera `utility_loss_{mechanism}` para 9 mecanismos |
+| `utility.py` | Adicionado `META_STABLE_PROFILE` (n_runs=5) |
+| `selector.py` | `recommend()` aceita `epsilon`/`task_type`, tabela de perdas no log |
+| `__init__.py` | Exporta `META_STABLE_PROFILE`, `TASK_*` constants |

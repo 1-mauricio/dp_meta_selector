@@ -96,7 +96,7 @@ from .mechanisms import (
     SCREENING_MECHANISMS,
 )
 from .meta_dataset import MetaDatasetBuilder
-from .meta_features import MetaFeatureExtractor
+from .meta_features import MetaFeatureExtractor, TASK_CLASSIFICATION, TASK_REGRESSION, TASK_QUERIES
 from .meta_learner import MetaLearner
 from .selector import DPMechanismSelector
 from .utility import (
@@ -105,6 +105,7 @@ from .utility import (
     EVAL_FULL_PROFILE,
     META_ALIGNED_PROFILE,
     META_FAST_PROFILE,
+    META_STABLE_PROFILE,
     UtilityProfile,
     UtilityResultCache,
 )
@@ -136,9 +137,13 @@ __all__ = [
     "MECHANISM_NAMES",
     "META_ALIGNED_PROFILE",
     "META_FAST_PROFILE",
+    "META_STABLE_PROFILE",
     "MetaDatasetBuilder",
     "MetaFeatureExtractor",
     "MetaLearner",
+    "TASK_CLASSIFICATION",
+    "TASK_REGRESSION",
+    "TASK_QUERIES",
     "OPENML_TRAINING_SPECS",
     "OPENML_TRAINING_SPECS_CORE",
     "OPENML_TRAINING_TARGET",

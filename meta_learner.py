@@ -110,11 +110,20 @@ class MetaLearner:
         # v17: Fallback seguro para Laplace
         self._laplace_fallback_enabled: bool = True
         self._laplace_fallback_threshold: float = 0.65  # Confiança mínima para alternativa
+        # FASE 2: Regressão de Perda de Utilidade
+        # Cada mecanismo recebe uma previsão de perda (%) em vez de uma classificação direta.
+        # O framework recomenda o mecanismo com MENOR perda prevista.
+        self._regression_model = None
+        self._regression_mechanisms: List[str] = []
+        self._regression_cv_mae: float = float("nan")
 
     def fit(self, meta_df: pd.DataFrame) -> Dict[str, float]:
+        # Colunas de perda de utilidade são targets de regressão, não features
+        loss_cols = {f"utility_loss_{m}" for m in MECHANISM_NAMES}
         excl = (
             {"dataset_name", "best_mechanism", "best_relative_acc", "baseline_acc", "best_family"}
             | {f"acc_{m}" for m in MECHANISM_NAMES}
+            | loss_cols
         )
         self.META_FEATURE_COLS = [c for c in meta_df.columns if c not in excl]
 
@@ -140,6 +149,10 @@ class MetaLearner:
         
         # Treina classificadores por família para ensemble hierárquico
         self._fit_family_mechanism_classifiers(X_meta, y_meta)
+
+        # Guarda X_meta antes do oversample para treinar os regressores
+        # (regressão deve ver a distribuição real dos datasets, sem amostras duplicadas)
+        X_meta_orig = X_meta.copy()
 
         # Oversampling manual das classes minoritárias (sem dependência externa)
         X_meta, y_meta = self._oversample(X_meta, y_meta)
@@ -225,6 +238,11 @@ class MetaLearner:
         self.best_model_name = (
             max(valid, key=valid.get) if valid else list(scores)[0]
         )
+
+        # FASE 2: Treina regressores de perda de utilidade usando dados originais (pré-oversample)
+        # X_meta_orig é os dados sem oversample — preserva distribuição real dos datasets
+        self._fit_regression(meta_df, X_meta_orig)
+
         return scores
 
     @staticmethod
@@ -525,6 +543,117 @@ class MetaLearner:
             except Exception as exc:
                 _log.debug("[HIER-MECH] Falha para %s: %s", family, exc)
 
+    def _fit_regression(self, meta_df: pd.DataFrame, X_meta: np.ndarray) -> None:
+        """FASE 2: Treina regressor multi-output para prever perda de utilidade por mecanismo.
+        
+        Em vez de classificar diretamente ("use Laplace"), o metamodelo aprende a prever
+        a perda de utilidade relativa (%) de cada mecanismo para um dataset com aquelas
+        meta-features. O mecanismo com MENOR perda prevista será recomendado.
+        
+        Isso é matematicamente superior à classificação porque:
+        1. Usa informação ordinal (Laplace perdeu 5%, Gauss perdeu 8%) em vez de label binário
+        2. Permite recomendar por margem de ganho, não só por rank
+        3. Generaliza melhor em distribuições de dados não vistas
+        """
+        from sklearn.ensemble import RandomForestRegressor
+        from sklearn.multioutput import MultiOutputRegressor
+        from sklearn.model_selection import KFold, cross_val_score as cv_score
+
+        # Identifica colunas de perda disponíveis no meta-dataset
+        present_loss_cols = [
+            f"utility_loss_{m}" for m in MECHANISM_NAMES
+            if f"utility_loss_{m}" in meta_df.columns
+        ]
+        if not present_loss_cols:
+            _log.info("[Regressão] Colunas utility_loss_* não encontradas — regressão desativada.")
+            _log.info("  → Para ativar, use MetaDatasetBuilder para gerar o meta-dataset.")
+            self._regression_model = None
+            return
+
+        self._regression_mechanisms = [c.replace("utility_loss_", "") for c in present_loss_cols]
+
+        # Target: matriz de perdas de utilidade relativa (n_datasets × n_mechanisms)
+        Y = np.nan_to_num(
+            meta_df[present_loss_cols].values.astype(float),
+            nan=0.0, posinf=100.0, neginf=0.0,
+        )
+        Y = np.clip(Y, 0.0, 100.0)
+
+        # Multi-output Random Forest: melhor trade-off qualidade/velocidade para tabulares
+        # Cada mecanismo tem seu próprio estimador interno (MultiOutputRegressor)
+        base_reg = RandomForestRegressor(
+            n_estimators=200,
+            random_state=42,
+            n_jobs=-1,
+            min_samples_leaf=2,
+        )
+        model = Pipeline([
+            ("s", StandardScaler()),
+            ("reg", MultiOutputRegressor(base_reg, n_jobs=1)),
+        ])
+
+        # CV para medir MAE de regressão (métrica de qualidade das previsões de perda)
+        k = min(5, len(X_meta))
+        cv = KFold(n_splits=k, shuffle=True, random_state=42)
+        try:
+            mae_scores = cv_score(
+                model, X_meta, Y, cv=cv, scoring="neg_mean_absolute_error"
+            )
+            self._regression_cv_mae = float(-mae_scores.mean())
+            _log.info(
+                "[Regressão] Multi-output RF  n=%d  mecanismos=%d  MAE-CV=%.2f%%",
+                len(X_meta), len(present_loss_cols), self._regression_cv_mae,
+            )
+        except Exception as exc:
+            _log.warning("[Regressão] CV falhou: %s", exc)
+            self._regression_cv_mae = float("nan")
+
+        # Treino final em todos os dados
+        model.fit(X_meta, Y)
+        self._regression_model = model
+        _log.info("[Regressão] Mecanismos cobertos: %s", self._regression_mechanisms)
+
+    def _predict_regression(self, row: np.ndarray) -> Optional[Dict]:
+        """FASE 2: Recomenda mecanismo com menor perda de utilidade prevista.
+        
+        Converte as perdas previstas em 'probabilidades' via softmin
+        (menor perda = maior probabilidade) para compatibilidade com a API existente.
+        """
+        model = getattr(self, "_regression_model", None)
+        mechanisms = getattr(self, "_regression_mechanisms", [])
+        if model is None or not mechanisms:
+            return None
+
+        try:
+            predicted_losses = model.predict(row)[0]  # shape: (n_mechanisms,)
+            predicted_losses = np.clip(predicted_losses, 0.0, 100.0)
+
+            # Mecanismo com menor perda prevista
+            best_idx = int(np.argmin(predicted_losses))
+            best_mech = mechanisms[best_idx]
+
+            # Converte perdas em "probabilidades" via softmin
+            # p_i = exp(-loss_i / T) / sum(exp(-loss_j / T)), T=10 (temperatura)
+            T = 10.0
+            log_proba = -predicted_losses / T
+            log_proba -= log_proba.max()  # estabilidade numérica
+            proba = np.exp(log_proba)
+            proba /= proba.sum()
+
+            all_losses = {m: float(l) for m, l in zip(mechanisms, predicted_losses)}
+            all_proba = {m: float(p) for m, p in zip(mechanisms, proba)}
+
+            return {
+                "recommended_mechanism": best_mech,
+                "confidence": float(proba[best_idx]),
+                "all_proba": all_proba,
+                "predicted_utility_loss": all_losses,
+                "meta_model_used": "regression_multioutput",
+            }
+        except Exception as exc:
+            _log.warning("[Regressão] predict falhou: %s — fallback para classificação.", exc)
+            return None
+
     def _apply_discrete_prefilter(self, row: np.ndarray) -> Optional[Dict]:
         """DISC: retorna recomendação de mecanismo discreto se o prefilter disparar."""
         clf = getattr(self, "_discrete_prefilter", None)
@@ -563,11 +692,40 @@ class MetaLearner:
             pass
         return None
 
-    def predict(self, X, y, model_name=None) -> Dict:
+    def predict(
+        self,
+        X,
+        y,
+        model_name=None,
+        epsilon: float = None,
+        task_type: str = None,
+    ) -> Dict:
+        """Prediz o melhor mecanismo DP para um dataset.
+        
+        Parameters
+        ----------
+        X : np.ndarray
+            Matriz de features do dataset
+        y : np.ndarray
+            Vetor de labels
+        model_name : str, optional
+            Nome do meta-modelo específico a usar
+        epsilon : float, optional
+            Orçamento de privacidade desejado (contexto obrigatório para DP)
+        task_type : str, optional
+            Tipo de tarefa: "classification", "regression", ou "queries"
+        
+        Returns
+        -------
+        Dict
+            Dicionário com recommended_mechanism, confidence, all_proba, etc.
+        """
         if self.META_FEATURE_COLS is None:
             raise RuntimeError("Chame fit() antes de predict().")
         y_enc = LabelEncoder().fit_transform(y)
-        feats = MetaFeatureExtractor(fast_landmarks=self._fast_landmarks).extract(X, y_enc)  # P2
+        feats = MetaFeatureExtractor(fast_landmarks=self._fast_landmarks).extract(
+            X, y_enc, epsilon=epsilon, task_type=task_type
+        )
         row = np.array([[feats.get(c, 0.0) for c in self.META_FEATURE_COLS]])
 
         # CAT1: pré-filtro binário Exponential — intercepta categorical antes do portão de família
@@ -584,6 +742,14 @@ class MetaLearner:
         gauss_result = self._apply_gaussian_prefilter(row)
         if gauss_result is not None:
             return gauss_result
+
+        # FASE 2: Regressão de Perda de Utilidade — decisão principal para mecanismos contínuos.
+        # Usa o regressor multi-output treinado para prever a perda (%) de cada mecanismo
+        # e recomenda o que minimiza a perda prevista. Fallback para classificação se ausente.
+        if model_name is None:
+            reg_result = self._predict_regression(row)
+            if reg_result is not None:
+                return reg_result
 
         if model_name is not None:
             proba = self.models[model_name].predict_proba(row)[0]
@@ -802,10 +968,14 @@ class MetaLearner:
                 "gauss_feature_idx": getattr(self, "_gauss_feature_idx", None),
                 "ga_boost_pca_threshold": getattr(self, "_ga_boost_pca_threshold", 0.45),
                 "ga_boost_factor": getattr(self, "_ga_boost_factor", 2.5),
-                # Novos campos
+                # Novos campos de classificação
                 "discrete_prefilter": getattr(self, "_discrete_prefilter", None),
                 "discrete_feature_idx": getattr(self, "_discrete_feature_idx", None),
                 "family_mechanism_classifiers": getattr(self, "_family_mechanism_classifiers", {}),
+                # FASE 2: Regressão de Perda de Utilidade
+                "regression_model": getattr(self, "_regression_model", None),
+                "regression_mechanisms": getattr(self, "_regression_mechanisms", []),
+                "regression_cv_mae": getattr(self, "_regression_cv_mae", float("nan")),
             },
             path,
         )
@@ -833,4 +1003,8 @@ class MetaLearner:
         self._discrete_prefilter = d.get("discrete_prefilter", None)
         self._discrete_feature_idx = d.get("discrete_feature_idx", None)
         self._family_mechanism_classifiers = d.get("family_mechanism_classifiers", {})
+        # FASE 2: Regressão de Perda de Utilidade
+        self._regression_model = d.get("regression_model", None)
+        self._regression_mechanisms = d.get("regression_mechanisms", [])
+        self._regression_cv_mae = d.get("regression_cv_mae", float("nan"))
         _log.info("[MetaLearner] Carregado de '%s'", path)

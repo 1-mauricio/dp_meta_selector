@@ -1,8 +1,11 @@
 """Construção do meta-dataset para meta-aprendizagem."""
 
 import logging
-from typing import List, Optional
+import time
+from pathlib import Path
+from typing import List, Optional, Set
 
+import joblib
 import numpy as np
 import pandas as pd
 from joblib import Parallel, delayed
@@ -36,6 +39,8 @@ class MetaDatasetBuilder:
         baseline_registry: Optional[BaselineRegistry] = None,
         baseline_id: str = "meta_logreg",
         n_jobs: int = -1,  # PF1: paralelismo de datasets
+        checkpoint_path: Optional[Path] = None,  # v18: checkpoint para retomada após interrupção
+        checkpoint_every: int = 10,  # v18: salva checkpoint a cada N datasets
     ):
         registry = baseline_registry or DEFAULT_BASELINE_REGISTRY
         self.extractor = MetaFeatureExtractor(fast_landmarks=fast_landmarks)
@@ -49,6 +54,32 @@ class MetaDatasetBuilder:
             baseline_id=baseline_id,
         )
         self.n_jobs = n_jobs
+        self.checkpoint_path = Path(checkpoint_path) if checkpoint_path else None
+        self.checkpoint_every = checkpoint_every
+
+    def _save_checkpoint(self, rows: List[dict], processed: Set[str]) -> None:
+        """Salva progresso em disco para permitir retomada após interrupção."""
+        if self.checkpoint_path is None:
+            return
+        self.checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
+        joblib.dump({"rows": rows, "processed": list(processed)}, self.checkpoint_path)
+        _log.info(
+            "[checkpoint] %d datasets salvos → %s",
+            len(rows), self.checkpoint_path,
+        )
+
+    def _load_checkpoint(self):
+        """Carrega progresso anterior se o arquivo de checkpoint existir."""
+        if self.checkpoint_path is None or not self.checkpoint_path.exists():
+            return [], set()
+        data = joblib.load(self.checkpoint_path)
+        rows = data.get("rows", [])
+        processed = set(data.get("processed", []))
+        _log.info(
+            "[checkpoint] Retomando de '%s': %d datasets já processados.",
+            self.checkpoint_path, len(rows),
+        )
+        return rows, processed
 
     def _process_one(self, item) -> Optional[dict]:
         """PF1: processa um dataset — chamado em paralelo por build()."""
@@ -64,7 +95,6 @@ class MetaDatasetBuilder:
             meta[f"acc_{k}"] = v
         base = meta["baseline_acc"] + 1e-9
         rel = {m: dp[m] / base for m in dp}
-        best_rel = max(rel.values())
 
         # utility_gap: diferença entre o 1º e 2º melhor mecanismo
         sorted_rel = sorted(rel.values(), reverse=True)
@@ -72,6 +102,15 @@ class MetaDatasetBuilder:
         meta["utility_best_abs"] = float(max(dp.values()))
         meta["utility_worst_abs"] = float(min(dp.values()))
         meta["utility_range"] = meta["utility_best_abs"] - meta["utility_worst_abs"]
+
+        # FASE 3: Perda de Utilidade Relativa por mecanismo (target para regressão).
+        # Definição: quanto o mecanismo M perde em relação ao baseline sem DP.
+        # utility_loss_M = max(0, (baseline - dp_acc) / baseline) * 100  [percentual]
+        # Um mecanismo que preserva toda a utilidade tem loss=0.
+        # O framework escolherá o mecanismo com MENOR perda prevista.
+        for m in dp:
+            loss = max(0.0, (base - dp[m]) / base) * 100.0
+            meta[f"utility_loss_{m}"] = float(loss)
 
         # MELHORIA: Seleção de best_mechanism com desempate por família
         # Prioriza mecanismo mais específico quando há empate

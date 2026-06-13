@@ -202,3 +202,105 @@ META-LEARNING
 ├── Laplace não é universal (27.6%)
 └── Padrões são aprendíveis (dimensionalidade, categoricidade)
 ```
+
+---
+
+## Privacidade Diferencial e Meta-Learning (v17)
+
+### 16. Features DP-específicas têm alto retorno
+
+**Contexto:** DEC-023 (v17)
+
+Meta-features genéricas (média, correlação, forma) não capturam o que importa para DP: sensibilidade global, impacto de clipping e disparate impact em subgrupos.
+
+**Resultado:** Adicionar 40 features DP-específicas elevou o F1-macro de 0.70 → 0.87 (+17pp) sem alterar nenhum threshold ou arquitetura do ensemble.
+
+**Regra:** Domínio específico do problema → features específicas do problema. Features genéricas têm teto de performance.
+
+---
+
+### 17. Contexto do usuário (ε, task_type) é obrigatório
+
+**Contexto:** DEC-023 (v17)
+
+O mecanismo ideal para ε=0.1 é frequentemente diferente do mecanismo ideal para ε=10. Um meta-modelo sem contexto de ε está fazendo uma decisão sem informação fundamental.
+
+**Exemplo:** Com ε pequeno, o ruído é alto e mecanismos com menor sensibilidade (Laplace vs Gaussian) têm vantagem. Com ε grande, a escolha depende mais da natureza dos dados.
+
+**Regra:** Inclua variáveis de contexto operacional no vetor de features. O modelo não pode adivinhar o que o usuário não forneceu.
+
+---
+
+### 18. Regressão de perda precisa de labels confiáveis
+
+**Contexto:** DEC-023 (v17)
+
+A abordagem de regressão (prever "perda de utilidade %") é teoricamente superior à classificação ("qual mecanismo é melhor") porque produz um ranking contínuo em vez de uma decisão binária.
+
+**Porém:** Com `n_runs=1`, o label `utility_loss_laplace` para um dataset varia ±5pp entre execuções por causa do ruído estocástico da DP. O regressor tenta aprender padrões precisos de dados imprecisos.
+
+**O classificador é robusto** porque só precisa saber "A > B", não "A é 3.2pp melhor". Empates e ruído não mudam a classificação.
+
+**Regra:** Use `META_STABLE_PROFILE` (n_runs=5) ao gerar meta-datasets para regressão. Para classificação, `n_runs=1` é aceitável.
+
+**Hierarquia:** meta-dataset com labels confiáveis → regressor bem calibrado → melhor hit rate. Com labels ruidosas, o classificador vence.
+
+---
+
+### 19. Treinar regressão no dado original (pré-oversample)
+
+**Contexto:** DEC-023 (v17)
+
+O oversample foi introduzido para balancear classes raras (ex: Geometric com 7 exemplos) no classificador. Mas o regressor não precisa de balanceamento — ele aprende a magnitude da perda, não a frequência da classe.
+
+**Risco:** Treinar o regressor em dados sobre-amostrados infla artificialmente a importância de datasets sintéticos e distorce as perdas previstas.
+
+**Regra:** Salvar `X_meta_orig` (pré-oversample) e treinar o regressor nele. O classificador usa `X_meta` (pós-oversample).
+
+---
+
+### 20. Softmin para converter perdas em probabilidades
+
+**Contexto:** DEC-023 (v17)
+
+O `_predict_regression()` retorna perdas (ex: `[Laplace: 3.1%, Gaussian: 5.2%, Exponential: 8.7%]`). Para manter API compatível (`all_proba` dict) e permitir análise de confiança, as perdas são convertidas em "probabilidades" via softmin com temperatura T=10:
+
+```python
+p_i = exp(-loss_i / T) / Σ exp(-loss_j / T)
+```
+
+Temperatura T=10 normaliza perdas em escala de % para probabilidades sem colapso (T muito baixo colapsaria para one-hot).
+
+**Regra:** Softmin é preferível a normalização linear porque é diferenciável e respeita a relação relativa entre perdas.
+
+---
+
+## Resumo Visual (Atualizado v17)
+
+```
+DECISÕES DE ARQUITETURA (v17)
+├── Treinar auxiliares pré-oversample
+├── Treinar REGRESSOR pré-oversample (novo)
+├── Manter features isoladas por prefilter
+├── Dual-gate para early returns
+└── Contexto obrigatório (ε, task_type)
+
+THRESHOLDS
+├── Precision < 35% → desabilitar
+├── TPs têm alta confiança → elevar threshold
+└── Mais dados → relaxar thresholds
+
+TRADE-OFFS
+├── Precision vs Recall
+├── Hit rate vs F1-macro
+├── Simplicidade vs Performance
+├── n_runs=1 (rápido) vs n_runs=5 (confiável)  ← novo
+└── Classificação (robusto ao ruído) vs Regressão (informativo)  ← novo
+
+META-LEARNING
+├── Headroom é pequeno (~2pp)
+├── Laplace não é universal (27.6%)
+├── Padrões são aprendíveis (dimensionalidade, categoricidade)
+├── Features DP-específicas: +17pp F1-macro  ← novo
+└── Contexto ε/task_type é não-opcional  ← novo
+```

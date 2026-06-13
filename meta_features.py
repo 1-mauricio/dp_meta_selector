@@ -1,6 +1,6 @@
 """Extração de meta-features de datasets tabulares."""
 
-from typing import Dict
+from typing import Dict, Optional
 
 import numpy as np
 from scipy import stats
@@ -13,11 +13,42 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier
 
 
+# Constantes para tipos de tarefa (contexto obrigatório)
+TASK_CLASSIFICATION = "classification"
+TASK_REGRESSION = "regression"
+TASK_QUERIES = "queries"
+TASK_TYPES = [TASK_CLASSIFICATION, TASK_REGRESSION, TASK_QUERIES]
+
+
 class MetaFeatureExtractor:
     def __init__(self, fast_landmarks: bool = False):
         self.fast_landmarks = fast_landmarks
 
-    def extract(self, X: np.ndarray, y: np.ndarray) -> Dict[str, float]:
+    def extract(
+        self,
+        X: np.ndarray,
+        y: np.ndarray,
+        epsilon: Optional[float] = None,
+        task_type: Optional[str] = None,
+    ) -> Dict[str, float]:
+        """Extrai meta-features do dataset.
+        
+        Parameters
+        ----------
+        X : np.ndarray
+            Matriz de features (n_samples, n_features)
+        y : np.ndarray
+            Vetor de labels
+        epsilon : float, optional
+            Orçamento de privacidade desejado pelo usuário (contexto obrigatório para DP)
+        task_type : str, optional
+            Tipo de tarefa: "classification", "regression", ou "queries"
+        
+        Returns
+        -------
+        Dict[str, float]
+            Dicionário com meta-features estáticas + contexto
+        """
         f = {}
         f.update(self._stat(X, y))
         f.update(self._info(X, y))
@@ -26,6 +57,15 @@ class MetaFeatureExtractor:
         f.update(self._categorical_signal(X, y))  # CAT1
         f.update(self._discrete_signal(X, y))     # DISC
         f.update(self._family_discriminators(X, y))  # MELHORIA: novos discriminadores
+        
+        # NOVO: Meta-features específicas para DP
+        f.update(self._dp_clipping_signal(X, y))  # Razão max/mediana, curtose
+        f.update(self._dp_sparsity_dimensionality(X, y))  # Esparsidade, rank efetivo
+        f.update(self._dp_subgroup_entropy(X, y))  # Entropia de subgrupos
+        
+        # NOVO: Variáveis de contexto obrigatórias (concatenadas ao vetor X)
+        f.update(self._context_features(epsilon, task_type))
+        
         return f
 
     def _stat(self, X, y):
@@ -503,3 +543,291 @@ class MetaFeatureExtractor:
             "fam_pca_var_top3": pca_var_top3,
             "fam_ga_score": ga_score,
         }
+
+    # =========================================================================
+    # NOVAS META-FEATURES ESPECÍFICAS PARA DIFFERENTIAL PRIVACY (DP)
+    # =========================================================================
+
+    def _dp_clipping_signal(self, X: np.ndarray, y: np.ndarray) -> Dict[str, float]:
+        """Meta-features para prever impacto do clipping em DP.
+        
+        O clipping (limitação de valores extremos) é crítico em DP para controlar
+        a sensibilidade. Datasets com outliers severos sofrem mais com clipping.
+        
+        Features:
+        - max_median_ratio: razão máximo/mediana por coluna (outlier severity)
+        - mean/max_kurtosis: curtose indica caudas pesadas (mais outliers)
+        - iqr_ratio: razão IQR/range (baixo = outliers dominam o range)
+        - clipping_loss_estimate: perda estimada com clipping 3σ
+        """
+        n, d = X.shape
+        
+        # Razão máximo/mediana por coluna (outlier severity indicator)
+        medians = np.median(X, axis=0)
+        maxs = np.abs(X).max(axis=0)
+        # Evita divisão por zero para colunas constantes
+        safe_medians = np.where(np.abs(medians) > 1e-9, np.abs(medians), 1.0)
+        max_median_ratios = maxs / safe_medians
+        
+        dp_mean_max_median_ratio = float(np.mean(max_median_ratios))
+        dp_max_max_median_ratio = float(np.max(max_median_ratios))
+        
+        # Curtose (kurtosis) - caudas pesadas indicam mais outliers
+        import warnings as _w
+        with _w.catch_warnings():
+            _w.simplefilter("ignore", RuntimeWarning)
+            kurtosis = stats.kurtosis(X, axis=0, nan_policy="omit")
+        kurtosis = np.nan_to_num(kurtosis, nan=0.0, posinf=10.0, neginf=-2.0)
+        
+        dp_mean_kurtosis = float(np.mean(kurtosis))
+        dp_max_kurtosis = float(np.max(kurtosis))
+        dp_std_kurtosis = float(np.std(kurtosis))
+        # Proporção de colunas com curtose alta (> 3, indicando caudas pesadas)
+        dp_ratio_heavy_tails = float(np.mean(kurtosis > 3))
+        
+        # Razão IQR/Range - baixo valor indica que outliers dominam o range
+        q1 = np.percentile(X, 25, axis=0)
+        q3 = np.percentile(X, 75, axis=0)
+        iqr = q3 - q1
+        col_range = X.max(axis=0) - X.min(axis=0) + 1e-9
+        iqr_ratio = iqr / col_range
+        
+        dp_mean_iqr_ratio = float(np.mean(iqr_ratio))
+        dp_min_iqr_ratio = float(np.min(iqr_ratio))
+        
+        # Estimativa de perda por clipping 3σ
+        # Conta proporção de valores que seriam clipados
+        mu = X.mean(axis=0)
+        sigma = X.std(axis=0) + 1e-9
+        clipping_mask = np.abs(X - mu) > 3 * sigma
+        dp_clipping_loss_estimate = float(clipping_mask.mean())
+        
+        # Sensibilidade global estimada (range normalizado)
+        # Importante: em DP, sensibilidade = max diferença que um único registro causa
+        dp_global_sensitivity_norm = float(col_range.mean() / (sigma.mean() + 1e-9))
+        
+        return {
+            "dp_mean_max_median_ratio": dp_mean_max_median_ratio,
+            "dp_max_max_median_ratio": dp_max_max_median_ratio,
+            "dp_mean_kurtosis": dp_mean_kurtosis,
+            "dp_max_kurtosis": dp_max_kurtosis,
+            "dp_std_kurtosis": dp_std_kurtosis,
+            "dp_ratio_heavy_tails": dp_ratio_heavy_tails,
+            "dp_mean_iqr_ratio": dp_mean_iqr_ratio,
+            "dp_min_iqr_ratio": dp_min_iqr_ratio,
+            "dp_clipping_loss_estimate": dp_clipping_loss_estimate,
+            "dp_global_sensitivity_norm": dp_global_sensitivity_norm,
+        }
+
+    def _dp_sparsity_dimensionality(self, X: np.ndarray, y: np.ndarray) -> Dict[str, float]:
+        """Meta-features de esparsidade e dimensionalidade efetiva.
+        
+        Em DP, alta dimensionalidade e esparsidade podem causar colapso de utilidade:
+        - Ruído acumula com mais features
+        - Dados esparsos têm menos sinal para preservar
+        
+        Features:
+        - zero_ratio: proporção de zeros (esparsidade)
+        - effective_rank: rank numérico via SVD (dimensionalidade intrínseca)
+        - condition_number: número de condição da matriz (estabilidade numérica)
+        """
+        n, d = X.shape
+        
+        # Esparsidade: proporção de zeros
+        dp_zero_ratio = float(np.sum(X == 0) / X.size)
+        
+        # Esparsidade por coluna (para detectar colunas muito esparsas)
+        col_sparsity = np.mean(X == 0, axis=0)
+        dp_max_col_sparsity = float(np.max(col_sparsity))
+        dp_mean_col_sparsity = float(np.mean(col_sparsity))
+        # Proporção de colunas com >50% zeros
+        dp_ratio_sparse_cols = float(np.mean(col_sparsity > 0.5))
+        
+        # Rank numérico e dimensionalidade efetiva via SVD
+        try:
+            # Centraliza e normaliza para estabilidade numérica
+            X_centered = X - X.mean(axis=0)
+            X_scaled = X_centered / (X.std(axis=0) + 1e-9)
+            
+            # SVD truncada para eficiência
+            k = min(d, n, 50)
+            from scipy.linalg import svd
+            _, s, _ = svd(X_scaled, full_matrices=False)
+            s = s[:k]
+            
+            # Rank numérico: conta valores singulares > threshold
+            threshold = max(n, d) * np.finfo(float).eps * s[0]
+            dp_numerical_rank = int(np.sum(s > threshold))
+            dp_numerical_rank_ratio = float(dp_numerical_rank / d)
+            
+            # Dimensionalidade efetiva (entropia dos valores singulares normalizados)
+            s_norm = s / (s.sum() + 1e-9)
+            effective_dim = float(np.exp(-np.sum(s_norm * np.log(s_norm + 1e-9))))
+            dp_effective_dim_ratio = float(effective_dim / d)
+            
+            # Número de condição (razão maior/menor valor singular)
+            # Alto número de condição = matriz mal condicionada = DP mais difícil
+            s_nonzero = s[s > 1e-9]
+            if len(s_nonzero) >= 2:
+                dp_condition_number = float(s_nonzero[0] / s_nonzero[-1])
+                dp_log_condition_number = float(np.log10(dp_condition_number + 1))
+            else:
+                dp_condition_number = 1.0
+                dp_log_condition_number = 0.0
+                
+            # Proporção de variância explicada pelos top-k componentes
+            var_explained = s**2 / (np.sum(s**2) + 1e-9)
+            dp_var_top1 = float(var_explained[0])
+            dp_var_top5 = float(np.sum(var_explained[:min(5, len(var_explained))]))
+            
+        except Exception:
+            dp_numerical_rank = d
+            dp_numerical_rank_ratio = 1.0
+            dp_effective_dim_ratio = 1.0
+            dp_condition_number = 1.0
+            dp_log_condition_number = 0.0
+            dp_var_top1 = 1.0 / max(d, 1)
+            dp_var_top5 = min(5, d) / max(d, 1)
+        
+        return {
+            "dp_zero_ratio": dp_zero_ratio,
+            "dp_max_col_sparsity": dp_max_col_sparsity,
+            "dp_mean_col_sparsity": dp_mean_col_sparsity,
+            "dp_ratio_sparse_cols": dp_ratio_sparse_cols,
+            "dp_numerical_rank": dp_numerical_rank,
+            "dp_numerical_rank_ratio": dp_numerical_rank_ratio,
+            "dp_effective_dim_ratio": dp_effective_dim_ratio,
+            "dp_condition_number": dp_condition_number,
+            "dp_log_condition_number": dp_log_condition_number,
+            "dp_var_top1": dp_var_top1,
+            "dp_var_top5": dp_var_top5,
+        }
+
+    def _dp_subgroup_entropy(self, X: np.ndarray, y: np.ndarray) -> Dict[str, float]:
+        """Meta-features de entropia de subgrupos para mitigar Disparate Impact.
+        
+        O ruído DP afeta desproporcionalmente grupos minoritários. Estas features
+        ajudam a prever quando isso será um problema:
+        - Desbalanceamento de classes
+        - Tamanho do menor grupo
+        - Entropia da distribuição de grupos
+        
+        Features:
+        - minority_class_ratio: proporção da menor classe
+        - class_imbalance_ratio: razão maior/menor classe
+        - class_entropy: entropia da distribuição de classes
+        - gini_impurity: impureza de Gini das classes
+        """
+        n = len(y)
+        
+        # Contagem de classes
+        classes, counts = np.unique(y, return_counts=True)
+        n_classes = len(classes)
+        
+        if n_classes < 2:
+            return {
+                "dp_minority_class_ratio": 1.0,
+                "dp_class_imbalance_ratio": 1.0,
+                "dp_class_entropy": 0.0,
+                "dp_class_entropy_normalized": 0.0,
+                "dp_gini_impurity": 0.0,
+                "dp_minority_class_size": n,
+                "dp_majority_class_ratio": 1.0,
+                "dp_effective_n_classes": 1.0,
+            }
+        
+        # Proporções de cada classe
+        probs = counts / n
+        
+        # Proporção da menor classe (grupo minoritário)
+        dp_minority_class_ratio = float(np.min(probs))
+        dp_minority_class_size = int(np.min(counts))
+        
+        # Proporção da maior classe
+        dp_majority_class_ratio = float(np.max(probs))
+        
+        # Razão de desbalanceamento (maior/menor)
+        dp_class_imbalance_ratio = float(np.max(counts) / (np.min(counts) + 1))
+        
+        # Entropia de Shannon das classes
+        dp_class_entropy = float(-np.sum(probs * np.log2(probs + 1e-9)))
+        # Entropia normalizada (0-1, onde 1 = distribuição uniforme)
+        max_entropy = np.log2(n_classes)
+        dp_class_entropy_normalized = float(dp_class_entropy / (max_entropy + 1e-9))
+        
+        # Impureza de Gini
+        dp_gini_impurity = float(1.0 - np.sum(probs ** 2))
+        
+        # Número efetivo de classes (entropia exponenciada)
+        dp_effective_n_classes = float(np.exp(dp_class_entropy * np.log(2)))
+        
+        # Score composto de risco de Disparate Impact
+        # Alto quando: classes muito desbalanceadas + grupo minoritário pequeno
+        dp_disparate_impact_risk = float(
+            (1 - dp_minority_class_ratio) * (1 - dp_class_entropy_normalized)
+        )
+        
+        return {
+            "dp_minority_class_ratio": dp_minority_class_ratio,
+            "dp_minority_class_size": dp_minority_class_size,
+            "dp_majority_class_ratio": dp_majority_class_ratio,
+            "dp_class_imbalance_ratio": dp_class_imbalance_ratio,
+            "dp_class_entropy": dp_class_entropy,
+            "dp_class_entropy_normalized": dp_class_entropy_normalized,
+            "dp_gini_impurity": dp_gini_impurity,
+            "dp_effective_n_classes": dp_effective_n_classes,
+            "dp_disparate_impact_risk": dp_disparate_impact_risk,
+        }
+
+    def _context_features(
+        self,
+        epsilon: Optional[float] = None,
+        task_type: Optional[str] = None,
+    ) -> Dict[str, float]:
+        """Variáveis de contexto obrigatórias concatenadas ao vetor de features.
+        
+        O meta-modelo NÃO deve tentar adivinhar o melhor algoritmo olhando apenas
+        para o dataset. O orçamento de privacidade (epsilon) e o tipo de tarefa
+        são informações críticas que o usuário deve fornecer.
+        
+        Parameters
+        ----------
+        epsilon : float
+            Orçamento de privacidade desejado. Valores típicos:
+            - 0.1-0.5: privacidade forte (muito ruído)
+            - 1.0: padrão (ruído moderado)
+            - 5.0-10.0: privacidade fraca (pouco ruído)
+            
+        task_type : str
+            Tipo de tarefa: "classification", "regression", ou "queries"
+        """
+        features = {}
+        
+        # Epsilon (orçamento de privacidade)
+        if epsilon is not None:
+            features["ctx_epsilon"] = float(epsilon)
+            features["ctx_log_epsilon"] = float(np.log(epsilon + 1e-9))
+            # Buckets de epsilon para facilitar aprendizado
+            features["ctx_epsilon_low"] = float(epsilon < 1.0)
+            features["ctx_epsilon_medium"] = float(1.0 <= epsilon < 5.0)
+            features["ctx_epsilon_high"] = float(epsilon >= 5.0)
+        else:
+            # Valores padrão quando não especificado (epsilon = 1.0)
+            features["ctx_epsilon"] = 1.0
+            features["ctx_log_epsilon"] = 0.0
+            features["ctx_epsilon_low"] = 0.0
+            features["ctx_epsilon_medium"] = 1.0
+            features["ctx_epsilon_high"] = 0.0
+        
+        # Tipo de tarefa (one-hot encoding)
+        if task_type is not None and task_type in TASK_TYPES:
+            features["ctx_task_classification"] = float(task_type == TASK_CLASSIFICATION)
+            features["ctx_task_regression"] = float(task_type == TASK_REGRESSION)
+            features["ctx_task_queries"] = float(task_type == TASK_QUERIES)
+        else:
+            # Padrão: classificação
+            features["ctx_task_classification"] = 1.0
+            features["ctx_task_regression"] = 0.0
+            features["ctx_task_queries"] = 0.0
+        
+        return features

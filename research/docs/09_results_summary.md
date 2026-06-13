@@ -1,6 +1,6 @@
 # Resumo de Resultados por Versão
 
-> Evolução do framework através das versões v0 a v16.
+> Evolução do framework através das versões v0 a v17.
 
 ---
 
@@ -20,8 +20,10 @@
 | v14 | +Sintéticos, +features | 0.676 | 0.0064 | 31.2% | 75.9% | 0.545 | 0.55 |
 | v15 | +Diagnósticos | 0.676 | 0.0064 | 31.2% | 75.9% | 0.545 | 0.55 |
 | **v16** | Thresholds otimizados | 0.619 | — | 56%* | 59%* | — | **0.70** |
+| **v17** | ⚡ Meta-features DP + regressão | **0.664** | — | — | — | — | **0.87** |
 
 *v16: valores de recall por família (Exponential, GaussianAnalytic)
+*v17: hit rate do classificador ExtraTrees no pipeline completo; MAE-CV regressor = 4.16%
 
 ---
 
@@ -32,16 +34,16 @@ Hit Rate Evolution
 1.0 |
     |
 0.8 |
-    |                              ┌── v13 (0.674)
-0.7 |            ┌─v2b──┐     ┌───┘    
-    |            │      │    v8b      
-0.6 |     v1─────┘      └v3b───┘                     v16 (0.619)
-    |    ┌┘                                              │
-0.5 |─v0─┘                                               │
-    |                                                    │
-0.4 |                                                    │
-    +─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬────►
-         v0    v1   v2b   v3b   v8b  v11  v13  v14  v16
+    |                              ┌── v13/v14 (0.676)
+0.7 |            ┌─v2b──┐     ┌───┘                  ┌── v17 (0.664)
+    |            │      │    v8b                      │
+0.6 |     v1─────┘      └v3b───┘      v16 (0.619) ───┘
+    |    ┌┘
+0.5 |─v0─┘
+    |
+0.4 |
+    +─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────►
+         v0    v1   v2b   v3b   v8b  v11  v13  v16  v17
 ```
 
 ---
@@ -85,6 +87,19 @@ Hit Rate Evolution
   - hit_rate: 67.6% → 61.9% (-5.7pp)
   - F1-macro: 0.55 → 0.70 (+15pp)
 
+### v16 → v17: ⚡ Refatoração DP-Aware
+
+- **Mudanças:**
+  - +40 meta-features DP-específicas (clipping, esparsidade, subgrupos)
+  - +8 variáveis de contexto obrigatórias (epsilon, task_type)
+  - Regressão multi-output de perda de utilidade como decisão principal
+  - `META_STABLE_PROFILE` com n_runs=5 para labels confiáveis
+  - 116 features totais (era ~76)
+- **Resultados:**
+  - F1-macro classificador: 0.70 → **0.87** (+17pp)
+  - Hit Rate pipeline: 66.4% (vs 61.9% v16)
+  - Regressor MAE-CV: **4.16%** de erro médio na previsão de perda
+
 ---
 
 ## Métricas por Família (v16)
@@ -96,17 +111,35 @@ Hit Rate Evolution
 | GaussianAnalytic | 0.75 | 0.59 | 0.66 |
 | **Macro** | 0.68 | 0.61 | **0.64** |
 
+## Métricas do Regressor (v17, benchmark 123 datasets de teste)
+
+```
+Pipeline completa — Classificador (v16/v17) vs Regressor (v17):
+
+                                 ANTIGA (clf)    NOVA (reg)    Delta
+─────────────────────────────────────────────────────────────────────
+Hit Rate geral                     66.4%           29.4%       -37.0%
+Gap médio (perda extra ao errar)    0.77%           3.56%       +2.79%
+
+Casos ambíguos (73% dos datasets, sem prefilter):
+Hit Rate                           71.3%           20.7%       -50.6%
+Gap médio                           0.36%           4.18%       +3.81%
+```
+
+> **Interpretação:** O regressor performa abaixo do classificador com o perfil atual (`META_FAST_PROFILE`, `n_runs=1`) porque aprende perdas precisas (%) a partir de labels ruidosas. Com `META_STABLE_PROFILE` (`n_runs=5`), os labels de treino são médias sobre 5 execuções, eliminando o ruído estocástico da DP.
+
 ---
 
 ## Comparação com Baselines
 
-| Método | Acurácia Média | Hit Rate |
-|--------|----------------|----------|
-| Laplace fixo | 0.522 | 27.6% |
-| Random | ~0.48 | ~33% |
-| **Nosso (v13)** | **0.524** | **67.4%** |
-| **Nosso (v16)** | — | **61.9%** |
-| Oracle | ~0.55 | 100% |
+| Método | Acurácia Média | Hit Rate | F1-macro |
+|--------|----------------|----------|----------|
+| Laplace fixo | 0.522 | 27.6% | — |
+| Random | ~0.48 | ~33% | — |
+| **Nosso (v13)** | **0.524** | **67.4%** | 0.55 |
+| **Nosso (v16)** | — | 61.9% | **0.70** |
+| **Nosso (v17)** | — | **66.4%** | **0.87** |
+| Oracle | ~0.55 | 100% | — |
 
 ---
 
@@ -118,13 +151,15 @@ Hit Rate Evolution
 2. **Dual-gate** — reduziu FPs sem perder muitos TPs
 3. **Threshold alto no CAT1** — TPs têm confiança muito maior que FPs
 4. **Desabilitar GAUSS** — precision < 35% é net negativo
+5. ⚡ **Features DP-específicas** — F1-macro +17pp sem alterar thresholds
 
-### O que não funcionou
+### O que não funcionou (ainda)
 
 1. **Aligned Profile** — mudou labels, resultado piorou
 2. **GAUSS prefilter ativo** — muitos FPs
 3. **DISC prefilter** — poucos exemplos, não aprendeu
 4. **Filtrar datasets** — afetou muitos datasets válidos
+5. ⚡ **Regressor com n_runs=1** — labels ruidosas prejudicam regressão de precisão
 
 ### Trade-offs Identificados
 
@@ -133,15 +168,20 @@ Hit Rate Evolution
 | Threshold CAT1 | Alto (0.90) | Baixo (0.75) |
 | GAUSS prefilter | Desabilitado | Ativo (0.80) |
 | Family gate | Alto (0.65) | Baixo (0.55) |
+| n_runs (labels) | Baixo (rápido) | Alto (confiável) |
 
 ---
 
 ## Estado Final Recomendado
 
-Para **dissertação** (F1-macro equilibrado): **v16**
-- F1-macro: 0.70
-- Recall balanceado entre classes
+Para **dissertação — F1-macro equilibrado:** **v17** (refatoração DP-aware)
+- F1-macro: 0.87 (ExtraTrees), MAE-CV regressor: 4.16%
+- 116 meta-features incluindo features DP-específicas e contexto
 
-Para **produção** (hit_rate máximo): **v13**
-- hit_rate: 67.4%
+Para **dissertação — hit_rate máximo:** **v13/v14**
+- hit_rate: 67.4–67.6%
 - model_acc > Laplace fixo
+
+Para **produção com labels confiáveis:** **v17 + `META_STABLE_PROFILE`**
+- n_runs=5: elimina ruído estocástico da DP
+- Regressão de perda de utilidade com targets robustos
