@@ -14,7 +14,7 @@ DELTA_DEFAULT: float = 1e-5
 TARGET_NOISE_RATIO: float = 0.30   # σ_ruído / σ_sinal alvo
 
 # ── Datasets ──────────────────────────────────────────────────────────────────
-OPENML_TRAINING_TARGET: int = 500   # número-alvo de datasets de treino
+OPENML_TRAINING_TARGET: int = 1200  # número-alvo de datasets de treino (buffer para ~1000 bem-sucedidos)
 OPENML_CC18_SUITE_ID: int = 99
 MAX_ROWS_PER_DATASET: int = 3000    # subsampling máximo por dataset
 
