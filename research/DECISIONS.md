@@ -674,3 +674,97 @@ O framework se justifica porque:
 | `scripts/compare_dp_mechanisms.py` | Script de comparação |
 | `research/dp_comparison_full.csv` | Resultados detalhados (489 datasets) |
 | `research/DECISIONS.md` | Esta documentação |
+
+---
+
+# Decisões de Arquitetura — v17 a v19 (DP-Aware Meta-Learning)
+
+## DEC-023 — Meta-features DP-Específicas e Variáveis de Contexto (v17)
+
+**Data:** 2026-06-13  
+**Contexto:** Framework v16 estagnou em F1-macro=0.70 porque meta-features clássicas (forma, correlação, média) não capturam a geometria interna que governa o comportamento de mecanismos DP.
+
+**Decisão:** Adicionar três grupos de meta-features DP-específicas ao extrator + variáveis de contexto obrigatórias:
+
+| Grupo | Features Criadas | Objetivo |
+|-------|-----------------|----------|
+| `_dp_clipping_signal` | `dp_max_kurtosis`, `dp_clipping_loss_estimate`, `dp_ratio_heavy_tails`, `dp_mean_max_median_ratio`, `dp_global_sensitivity_norm` | Prever impacto do clipping de outliers na sensibilidade global |
+| `_dp_sparsity_dimensionality` | `dp_numerical_rank_ratio`, `dp_effective_dim_ratio`, `dp_condition_number`, `dp_zero_ratio`, `dp_mean_col_sparsity` | Avaliar colapso de utilidade em alta dimensionalidade e dados esparsos |
+| `_dp_subgroup_entropy` | `dp_minority_class_ratio`, `dp_disparate_impact_risk`, `dp_gini_impurity`, `dp_class_entropy` | Medir risco de impacto desproporcional em subgrupos minoritários |
+| `_context_features` | `ctx_epsilon`, `ctx_log_epsilon`, `ctx_task_classification`, `ctx_task_regression`, `ctx_task_queries` | Contexto operacional do usuário (orçamento ε, tipo de tarefa) |
+
+**Resultado:** F1-macro 0.70 → **0.87** (+17pp) sem alterar thresholds ou arquitetura do ensemble.
+
+**Regra:** Features genéricas têm teto de performance. Domínio específico → features específicas.
+
+---
+
+## DEC-024 — Regressão Multi-Output de Perda de Utilidade (v17)
+
+**Data:** 2026-06-13  
+**Contexto:** Classificação direta ("qual mecanismo é melhor") só produz um vencedor. Para ordenar mecanismos e quantificar a diferença de utilidade, é necessária uma função de saída contínua.
+
+**Decisão:** Adicionar `MultiOutputRandomForest` como segundo ramo do ensemble: prever `utility_loss_{mechanism}` (perda percentual de utilidade) para cada um dos 9 mecanismos simultaneamente.
+
+**Regra crítica:** O regressor **deve ser treinado nos dados originais (pré-oversample)**. O oversample distorce a distribuição das perdas ao inflar datasets sintéticos. Salvar `X_meta_orig` separado de `X_meta`.
+
+**Referência:** Lição 19 (`07_lessons_learned.md`).
+
+---
+
+## DEC-025 — META_STABLE_PROFILE e Estabilização de Labels (v19)
+
+**Data:** 2026-06-13  
+**Contexto:** Com `n_runs=1`, cada `utility_loss_*` varia ±5pp entre execuções por causa do ruído estocástico da DP. O regressor tentava aprender padrões precisos a partir de labels sem sinal consistente ("areia movediça estatística"). Resultado: Hit Rate 66.4% → **36.4%** ao ativar o regressor na v18.
+
+**Decisão:** Implementar `META_STABLE_PROFILE` com `n_runs=5`. Cada label é a média de 5 execuções independentes com seeds distintos. Pipeline: `main.py --stable --checkpoint .dp_meta_cache/ckpt_stable.joblib --save-meta-dataset meta_datasets_v19/`.
+
+**Persistência obrigatória:** CSVs (`meta_features_meta_stable.csv`, `meta_targets_meta_stable.csv`) salvos em `meta_datasets_v19/` — 19 min de computação (1147s), não reprocessar.
+
+**Regra:** Use `META_STABLE_PROFILE` para treinar qualquer componente de regressão. Para classificação pura, `META_FAST_PROFILE` (n_runs=1) é aceitável.
+
+---
+
+## DEC-026 — Hybrid Ensemble e Fallback Conservador Calibrado (v19)
+
+**Data:** 2026-06-13  
+**Contexto:** O classificador ExtraTrees tem alta robustez ao ruído mas não ordena mecanismos. O regressor ordena com precisão mas pode recomendar mecanismos piores que Laplace quando incerto. Na v19 raw com margem padrão (2.0pp), 31.8% das recomendações ainda eram piores que Laplace.
+
+**Decisão:** Ensemble híbrido com disjuntor de segurança:
+1. Classificador seleciona Top-K (`_hybrid_top_k=3`) mecanismos finalistas
+2. Regressor ordena os finalistas pela menor perda prevista
+3. **Fallback:** se `loss_recomendado > loss_Laplace − margin`, forçar Laplace ou recomendação do classificador puro
+
+**Calibração:** Grid Search offline em 40 combinações (5 top_k × 8 margens, 0.5pp a 5.0pp). Resultado: **`margin=0.5pp`** é o sweet spot — Hit Rate 50.5%, Catastrophic Failure 3.0% (offline).
+
+**Parâmetros fixados:** `_hybrid_top_k=3`, `_hybrid_laplace_margin=0.5` em `meta_learner.py`.
+
+**Resultado científico (benchmark 5-fold, 401 datasets):**
+
+| Dimensão | Vanilla v16 | v19 Hybrid | Δ |
+|---|:---:|:---:|:---:|
+| Hit Rate Top-1 | 75.8% | 68.3% | −7.5pp |
+| Max Regret | 25.73pp | 14.04pp | **−45%** |
+| Hit Rate Top-2 | 93.8% | 94.3% | +0.5pp |
+
+**Regra:** Em sistemas de decisão para DP crítico, minimizar o pior caso (Max Regret) é matematicamente preferível a maximizar a precisão média.
+
+---
+
+## DEC-027 — Human-in-the-Loop: `return_top_k` (v19-tuned)
+
+**Data:** 2026-06-13  
+**Contexto:** Hit Rate Top-2 de 94.3% significa que o mecanismo ótimo está quase sempre nas duas primeiras posições. Expor esse comportamento ao usuário é mais valioso do que um veredito único às cegas.
+
+**Decisão:** Adicionar parâmetro `return_top_k: int = 1` a `MetaLearner.predict()` e `DPMechanismSelector.recommend()`. Quando `return_top_k=2`, retornar `top_k_recommendations` com `{rank, mechanism, predicted_loss, confidence}` ordenado por perda prevista.
+
+**Implementação:** Closure `_enrich()` dentro de `predict()`. Se `predicted_utility_loss` existe (caminho híbrido), ordena por perda ascendente. Caso contrário, ordena por `all_proba` descendente.
+
+**Exemplo de uso:**
+```python
+result = selector.recommend(X, y, epsilon=1.0, task_type="classification", return_top_k=2)
+# #1 Laplace       2.1%
+# #2 Exponential   2.2%
+```
+
+**Regra:** Para engenheiros de dados em ambientes regulados, receber as duas melhores opções com delta de perda é superior a um único veredito sem contexto.

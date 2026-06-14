@@ -2,7 +2,7 @@
 
 > Framework de meta-aprendizagem para seleção automática de mecanismos de Privacidade Diferencial.
 
-**Atualizado em:** 2026-06-13
+**Atualizado em:** 2026-06-13 — v19-tuned (versão final dissertação)
 
 ---
 
@@ -10,14 +10,14 @@
 
 O `dp_meta_selector` é um framework que seleciona automaticamente o melhor mecanismo de Privacidade Diferencial (DP) para um dataset tabular, sem necessidade de intervenção manual.
 
-**Fluxo geral (v17, atual):**
-1. Extrair meta-features do dataset (**116 features** — inclui features DP-específicas e contexto do usuário)
+**Fluxo geral (v19, atual):**
+1. Extrair meta-features do dataset (**112 features** — estatísticas clássicas + DP-específicas + contexto)
 2. CAT1: pré-filtro binário Exponential (threshold ≥ 0.75) com dual-gate família (p_cat ≥ 0.15)
 3. DISC: pré-filtro para mecanismos discretos/Geometric (threshold ≥ 0.70)
 4. GAUSS: pré-filtro para GaussianAnalytic (threshold ≥ 0.80)
-5. **Regressão multi-output** de perda de utilidade — recomenda o mecanismo com **menor perda prevista** (padrão)
-6. Ensemble ExtraTrees + portão hierárquico HIER (gate 0.55) — fallback
-7. Aplicar o mecanismo escolhido com ε calibrado por família
+5. **Hybrid Ensemble:** Classificador Top-3 → Regressor ordena por menor `utility_loss` previsto
+6. **Fallback conservador:** se `loss_recomendado > loss_Laplace − 0.5pp`, recua para Laplace/classificador
+7. Opcionalmente retorna Top-2 recomendações via `return_top_k=2` (Human-in-the-Loop)
 
 ---
 
@@ -31,10 +31,12 @@ O `dp_meta_selector` é um framework que seleciona automaticamente o melhor meca
 | [04_gaussian_optimization.md](04_gaussian_optimization.md) | Otimização do GaussianAnalytic e thresholds |
 | [05_improvements_v14_v16.md](05_improvements_v14_v16.md) | Melhorias das versões v14 a v16 |
 | [06_mechanism_comparison.md](06_mechanism_comparison.md) | Estudo comparativo de mecanismos DP (489 datasets) |
-| [07_lessons_learned.md](07_lessons_learned.md) | Lições aprendidas consolidadas |
+| [07_lessons_learned.md](07_lessons_learned.md) | Lições aprendidas consolidadas + Memorial Técnico v17–v19 |
 | [08_datasets.md](08_datasets.md) | Detalhes dos datasets utilizados |
-| [09_results_summary.md](09_results_summary.md) | Resumo de resultados por versão |
-| [10_technical_architecture.md](10_technical_architecture.md) | **Arquitetura técnica completa** (pipeline, algoritmos, fórmulas) |
+| [09_results_summary.md](09_results_summary.md) | Resumo de resultados por versão (v0 → v19-tuned) |
+| [10_technical_architecture.md](10_technical_architecture.md) | **Arquitetura técnica completa** (pipeline, algoritmos, fórmulas, v19) |
+| [**11_scientific_contribution.md**](11_scientific_contribution.md) | 🎓 **Contribuição científica principal — pronto para dissertação** |
+| [20_final_benchmark_report.md](20_final_benchmark_report.md) | Benchmark científico: 5 seletores × 6 métricas (5-fold CV, 401 datasets) |
 
 ---
 

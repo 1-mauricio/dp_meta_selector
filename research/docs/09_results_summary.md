@@ -205,14 +205,17 @@ Validação cruzada estratificada 5-fold sobre o meta-dataset estabilizado (n_ru
 
 ## Estado Final Recomendado
 
-Para **dissertação — F1-macro equilibrado:** **v17** (refatoração DP-aware)
-- F1-macro: 0.87 (ExtraTrees), MAE-CV regressor: 4.16%
-- 116 meta-features incluindo features DP-específicas e contexto
+Para **dissertação — framework completo (v19-tuned):** **v19 Hybrid** ✅ (versão atual)
+- F1-macro: **0.910** (pipeline completo com pré-filtros)
+- Hit Rate Top-1: **68.3%** / Top-2: **94.3%** (5-fold CV, 401 datasets)
+- Max Regret: **14.04pp** (−45% vs Vanilla v16)
+- 112 meta-features: estáticas + DP-específicas + contexto
+- `return_top_k=2` para Human-in-the-Loop
 
-Para **dissertação — hit_rate máximo:** **v13/v14**
-- hit_rate: 67.4–67.6%
-- model_acc > Laplace fixo
+Para **dissertação — ablation study (classificador puro):** **Vanilla v16**
+- Hit Rate Top-1: **75.8%** (maior do benchmark)
+- Serve como comparador "Modo Ataque" vs "Defesa Constrangida" do v19
 
-Para **produção com labels confiáveis:** **v17 + `META_STABLE_PROFILE`**
-- n_runs=5: elimina ruído estocástico da DP
-- Regressão de perda de utilidade com targets robustos
+Para **análise de progressão histórica:** ver tabela de evolução acima (v0 → v19)
+
+> Ver `research/docs/11_scientific_contribution.md` para o achado científico central estruturado para dissertação.
