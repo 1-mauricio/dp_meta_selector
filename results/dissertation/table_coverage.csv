@@ -1,0 +1,31 @@
+table,sources,status
+tab:opcoes,,
+tab:vitorias-eps,win_share_by_epsilon.csv;winner_share_ci.csv,recalculado;recalculado
+tab:resultados-opcoes,option_performance.csv,recalculado
+tab:resultados-seletor,method_summary.csv;strategies/summary.json,recalculado;recalculado
+tab:regret-eps,regret_by_epsilon.csv;strategies/by_epsilon.csv,recalculado;recalculado
+tab:estratos,extras/gain_by_stratum.csv,recalculado
+tab:modos,modes/modes.csv;modes/pairwise.csv,recalculado;recalculado
+tab:orcamento-total,modes/equal_total.csv,recalculado
+tab:importancia,modes/importance_groups.csv,recalculado
+tab:shapley,extras/shapley_primitives.csv;extras/summary.json,recalculado;recalculado
+tab:metamodelos,extras/metamodels.csv;extras/metamodel_pairwise.csv,recalculado;recalculado
+tab:curva-aprendizado,learning_curve/summary.csv,recalculado
+tab:busca-idealizada,extras/idealized_private_search.csv,recalculado
+tab:tamanho,size/sensitivity_by_size.csv;size/coverage_provenance.json,recalculado;recalculado
+tab:transformacao,transformations/summary.csv;transformations/provenance.json,histórico/não aplicável;histórico/não aplicável
+tab:holdout,holdout_comparisons.csv;holdout_summary.json,recalculado;recalculado
+tab:colapso-softmax,holdout/softmax_diagnostic.csv;holdout/diagnostic_summary.json,histórico/não aplicável;histórico/não aplicável
+tab:regra-limiar,rules/summary.csv;rules/frozen_rules.json;rules/holdout_exploratory.json,recalculado;recalculado;histórico/não aplicável
+tab:ap-origem,appendix_origins.csv,recalculado
+tab:ap-resumo,appendix_public_dimensions.csv,recalculado
+tab:ap-faixas,appendix_bands.csv,recalculado
+tab:ap-semanticas,appendix_semantic_families.csv;corpus_summary.json,recalculado;recalculado
+tab:ap-excluidas,appendix_cost_exclusions.csv;appendix_validation_exclusions.csv,recalculado;recalculado
+tab:ap-vencedoras,appendix_modal_winners.csv;appendix_distinct_winners.csv,recalculado;recalculado
+tab:ap-datasets,appendix_datasets.csv,recalculado
+tab:corpus,appendix_public_dimensions.csv;corpus_summary.json,recalculado;recalculado
+tab:comparacao-portfolios,lodo_portfolio_comparison.csv,recalculado
+tab:frameworks,,
+tab:mecanismos-revisao,,
+tab:classificadores-revisao,,

@@ -1,0 +1,21 @@
+{
+  "at": "2026-11-12T15:37:14.852730+00:00",
+  "protocols_and_protected_files_verified": true,
+  "protected_stage1_and_data_files": 822,
+  "kaggle_families": 24,
+  "external_families": 29,
+  "combined_new_families": 31,
+  "kaggle_adjustments": 8640,
+  "total_adjustments_audited": 11160,
+  "resume_completed": 24,
+  "resume_pending": 0,
+  "model_failures": 0,
+  "tests_passed": 116,
+  "bootstrap_recomputed": true,
+  "credential_value_audit_passed": true,
+  "no_kaggle_json": true,
+  "model_worker_seconds": 466.44407746219076,
+  "free_bytes": 13025280000,
+  "final_report_source_sha256": "f1fa6cc29f67f26e513086d58198c12947503810f445704239a6d98b8be1db90",
+  "source_selection_record_sha256": "afe5511c76e0734b70d5b37309540b6641dda51ae9aba47d82560438fb3a5c9e"
+}

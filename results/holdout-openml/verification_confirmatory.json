@@ -1,0 +1,13 @@
+{
+  "frozen_hashes_unchanged": true,
+  "complete_720_grid": true,
+  "public_recommendations_independently_replayed": true,
+  "primary_independently_recomputed": true,
+  "bootstrap_ci_matches_exact_two_family_distribution": true,
+  "disjoint_against_all_21_csvs": true,
+  "protocol_sha256": "66933d771548a8048b38c5952dbc4a9e1675c31694421c0b39d5063af5dfc183",
+  "family_gains": [
+    0.024376486008749115,
+    -0.0027777777777778095
+  ]
+}

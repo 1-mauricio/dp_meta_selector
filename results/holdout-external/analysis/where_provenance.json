@@ -1,0 +1,9 @@
+{
+  "descriptive": true,
+  "population": "combined new families: OpenML + UCI + Kaggle",
+  "reference_code_sha256": "38408cc1710d3d22dcb06e509dae0e92c371fe028f14c2f23c2d755412f899a2",
+  "development_table_sha256": "fdb88ab4cdb02996b9cb9682d70209b4dc82f89907b03eb6029232e8f52082fc",
+  "bootstrap": 5000,
+  "seed": 20261112,
+  "near_chance": "mean best_clean_portfolio_ba over pipelines and reps minus 1/k <= 0.02"
+}

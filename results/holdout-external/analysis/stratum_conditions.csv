@@ -1,0 +1,249 @@
+dataset_id,epsilon,fam,pipeline,g,switch,n,eps,ratio,tipo,classes,acaso
+47588,0.1,marketing_income,softmax__dp_sgd_clip2_lam0003,0.004660329523989579,True,2k–10k,0.1,10–100,mistos,>5,informativo
+47588,0.25,marketing_income,softmax__dp_sgd_clip2_lamrule,0.021908378712234167,True,2k–10k,0.25,100–1k,mistos,>5,informativo
+47588,0.5,marketing_income,softmax__dp_sgd_clip2_lamrule,0.058854708329625596,True,2k–10k,0.5,100–1k,mistos,>5,informativo
+47588,1.0,marketing_income,softmax__dp_sgd_clip2_lamrule,0.06016057219448978,True,2k–10k,1.0,100–1k,mistos,>5,informativo
+47588,2.0,marketing_income,softmax__dp_sgd_clip2_lamrule,0.0494278993096538,True,2k–10k,2.0,>1k,mistos,>5,informativo
+47588,4.0,marketing_income,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,>1k,mistos,>5,informativo
+47588,8.0,marketing_income,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,>1k,mistos,>5,informativo
+47588,16.0,marketing_income,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,mistos,>5,informativo
+48184,0.1,novasia_property_listing_dedup_synthetic,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,10–100,só numéricos,2,informativo
+48184,0.25,novasia_property_listing_dedup_synthetic,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.25,100–1k,só numéricos,2,informativo
+48184,0.5,novasia_property_listing_dedup_synthetic,softmax__dp_sgd_clip2_lamrule,-0.002777777777777879,True,2k–10k,0.5,100–1k,só numéricos,2,informativo
+48184,1.0,novasia_property_listing_dedup_synthetic,softmax__dp_sgd_clip2_lamrule,-0.02694444444444455,True,2k–10k,1.0,100–1k,só numéricos,2,informativo
+48184,2.0,novasia_property_listing_dedup_synthetic,softmax__dp_sgd_clip2_lamrule,0.007499999999999951,True,2k–10k,2.0,100–1k,só numéricos,2,informativo
+48184,4.0,novasia_property_listing_dedup_synthetic,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,>1k,só numéricos,2,informativo
+48184,8.0,novasia_property_listing_dedup_synthetic,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,>1k,só numéricos,2,informativo
+48184,16.0,novasia_property_listing_dedup_synthetic,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,só numéricos,2,informativo
+1000545,0.1,rice_cammeo_and_osmancik,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,10–100,só numéricos,2,informativo
+1000545,0.25,rice_cammeo_and_osmancik,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.25,100–1k,só numéricos,2,informativo
+1000545,0.5,rice_cammeo_and_osmancik,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.5,100–1k,só numéricos,2,informativo
+1000545,1.0,rice_cammeo_and_osmancik,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,1.0,100–1k,só numéricos,2,informativo
+1000545,2.0,rice_cammeo_and_osmancik,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,2.0,100–1k,só numéricos,2,informativo
+1000545,4.0,rice_cammeo_and_osmancik,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,>1k,só numéricos,2,informativo
+1000545,8.0,rice_cammeo_and_osmancik,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,>1k,só numéricos,2,informativo
+1000545,16.0,rice_cammeo_and_osmancik,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,só numéricos,2,informativo
+1000763,0.1,land_mines,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,0.1,<10,só numéricos,3–5,informativo
+1000763,0.25,land_mines,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,0.25,10–100,só numéricos,3–5,informativo
+1000763,0.5,land_mines,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,0.5,10–100,só numéricos,3–5,informativo
+1000763,1.0,land_mines,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,1.0,10–100,só numéricos,3–5,informativo
+1000763,2.0,land_mines,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,2.0,100–1k,só numéricos,3–5,informativo
+1000763,4.0,land_mines,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,4.0,100–1k,só numéricos,3–5,informativo
+1000763,8.0,land_mines,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,8.0,100–1k,só numéricos,3–5,informativo
+1000763,16.0,land_mines,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,16.0,>1k,só numéricos,3–5,informativo
+1000850,0.1,raisin,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.1,10–100,só numéricos,2,informativo
+1000850,0.25,raisin,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.25,10–100,só numéricos,2,informativo
+1000850,0.5,raisin,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.5,10–100,só numéricos,2,informativo
+1000850,1.0,raisin,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,1.0,100–1k,só numéricos,2,informativo
+1000850,2.0,raisin,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,2.0,100–1k,só numéricos,2,informativo
+1000850,4.0,raisin,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,4.0,100–1k,só numéricos,2,informativo
+1000850,8.0,raisin,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,8.0,100–1k,só numéricos,2,informativo
+1000850,16.0,raisin,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,16.0,>1k,só numéricos,2,informativo
+1000862,0.1,turkish_music_emotion,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,0.1,<10,só numéricos,3–5,informativo
+1000862,0.25,turkish_music_emotion,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,0.25,<10,só numéricos,3–5,informativo
+1000862,0.5,turkish_music_emotion,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,0.5,<10,só numéricos,3–5,informativo
+1000862,1.0,turkish_music_emotion,softmax__dp_sgd_clip2_lam0003,0.02999999999999997,True,≤500,1.0,<10,só numéricos,3–5,informativo
+1000862,2.0,turkish_music_emotion,softmax__dp_sgd_clip2_lam0003,-0.03666666666666668,True,≤500,2.0,10–100,só numéricos,3–5,informativo
+1000862,4.0,turkish_music_emotion,softmax__dp_sgd_clip2_lamrule,0.04999999999999993,True,≤500,4.0,10–100,só numéricos,3–5,informativo
+1000862,8.0,turkish_music_emotion,softmax__dp_sgd_clip2_lamrule,0.023333333333333317,True,≤500,8.0,10–100,só numéricos,3–5,informativo
+1000862,16.0,turkish_music_emotion,softmax__dp_sgd_clip2_lamrule,0.05666666666666659,True,≤500,16.0,100–1k,só numéricos,3–5,informativo
+1000936,0.1,national_poll_on_healthy_aging_npha,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.1,<10,só nominais,3–5,informativo
+1000936,0.25,national_poll_on_healthy_aging_npha,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.25,<10,só nominais,3–5,informativo
+1000936,0.5,national_poll_on_healthy_aging_npha,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.5,<10,só nominais,3–5,informativo
+1000936,1.0,national_poll_on_healthy_aging_npha,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,1.0,10–100,só nominais,3–5,informativo
+1000936,2.0,national_poll_on_healthy_aging_npha,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,2.0,10–100,só nominais,3–5,informativo
+1000936,4.0,national_poll_on_healthy_aging_npha,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,4.0,10–100,só nominais,3–5,informativo
+1000936,8.0,national_poll_on_healthy_aging_npha,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,8.0,10–100,só nominais,3–5,informativo
+1000936,16.0,national_poll_on_healthy_aging_npha,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,16.0,100–1k,só nominais,3–5,informativo
+3282437,0.1,classification_of_human_poses_keypoints,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.1,<10,só numéricos,3–5,informativo
+3282437,0.25,classification_of_human_poses_keypoints,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.25,10–100,só numéricos,3–5,informativo
+3282437,0.5,classification_of_human_poses_keypoints,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.5,10–100,só numéricos,3–5,informativo
+3282437,1.0,classification_of_human_poses_keypoints,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,1.0,10–100,só numéricos,3–5,informativo
+3282437,2.0,classification_of_human_poses_keypoints,softmax__dp_sgd_clip2_lamrule,-0.05095272676972018,True,501–2k,2.0,100–1k,só numéricos,3–5,informativo
+3282437,4.0,classification_of_human_poses_keypoints,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,4.0,100–1k,só numéricos,3–5,informativo
+3282437,8.0,classification_of_human_poses_keypoints,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,8.0,100–1k,só numéricos,3–5,informativo
+3282437,16.0,classification_of_human_poses_keypoints,softmax__dp_sgd_clip2_lamrule,-0.019308711138776413,True,501–2k,16.0,>1k,só numéricos,3–5,informativo
+3523109,0.1,dataset_of_formalin_tofu_aroma,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,0.1,100–1k,só numéricos,2,informativo
+3523109,0.25,dataset_of_formalin_tofu_aroma,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,0.25,>1k,só numéricos,2,informativo
+3523109,0.5,dataset_of_formalin_tofu_aroma,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,0.5,>1k,só numéricos,2,informativo
+3523109,1.0,dataset_of_formalin_tofu_aroma,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,1.0,>1k,só numéricos,2,informativo
+3523109,2.0,dataset_of_formalin_tofu_aroma,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,2.0,>1k,só numéricos,2,informativo
+3523109,4.0,dataset_of_formalin_tofu_aroma,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,4.0,>1k,só numéricos,2,informativo
+3523109,8.0,dataset_of_formalin_tofu_aroma,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,8.0,>1k,só numéricos,2,informativo
+3523109,16.0,dataset_of_formalin_tofu_aroma,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,16.0,>1k,só numéricos,2,informativo
+3934090,0.1,stress_lysis,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,10–100,só numéricos,3–5,perto do acaso
+3934090,0.25,stress_lysis,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.25,100–1k,só numéricos,3–5,perto do acaso
+3934090,0.5,stress_lysis,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.5,100–1k,só numéricos,3–5,perto do acaso
+3934090,1.0,stress_lysis,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,1.0,100–1k,só numéricos,3–5,perto do acaso
+3934090,2.0,stress_lysis,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,2.0,>1k,só numéricos,3–5,perto do acaso
+3934090,4.0,stress_lysis,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,>1k,só numéricos,3–5,perto do acaso
+3934090,8.0,stress_lysis,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,>1k,só numéricos,3–5,perto do acaso
+3934090,16.0,stress_lysis,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,só numéricos,3–5,perto do acaso
+3936400,0.1,sayopillow,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.1,<10,só numéricos,3–5,informativo
+3936400,0.25,sayopillow,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.25,10–100,só numéricos,3–5,informativo
+3936400,0.5,sayopillow,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.5,10–100,só numéricos,3–5,informativo
+3936400,1.0,sayopillow,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,1.0,10–100,só numéricos,3–5,informativo
+3936400,2.0,sayopillow,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,2.0,100–1k,só numéricos,3–5,informativo
+3936400,4.0,sayopillow,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,4.0,100–1k,só numéricos,3–5,informativo
+3936400,8.0,sayopillow,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,8.0,100–1k,só numéricos,3–5,informativo
+3936400,16.0,sayopillow,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,16.0,>1k,só numéricos,3–5,informativo
+4200780,0.1,hr_dataset_classif,softmax__dp_sgd_clip2_lam0003,0.0029450823037781015,True,2k–10k,0.1,10–100,mistos,2,informativo
+4200780,0.25,hr_dataset_classif,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.25,10–100,mistos,2,informativo
+4200780,0.5,hr_dataset_classif,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.5,10–100,mistos,2,informativo
+4200780,1.0,hr_dataset_classif,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,1.0,100–1k,mistos,2,informativo
+4200780,2.0,hr_dataset_classif,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,2.0,100–1k,mistos,2,informativo
+4200780,4.0,hr_dataset_classif,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,100–1k,mistos,2,informativo
+4200780,8.0,hr_dataset_classif,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,>1k,mistos,2,informativo
+4200780,16.0,hr_dataset_classif,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,mistos,2,informativo
+4267258,0.1,dnd_stats,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,10–100,só numéricos,>5,perto do acaso
+4267258,0.25,dnd_stats,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.25,100–1k,só numéricos,>5,perto do acaso
+4267258,0.5,dnd_stats,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.5,100–1k,só numéricos,>5,perto do acaso
+4267258,1.0,dnd_stats,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,1.0,100–1k,só numéricos,>5,perto do acaso
+4267258,2.0,dnd_stats,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,2.0,>1k,só numéricos,>5,perto do acaso
+4267258,4.0,dnd_stats,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,>1k,só numéricos,>5,perto do acaso
+4267258,8.0,dnd_stats,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,>1k,só numéricos,>5,perto do acaso
+4267258,16.0,dnd_stats,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,só numéricos,>5,perto do acaso
+4289349,0.1,lidardataframes,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,0.1,<10,só numéricos,3–5,perto do acaso
+4289349,0.25,lidardataframes,softmax__dp_sgd,0.0,True,≤500,0.25,<10,só numéricos,3–5,perto do acaso
+4289349,0.5,lidardataframes,softmax__dp_sgd,0.0032051282051281937,True,≤500,0.5,<10,só numéricos,3–5,perto do acaso
+4289349,1.0,lidardataframes,softmax__dp_sgd_clip2_lam0003,0.0,True,≤500,1.0,<10,só numéricos,3–5,perto do acaso
+4289349,2.0,lidardataframes,softmax__dp_sgd_clip2_lam0003,0.0,True,≤500,2.0,<10,só numéricos,3–5,perto do acaso
+4289349,4.0,lidardataframes,softmax__dp_sgd_clip2_lamrule,0.0,True,≤500,4.0,<10,só numéricos,3–5,perto do acaso
+4289349,8.0,lidardataframes,softmax__dp_sgd_clip2_lamrule,0.0,True,≤500,8.0,<10,só numéricos,3–5,perto do acaso
+4289349,16.0,lidardataframes,softmax__dp_sgd_clip2_lamrule,0.0,True,≤500,16.0,10–100,só numéricos,3–5,perto do acaso
+4401925,0.1,676_cases_of_pharyngitis_in_children,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.1,<10,só numéricos,2,informativo
+4401925,0.25,676_cases_of_pharyngitis_in_children,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.25,<10,só numéricos,2,informativo
+4401925,0.5,676_cases_of_pharyngitis_in_children,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.5,10–100,só numéricos,2,informativo
+4401925,1.0,676_cases_of_pharyngitis_in_children,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,1.0,10–100,só numéricos,2,informativo
+4401925,2.0,676_cases_of_pharyngitis_in_children,softmax__dp_sgd_clip2_lamrule,0.007215619694397213,True,501–2k,2.0,10–100,só numéricos,2,informativo
+4401925,4.0,676_cases_of_pharyngitis_in_children,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,4.0,100–1k,só numéricos,2,informativo
+4401925,8.0,676_cases_of_pharyngitis_in_children,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,8.0,100–1k,só numéricos,2,informativo
+4401925,16.0,676_cases_of_pharyngitis_in_children,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,16.0,100–1k,só numéricos,2,informativo
+7194699,0.1,alzheimer_s_disease_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,<10,mistos,2,informativo
+7194699,0.25,alzheimer_s_disease_dataset,softmax__dp_sgd_clip2_lamrule,0.041550715870135035,True,2k–10k,0.25,10–100,mistos,2,informativo
+7194699,0.5,alzheimer_s_disease_dataset,softmax__dp_sgd_clip2_lam0003,0.08467937084089538,True,2k–10k,0.5,10–100,mistos,2,informativo
+7194699,1.0,alzheimer_s_disease_dataset,softmax__dp_sgd_clip2_lam0003,0.08724541238152861,True,2k–10k,1.0,10–100,mistos,2,informativo
+7194699,2.0,alzheimer_s_disease_dataset,softmax__dp_sgd_clip2_lam0003,0.10480943738656989,True,2k–10k,2.0,100–1k,mistos,2,informativo
+7194699,4.0,alzheimer_s_disease_dataset,softmax__dp_sgd_clip2_lam0003,0.1114337568058077,True,2k–10k,4.0,100–1k,mistos,2,informativo
+7194699,8.0,alzheimer_s_disease_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,100–1k,mistos,2,informativo
+7194699,16.0,alzheimer_s_disease_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,100–1k,mistos,2,informativo
+7228885,0.1,predicting_hiring_decisions_in_recruitment_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.1,10–100,só numéricos,2,informativo
+7228885,0.25,predicting_hiring_decisions_in_recruitment_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.25,10–100,só numéricos,2,informativo
+7228885,0.5,predicting_hiring_decisions_in_recruitment_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.5,10–100,só numéricos,2,informativo
+7228885,1.0,predicting_hiring_decisions_in_recruitment_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,1.0,100–1k,só numéricos,2,informativo
+7228885,2.0,predicting_hiring_decisions_in_recruitment_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,2.0,100–1k,só numéricos,2,informativo
+7228885,4.0,predicting_hiring_decisions_in_recruitment_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,4.0,100–1k,só numéricos,2,informativo
+7228885,8.0,predicting_hiring_decisions_in_recruitment_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,8.0,>1k,só numéricos,2,informativo
+7228885,16.0,predicting_hiring_decisions_in_recruitment_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,16.0,>1k,só numéricos,2,informativo
+7228965,0.1,predicting_manufacturing_defects_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,10–100,só numéricos,2,informativo
+7228965,0.25,predicting_manufacturing_defects_dataset,softmax__dp_sgd_clip2_lam0003,0.025213718995093892,True,2k–10k,0.25,10–100,só numéricos,2,informativo
+7228965,0.5,predicting_manufacturing_defects_dataset,softmax__dp_sgd_clip2_lamrule,-0.008082049881045938,True,2k–10k,0.5,10–100,só numéricos,2,informativo
+7228965,1.0,predicting_manufacturing_defects_dataset,softmax__dp_sgd_clip2_lamrule,-0.0008423544946442041,True,2k–10k,1.0,100–1k,só numéricos,2,informativo
+7228965,2.0,predicting_manufacturing_defects_dataset,softmax__dp_sgd_clip2_lamrule,-0.0033864927318466576,True,2k–10k,2.0,100–1k,só numéricos,2,informativo
+7228965,4.0,predicting_manufacturing_defects_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,100–1k,só numéricos,2,informativo
+7228965,8.0,predicting_manufacturing_defects_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,>1k,só numéricos,2,informativo
+7228965,16.0,predicting_manufacturing_defects_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,só numéricos,2,informativo
+7229220,0.1,fictional_character_battle_outcome_prediction,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,<10,mistos,2,informativo
+7229220,0.25,fictional_character_battle_outcome_prediction,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.25,10–100,mistos,2,informativo
+7229220,0.5,fictional_character_battle_outcome_prediction,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.5,10–100,mistos,2,informativo
+7229220,1.0,fictional_character_battle_outcome_prediction,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,1.0,10–100,mistos,2,informativo
+7229220,2.0,fictional_character_battle_outcome_prediction,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,2.0,100–1k,mistos,2,informativo
+7229220,4.0,fictional_character_battle_outcome_prediction,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,100–1k,mistos,2,informativo
+7229220,8.0,fictional_character_battle_outcome_prediction,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,100–1k,mistos,2,informativo
+7229220,16.0,fictional_character_battle_outcome_prediction,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,mistos,2,informativo
+7236181,0.1,predict_customer_purchase_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.1,10–100,só numéricos,2,informativo
+7236181,0.25,predict_customer_purchase_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.25,10–100,só numéricos,2,informativo
+7236181,0.5,predict_customer_purchase_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.5,10–100,só numéricos,2,informativo
+7236181,1.0,predict_customer_purchase_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,1.0,100–1k,só numéricos,2,informativo
+7236181,2.0,predict_customer_purchase_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,2.0,100–1k,só numéricos,2,informativo
+7236181,4.0,predict_customer_purchase_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,4.0,100–1k,só numéricos,2,informativo
+7236181,8.0,predict_customer_purchase_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,8.0,>1k,só numéricos,2,informativo
+7236181,16.0,predict_customer_purchase_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,16.0,>1k,só numéricos,2,informativo
+7236308,0.1,predict_online_course_engagement_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,10–100,mistos,2,informativo
+7236308,0.25,predict_online_course_engagement_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.25,100–1k,mistos,2,informativo
+7236308,0.5,predict_online_course_engagement_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.5,100–1k,mistos,2,informativo
+7236308,1.0,predict_online_course_engagement_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,1.0,100–1k,mistos,2,informativo
+7236308,2.0,predict_online_course_engagement_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,2.0,>1k,mistos,2,informativo
+7236308,4.0,predict_online_course_engagement_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,>1k,mistos,2,informativo
+7236308,8.0,predict_online_course_engagement_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,>1k,mistos,2,informativo
+7236308,16.0,predict_online_course_engagement_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,mistos,2,informativo
+7242199,0.1,predict_smart_home_device_efficiency_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,10–100,mistos,2,informativo
+7242199,0.25,predict_smart_home_device_efficiency_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.25,100–1k,mistos,2,informativo
+7242199,0.5,predict_smart_home_device_efficiency_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.5,100–1k,mistos,2,informativo
+7242199,1.0,predict_smart_home_device_efficiency_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,1.0,100–1k,mistos,2,informativo
+7242199,2.0,predict_smart_home_device_efficiency_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,2.0,100–1k,mistos,2,informativo
+7242199,4.0,predict_smart_home_device_efficiency_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,>1k,mistos,2,informativo
+7242199,8.0,predict_smart_home_device_efficiency_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,>1k,mistos,2,informativo
+7242199,16.0,predict_smart_home_device_efficiency_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,mistos,2,informativo
+7242440,0.1,predict_pet_adoption_status_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,<10,mistos,2,informativo
+7242440,0.25,predict_pet_adoption_status_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.25,10–100,mistos,2,informativo
+7242440,0.5,predict_pet_adoption_status_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.5,10–100,mistos,2,informativo
+7242440,1.0,predict_pet_adoption_status_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,1.0,10–100,mistos,2,informativo
+7242440,2.0,predict_pet_adoption_status_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,2.0,100–1k,mistos,2,informativo
+7242440,4.0,predict_pet_adoption_status_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,100–1k,mistos,2,informativo
+7242440,8.0,predict_pet_adoption_status_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,100–1k,mistos,2,informativo
+7242440,16.0,predict_pet_adoption_status_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,mistos,2,informativo
+7249173,0.1,predict_online_gaming_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,0.1,100–1k,mistos,3–5,informativo
+7249173,0.25,predict_online_gaming_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,0.25,100–1k,mistos,3–5,informativo
+7249173,0.5,predict_online_gaming_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,0.5,100–1k,mistos,3–5,informativo
+7249173,1.0,predict_online_gaming_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,1.0,>1k,mistos,3–5,informativo
+7249173,2.0,predict_online_gaming_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,2.0,>1k,mistos,3–5,informativo
+7249173,4.0,predict_online_gaming_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,4.0,>1k,mistos,3–5,informativo
+7249173,8.0,predict_online_gaming_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,8.0,>1k,mistos,3–5,informativo
+7249173,16.0,predict_online_gaming_behavior_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,>10k,16.0,>1k,mistos,3–5,informativo
+7249362,0.1,predict_conversion_in_digital_marketing_dataset,softmax__dp_sgd_clip2_lam0003,0.012243133614016577,True,2k–10k,0.1,10–100,mistos,2,informativo
+7249362,0.25,predict_conversion_in_digital_marketing_dataset,softmax__dp_sgd_clip2_lam0003,0.01756079610584671,True,2k–10k,0.25,10–100,mistos,2,informativo
+7249362,0.5,predict_conversion_in_digital_marketing_dataset,softmax__dp_sgd_clip2_lam0003,0.018108921432547054,True,2k–10k,0.5,100–1k,mistos,2,informativo
+7249362,1.0,predict_conversion_in_digital_marketing_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,1.0,100–1k,mistos,2,informativo
+7249362,2.0,predict_conversion_in_digital_marketing_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,2.0,100–1k,mistos,2,informativo
+7249362,4.0,predict_conversion_in_digital_marketing_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,100–1k,mistos,2,informativo
+7249362,8.0,predict_conversion_in_digital_marketing_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,>1k,mistos,2,informativo
+7249362,16.0,predict_conversion_in_digital_marketing_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,mistos,2,informativo
+11289621,0.1,student_placement_preparation_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.1,<10,só numéricos,2,informativo
+11289621,0.25,student_placement_preparation_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.25,10–100,só numéricos,2,informativo
+11289621,0.5,student_placement_preparation_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.5,10–100,só numéricos,2,informativo
+11289621,1.0,student_placement_preparation_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,1.0,10–100,só numéricos,2,informativo
+11289621,2.0,student_placement_preparation_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,2.0,100–1k,só numéricos,2,informativo
+11289621,4.0,student_placement_preparation_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,4.0,100–1k,só numéricos,2,informativo
+11289621,8.0,student_placement_preparation_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,8.0,100–1k,só numéricos,2,informativo
+11289621,16.0,student_placement_preparation_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,16.0,>1k,só numéricos,2,informativo
+11421970,0.1,car_price_classification_ready_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,0.1,<10,mistos,3–5,perto do acaso
+11421970,0.25,car_price_classification_ready_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,0.25,<10,mistos,3–5,perto do acaso
+11421970,0.5,car_price_classification_ready_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,0.5,<10,mistos,3–5,perto do acaso
+11421970,1.0,car_price_classification_ready_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,1.0,<10,mistos,3–5,perto do acaso
+11421970,2.0,car_price_classification_ready_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,2.0,<10,mistos,3–5,perto do acaso
+11421970,4.0,car_price_classification_ready_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,4.0,<10,mistos,3–5,perto do acaso
+11421970,8.0,car_price_classification_ready_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,8.0,<10,mistos,3–5,perto do acaso
+11421970,16.0,car_price_classification_ready_data,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,≤500,16.0,10–100,mistos,3–5,perto do acaso
+11649037,0.1,cyber_threat_detection,softmax__dp_sgd_clip2_lam0003,0.0028905384924002575,True,2k–10k,0.1,<10,mistos,3–5,informativo
+11649037,0.25,cyber_threat_detection,softmax__dp_sgd_clip2_lamrule,0.015670373118494924,True,2k–10k,0.25,<10,mistos,3–5,informativo
+11649037,0.5,cyber_threat_detection,softmax__dp_sgd_clip2_lamrule,0.002445049644599795,True,2k–10k,0.5,<10,mistos,3–5,informativo
+11649037,1.0,cyber_threat_detection,softmax__dp_sgd_clip2_lamrule,0.05707678685102163,True,2k–10k,1.0,10–100,mistos,3–5,informativo
+11649037,2.0,cyber_threat_detection,softmax__dp_sgd_clip2_lamrule,0.020085900355814035,True,2k–10k,2.0,10–100,mistos,3–5,informativo
+11649037,4.0,cyber_threat_detection,softmax__dp_sgd_clip2_lamrule,-0.0610220625773632,True,2k–10k,4.0,10–100,mistos,3–5,informativo
+11649037,8.0,cyber_threat_detection,softmax__dp_sgd_clip2_lamrule,-0.08282824567859515,True,2k–10k,8.0,10–100,mistos,3–5,informativo
+11649037,16.0,cyber_threat_detection,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,100–1k,mistos,3–5,informativo
+12954689,0.1,klasifikasi_tingkat_kemiskinan_seseorang,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,<10,mistos,>5,informativo
+12954689,0.25,klasifikasi_tingkat_kemiskinan_seseorang,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.25,10–100,mistos,>5,informativo
+12954689,0.5,klasifikasi_tingkat_kemiskinan_seseorang,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.5,10–100,mistos,>5,informativo
+12954689,1.0,klasifikasi_tingkat_kemiskinan_seseorang,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,1.0,10–100,mistos,>5,informativo
+12954689,2.0,klasifikasi_tingkat_kemiskinan_seseorang,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,2.0,100–1k,mistos,>5,informativo
+12954689,4.0,klasifikasi_tingkat_kemiskinan_seseorang,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,4.0,100–1k,mistos,>5,informativo
+12954689,8.0,klasifikasi_tingkat_kemiskinan_seseorang,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,100–1k,mistos,>5,informativo
+12954689,16.0,klasifikasi_tingkat_kemiskinan_seseorang,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,mistos,>5,informativo
+12999126,0.1,lone_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.1,10–100,só numéricos,2,perto do acaso
+12999126,0.25,lone_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.25,10–100,só numéricos,2,perto do acaso
+12999126,0.5,lone_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,0.5,10–100,só numéricos,2,perto do acaso
+12999126,1.0,lone_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,1.0,100–1k,só numéricos,2,perto do acaso
+12999126,2.0,lone_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,2.0,100–1k,só numéricos,2,perto do acaso
+12999126,4.0,lone_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,4.0,100–1k,só numéricos,2,perto do acaso
+12999126,8.0,lone_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,8.0,>1k,só numéricos,2,perto do acaso
+12999126,16.0,lone_dataset,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,501–2k,16.0,>1k,só numéricos,2,perto do acaso
+14983536,0.1,mobile_usage_and_addiction_habits_2026,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.1,10–100,mistos,2,informativo
+14983536,0.25,mobile_usage_and_addiction_habits_2026,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.25,10–100,mistos,2,informativo
+14983536,0.5,mobile_usage_and_addiction_habits_2026,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,0.5,100–1k,mistos,2,informativo
+14983536,1.0,mobile_usage_and_addiction_habits_2026,softmax__dp_sgd_clip2_lamrule,0.004364429896344835,True,2k–10k,1.0,100–1k,mistos,2,informativo
+14983536,2.0,mobile_usage_and_addiction_habits_2026,softmax__dp_sgd_clip2_lamrule,0.004807937610631696,True,2k–10k,2.0,100–1k,mistos,2,informativo
+14983536,4.0,mobile_usage_and_addiction_habits_2026,softmax__dp_sgd_clip2_lamrule,0.007637752318603475,True,2k–10k,4.0,100–1k,mistos,2,informativo
+14983536,8.0,mobile_usage_and_addiction_habits_2026,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,8.0,>1k,mistos,2,informativo
+14983536,16.0,mobile_usage_and_addiction_habits_2026,categorical_naive_bayes__laplace_histograms_b8u,0.0,False,2k–10k,16.0,>1k,mistos,2,informativo

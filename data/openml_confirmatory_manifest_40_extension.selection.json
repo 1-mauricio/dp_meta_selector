@@ -1,0 +1,28 @@
+{
+  "catalog_status": "all",
+  "eligibility": {
+    "max_catalog_features": 4096,
+    "max_classes": 100,
+    "max_expanded_features": 4096,
+    "max_public_cells": 50000000,
+    "max_rows": 1000000,
+    "min_classes": 2,
+    "min_rows": 50
+  },
+  "exclusion_manifest_sha256": {
+    "data/openml_confirmatory_manifest_12_options_initial.csv": "c469dbe53cbdb322ff3c11931b5cadf267a097684a3b5545eadcd3fa5196a7a5",
+    "data/openml_confirmatory_manifest_30_holdout.csv": "e8c2da65fc5257c7fe281b73ef52ac6cbcc4ee34f24392edbeff59c15d9f9e1c",
+    "data/openml_manifest_984_completed.csv": "297a5c79d1172fbc6ff8263065cfe8f5f73222b989208eff1b063b4ad5be77fd",
+    "data/openml_measured_results_exclusion.csv": "17d972ecd3235fb2e68add62d57714d76803c62e649a4abc16c1c788ea614eb3"
+  },
+  "manifest": "data/openml_confirmatory_manifest_40_extension.csv",
+  "manifest_sha256": "d0ae88c94bb9b1ec3ab6d1538f1c2d84c706ef1c1305dee4872185628a813c13",
+  "minimum_completed_families": 10,
+  "n_unique_canonical_families": 12,
+  "n_unique_ids": 12,
+  "protocol": "CONFIRMATORY_PROTOCOL_AMENDMENT_40.md",
+  "protocol_sha256": "9f4ee4d002e1f85ac49ad5b0129278237314a1b92f699f4860dd530050cbab39",
+  "seed": 20260918,
+  "selector_implementation_sha256": "9ff2bf885971950c6f03c6eeae384c394c90b7b7d0715359bfde47042f80f1d4",
+  "target_families": 12
+}

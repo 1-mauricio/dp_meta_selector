@@ -1,0 +1,165 @@
+uci_id,name,reason
+4,Anonymous Microsoft Web Data,not_declared_classification
+9,Auto MPG,not_declared_classification
+10,Automobile,not_declared_classification
+24,Chess (Domain Theories),not_declared_classification
+25,Bach Chorales,not_declared_classification
+29,Computer Hardware,not_declared_classification
+35,DGP2 - The Second Data Generation Program,not_declared_classification
+36,Document Understanding,not_declared_classification
+37,EBL Domain Theories,not_declared_classification
+41,Function Finding,not_declared_classification
+55,Kinship,not_declared_classification
+56,Labor Relations,not_declared_classification
+60,Liver Disorders,not_declared_classification
+61,Logic Theorist,not_declared_classification
+66,Mobile Robots,not_declared_classification
+71,Moral Reasoner,not_declared_classification
+77,Othello Domain Theory,not_declared_classification
+84,Prodigy,not_declared_classification
+85,Qualitative Structure Activity Relationships,not_declared_classification
+87,Servo,not_declared_classification
+89,Solar Flare,not_declared_classification
+92,Challenger USA Space Shuttle O-Ring,not_declared_classification
+97,Sponge,not_declared_classification
+98,Statlog Project,not_declared_classification
+99,Student Loan Relational,not_declared_classification
+106,Water Treatment Plant,not_declared_classification
+112,Undocumented,not_declared_classification
+113,Twenty Newsgroups,not_declared_classification
+116,US Census Data (1990),not_declared_classification
+118,Coil 1999 Competition Data,not_declared_classification
+119,Corel Image Features,not_declared_classification
+120,E. Coli Genes,not_declared_classification
+122,El Nino,not_declared_classification
+123,Entree Chicago Recommendation Data,not_declared_classification
+125,Insurance Company Benchmark (COIL 2000),not_declared_classification
+126,Internet Usage Data,not_declared_classification
+127,IPUMS Census Database,not_declared_classification
+129,KDD Cup 1998,not_declared_classification
+131,M. Tuberculosis Genes,not_declared_classification
+132,Movie,not_declared_classification
+133,MSNBC.com Anonymous Web Data,not_declared_classification
+134,NSF Research Award Abstracts 1990-2003,not_declared_classification
+135,Pioneer-1 Mobile Robot Data,not_declared_classification
+136,Pseudo Periodic Synthetic Time Series,not_declared_classification
+141,UNIX User Data,not_declared_classification
+150,Connectionist Bench (Nettalk Corpus),not_declared_classification
+153,Economic Sanctions,not_declared_classification
+154,Protein Data,not_declared_classification
+155,Cloud,not_declared_classification
+156,CalIt2 Building People Counts,not_declared_classification
+157,Dodgers Loop Sensor,not_declared_classification
+162,Forest Fires,not_declared_classification
+164,Bag of Words,not_declared_classification
+165,Concrete Compressive Strength,not_declared_classification
+173,Abscisic Acid Signaling Network,not_declared_classification
+180,Plants,not_declared_classification
+182,Concrete Slump Test,not_declared_classification
+183,Communities and Crime,not_declared_classification
+189,Parkinsons Telemonitoring,not_declared_classification
+203,Year Prediction MSD,not_declared_classification
+205,OpinRank Review Dataset,not_declared_classification
+206,Relative location of CT slices on axial axis,not_declared_classification
+211,Communities and Crime Unnormalized,not_declared_classification
+216,Amazon Access Samples,not_declared_classification
+232,Restaurant & consumer data,not_declared_classification
+235,Individual Household Electric Power Consumption,not_declared_classification
+238,QtyT40I10D100K,not_declared_classification
+243,Yacht Hydrodynamics,not_declared_classification
+246,"3D Road Network (North Jutland, Denmark)",not_declared_classification
+260,NYSK,not_declared_classification
+265,Physicochemical Properties of Protein Tertiary Structure,not_declared_classification
+272,SkillCraft1 Master Table Dataset,not_declared_classification
+274,SML2010,not_declared_classification
+275,Bike Sharing,not_declared_classification
+276,Predict keywords activities in a online social media,not_declared_classification
+278,EMG dataset in Lower Limb,not_declared_classification
+291,Airfoil Self-Noise,not_declared_classification
+294,Combined Cycle Power Plant,not_declared_classification
+304,BlogFeedback,not_declared_classification
+307,AAAI 2014 Accepted Papers,not_declared_classification
+314,AAAI 2013 Accepted Papers,not_declared_classification
+316,Condition Based Maintenance of Naval Propulsion Plants,not_declared_classification
+321,ElectricityLoadDiagrams20112014,not_declared_classification
+328,Greenhouse Gas Observing Network,not_declared_classification
+334,wiki4HE,not_declared_classification
+335,Online Video Characteristics and Transcoding Time Dataset,not_declared_classification
+339,"Taxi Service Trajectory - Prediction Challenge, ECML PKDD 2015",not_declared_classification
+353,SIFT10M,not_declared_classification
+360,Air Quality,not_declared_classification
+363,Facebook Comment Volume,not_declared_classification
+368,Facebook Metrics,not_declared_classification
+369,UbiqLog (smartphone lifelogging),not_declared_classification
+371,NIPS Conference Papers 1987-2015,not_declared_classification
+374,Appliances Energy Prediction,not_declared_classification
+381,Beijing PM2.5,not_declared_classification
+385,KASANDR,not_declared_classification
+387,Air quality,not_declared_classification
+390,Stock Portfolio Performance,not_declared_classification
+394,PM2.5 Data of Five Chinese Cities,not_declared_classification
+396,Sales Transactions Weekly,not_declared_classification
+398,Eco-hotel,not_declared_classification
+409,Daily Demand Forecasting Orders,not_declared_classification
+415,DSRC Vehicle Communications,not_declared_classification
+416,Mturk User-Perceived Clusters over Images,not_declared_classification
+432,News Popularity in Multiple Social Media Platforms,not_declared_classification
+437,Residential Building,not_declared_classification
+438,Health News in Twitter,not_declared_classification
+440,SGEMM GPU kernel performance,not_declared_classification
+441,Repeat Consumption Matrices,not_declared_classification
+448,Carbon Nanotubes,not_declared_classification
+452,GNFUV Unmanned Surface Vehicles Sensor Data,not_declared_classification
+460,PANDOR,not_declared_classification
+464,Superconductivty Data,not_declared_classification
+466,GNFUV Unmanned Surface Vehicles Sensor Data Set 2,not_declared_classification
+477,Real Estate Valuation,not_declared_classification
+488,Facebook Live Sellers in Thailand,not_declared_classification
+492,Metro Interstate Traffic Volume,not_declared_classification
+493,Query Analytics Workloads Dataset,not_declared_classification
+494,Wave Energy Converters,not_declared_classification
+495,PPG-DaLiA,not_declared_classification
+498,Incident management process enriched event log,not_declared_classification
+501,Beijing Multi-Site Air Quality,not_declared_classification
+504,QSAR fish toxicity,not_declared_classification
+505,QSAR aquatic toxicity,not_declared_classification
+511,QSAR fish bioconcentration factor (BCF),not_declared_classification
+513,Real-time Election Results: Portugal 2019,not_declared_classification
+514,Bias correction of numerical prediction model temperature forecast,not_declared_classification
+531,Stock keeping units,not_declared_classification
+534,Wave Energy Converters,not_declared_classification
+546,Vehicle routing and scheduling problems,not_declared_classification
+549,Horton General Hospital,not_declared_classification
+550,"UrbanGB, urban road accidents coordinates labelled by the urban center",not_declared_classification
+551,Gas Turbine CO and NOx Emission Data Set,not_declared_classification
+560,Seoul Bike Sharing Demand,not_declared_classification
+574,IIWA14-R820-Gazebo-Dataset-10Trajectories,not_declared_classification
+580,Hungarian Chickenpox Cases,not_declared_classification
+581,Simulated data for survival modelling,not_declared_classification
+585,Stock keeping units,not_declared_classification
+605,Wikipedia Math Essentials,not_declared_classification
+606,Wikipedia Math Essentials,not_declared_classification
+607,Synchronous Machine,not_declared_classification
+608,Traffic Flow Forecasting,not_declared_classification
+611,Hierarchical Sales Data,not_declared_classification
+692,2D elastodynamic metamaterials,not_declared_classification
+715,LT-FS-ID: Intrusion detection in WSNs,not_declared_classification
+733,Water Quality Prediction,not_declared_classification
+734,Traffic Flow Forecasting,not_declared_classification
+735,Cisco Secure Workload Networks of Computing Hosts,not_declared_classification
+747,181 early modern English plays: Transcriptions of early editions in TEI encoding,not_declared_classification
+754,Dataset based on UWB for Clinical Establishments,not_declared_classification
+769,Turkish User Reviews,not_declared_classification
+844,Average Localization Error (ALE) in sensor node localization process in WSNs,not_declared_classification
+847,Pedal Me Bicycle Deliveries,not_declared_classification
+849,Power Consumption of Tetouan City,not_declared_classification
+851,Steel Industry Energy Consumption,not_declared_classification
+859,Image Recognition Task Execution Times in Mobile Edge Computing,not_declared_classification
+882,Large-scale Wave Energy Farm,not_declared_classification
+894,Bongabdo,not_declared_classification
+925,Infrared Thermography Temperature,not_declared_classification
+994,Micro Gas Turbine Electrical Energy Prediction,not_declared_classification
+1091,Lattice-physics (PWR fuel assembly neutronics simulation results),not_declared_classification
+1175,PGCB Hourly Generation Dataset (Bangladesh),not_declared_classification
+1198,COREVQA,not_declared_classification
+1276,Amazon Product and Google Locations Reviews,not_declared_classification

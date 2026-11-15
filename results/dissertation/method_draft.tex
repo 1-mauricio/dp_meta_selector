@@ -1,0 +1,234 @@
+\chapter{Metodologia}
+\label{chap:metodologia}
+
+Este capítulo descreve o \textit{framework} e o desenho experimental que o avalia: o corpus de conjuntos de dados, a grade de orçamentos, o portfólio de pares mecanismo-modelo, as meta-features e o contrato de implantação, a construção do meta-dataset, o metamodelo e o protocolo estatístico.
+
+\section{Visão geral do \textit{framework}}
+\label{sec:pipeline}
+
+O sistema organiza-se em duas fases distintas: uma fase \emph{offline}, executada uma única vez, que constrói o meta-dataset e treina o metamodelo; e uma fase \emph{online}, de custo computacional desprezível e sem consumo de orçamento de privacidade, que recomenda um par mecanismo-modelo para um novo conjunto de dados. A Figura~\ref{fig:pipeline} sintetiza o fluxo de dados.
+
+\textbf{Fase \textit{offline} (construção e treino).} \emph{(1) Aquisição do corpus} (Seção~\ref{sec:datasets}): 973 conjuntos de dados tabulares validados do OpenML, dentre 984 candidatos, cada um com o \textit{schema} público fixado em um manifesto. \emph{(2) Avaliação das opções} (Seções~\ref{sec:mecanismos} e~\ref{sec:meta-dataset}): em cada conjunto de dados, os 15 pares mecanismo-modelo são treinados com DP nos 8 valores de $\varepsilon$, em 3 repetições com partições treino/teste independentes, e a utilidade privada é medida no teste (350.280 linhas). \emph{(3) Extração de meta-features} (Seção~\ref{sec:meta-features}): descritores públicos para o modo de produção e descritores dos dados de treino para a ablação. \emph{(4) Treino do metamodelo} (Seção~\ref{sec:metamodelo}): um GBM único aprende a vantagem residual de cada opção sobre o NB categórico original; uma regra de retorno à b8u congelada limita decisões de pequena vantagem prevista.
+
+\textbf{Fase \textit{online} (recomendação em produção).} Para um novo conjunto de dados e um orçamento $\varepsilon$ requisitado, o metamodelo recebe apenas o \textit{schema} público e os descritores de calibração de cada opção, prevê a vantagem residual de todas as opções e só abandona a b8u congelada se a diferença entre a maior previsão e a previsão dessa fixa superar $\tau=0{,}02$. Nenhuma célula privada é lida, de modo que a recomendação não consome orçamento; o único gasto é o $\varepsilon$ do treinamento do par escolhido.
+
+\begin{figure}[htb]
+\centering
+\SingleSpacing
+\begin{tikzpicture}[
+    font=\footnotesize,
+    node distance=6mm and 5mm,
+    stage/.style={draw, rounded corners, align=center, minimum height=9mm, text width=24mm, inner sep=3pt, fill=black!3},
+    io/.style={draw, align=center, minimum height=9mm, text width=24mm, inner sep=3pt},
+    flow/.style={-{Latex[length=2mm]}, thick},
+    phase/.style={font=\scriptsize\bfseries, align=center},
+]
+\node[io] (data) {Corpus OpenML\\973 conjuntos\\(\textit{schema} público)};
+\node[stage, right=of data] (grid) {Grade: 15 pares\\$\times$ 8 $\varepsilon$, treino com DP\\(\textit{holdout} 75/25)};
+\node[stage, right=of grid] (mf) {Meta-features\\públicas (produção)\\vs. de treino (ablação)};
+\node[stage, right=of mf] (metadb) {Meta-dataset\\(3 repetições,\\350.280 linhas)};
+\node[stage, below=16mm of metadb] (train) {Treino do metamodelo\\(GBM residual\\único)};
+\node[stage, left=of train] (infer) {Regressor prevê\\a vantagem\\de cada opção};
+\node[stage, left=of infer] (fb) {Maior previsão\\ou melhor fixa\\($\tau=0{,}02$)};
+\node[io, left=of fb] (rec) {Recomendação\\mecanismo-modelo\\(custo $\varepsilon = 0$)};
+\node[io, below=8mm of infer] (new) {Novo conjunto\\(metadados públicos)\\$+\ \varepsilon$};
+\draw[flow] (data) -- (grid);
+\draw[flow] (grid) -- (mf);
+\draw[flow] (mf) -- (metadb);
+\draw[flow] (metadb) -- (train);
+\draw[flow] (train) -- (infer);
+\draw[flow] (new) -- (infer);
+\draw[flow] (infer) -- (fb);
+\draw[flow] (fb) -- (rec);
+\begin{scope}[on background layer]
+    \node[fit=(data)(grid)(mf)(metadb), draw=black!30, dashed, rounded corners, inner sep=8pt, label={[phase, anchor=south west]north west:Fase \textit{offline}}] {};
+    \node[fit=(rec)(fb)(infer)(new), draw=black!30, dashed, rounded corners, inner sep=8pt, label={[phase, anchor=north west]south west:Fase \textit{online} (produção)}] {};
+\end{scope}
+\end{tikzpicture}
+\caption{Fluxo de ponta a ponta do \textit{framework}. A fase \textit{offline} avalia os pares mecanismo-modelo e treina o metamodelo; a fase \textit{online} recomenda um par sem inspecionar células privadas, sem consumo adicional de orçamento.}
+\label{fig:pipeline}
+\par\smallskip{\footnotesize Fonte: elaborada pelo autor.}
+\end{figure}
+
+\section{Conjuntos de dados}
+\label{sec:datasets}
+
+O conjunto experimental adotado compreende 973 conjuntos de dados tabulares de classificação validados entre 984 candidatos do repositório OpenML \cite{ref07,ref28}. A seleção começou pelos 72 conjuntos da suíte OpenML-CC18, dos quais 35 atendiam aos critérios iniciais de elegibilidade (200 a 5.000 instâncias, até 30 classes, até 512 atributos após a codificação, alvo nominal sem ausências e atributos apenas numéricos ou nominais), e foi ampliada incrementalmente a partir do catálogo e do cache local do OpenML, com substituições para eliminar duplicatas. Nas etapas de ampliação, a elegibilidade passou a exigir apenas uma tarefa de classificação com alvo declarado, pelo menos duas classes e \textit{schema} completo, sem limites de tamanho, o que explica a presença de conjuntos muito pequenos no corpus final (Apêndice~\ref{ap:datasets}); uma auditoria por \textit{hash} do conteúdo garante que não há conjuntos idênticos byte a byte. Um manifesto fixa, para cada conjunto, o \textit{schema} público (nomes e tipos dos atributos, domínios nominais e classes) e o \textit{hash} do arquivo.
+
+Os conjuntos são agrupados em famílias canônicas pelo nome normalizado: sufixos de semente, amostragem e versão são removidos, e variantes conhecidas de uma mesma base, como as \textit{mfeat} e as bases de defeitos de software da NASA, formam uma única família. A RF-12 usou essas famílias canônicas, uma por conjunto, na validação principal. A GBM-15 usa a família semântica do manifesto para manter variantes de mesma origem no mesmo lado da partição. São 667 grupos no LODO reproduzido: 666 famílias declaradas e um grupo compartilhado pelos IDs 41526 e 45939, sem identificador semântico. Atribuir uma chave exclusiva a cada um produziria 668 grupos; essa não é a convenção da estimativa principal. Onze candidatos falharam na validação original do carregador e não recebem imputação de resultados.
+
+Dezesseis conjuntos do levantamento original, com 51.839 a 88.588 instâncias, foram excluídos por custo computacional. Na história RF-12, a exclusão por custo deixou esses conjuntos elegíveis à confirmação e cinco integraram o \textit{holdout} antigo; a GBM-15 exige disjunção contra todos os manifestos anteriores (Seção~\ref{sec:protocolo-confirmatorio}). O corpus resultante vai de 4 a 51.336 instâncias, de 1 a 4.096 atributos e de 2 a 606 classes; a mediana é de 950 instâncias, 35 colunas codificadas e 2 classes. O Apêndice~\ref{ap:datasets} detalha a procedência, o perfil do corpus, as famílias semânticas, os conjuntos excluídos e cada um dos 973 conjuntos.
+
+\subsection{Pré-processamento}
+\label{sec:preprocessamento}
+
+Nenhuma linha é descartada por seu conteúdo, e o pré-processamento não depende dos dados. Cada atributo numérico passa pela transformação fixa $x \mapsto \tanh(x)$, que o limita a $[-1, 1]$, e ausências numéricas recebem zero; cada atributo nominal é codificado em \textit{one-hot}, com uma categoria reservada para valores ausentes. Como a transformação não usa mínimos, máximos nem médias do conjunto, os limites dos atributos são conhecidos sem consultar as células, condição de que dependem as sensibilidades da Seção~\ref{sec:mecanismos}. Em contrapartida, a transformação satura atributos de grande magnitude, que colapsam em $\pm 1$ e perdem a informação de ordem. Uma normalização calculada nos próprios dados evitaria a saturação, mas exigiria liberar mínimos, máximos ou quantis com orçamento próprio; a escolha por uma transformação fixa troca utilidade por uma contabilidade mais simples, e seu custo é medido nos resultados (Seções~\ref{sec:resultado-h1} e~\ref{sec:sensibilidade-transformacao}).
+
+\section{Grade de orçamentos}
+\label{sec:grade-epsilon}
+
+Com base na literatura da Seção~\ref{sec:calibracao-epsilon}, o trabalho adota uma grade de oito orçamentos $\varepsilon \in \{0{,}1;\allowbreak\ 0{,}25;\allowbreak\ 0{,}5;\allowbreak\ 1;\allowbreak\ 2;\allowbreak\ 4;\allowbreak\ 8;\allowbreak\ 16\}$ que cobre as faixas da Seção~\ref{sec:calibracao-epsilon}: garantia forte ($0{,}1$ a $1$, com $0{,}25$ adensando a região em que o ruído domina) e a faixa usual em aprendizado de máquina ($2$, $4$ e $8$, este o maior valor reportado pelo DP-SGD de \citeonline{ref47}). O valor $16$ ultrapassa $\varepsilon = 10$, limite da faixa de garantia razoável de \citeonline{ref17}, e entra apenas como controle de saturação: mostra se a ordem entre as opções ainda muda quando o ruído deixa de ser a restrição dominante, sem ser tratado como orçamento recomendável. Essa amplitude permite observar a curva completa do \textit{trade-off} e, sobretudo, verificar se o par mecanismo-modelo ótimo varia ao longo dela, hipótese central deste trabalho.
+
+A grade experimental cruza os 973 conjuntos de dados com 15 pares mecanismo-modelo, os 8 orçamentos e 3 repetições, totalizando 350.280 linhas de utilidade medida ($973 \times 13 \times 8 \times 3$).
+
+\section{Pares mecanismo-modelo avaliados}
+\label{sec:mecanismos}
+
+O repertório compreende 15 pares mecanismo-modelo, cada um formado por um modelo de classificação e pelo mecanismo que torna seu treinamento diferencialmente privado (Tabela~\ref{tab:opcoes}). Todos usam adjacência por substituição de um registro, com o número de instâncias tratado como público. Os mecanismos de $\varepsilon$ puro usam $\delta = 0$; os gaussianos usam $\delta = 10^{-6}$ como teto total, dividido entre os lançamentos gaussianos de cada opção.
+
+\begin{table}[htb]
+\centering
+\caption{Pares mecanismo-modelo avaliados.}
+\label{tab:opcoes}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{6.2cm}>{\raggedright\arraybackslash}p{4.8cm}}
+\toprule
+\textbf{Modelo} & \textbf{Liberação privada} & \textbf{Mecanismos} \\
+\midrule
+Naive Bayes Gaussiano & contagens, somas e segundos momentos por classe, em três blocos, cada um com um terço do orçamento & Laplace; Gaussiano analítico \cite{ref21}; Gaussiano sob zCDP; \textit{Staircase} \cite{ref22} \\ \addlinespace
+Softmax regularizada & perturbação gaussiana analítica dos coeficientes \cite{ref57} & Gaussiano analítico \\ \addlinespace
+Softmax regularizada & DP-SGD em lote completo, com \textit{clipping} por registro e composição zCDP \cite{ref47} & 25 passos; 100 passos; 100 passos com \textit{clipping} 2 e $\lambda = 0{,}03$; 100 passos/clip 2 com regra pública de $\lambda$; 100 passos/clip 2 com $\lambda=0{,}0003$ \\ \addlinespace
+Árvores aleatórias (25, profundidade 3) & histogramas de folhas com ruído; rótulo de cada folha por seleção privada & Laplace; Gaussiano analítico; Exponencial \cite{ref30} \\ \addlinespace
+Naive Bayes categórico & histogramas de classe e de cada atributo por classe & Laplace, 16 intervalos e prior ruidoso; Laplace b8u, 8 intervalos e prior uniforme \\
+\bottomrule
+\end{tabular}
+\par\smallskip{\footnotesize Fonte: elaborada pelo autor.}
+\end{table}
+
+\subsection{Naive Bayes Gaussiano}
+
+O Naive Bayes Gaussiano estima, para cada classe, a proporção de registros, bem como a média e a variância de cada atributo. As três estatísticas suficientes (contagens, somas e segundos momentos por classe) são liberadas em três blocos, cada um com um terço do orçamento; sob zCDP, a divisão é feita em $\rho$. As sensibilidades decorrem do domínio $[-1, 1]$; para as somas, $\Delta_1 = 2p$ e $\Delta_2 = 2\sqrt{p}$, em que $p$ é o número de atributos codificados. A perturbação conjunta calibrada pela norma $L_2$ escala o ruído com $\mathcal{O}(\sqrt{p})$, evitando o custo $\mathcal{O}(p)$ de calibrar cada coordenada separadamente. As variâncias liberadas são truncadas em um piso positivo, por pós-processamento. O \textit{Staircase} é aplicado coordenada a coordenada, com o orçamento dividido pelo número máximo de coordenadas que um registro altera; trata-se de um produto de mecanismos escalares, distinto do \textit{Staircase} ótimo para vetores.
+
+\subsection{Regressão softmax}
+
+A softmax minimiza a perda logística multiclasse com regularização $\lambda \lVert W \rVert_F^2 / 2$. Na perturbação de saída, a convexidade forte limita a sensibilidade do minimizador a $2\sqrt{2}\,R/(\lambda n)$, em que $R$ limita a norma de cada registro, acrescida de uma cota para o erro do otimizador, que roda por um número fixo de iterações definido apenas por parâmetros públicos. No DP-SGD, cada passo libera a média dos gradientes recortados, com sensibilidade $2C/n$ para o limiar de \textit{clipping} $C$, e os passos compõem-se sob zCDP; o orçamento total em $\rho$ é dividido igualmente entre os passos. As três variantes do DP-SGD diferem no número de passos, no limiar de \textit{clipping} e na regularização; a perturbação de saída e as variantes com 25 e com 100 passos usam $\lambda = 0{,}1$, e estas duas, $C = 1$. A variante com 100 passos, \textit{clipping} 2 e $\lambda = 0{,}03$ foi fixada no protocolo confirmatório como opção fixa forte pré-especificada (Seção~\ref{sec:avaliacao}). A regularização $\lambda$, o número de passos e o limiar de \textit{clipping} foram fixados no corpus de desenvolvimento, sem depender de $n$, e seu comportamento em bases maiores é examinado nos resultados (Seção~\ref{sec:colapso-softmax}).
+
+\subsection{Árvores aleatórias}
+
+Nas árvores aleatórias, a estrutura (atributos e limiares) é sorteada sem consultar os dados \cite{ref62}, e as linhas são divididas, por uma permutação pública dos índices, em partições disjuntas, uma por árvore; como a partição não depende do conteúdo, o registro substituído permanece na mesma partição. Cada registro afeta um único histograma de folhas, com $\Delta_1 = 2$ e $\Delta_2 = \sqrt{2}$, de modo que as árvores se compõem em paralelo e cada uma recebe o orçamento inteiro. Na variante exponencial, a substituição de um registro altera no máximo duas folhas, e cada folha escolhe seu rótulo com $\varepsilon/2$. As três variantes usam 25 árvores de profundidade 3; com poucas árvores, cada partição reúne mais registros e as contagens ficam menos dominadas pelo ruído.
+
+\subsection{Naive Bayes categórico}
+
+No Naive Bayes categórico \cite{ref63}, os atributos numéricos são discretizados em 16 intervalos fixos de $[-1, 1]$, e o orçamento é dividido igualmente entre o histograma de classes e o de cada atributo. Como os intervalos são fixos e os histogramas têm sensibilidade constante, o ruído não cresce com a magnitude dos valores, apenas com o número de atributos. A opção adicional b8u usa oito intervalos numéricos e prior uniforme na decisão. Em ambas as variantes, são mantidos os $d+1$ histogramas de classes e atributos, com sensibilidade $L_1=2$, orçamento $\varepsilon/(d+1)$ por consulta, escala $2(d+1)/\varepsilon$ e $\delta=0$, sendo $d$ o número de atributos originais. A consulta de prior continua liberada na b8u e seu resultado é ignorado somente na decisão. Trata-se de pós-processamento, com ledger idêntico; não se redistribui o orçamento da consulta ignorada.
+
+\subsection{Mecanismos excluídos}
+
+O Gaussiano clássico aproximado foi excluído porque sua prova analítica falha para $\varepsilon > 1$, sendo superado em todos os regimes pela calibração analítica exata de \citeonline{ref21}. O mecanismo Uniforme foi excluído porque, com suporte limitado, não satisfaz $\varepsilon$-DP para nenhum $\varepsilon$ finito: há saídas possíveis sob uma base e impossíveis sob a vizinha.
+
+\section{Meta-features e contrato de implantação}
+\label{sec:meta-features}
+
+O \textit{framework} opera sob dois regimes distintos de meta-features.
+
+\textbf{Modo de produção.} Combina a identidade da opção avaliada com 17 descritores públicos: tamanho do conjunto, número e tipos de atributos, cardinalidades dos atributos nominais, número de classes, o orçamento $\varepsilon$, limites numéricos declarados (quando existem) e razões derivadas, entre elas
+\begin{equation}
+    \log\left(1 + \frac{n_{\text{inst}} \cdot \varepsilon}{p}\right),
+    \label{eq:n-eps-p}
+\end{equation}
+em que $p$ é o número de atributos codificados. A razão resume o regime de ruído: o número de registros e o orçamento dividem a escala do ruído, e a dimensão a multiplica. No modo principal, \texttt{public\_plus\_dp}, cujo sufixo se refere aos mecanismos de DP das opções, e não a uma liberação com DP, somam-se descritores da calibração de cada opção, calculados apenas com quantidades públicas: sensibilidades e escala do ruído, número de passos e limiar de \textit{clipping} do DP-SGD, número de árvores e tamanho das partições das florestas. A variante \texttt{public\_schema\_only} usa só os descritores de \textit{schema}.
+
+O vetor reproduzido tem 99 posições: 72 descritores públicos e de calibração (17 de schema e 55 de calibração), 12 indicadores legados e 15 indicadores próprios de opção. A GBM-15 usa a calibração pública própria de cada opção. As variantes DP-SGD compartilham a identidade legada de H27 e alteram o descritor público de regularização; a b8u usa sua calibração de oito intervalos. Os 15 indicadores próprios distinguem as ações. O vetor anterior GBM-13 tinha 97 posições e usava o alias legado do NB para b8u.
+
+Em ambas, o consumo adicional de privacidade na recomendação é nulo sob três premissas: adjacência por substituição (bases vizinhas com o mesmo número de registros, o que torna $n_{\text{inst}}$ público); \textit{schema}, domínio dos rótulos e transformação dos atributos fixados antes de qualquer acesso às células; e descarte de colunas identificadoras fixado nesse \textit{schema} declarado, já que decidi-lo lendo as células tornaria o número de atributos dependente de conteúdo confidencial. Satisfeitas as premissas, a recomendação é uma função de informação pública e não entra na contabilidade de privacidade.
+
+\textbf{Modo exploratório.} Usado para mensurar o preço da privacidade das meta-features, acrescenta descritores da partição de treino em duas versões. A primeira reúne 18 descritores sem proteção (entropia e desbalanceamento das classes, dispersão, assimetria e separabilidade dos atributos, correlações) e serve apenas como teto diagnóstico, pois não é implantável sob a garantia de DP; ela aparece nos modos \texttt{research\_privileged} e, com mais descritores, \texttt{research\_rich}. A segunda (\texttt{dp\_research\_rich}) libera 11 descritores de classes, momentos e frações de valores nulos ou saturados por um mecanismo de Laplace com orçamento próprio $\varepsilon_{\text{meta}} = 1$, que se soma ao do modelo. Por isso, essa versão só é comparada às demais sob o mesmo orçamento total $\varepsilon_{\text{modelo}} + \varepsilon_{\text{meta}}$.
+
+\section{Construção do meta-dataset}
+\label{sec:meta-dataset}
+
+Em cada conjunto de dados e repetição, uma partição estratificada reserva 75\% das instâncias para treino e 25\% para teste; classes com um único exemplo permanecem no treino. Cada opção é ajustada com DP na partição de treino e avaliada na de teste; o mesmo modelo ajustado sem ruído fornece a utilidade limpa. A garantia de privacidade vale para cada modelo liberado. As repetições são réplicas independentes do experimento sobre dados públicos, em vez de liberações sucessivas de uma mesma base; o orçamento descrito vale por ajuste individual. Uma divulgação conjunta dos ajustes sobre a mesma base exigiria composição adicional. A BA em teste e as referências limpas são diagnósticos públicos, sem mecanismo de avaliação DP.
+
+A utilidade é medida pela acurácia balanceada (\textit{balanced accuracy}, BA) \cite{ref94}, a média das revocações por classe, que não favorece a classe majoritária em conjuntos desbalanceados. O arrependimento (\textit{regret}) de uma opção $o$ em uma condição (conjunto de dados, $\varepsilon$) é a distância até a referência limpa comum do portfólio original de 12 opções, preservada no benchmark b8u:
+\begin{equation}
+    \text{regret}(o) = \max_{o'} \text{BA}_{\text{limpa}}(o') - \text{BA}_{\text{privada}}(o).
+    \label{eq:regret}
+\end{equation}
+O máximo na Equação~\eqref{eq:regret} percorre as opções originais. O critério perto do acaso e o apêndice usam, explicitamente, o máximo limpo das 15 opções. Uma referência limpa comum não altera os ganhos pareados de BA. A referência comum torna comparáveis opções baseadas em modelos diferentes. O arrependimento não é normalizado nem truncado em zero, e pode ser negativo quando uma opção privada supera o melhor ajuste limpo. A média sobre 3 repetições reduz o desvio-padrão do rótulo por um fator de cerca de $\sqrt{3} \approx 1{,}73$, na medida em que partições e ruídos das repetições são independentes. A BA é calculada sobre as classes presentes na partição de teste; classes com um único exemplo, que permanecem no treino, não entram na média. Em 39 das 606 partições dos conjuntos com menos de 200 linhas, o teste não contém todas as classes. A contagem foi reaproveitada dos mesmos splits e filtrada aos IDs retidos, conforme a proveniência; a sensibilidade por tamanho está na Seção~\ref{sec:sensibilidade}.
+
+Duas grandezas derivadas são usadas nos resultados. A \emph{penalidade de privacidade} de uma opção é a diferença entre sua própria BA limpa e sua BA privada, e separa o que a opção perde com o ruído do que ela já perdia por ser um modelo mais fraco. A \emph{folga} de uma condição é a diferença entre o arrependimento da melhor opção fixa e o do oráculo, e mede quanto um seletor perfeito poderia ganhar.
+
+\section{Arquitetura do metamodelo}
+\label{sec:metamodelo}
+
+O seletor principal GBM-15 usa \texttt{HistGradientBoostingRegressor}: 400 iterações, taxa de aprendizado 0,05, até 31 folhas, pelo menos 40 exemplos por folha, regularização $L_2=1$ e semente 20261110. O alvo de cada opção é $\mathrm{BA}_{o}-\mathrm{BA}_{\mathrm{NB\ original}}$, promediado nas três repetições. Os pesos igualam famílias, conjuntos e opções; a soma dos pesos de treino é o número de famílias de treino.
+
+Seja $b$ a b8u congelada e $\hat a_o$ a vantagem residual prevista. A política GBM-15 escolhe $\arg\max_o\hat a_o$ somente quando $\max_o\hat a_o-\hat a_b>\tau$, com $\tau=0{,}02$; caso contrário, retorna à b8u. O retorno é explícito, inclusive nas análises secundárias, e não muda com a melhor fixa observada em uma partição. A escolha conjunta de fallback e limiar usou a grade exploratória no desenvolvimento, depois do protocolo histórico; os ICs condicionam à configuração selecionada. A b8u foi mantida como referência congelada. O RF-12 permanece comparador histórico; sua arquitetura reestimada em análises secundárias é identificada separadamente.
+
+A formulação por regressão, e não por classificação da opção vencedora, é deliberada. Como o alvo é ruidoso e várias opções costumam ficar próximas, um classificador aprenderia a partir de rótulos instáveis e trataria como igualmente grave errar por pouco ou por muito. A regressão preserva a distância entre as opções, e a escolha pelo máximo previsto aproxima a minimização do arrependimento esperado. A Seção~\ref{sec:metamodelos} confronta essa escolha com um classificador da opção vencedora e com outros regressores.
+
+\section{Protocolo de avaliação estatística}
+\label{sec:avaliacao}
+
+A avaliação segue as recomendações de \citeonline{ref44} para comparações sobre múltiplos conjuntos de dados, complementadas por intervalos de \textit{bootstrap}, testes de permutação e medidas de cauda, sobre validação cruzada agrupada pela família do conjunto de dados: nenhuma condição de uma família de teste, em qualquer $\varepsilon$, participa do treino. O esquema principal é o \textit{leave-one-dataset-out} (LODO): há 667 partições semânticas, e o metamodelo de cada uma é treinado com os outros 666 grupos. Todos os conjuntos de uma família são retirados juntos. O LODO não depende de um sorteio de partições e usa o maior treino possível. As análises secundárias (seletor por $\varepsilon$, modos de meta-features, orçamento total e importância por permutação) usam 5 partições agrupadas (\textit{GroupKFold}), com as mesmas partições para todos os métodos comparados; os números de cada esquema são identificados no texto. A referência primária e o fallback são a b8u congelada. Referências auxiliares de melhor opção por orçamento são escolhidas somente no treino da partição. A ordenação retrospectiva por família é separada da ordenação por dataset que motivou a referência b8u. Completam a comparação uma opção fixa forte pré-especificada (DP-SGD $\cdot$ Softmax com 100 passos, \textit{clipping} 2 e $\lambda = 0{,}03$), o Naive Bayes Gaussiano sob zCDP, a escolha aleatória de opção, a pior opção fixa e o oráculo. A pior opção fixa é a de maior arrependimento médio no benchmark inteiro e, como o oráculo, é escolhida \textit{a posteriori}. O oráculo escolhe, \textit{a posteriori}, a opção de maior BA observada em cada condição; como toma o máximo de estimativas ruidosas, ele superestima o teto alcançável e serve apenas como referência descritiva.
+
+Para mitigar a dependência estatística entre condições de um mesmo conjunto de dados e a pseudorreplicação, a unidade inferencial dos testes é a família, com a média tomada sobre os valores de $\varepsilon$. O protocolo calcula:
+\begin{enumerate}
+    \item o ganho médio de arrependimento sobre a melhor opção fixa, com intervalo de confiança de 95\% por \textit{bootstrap} de famílias;
+    \item testes pareados bilaterais de permutação de sinais e de Wilcoxon, com tamanho de efeito pela correlação bisserial de postos pareados;
+    \item a mediana, o quantil de 90\% e o CVaR$_{90}$ (média dos 10\% piores casos) \cite{ref92} do arrependimento, com \textit{bootstrap} pareado das diferenças;
+    \item o teste de Friedman entre as opções do portfólio, com o W de Kendall como tamanho de efeito, e o diagrama de diferença crítica de Nemenyi entre os métodos executáveis (seletores e opções fixas), lido como descritivo, já que os testes post-hoc por posto médio dependem do conjunto de métodos incluídos \cite{ref95}; as conclusões entre pares apoiam-se nos testes de Wilcoxon com correção de Holm \cite{ref93};
+    \item a taxa de acerto da melhor opção (Top-1), como métrica auxiliar, exigindo a vencedora única (na análise da lista ordenada, Seção~\ref{sec:topk}, empates com a vencedora contam como acerto), com auditoria explícita de denominadores. A taxa RF-12 de 27,44\% usava argmax com desempate pela ordem do registro; a vencedora única nas mesmas 7.872 condições era 23,8821\%. A GBM-15 usa vencedora única nas 7.784 condições, e as duas definições não são intercambiáveis.
+\end{enumerate}
+Os intervalos principais usam 20.000 reamostragens pareadas de famílias, com peso igual por família, depois por conjunto e orçamento. A reprodução literal do LODO original usou 5.000 reamostragens e é identificada à parte. Os ICs são pontuais; aplica-se Holm aos testes na respectiva família de contrastes. Valores muito pequenos de $p$ não substituem a avaliação do tamanho do efeito.
+
+Os modos de meta-features são comparados entre si nas mesmas partições, por diferenças pareadas por família com correção de Holm. Os modos que gastam $\varepsilon_{\text{meta}}$ são comparados também com referências cujo orçamento total não excede $\varepsilon_{\text{modelo}}+\varepsilon_{\text{meta}}$; quando a grade não oferece o orçamento exato, a referência recebe menos, e só a derrota do modo que gasta é conclusiva. A influência das meta-features na recomendação (segunda questão de pesquisa) é medida por importância de permutação: cada grupo de descritores é substituído pelo de outro conjunto de dados, no mesmo $\varepsilon$ e na mesma opção, e mede-se o aumento do arrependimento fora da amostra.
+
+O seletor é considerado superior quando o intervalo de confiança do ganho médio fica acima de zero, o teste de permutação de sinais rejeita a igualdade a 5\% e nenhuma das três estimativas pontuais de cauda piora. O critério combina média e cauda porque um ganho médio pode esconder recomendações ruins em uma minoria de conjuntos, e é nesses casos que uma escolha automática mais preocupa.
+
+\subsection{Análises complementares}
+\label{sec:analises-complementares}
+
+Seguindo \citeonline{ref73} e \citeonline{ref74}, a recomendação é avaliada em dois níveis. No meta-nível, mede-se se o metamodelo acerta a melhor opção (Top-1) e se ela está entre as $k$ primeiras da lista ordenada pela utilidade prevista (acerto top-$k$). No nível base, mede-se o arrependimento da opção recomendada e, para listas, o da melhor opção entre as $k$ primeiras (regret@$k$); a lista de referência ordena as opções pela BA privada média no treino da partição. Uma lista com $k > 1$ só é útil se o responsável puder avaliar as $k$ opções, o que, sob DP, custa orçamento; o regret@$k$ mede quanto essa avaliação renderia.
+
+O seletor é comparado a cada uma das 15 opções fixas, e não só à melhor, com contagem de vitórias, empates e derrotas por conjunto de dados e teste de Wilcoxon, como nas comparações de \textit{pipelines} de \citeonline{ref73}, aqui com correção de Holm \cite{ref93}. O ganho sobre a melhor opção fixa e o posto médio de cada método são também decompostos por estratos: número de classes (binário ou multiclasse), tipos de atributo (só numéricos, só nominais ou mistos), terço da dimensão codificada $p$ e regime de orçamento ($\varepsilon \le 0{,}5$; $1 \le \varepsilon \le 2$; $\varepsilon \ge 4$).
+
+A composição do portfólio é examinada pela contribuição marginal de cada opção \cite{ref78}: o aumento do arrependimento do oráculo quando a opção é removida. A redundância entre opções é medida pela correlação de Spearman entre os postos que elas ocupam em cada condição. A interdependência entre mecanismo e modelo é medida pela fração de condições em que o modelo vencedor sem ruído, pela BA limpa, difere do modelo do par vencedor sob DP, análoga à fração de bases em que a reamostragem muda o melhor regressor no Meta-IR \cite{ref73}.
+
+Para situar o custo zero da escolha, o seletor em $\varepsilon$ é comparado a uma busca privada idealizada, que treinaria as opções com uma fração do orçamento e escolheria sempre a melhor: o oráculo em $\varepsilon/2$ e em $\varepsilon/4$. Como a seleção privada de \citeonline{ref64} custa cerca de três vezes o orçamento de cada candidato, $\varepsilon/2$ favorece a busca e $\varepsilon/4$ a desfavorece; em ambos os casos, o oráculo superestima a busca, pois acerta sempre.
+
+A importância das meta-features é medida de duas formas, ambas sobre o arrependimento fora da amostra, sem recorrer à impureza da floresta. A primeira permuta cada coluna isoladamente entre conjuntos de dados, no mesmo $\varepsilon$ e na mesma opção \cite{ref77}. Como as colunas derivam umas das outras (a calibração depende de $n$, de $\varepsilon$ e da dimensão), a permutação de uma coluna subestima a grandeza que ela representa. A segunda forma contorna esse problema trocando as \emph{grandezas públicas primitivas} das quais todas as meta-features derivam: o número de instâncias $n$, o orçamento $\varepsilon$, o número de classes e a estrutura dos atributos (quantidade, tipos e cardinalidades). Trocada uma grandeza pela de outro conjunto de dados (ou, para $\varepsilon$, pela de outra condição), todas as meta-features são recalculadas. Seja $G$ o conjunto das quatro grandezas e $v(S)$ o aumento do arrependimento médio quando as grandezas de $S \subseteq G$ são trocadas. A contribuição de cada grandeza $g$ é o seu valor de Shapley \cite{ref75,ref76}:
+\begin{equation}
+    \phi_g = \sum_{S \subseteq G \setminus \{g\}} \frac{|S|!\,(|G| - |S| - 1)!}{|G|!}\,\big[v(S \cup \{g\}) - v(S)\big],
+    \label{eq:shapley}
+\end{equation}
+que reparte o efeito conjunto, $\sum_g \phi_g = v(G)$, inclusive a parte compartilhada entre grandezas. A parcela $\phi_g / v(G)$ responde à segunda questão de pesquisa em termos relativos: quanto do valor da informação pública se deve a cada grandeza. Calcula-se a mesma decomposição para a fração de recomendações alteradas.
+
+Por fim, como \citeonline{ref73} e \citeonline{ref74}, compara-se o metamodelo a alternativas nas mesmas partições e com as mesmas meta-features: \textit{Extra-Trees}, \textit{gradient boosting}, $k$ vizinhos mais próximos, regressão Ridge e um classificador que prevê diretamente a opção vencedora. O \textit{Extra-Trees} tem 500 árvores, pelo menos 3 exemplos por folha e 90\% dos descritores por divisão; o \textit{gradient boosting} é o baseado em histogramas do scikit-learn, com os hiperparâmetros padrão; o $k$-NN usa $k=25$ e a Ridge, $\alpha=1$, ambos com os descritores padronizados; o classificador é uma floresta de 500 árvores, com profundidade máxima 12 e pelo menos 3 exemplos por folha. A comparação usa o teste de Friedman e o diagrama de Nemenyi. O GBM residual com fallback descrito nesta seção é distinto desse GBM absoluto de referência. O espaço das meta-features públicas é visualizado por t-SNE \cite{ref79}, e mede-se o tempo de uma recomendação. Estas análises, exceto as que usam apenas as predições do LODO, reajustam o seletor único nas 5 partições agrupadas.
+
+
+\subsection{Regularização pública e contabilidade das novas opções}
+\label{sec:desenvolvimento-GBM-13}
+
+O estudo E6/E7 motivou duas opções com DP-SGD em lote completo, 100 passos, clip 2 e $\delta=10^{-6}$. A regra final usa o tamanho total público $n$, e não o tamanho da partição de treino:
+\[
+\lambda(n,\varepsilon)=\begin{cases}
+0{,}03,& n\varepsilon<100,\\
+0{,}01,&100\leq n\varepsilon<1000,\\
+0{,}0003,&n\varepsilon\geq1000.
+\end{cases}
+\]
+O controle usa $\lambda=0{,}0003$ em todas as condições. O JSON final E6 preserva cinco faixas originais; as três últimas escolhem o mesmo valor, justificando a expressão compacta. O tamanho usado na calibração do ruído continua sendo $n_{treino}$. A regra não lê BA, rótulos nem células da nova base para escolher $\lambda$.
+
+A contabilidade é idêntica à H27: $\rho_{total}=(\sqrt{\log(1/\delta)+\varepsilon}-\sqrt{\log(1/\delta)})^2$, $\rho_{passo}=\rho_{total}/100$, sensibilidade $2\,clip/n_{treino}$ e $\sigma=(2\,clip/n_{treino})/\sqrt{2\rho_{passo}}$. Mudar somente $\lambda$ não altera o ledger. Não há amplificação por subamostragem. Foram auditadas 46.704 avaliações novas, sem falhas. O orçamento é por treinamento individual; liberar todas as variantes exige composição. E6/E7 e a escolha da política são desenvolvimento exploratório, sem pretensão de confirmação independente.
+
+\subsection{Protocolo congelado e confirmação GBM-15}
+\label{sec:protocolo-confirmatorio}
+
+O protocolo GBM-15 foi congelado antes de selecionar, baixar ou avaliar o novo holdout. O modelo foi treinado uma vez nos 973 datasets e salvo com hashes, usando 15 opções, fallback b8u e $\tau=0{,}02$. A seleção OpenML usa semente 20261111, exige 200--50.000 linhas, 2--30 classes, até 512 atributos codificados e disjunção por ID, família canônica e semântica contra todos os manifestos de dados anteriores. O alvo é 40 famílias; o protocolo autoriza todas as elegíveis se houver menos. Falhas são substituídas na ordem sorteada, sem olhar desempenho.
+
+O desfecho primário é BA da recomendação menos BA da b8u, promediada por orçamento e repetição, depois por dataset e família. O IC95\% é percentil bootstrap de famílias, 20.000 reamostragens, semente 20261111. O critério congelado, denominado H2a GBM-15, exige limite inferior maior que zero. As caudas são restrições descritivas: fração de condições com perda superior a um ponto e CVaR$_{90}$ da perda assinada $\mathrm{BA}_{b8u}-\mathrm{BA}_{seletor}$, média das maiores $\max(1,\lfloor0{,}1N\rfloor)$ perdas. Essas caudas por condição não são as caudas do regret por família.
+
+Os quatro secundários comparam H27, NB antigo, seletor GBM-13 de 13 opções e RF-12 congelado; o teste é sign-flip bilateral pareado por família, com 50.000 sorteios e Holm exatamente sobre esses quatro contrastes. Os ICs secundários são marginais. O resultado nas 41 famílias antigas e todos os estratos são exploratórios. Nenhuma decisão é retocada após a abertura do novo holdout.
+
+O catálogo examinado ofereceu apenas duas famílias novas elegíveis, após esgotar a ordem de 869 candidatos. A tentativa foi executada como congelada e não atingiu o critério primário; sua dimensão impede confirmação com poder adequado. Trata-se de protocolo interno versionado, não de pré-registro público. A confirmação histórica H2b RF-12 contra H27, incluindo sua expansão pós-análise de 30 para 41 famílias, é mantida como história e não como validação da nova configuração.
+
+\subsection{Escopo das análises secundárias}
+
+Modos de descritores, permutação, Shapley, listas, metamodelos, curva de aprendizado e modelos por orçamento usam a definição GBM-15, com a calibração própria das opções e o retorno explícito à b8u. A curva usa 10\%, 25\%, 50\%, 75\% e 100\% das famílias de treino, com dois sorteios nas frações menores e um em 100\%. Regras simples são reajustadas por exclusão semântica; concepção da grade e comparação de políticas são exploratórias.
+
+A comparação histórica de transformações em 199 datasets tem somente as 13 opções GBM-13, pois os scores das duas novas variantes sob transformações alternativas não estão disponíveis. É mantida com esse rótulo e não extrapolada para GBM-15. Diagnósticos limpos históricos e buscas privadas congeladas de 12 opções também não são rebatizados como resultados novos. A ausência de scores é registrada, sem imputação.
+
+\section{Ambiente computacional e reprodutibilidade}
+\label{sec:ambiente}
+
+A regeneração reutiliza a estrutura da Fase A, em scripts novos, com saídas isoladas em \texttt{results/GBM-13\_1-dissertation/} e figuras em \texttt{figures/GBM-13\_1/}. Condições, picks, JSON da regra pública, protocolo, hashes e confirmação são fontes preservadas. A API de produção e os defaults de \texttt{dpmeta} não são alterados. O arquivo \texttt{NUMBERS\_gbm13\_1.md} registra valores anteriores, novos, proveniência, denominadores e itens não atualizáveis. As três versões LaTeX recebem os mesmos gráficos e tabelas; a compilação e a inspeção visual são registradas no changelog.

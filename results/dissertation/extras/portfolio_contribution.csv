@@ -1,0 +1,16 @@
+pipeline,option,win_share,oracle_increase,datasets_hurt_over_1pp
+categorical_naive_bayes__laplace_histograms_b8u,Laplace · NB b8u,0.18478830892756895,0.006706635177976068,175
+categorical_naive_bayes__laplace_histograms,Laplace · NB categórico,0.10586467603425466,0.002183988345218347,52
+softmax__dp_sgd,DP-SGD 25 passos,0.06943250915180514,0.0017391729507160918,63
+softmax__analytic_gaussian,Gauss. analítico · Softmax,0.05231554302725937,0.0011310581661950776,29
+softmax__dp_sgd_clip2_lam0003,"DP-SGD · Softmax (λ=0,0003)",0.1117633904151119,0.0010784420114452972,26
+softmax__dp_sgd_steps100,DP-SGD 100 passos,0.05840472477163124,0.0010726627420784612,25
+softmax__dp_sgd_clip2_reg003,DP-SGD clip 2,0.07377034400736868,0.0007673162319684812,6
+gnb__laplace_equal,Laplace · GNB,0.04060439674519839,0.0006410638919221712,16
+gnb__analytic_gaussian_equal,Gauss. analítico · GNB,0.04391676896815643,0.0005478297950813541,10
+gnb__staircase_vector_equal,Staircase · GNB,0.03664501964861677,0.0005287653316201233,7
+random_forest__laplace_parallel_shards_25,Laplace · árvores,0.030605399724747104,0.0005170900859565845,11
+random_forest__exponential_majority_parallel_shards,Exponencial · árvores,0.028365915801681473,0.0005023935422263393,14
+random_forest__analytic_gaussian_parallel_shards,Gauss. analítico · árvores,0.02883384529710326,0.00044548151179574127,6
+gnb__gaussian_zcdp_equal,Gauss. zCDP · GNB,0.04055954537069645,0.00044492848489553093,10
+softmax__dp_sgd_clip2_lamrule,DP-SGD · Softmax (regra λ),0.09412961210880019,0.00029735340485674387,3

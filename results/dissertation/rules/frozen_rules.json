@@ -1,0 +1,47 @@
+{
+  "R1": {
+    "config": [
+      "R1",
+      "nε/(d+1)",
+      2.3,
+      null,
+      "softmax__dp_sgd_clip2_lam0003",
+      null
+    ],
+    "share_lodo_matching_full": 0.992503748125937,
+    "most_common_lodo": {
+      "('R1', 'nε/(d+1)', 2.3, None, 'softmax__dp_sgd_clip2_lam0003', None)": 662,
+      "('R1', 'nε/(d+1)', 2.4, None, 'softmax__dp_sgd_clip2_lam0003', None)": 5
+    }
+  },
+  "R1+nom": {
+    "config": [
+      "R1+nom",
+      "nε/(d+1)",
+      2.4,
+      null,
+      "softmax__dp_sgd_clip2_lam0003",
+      null
+    ],
+    "share_lodo_matching_full": 0.9655172413793104,
+    "most_common_lodo": {
+      "('R1+nom', 'nε/(d+1)', 2.4, None, 'softmax__dp_sgd_clip2_lam0003', None)": 644,
+      "('R1+nom', 'nε/(d+1)', 2.3, None, 'softmax__dp_sgd_clip2_lam0003', None)": 23
+    }
+  },
+  "R2+nom": {
+    "config": [
+      "R2+nom",
+      "nε/(d+1)",
+      -0.25,
+      2.0,
+      "softmax__dp_sgd",
+      "softmax__dp_sgd_clip2_reg003"
+    ],
+    "share_lodo_matching_full": 0.9985007496251874,
+    "most_common_lodo": {
+      "('R2+nom', 'nε/(d+1)', -0.25, 2.0, 'softmax__dp_sgd', 'softmax__dp_sgd_clip2_reg003')": 666,
+      "('R2+nom', 'nε/(d+1)', -0.5, 2.0, 'softmax__dp_sgd', 'softmax__dp_sgd_clip2_reg003')": 1
+    }
+  }
+}

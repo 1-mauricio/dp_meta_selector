@@ -1,0 +1,11 @@
+{
+  "complete": true,
+  "completed_at": "2026-11-11T22:37:28.696921+00:00",
+  "datasets": 41,
+  "rows": 1968,
+  "ledger_audits": 1968,
+  "canonical_commits": 13,
+  "private_only_commits": 28,
+  "clean_metrics_missing_are_intentional": true,
+  "auxiliary_alignment_audits": 54
+}

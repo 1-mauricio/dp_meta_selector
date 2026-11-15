@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-12T15:33:41.255285+00:00",
+  "protocols_and_protected_outputs_unchanged": true,
+  "manifest_families": 31,
+  "external_families": 29,
+  "ledger_audits": 11160,
+  "public_recommendations": 744,
+  "frozen_hashes_verified": true,
+  "free_bytes": 13025280000
+}

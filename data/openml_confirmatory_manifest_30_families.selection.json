@@ -1,0 +1,35 @@
+{
+  "catalog_status": "all",
+  "eligibility": {
+    "max_catalog_features": 4096,
+    "max_classes": 100,
+    "max_expanded_features": 4096,
+    "max_rows": 1000000,
+    "min_classes": 2,
+    "min_rows": 50
+  },
+  "exclusion_manifest_sha256": {
+    "data/openml_confirmatory_manifest_12_options_initial.csv": "c469dbe53cbdb322ff3c11931b5cadf267a097684a3b5545eadcd3fa5196a7a5",
+    "data/openml_manifest_1000_final.csv": "dca7a93486f1f631a1b090b2be4b47e1ee8591fa4de3d341fd9095539d866bcf",
+    "data/openml_manifest_1000_final_pending.csv": "7a1e48984136b0b8f2b9a8c8735a9969f7dccbd65f1527ccf10bff43394002b1",
+    "data/openml_manifest_1000_unique.csv": "a812c0e6df42619db4bd88989ce051e9a71e07ac2222466145242468ebb75ab9",
+    "data/openml_manifest_1000_validated.csv": "bd5dd1e2b7d5db35bf222585c38ab1f3d7ab483657ab917b0a81a0ca7d5e9318",
+    "data/openml_manifest_1000_validated_pending.csv": "bc353f414712c2269c8f62a158a86e82ec1b1c56137fee419abafe0d1adbc829",
+    "data/openml_manifest_1000_validated_remaining.csv": "c52a3e2be16fd97ae2bd83e7a57b828bceb97065771fdde510590a5df5531c70",
+    "data/openml_manifest_250.csv": "c3ee4d2b52762534f195e44d41b2812d84d0a1a015d437106bef44baf979b113",
+    "data/openml_manifest_500.csv": "a977c535bf19fa7d5ffa75547ddcadb6085e2dfa021b3c9f426d5a448a4e949b",
+    "data/openml_manifest_500_unique.csv": "ad12fd928d60f0da76c6bc1a1dd1510546bb7bb821f4c5cf4a3ed32cc7ffc502",
+    "data/openml_manifest_984_completed.csv": "297a5c79d1172fbc6ff8263065cfe8f5f73222b989208eff1b063b4ad5be77fd",
+    "data/openml_manifest_984_cutoff_10000.csv": "03e056e8a22edd5ac1eb9d14189fbd8b3d8bd51c4be1019db50769e5bf8ce450"
+  },
+  "manifest": "data/openml_confirmatory_manifest_30_families.csv",
+  "manifest_sha256": "15fd0a1bd9d4a7df770ff4e80e553d3ee6a4c3740488d59b417ab56194ad6d25",
+  "minimum_completed_families": 30,
+  "n_unique_canonical_families": 30,
+  "n_unique_ids": 30,
+  "protocol": "CONFIRMATORY_PROTOCOL_AMENDMENT_30.md",
+  "protocol_sha256": "dbc92988fcb5df5283d81b17ab8d5eb8b91f7b0ad77c7d9b89c6ac00310fe0fd",
+  "seed": 20260918,
+  "selector_implementation_sha256": "dadd8273cffc35e48d523e7d99418dec422707108712da1d8bfb6bfe1dbeb4b0",
+  "target_families": 30
+}

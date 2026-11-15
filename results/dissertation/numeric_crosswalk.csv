@@ -1,0 +1,389 @@
+metrica,gbm13,gbm13_1,fonte
+summary.json#best_fixed_regret.selector.mean,0.14442521250009369,0.13992904536022768,summary.json
+summary.json#best_fixed_regret.selector.median,0.10350529100529096,0.10069444444444446,summary.json
+summary.json#best_fixed_regret.selector.q90,0.32869579733605636,0.32079475308641975,summary.json
+summary.json#best_fixed_regret.selector.cvar90,0.4655575673622952,0.4505456848309225,summary.json
+summary.json#best_fixed_regret.reference.mean,0.15419209828431946,0.15419209828431946,summary.json
+summary.json#best_fixed_regret.reference.median,0.11185790835181073,0.11185790835181073,summary.json
+summary.json#best_fixed_regret.reference.q90,0.3651494796244234,0.3651494796244234,summary.json
+summary.json#best_fixed_regret.reference.cvar90,0.5033412171244636,0.5033412171244636,summary.json
+summary.json#best_fixed_regret.gain.mean.mean,0.009766885784225795,0.014263052924091812,summary.json
+summary.json#best_fixed_regret.gain.mean.ci_low,0.00712415001360727,0.011239413420640262,summary.json
+summary.json#best_fixed_regret.gain.mean.ci_high,0.012688216762731828,0.017454094457082667,summary.json
+summary.json#best_fixed_regret.gain.median.mean,0.008352617346519764,0.011163463907366264,summary.json
+summary.json#best_fixed_regret.gain.median.ci_low,0.001704418806661681,0.004645763068023275,summary.json
+summary.json#best_fixed_regret.gain.median.ci_high,0.011921587248616,0.017527345075949368,summary.json
+summary.json#best_fixed_regret.gain.q90.mean,0.03645368228836704,0.04435472653800365,summary.json
+summary.json#best_fixed_regret.gain.q90.ci_low,0.009424603174603086,0.016475000712932793,summary.json
+summary.json#best_fixed_regret.gain.q90.ci_high,0.050708121018938526,0.06287088123963702,summary.json
+summary.json#best_fixed_regret.gain.cvar90.mean,0.03778364976216836,0.05279553229354106,summary.json
+summary.json#best_fixed_regret.gain.cvar90.ci_low,0.024002560024472562,0.0361223603766528,summary.json
+summary.json#best_fixed_regret.gain.cvar90.ci_high,0.05311030336583851,0.07084533569031358,summary.json
+summary.json#best_fixed_regret.sign_flip_p,1.999960000799984e-05,1.999960000799984e-05,summary.json
+summary.json#best_fixed_regret.wilcoxon_p,1.899017929874853e-15,2.7983932617584297e-28,summary.json
+summary.json#best_fixed_regret.wins_ties_losses_zero[0],173,206.0,summary.json
+summary.json#best_fixed_regret.wins_ties_losses_zero[1],408,403.0,summary.json
+summary.json#best_fixed_regret.wins_ties_losses_zero[2],86,58.0,summary.json
+summary.json#h27_fixed_regret.selector.mean,0.14442521250009369,0.13992904536022768,summary.json
+summary.json#h27_fixed_regret.selector.median,0.10350529100529096,0.10069444444444446,summary.json
+summary.json#h27_fixed_regret.selector.q90,0.32869579733605636,0.32079475308641975,summary.json
+summary.json#h27_fixed_regret.selector.cvar90,0.4655575673622952,0.4505456848309225,summary.json
+summary.json#h27_fixed_regret.reference.mean,0.17427891850239977,0.17427891850239977,summary.json
+summary.json#h27_fixed_regret.reference.median,0.13749999999999993,0.13749999999999993,summary.json
+summary.json#h27_fixed_regret.reference.q90,0.38294771906052394,0.38294771906052394,summary.json
+summary.json#h27_fixed_regret.reference.cvar90,0.5227631153150247,0.5227631153150247,summary.json
+summary.json#h27_fixed_regret.gain.mean.mean,0.029853706002306066,0.03434987314217208,summary.json
+summary.json#h27_fixed_regret.gain.mean.ci_low,0.024811016054356115,0.029068064648206233,summary.json
+summary.json#h27_fixed_regret.gain.mean.ci_high,0.03517614239563149,0.03983986043065812,summary.json
+summary.json#h27_fixed_regret.gain.median.mean,0.033994708994708966,0.036805555555555466,summary.json
+summary.json#h27_fixed_regret.gain.median.ci_low,0.023446270951174714,0.02796377781898673,summary.json
+summary.json#h27_fixed_regret.gain.median.ci_high,0.040412027657422064,0.044391025641025664,summary.json
+summary.json#h27_fixed_regret.gain.q90.mean,0.05425192172446758,0.06215296597410419,summary.json
+summary.json#h27_fixed_regret.gain.q90.ci_low,0.030420032638327876,0.03894081900936563,summary.json
+summary.json#h27_fixed_regret.gain.q90.ci_high,0.08649800640733388,0.0947829920081468,summary.json
+summary.json#h27_fixed_regret.gain.cvar90.mean,0.05720554795272953,0.07221743048410223,summary.json
+summary.json#h27_fixed_regret.gain.cvar90.ci_low,0.037129987825743616,0.0508248578758167,summary.json
+summary.json#h27_fixed_regret.gain.cvar90.ci_high,0.07950340193355922,0.09584147081885068,summary.json
+summary.json#h27_fixed_regret.sign_flip_p,1.999960000799984e-05,1.999960000799984e-05,summary.json
+summary.json#h27_fixed_regret.wilcoxon_p,1.5281924904146549e-33,6.136776509988642e-42,summary.json
+summary.json#h27_fixed_regret.wins_ties_losses_zero[0],438,464.0,summary.json
+summary.json#h27_fixed_regret.wins_ties_losses_zero[1],34,25.0,summary.json
+summary.json#h27_fixed_regret.wins_ties_losses_zero[2],195,178.0,summary.json
+summary.json#gnb_fixed_regret.selector.mean,0.14442521250009369,0.13992904536022768,summary.json
+summary.json#gnb_fixed_regret.selector.median,0.10350529100529096,0.10069444444444446,summary.json
+summary.json#gnb_fixed_regret.selector.q90,0.32869579733605636,0.32079475308641975,summary.json
+summary.json#gnb_fixed_regret.selector.cvar90,0.4655575673622952,0.4505456848309225,summary.json
+summary.json#gnb_fixed_regret.reference.mean,0.2163005853224058,0.2163005853224058,summary.json
+summary.json#gnb_fixed_regret.reference.median,0.18276427469135798,0.18276427469135798,summary.json
+summary.json#gnb_fixed_regret.reference.q90,0.45227458592090514,0.45227458592090514,summary.json
+summary.json#gnb_fixed_regret.reference.cvar90,0.598811407465947,0.598811407465947,summary.json
+summary.json#gnb_fixed_regret.gain.mean.mean,0.07187537282231214,0.07637153996217817,summary.json
+summary.json#gnb_fixed_regret.gain.mean.ci_low,0.06506440660454624,0.06932007031494244,summary.json
+summary.json#gnb_fixed_regret.gain.mean.ci_high,0.07877253283138486,0.08351580152366445,summary.json
+summary.json#gnb_fixed_regret.gain.median.mean,0.07925898368606701,0.08206983024691351,summary.json
+summary.json#gnb_fixed_regret.gain.median.ci_low,0.06594972469673205,0.07049818252999346,summary.json
+summary.json#gnb_fixed_regret.gain.median.ci_high,0.09112581942077305,0.0947460176682125,summary.json
+summary.json#gnb_fixed_regret.gain.q90.mean,0.12357878858484878,0.1314798328344854,summary.json
+summary.json#gnb_fixed_regret.gain.q90.ci_low,0.09994513845869536,0.10550964492682954,summary.json
+summary.json#gnb_fixed_regret.gain.q90.ci_high,0.15886311472330714,0.16840287707360593,summary.json
+summary.json#gnb_fixed_regret.gain.cvar90.mean,0.13325384010365177,0.14826572263502447,summary.json
+summary.json#gnb_fixed_regret.gain.cvar90.ci_low,0.11155529167248811,0.12474650989319064,summary.json
+summary.json#gnb_fixed_regret.gain.cvar90.ci_high,0.15450169309700582,0.17185001354793486,summary.json
+summary.json#gnb_fixed_regret.sign_flip_p,1.999960000799984e-05,1.999960000799984e-05,summary.json
+summary.json#gnb_fixed_regret.wilcoxon_p,1.577717259780783e-76,2.0074801580316433e-79,summary.json
+summary.json#gnb_fixed_regret.wins_ties_losses_zero[0],533,539.0,summary.json
+summary.json#gnb_fixed_regret.wins_ties_losses_zero[1],21,22.0,summary.json
+summary.json#gnb_fixed_regret.wins_ties_losses_zero[2],113,106.0,summary.json
+summary.json#oracle_regret.selector.mean,0.14442521250009369,0.13992904536022768,summary.json
+summary.json#oracle_regret.selector.median,0.10350529100529096,0.10069444444444446,summary.json
+summary.json#oracle_regret.selector.q90,0.32869579733605636,0.32079475308641975,summary.json
+summary.json#oracle_regret.selector.cvar90,0.4655575673622952,0.4505456848309225,summary.json
+summary.json#oracle_regret.reference.mean,0.1066650312117721,0.09964284443002908,summary.json
+summary.json#oracle_regret.reference.median,0.06886382785663357,0.06494644473101112,summary.json
+summary.json#oracle_regret.reference.q90,0.2766517504804502,0.2678034547152193,summary.json
+summary.json#oracle_regret.reference.cvar90,0.41693648311596493,0.398999635572142,summary.json
+summary.json#oracle_regret.gain.mean.mean,-0.0377601812883216,-0.04028620093019858,summary.json
+summary.json#oracle_regret.gain.mean.ci_low,-0.040971640399264986,-0.04362185323834267,summary.json
+summary.json#oracle_regret.gain.mean.ci_high,-0.03471552762070823,-0.03711802706788556,summary.json
+summary.json#oracle_regret.gain.median.mean,-0.03464146314865739,-0.03574799971343334,summary.json
+summary.json#oracle_regret.gain.median.ci_low,-0.04150112210336496,-0.04180164228969935,summary.json
+summary.json#oracle_regret.gain.median.ci_high,-0.02798643576294034,-0.030226880208674808,summary.json
+summary.json#oracle_regret.gain.q90.mean,-0.05204404685560615,-0.052991298371200424,summary.json
+summary.json#oracle_regret.gain.q90.ci_low,-0.07379918205341102,-0.07681347356347362,summary.json
+summary.json#oracle_regret.gain.q90.ci_high,-0.031490088191853984,-0.03431938632652674,summary.json
+summary.json#oracle_regret.gain.cvar90.mean,-0.04862108424633027,-0.05154604925878048,summary.json
+summary.json#oracle_regret.gain.cvar90.ci_low,-0.05828160077473903,-0.06151109056721219,summary.json
+summary.json#oracle_regret.gain.cvar90.ci_high,-0.03950179392865221,-0.04159616225093267,summary.json
+summary.json#oracle_regret.sign_flip_p,1.999960000799984e-05,1.999960000799984e-05,summary.json
+summary.json#oracle_regret.wilcoxon_p,2.458139551352088e-105,1.7709434495652953e-106,summary.json
+summary.json#oracle_regret.wins_ties_losses_zero[0],0,0.0,summary.json
+summary.json#oracle_regret.wins_ties_losses_zero[1],34,27.0,summary.json
+summary.json#oracle_regret.wins_ties_losses_zero[2],633,640.0,summary.json
+summary.json#datasets,973,973.0,summary.json
+summary.json#families,667,667.0,summary.json
+summary.json#options,13,15.0,summary.json
+summary.json#conditions,7784,7784.0,summary.json
+summary.json#evaluations,303576,350280.0,summary.json
+summary.json#best_fixed_ba.mean,0.483700988467066,0.483700988467066,summary.json
+summary.json#best_fixed_ba.ci_low,0.4687040196943117,0.4687040196943117,summary.json
+summary.json#best_fixed_ba.ci_high,0.49879897081025004,0.49879897081025004,summary.json
+summary.json#selector_ba.mean,0.4934678742512918,0.4979640413911578,summary.json
+summary.json#selector_ba.ci_low,0.47831876896952147,0.48284397556218933,summary.json
+summary.json#selector_ba.ci_high,0.5085860723435228,0.513138978114608,summary.json
+summary.json#selection_shares.categorical_naive_bayes__laplace_histograms_b8u,0.7818602261048304,0.7719681397738952,summary.json
+summary.json#selection_shares.softmax__dp_sgd_clip2_lam0003,não se aplica,0.13848920863309352,summary.json
+summary.json#selection_shares.softmax__dp_sgd_clip2_lamrule,não se aplica,0.06898766700924974,summary.json
+summary.json#selection_shares.softmax__dp_sgd_clip2_reg003,0.18640801644398766,0.010149023638232271,summary.json
+summary.json#selection_shares.softmax__dp_sgd,0.018242548818088386,0.007579650565262076,summary.json
+summary.json#selection_shares.softmax__dp_sgd_steps100,0.0051387461459403904,0.001541623843782117,summary.json
+summary.json#selection_shares.categorical_naive_bayes__laplace_histograms,0.0050102774922918805,0.0010277492291880781,summary.json
+summary.json#selection_shares.random_forest__laplace_parallel_shards_25,0.0012846865364850976,0.00025693730729701953,summary.json
+summary.json#top1_strict,0.2539825282631038,0.1747173689619733,summary.json
+summary.json#fixed_top1_strict,0.2025950668036999,0.17291880781089414,summary.json
+summary.json#practical.rank_biserial,0.5712206712206712,0.7829902801600915,summary.json
+summary.json#practical.median_dataset_gain,0.0,0.0,summary.json
+summary.json#practical.dataset_wins,263,297.0,summary.json
+summary.json#practical.dataset_ties,588,568.0,summary.json
+summary.json#practical.dataset_losses,122,108.0,summary.json
+summary.json#practical.constant_best_fixed_datasets,544,547.0,summary.json
+summary.json#practical.mcnemar_dataset.selector_correct_fixed_wrong,38,2.0,summary.json
+summary.json#practical.mcnemar_dataset.selector_wrong_fixed_correct,5,4.0,summary.json
+summary.json#practical.mcnemar_dataset.discordant_pairs,43,6.0,summary.json
+summary.json#practical.mcnemar_dataset.exact_binomial_p_two_sided,2.4995097192004323e-07,0.6875,summary.json
+summary.json#practical.conditions_worse_over_1pp,0.02723535457348407,0.024023638232271327,summary.json
+summary.json#practical.cvar90_condition_loss,0.01398893249725843,0.01030818957836056,summary.json
+summary.json#practical.top1_argmax,0.26657245632065774,0.22571942446043167,summary.json
+summary.json#practical.top1_tie_inclusive,0.3500770811921891,0.31680369989722507,summary.json
+summary.json#references.random_pipeline_regret.mean,0.20216121662058723,0.19552455487988538,summary.json
+summary.json#references.worst_pipeline_regret.mean,0.2703523235749572,0.2714320077919894,summary.json
+summary.json#references.worst_fixed_regret.mean,0.229112486850197,0.229112486850197,summary.json
+summary.json#references.oracle_regret.mean,0.1066650312117721,0.09964284443002908,summary.json
+summary.json#h1.tied_conditions,1053,1981.0,summary.json
+summary.json#h1.tied_fraction,0.13527749229188077,0.25449640287769787,summary.json
+summary.json#h1.all_tied,417,334.0,summary.json
+summary.json#h1.constant_unique_datasets,38,25.0,summary.json
+summary.json#h1.median_distinct_winners,5.0,6.0,summary.json
+summary.json#h1.friedman_dataset_chi2,1551.7549673573662,2205.9373747456825,summary.json
+summary.json#h1.friedman_dataset_p,0.0,0.0,summary.json
+summary.json#h1.kendall_W_dataset,0.13290124763252537,0.16193931689514626,summary.json
+summary.json#h1.friedman_family_chi2,1298.4016033986563,2034.0308611001,summary.json
+summary.json#h1.friedman_family_p,1.100881912698495e-270,0.0,summary.json
+summary.json#h1.kendall_W_family,0.16221909087939235,0.21782296649176483,summary.json
+summary.json#h1.nemenyi_cd,0.7064547004772798,0.8304707877986447,summary.json
+summary.json#h1.spread_median,0.10997852808929148,0.11803925404277515,summary.json
+summary.json#h1.spread_p90,0.3339473180142298,0.34495872666581623,summary.json
+summary.json#h1.spread_gt_10pp,0.5268499486125385,0.5502312435765673,summary.json
+summary.json#h1.top_two_gap_median,0.010640510096966538,0.00555555555555555,summary.json
+summary.json#h1.near_chance_clean_datasets,219,214.0,summary.json
+summary.json#h1.near_chance_clean_fraction,0.2250770811921891,0.2199383350462487,summary.json
+summary.json#h1.near_chance_private_fraction,0.2831449126413155,0.26670092497430625,summary.json
+summary.json#headroom.mean,0.042473790365692876,0.04806717917421444,summary.json
+summary.json#headroom.median,0.024126984126984108,0.02991666666666671,summary.json
+summary.json#headroom.below_005,220,205.0,summary.json
+summary.json#headroom.above_10,114,142.0,summary.json
+summary.json#headroom.captured_family,0.20550154650437807,0.26147109110219297,summary.json
+summary.json#repetition_sd.mean,0.03276749747883772,0.03376812576100905,summary.json
+summary.json#repetition_sd.median,0.0105263157894737,0.01201103438308999,summary.json
+summary.json#without_epsilon16.mean,0.009903615163990114,0.014194330247653241,summary.json
+summary.json#without_epsilon16.ci_low,0.0071890490992060725,0.011092390289662812,summary.json
+summary.json#without_epsilon16.ci_high,0.012865691973197778,0.017469765398629156,summary.json
+summary.json#size_groups.n_ge200.datasets,771,771.0,summary.json
+summary.json#size_groups.n_ge200.mean,0.011040294188957583,0.016449386564651145,summary.json
+summary.json#size_groups.n_ge200.ci_low,0.0076819528694346325,0.012627340037684055,summary.json
+summary.json#size_groups.n_ge200.ci_high,0.014772616299433432,0.020666634564683258,summary.json
+summary.json#size_groups.n_lt200.datasets,202,202.0,summary.json
+summary.json#size_groups.n_lt200.mean,0.006066932881851076,0.00791962089157321,summary.json
+summary.json#size_groups.n_lt200.ci_low,0.002654010998876382,0.004405919035937553,summary.json
+summary.json#size_groups.n_lt200.ci_high,0.010023112122506067,0.011972445147287654,summary.json
+summary.json#size_groups.n_lt100.datasets,99,99.0,summary.json
+summary.json#size_groups.n_lt100.mean,0.0060241654585292586,0.0072208706711526655,summary.json
+summary.json#size_groups.n_lt100.ci_low,0.0009531187017466133,0.0024266198483021313,summary.json
+summary.json#size_groups.n_lt100.ci_high,0.01222210261860799,0.013229177794395603,summary.json
+summary.json#size_groups.informative.datasets,754,759.0,summary.json
+summary.json#size_groups.informative.mean,0.011201972457565415,0.01603280801005237,summary.json
+summary.json#size_groups.informative.ci_low,0.008198812756241255,0.01266685976873946,summary.json
+summary.json#size_groups.informative.ci_high,0.014478619252756323,0.01966817844503355,summary.json
+summary.json#size_groups.near_chance.datasets,219,214.0,summary.json
+summary.json#size_groups.near_chance.mean,-0.0007094242642648938,0.00022190885747915606,summary.json
+summary.json#size_groups.near_chance.ci_low,-0.001959942428536291,-0.00018644803149637032,summary.json
+summary.json#size_groups.near_chance.ci_high,0.0001668846913610243,0.0007288150987583805,summary.json
+summary.json#empirical_fixed_regret.selector.mean,não se aplica,0.13992904536022766,summary.json
+summary.json#empirical_fixed_regret.selector.median,não se aplica,0.1006944444444444,summary.json
+summary.json#empirical_fixed_regret.selector.q90,não se aplica,0.3207947530864197,summary.json
+summary.json#empirical_fixed_regret.selector.cvar90,não se aplica,0.4505456848309225,summary.json
+summary.json#empirical_fixed_regret.reference.mean,não se aplica,0.1514132064784341,summary.json
+summary.json#empirical_fixed_regret.reference.median,não se aplica,0.11388888888888886,summary.json
+summary.json#empirical_fixed_regret.reference.q90,não se aplica,0.3633333333333333,summary.json
+summary.json#empirical_fixed_regret.reference.cvar90,não se aplica,0.47708876970316705,summary.json
+summary.json#empirical_fixed_regret.gain.mean.mean,não se aplica,0.01148416111820646,summary.json
+summary.json#empirical_fixed_regret.gain.mean.ci_low,não se aplica,0.007579320793656462,summary.json
+summary.json#empirical_fixed_regret.gain.mean.ci_high,não se aplica,0.015560547549374212,summary.json
+summary.json#empirical_fixed_regret.gain.median.mean,não se aplica,0.013194444444444453,summary.json
+summary.json#empirical_fixed_regret.gain.median.ci_low,não se aplica,0.0068751782165676345,summary.json
+summary.json#empirical_fixed_regret.gain.median.ci_high,não se aplica,0.02068965517241378,summary.json
+summary.json#empirical_fixed_regret.gain.q90.mean,não se aplica,0.04253858024691359,summary.json
+summary.json#empirical_fixed_regret.gain.q90.ci_low,não se aplica,0.0020688360499493824,summary.json
+summary.json#empirical_fixed_regret.gain.q90.ci_high,não se aplica,0.05546543117172065,summary.json
+summary.json#empirical_fixed_regret.gain.cvar90.mean,não se aplica,0.02654308487224455,summary.json
+summary.json#empirical_fixed_regret.gain.cvar90.ci_low,não se aplica,0.009896320682648261,summary.json
+summary.json#empirical_fixed_regret.gain.cvar90.ci_high,não se aplica,0.044615392771547926,summary.json
+summary.json#empirical_fixed_regret.sign_flip_p,não se aplica,1.999960000799984e-05,summary.json
+summary.json#empirical_fixed_regret.wilcoxon_p,não se aplica,2.2988193374095856e-09,summary.json
+summary.json#empirical_fixed_regret.wins_ties_losses_zero[0],não se aplica,374.0,summary.json
+summary.json#empirical_fixed_regret.wins_ties_losses_zero[1],não se aplica,34.0,summary.json
+summary.json#empirical_fixed_regret.wins_ties_losses_zero[2],não se aplica,259.0,summary.json
+summary.json#old_nb_fixed_regret.selector.mean,não se aplica,0.13992904536022766,summary.json
+summary.json#old_nb_fixed_regret.selector.median,não se aplica,0.1006944444444444,summary.json
+summary.json#old_nb_fixed_regret.selector.q90,não se aplica,0.3207947530864197,summary.json
+summary.json#old_nb_fixed_regret.selector.cvar90,não se aplica,0.4505456848309225,summary.json
+summary.json#old_nb_fixed_regret.reference.mean,não se aplica,0.162665597198016,summary.json
+summary.json#old_nb_fixed_regret.reference.median,não se aplica,0.12174145299145296,summary.json
+summary.json#old_nb_fixed_regret.reference.q90,não se aplica,0.3641764893278114,summary.json
+summary.json#old_nb_fixed_regret.reference.cvar90,não se aplica,0.5191239098912269,summary.json
+summary.json#old_nb_fixed_regret.gain.mean.mean,não se aplica,0.022736551837788346,summary.json
+summary.json#old_nb_fixed_regret.gain.mean.ci_low,não se aplica,0.018115460404198112,summary.json
+summary.json#old_nb_fixed_regret.gain.mean.ci_high,não se aplica,0.027493284513541584,summary.json
+summary.json#old_nb_fixed_regret.gain.median.mean,não se aplica,0.021047008547008556,summary.json
+summary.json#old_nb_fixed_regret.gain.median.ci_low,não se aplica,0.014387257922553215,summary.json
+summary.json#old_nb_fixed_regret.gain.median.ci_high,não se aplica,0.027958159121860584,summary.json
+summary.json#old_nb_fixed_regret.gain.q90.mean,não se aplica,0.04338173624139169,summary.json
+summary.json#old_nb_fixed_regret.gain.q90.ci_low,não se aplica,0.020948377067605495,summary.json
+summary.json#old_nb_fixed_regret.gain.q90.ci_high,não se aplica,0.07527231466914623,summary.json
+summary.json#old_nb_fixed_regret.gain.cvar90.mean,não se aplica,0.06857822506030442,summary.json
+summary.json#old_nb_fixed_regret.gain.cvar90.ci_low,não se aplica,0.04798533705679435,summary.json
+summary.json#old_nb_fixed_regret.gain.cvar90.ci_high,não se aplica,0.08994502636058066,summary.json
+summary.json#old_nb_fixed_regret.sign_flip_p,não se aplica,1.999960000799984e-05,summary.json
+summary.json#old_nb_fixed_regret.wilcoxon_p,não se aplica,9.633311835781407e-29,summary.json
+summary.json#old_nb_fixed_regret.wins_ties_losses_zero[0],não se aplica,446.0,summary.json
+summary.json#old_nb_fixed_regret.wins_ties_losses_zero[1],não se aplica,28.0,summary.json
+summary.json#old_nb_fixed_regret.wins_ties_losses_zero[2],não se aplica,193.0,summary.json
+corpus_summary.json#datasets,973,973.0,corpus_summary.json
+corpus_summary.json#canonical_families,973,973.0,corpus_summary.json
+corpus_summary.json#semantic_lodo_families,667,667.0,corpus_summary.json
+corpus_summary.json#semantic_declared_families,666,666.0,corpus_summary.json
+corpus_summary.json#missing_semantic_ids[0],41526,41526.0,corpus_summary.json
+corpus_summary.json#missing_semantic_ids[1],45939,45939.0,corpus_summary.json
+corpus_summary.json#semantic_missing_unique_families,668.0,668.0,corpus_summary.json
+corpus_summary.json#multi_dataset_families,45,45.0,corpus_summary.json
+corpus_summary.json#datasets_with_relatives,351,351.0,corpus_summary.json
+corpus_summary.json#independent_datasets,622,622.0,corpus_summary.json
+corpus_summary.json#validation_failures[0],350,350.0,corpus_summary.json
+corpus_summary.json#validation_failures[1],386,386.0,corpus_summary.json
+corpus_summary.json#validation_failures[2],389,389.0,corpus_summary.json
+corpus_summary.json#validation_failures[3],391,391.0,corpus_summary.json
+corpus_summary.json#validation_failures[4],392,392.0,corpus_summary.json
+corpus_summary.json#validation_failures[5],394,394.0,corpus_summary.json
+corpus_summary.json#validation_failures[6],395,395.0,corpus_summary.json
+corpus_summary.json#validation_failures[7],401,401.0,corpus_summary.json
+corpus_summary.json#validation_failures[8],47138,47138.0,corpus_summary.json
+corpus_summary.json#validation_failures[9],47266,47266.0,corpus_summary.json
+corpus_summary.json#validation_failures[10],47267,47267.0,corpus_summary.json
+corpus_summary.json#cost_exclusions,16,16.0,corpus_summary.json
+extras/summary.json#config.seed,20260917,20261110.0,extras/summary.json
+extras/summary.json#config.repeats,3,3.0,extras/summary.json
+extras/summary.json#dp_changes_best_model.overall,0.486382322713258,0.4894655704008222,extras/summary.json
+extras/summary.json#dp_changes_best_model.by_epsilon.0.1,0.5981500513874615,0.593011305241521,extras/summary.json
+extras/summary.json#dp_changes_best_model.by_epsilon.0.25,0.5858170606372045,0.5991778006166495,extras/summary.json
+extras/summary.json#dp_changes_best_model.by_epsilon.0.5,0.5354573484069887,0.538540596094553,extras/summary.json
+extras/summary.json#dp_changes_best_model.by_epsilon.1.0,0.4943473792394656,0.499486125385406,extras/summary.json
+extras/summary.json#dp_changes_best_model.by_epsilon.2.0,0.4696813977389517,0.4686536485097636,extras/summary.json
+extras/summary.json#dp_changes_best_model.by_epsilon.4.0,0.43884892086330934,0.44295991778006166,extras/summary.json
+extras/summary.json#dp_changes_best_model.by_epsilon.8.0,0.40184994861253853,0.3997944501541624,extras/summary.json
+extras/summary.json#dp_changes_best_model.by_epsilon.16.0,0.3669064748201439,0.37410071942446044,extras/summary.json
+extras/summary.json#dp_changes_best_model.clean_winner_share.GaussianNB,0.36889661668695584,0.31400708746546363,extras/summary.json
+extras/summary.json#dp_changes_best_model.clean_winner_share.NB categórico,0.38795481668040765,0.3154908540699908,extras/summary.json
+extras/summary.json#dp_changes_best_model.clean_winner_share.Softmax,0.18922239687912862,0.32211294971443993,extras/summary.json
+extras/summary.json#dp_changes_best_model.clean_winner_share.Árvores,0.053926169753507884,0.04838910875010566,extras/summary.json
+extras/summary.json#dp_changes_best_model.private_winner_share.GaussianNB,0.19045292166438108,0.16172573073266805,extras/summary.json
+extras/summary.json#dp_changes_best_model.private_winner_share.NB categórico,0.34537246647665454,0.2906529849618236,extras/summary.json
+extras/summary.json#dp_changes_best_model.private_winner_share.Softmax,0.362899593269583,0.45981612348197654,extras/summary.json
+extras/summary.json#dp_changes_best_model.private_winner_share.Árvores,0.10127501858938139,0.08780516082353185,extras/summary.json
+extras/summary.json#refit_5fold,0.010114509795277718,0.014385266221059472,extras/summary.json
+extras/summary.json#shapley_total.mean,0.015787419875807687,0.014159203076799352,extras/summary.json
+extras/summary.json#shapley_total.ci_low,0.013186035356595247,0.01151098278871428,extras/summary.json
+extras/summary.json#shapley_total.ci_high,0.01861019623562909,0.016998390744713935,extras/summary.json
+extras/summary.json#shapley_total.changed,0.36351704996034895,0.39426006696625254,extras/summary.json
+extras/summary.json#metamodel_cd.ranks.Extra-Trees,3.942278860569715,3.9025487256371814,extras/summary.json
+extras/summary.json#metamodel_cd.ranks.GBM abs,3.6911544227886055,3.7248875562218893,extras/summary.json
+extras/summary.json#metamodel_cd.ranks.GBM residual + fallback (GBM-15),não se aplica,3.452023988005997,extras/summary.json
+extras/summary.json#metamodel_cd.ranks.RF-12,4.2098950524737635,4.118440779610195,extras/summary.json
+extras/summary.json#metamodel_cd.ranks.Ridge (linear),3.659670164917541,3.75712143928036,extras/summary.json
+extras/summary.json#metamodel_cd.ranks.k-NN (k=25),4.416791604197901,4.365817091454272,extras/summary.json
+extras/summary.json#metamodel_cd.ranks.b8u congelada,não se aplica,4.679160419790105,extras/summary.json
+extras/summary.json#metamodel_cd.cd,0.348762749205115,0.348762749205115,extras/summary.json
+extras/summary.json#metamodel_cd.friedman_p,4.4316676790160845e-38,7.862432863557491e-32,extras/summary.json
+extras/summary.json#recommendation_latency_ms.median,1.646145508857444,1.451291493140161,extras/summary.json
+extras/summary.json#recommendation_latency_ms.p90,6.716908863745632,2.9874547151848687,extras/summary.json
+modes/summary.json#families,667,667.0,modes/summary.json
+modes/summary.json#folds,5,5.0,modes/summary.json
+modes/summary.json#permutation_repeats,5,5.0,modes/summary.json
+modes/summary.json#metadata_epsilon,1.0,1.0,modes/summary.json
+modes/summary.json#modes[0].metadata_epsilon,0.0,1.0,modes/summary.json
+modes/summary.json#modes[0].regret_mean,0.14575811590188134,0.14026543334427025,modes/summary.json
+modes/summary.json#modes[0].regret_median,0.1047619047619047,0.10069914171476661,modes/summary.json
+modes/summary.json#modes[0].regret_q90,0.33465139496125257,0.3192121484049687,modes/summary.json
+modes/summary.json#modes[0].regret_cvar90,0.4737739276000489,0.450689071388312,modes/summary.json
+modes/summary.json#modes[0].gain_vs_best_fixed,0.008433982382438115,0.0139266649400492,modes/summary.json
+modes/summary.json#modes[0].gain_ci95_low,0.005480941531502085,0.01082040108968792,modes/summary.json
+modes/summary.json#modes[0].gain_ci95_high,0.01152007897310444,0.017225002173094653,modes/summary.json
+modes/summary.json#modes[1].metadata_epsilon,0.0,0.0,modes/summary.json
+modes/summary.json#modes[1].regret_mean,0.14407758848904176,0.13980683206326,modes/summary.json
+modes/summary.json#modes[1].regret_median,0.10350529100529096,0.10174798716313732,modes/summary.json
+modes/summary.json#modes[1].regret_q90,0.32541911946209257,0.3228587962962962,modes/summary.json
+modes/summary.json#modes[1].regret_cvar90,0.46524499884446857,0.45002034336713653,modes/summary.json
+modes/summary.json#modes[1].gain_vs_best_fixed,0.010114509795277699,0.014385266221059475,modes/summary.json
+modes/summary.json#modes[1].gain_ci95_low,0.007422546672987066,0.011346497917847625,modes/summary.json
+modes/summary.json#modes[1].gain_ci95_high,0.013007025451789077,0.017622969249993792,modes/summary.json
+modes/summary.json#modes[2].metadata_epsilon,1.0,0.0,modes/summary.json
+modes/summary.json#modes[2].regret_mean,0.14377956814198087,0.14107458539099385,modes/summary.json
+modes/summary.json#modes[2].regret_median,0.10608974358974355,0.10069914171476661,modes/summary.json
+modes/summary.json#modes[2].regret_q90,0.3281837437399864,0.3228587962962962,modes/summary.json
+modes/summary.json#modes[2].regret_cvar90,0.46381295741439676,0.45381779446001436,modes/summary.json
+modes/summary.json#modes[2].gain_vs_best_fixed,0.010412530142338589,0.01311751289332562,modes/summary.json
+modes/summary.json#modes[2].gain_ci95_low,0.0075380814072552775,0.01003022181822698,modes/summary.json
+modes/summary.json#modes[2].gain_ci95_high,0.013441240618379294,0.01640140750652093,modes/summary.json
+modes/summary.json#modes[3].regret_mean,0.14183056010333997,0.13884811689241908,modes/summary.json
+modes/summary.json#modes[3].regret_median,0.10329101106091285,0.1006944444444444,modes/summary.json
+modes/summary.json#modes[3].regret_q90,0.32285879629629627,0.3159450853498405,modes/summary.json
+modes/summary.json#modes[3].regret_cvar90,0.4580932293039648,0.44593076645865304,modes/summary.json
+modes/summary.json#modes[3].gain_vs_best_fixed,0.012361538180979487,0.015343981391900357,modes/summary.json
+modes/summary.json#modes[3].gain_ci95_low,0.009308537873453652,0.012092049260568746,modes/summary.json
+modes/summary.json#modes[3].gain_ci95_high,0.015540040003905325,0.01873670931155853,modes/summary.json
+modes/summary.json#modes[4].regret_mean,0.1425239691321272,0.13887897483095632,modes/summary.json
+modes/summary.json#modes[4].regret_median,0.10350529100529096,0.10198412698412694,modes/summary.json
+modes/summary.json#modes[4].regret_q90,0.32390937279095167,0.3159450853498405,modes/summary.json
+modes/summary.json#modes[4].regret_cvar90,0.46201921264620766,0.44570998876472145,modes/summary.json
+modes/summary.json#modes[4].gain_vs_best_fixed,0.011668129152192258,0.015313123453363135,modes/summary.json
+modes/summary.json#modes[4].gain_ci95_low,0.008629873644578956,0.012089828122648923,modes/summary.json
+modes/summary.json#modes[4].gain_ci95_high,0.014863329736057593,0.01870687740096136,modes/summary.json
+modes/summary.json#tau,não se aplica,0.02,modes/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.selector.mean,0.14522129839864498,0.1411097681200783,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.selector.median,0.10396817680990339,0.10308493589743581,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.selector.q90,0.33543197620694887,0.3250602391265637,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.selector.cvar90,0.4675903000258898,0.45481408485596725,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.reference.mean,0.15419209828431946,0.15419209828431946,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.reference.median,0.11185790835181073,0.11185790835181073,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.reference.q90,0.3651494796244234,0.3651494796244234,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.reference.cvar90,0.5033412171244636,0.5033412171244636,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.mean.mean,0.008970799885674495,0.013082330164241183,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.mean.ci_low,0.006039159230087105,0.009998876431734508,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.mean.ci_high,0.012064875329290846,0.016318605791328936,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.median.mean,0.007889731541907335,0.008772972454374917,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.median.ci_low,0.0009606948833813106,0.00241867950352935,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.median.ci_high,0.012760124544453855,0.015318627450980435,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.q90.mean,0.029717503417474533,0.040089240497859724,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.q90.ci_low,0.006525403608736935,0.011152738095238424,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.q90.ci_high,0.04772777258860241,0.06448762779569334,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.cvar90.mean,0.03575091709857375,0.04852713226849631,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.cvar90.ci_low,0.020048230467224284,0.03176866423588562,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.gain.cvar90.ci_high,0.05202526850051794,0.06719188663552018,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.sign_flip_p,1.999960000799984e-05,1.999960000799984e-05,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.wilcoxon_p,8.269572558549806e-07,9.76979456644164e-22,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.wins_ties_losses_zero[0],357,279.0,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.wins_ties_losses_zero[1],37,239.0,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_fixed.wins_ties_losses_zero[2],273,149.0,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.selector.mean,0.14522129839864498,0.1411097681200783,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.selector.median,0.10396817680990339,0.10308493589743581,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.selector.q90,0.33543197620694887,0.3250602391265637,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.selector.cvar90,0.4675903000258898,0.45481408485596725,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.reference.mean,0.14407758848904173,0.13980683206326,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.reference.median,0.10350529100529093,0.10174798716313732,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.reference.q90,0.32541911946209257,0.3228587962962962,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.reference.cvar90,0.46524499884446857,0.45002034336713653,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.mean.mean,-0.0011437099096032494,-0.001302936056818315,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.mean.ci_low,-0.002573517658243487,-0.0023788511218707916,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.mean.ci_high,0.00018263740453842016,-0.0003184291977623439,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.median.mean,-0.0004628858046124562,-0.0013369487342984876,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.median.ci_low,-0.0032714653968669155,-0.005174432625103266,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.median.ci_high,0.005349294136097925,0.0019334740871850553,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.q90.mean,-0.010012856744856302,-0.002201442830267464,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.q90.ci_low,-0.020258345128868538,-0.021205032420016423,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.q90.ci_high,0.005039327993873355,0.01070483108035819,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.cvar90.mean,-0.0023453011814212332,-0.004793741488830716,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.cvar90.ci_low,-0.011258446778276202,-0.010875896475393287,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.gain.cvar90.ci_high,0.0048289203421651074,0.0008025789554428287,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.sign_flip_p,0.10369792604147918,0.0124197516049679,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.wilcoxon_p,0.15074619274702244,0.10200860366836371,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.wins_ties_losses_zero[0],292,196.0,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.wins_ties_losses_zero[1],53,254.0,strategies/summary.json
+strategies/summary.json#per_epsilon_vs_shared.wins_ties_losses_zero[2],322,217.0,strategies/summary.json

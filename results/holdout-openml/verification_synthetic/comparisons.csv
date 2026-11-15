@@ -1,0 +1,6 @@
+gain,ci_low,ci_high,families,reference,sign_flip_p_two_sided,exploratory,p_holm,holm_reject_05
+0.020000000000000018,0.010000000000000009,0.030000000000000027,3,b8u,0.250654986900262,True,,
+0.020000000000000018,0.010000000000000009,0.030000000000000027,3,H27,0.250654986900262,True,1.0,False
+0.0,0.0,0.0,3,old_NB,1.0,True,1.0,False
+0.0,0.0,0.0,3,gbm13_selector,1.0,True,1.0,False
+0.0,0.0,0.0,3,rf12_selector,1.0,True,1.0,False

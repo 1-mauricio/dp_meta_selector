@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "completed_at": "2026-11-11T22:30:37.231348+00:00",
+  "datasets": 3,
+  "rows": 54,
+  "exact_fields": [
+    "private_ba",
+    "splits",
+    "accounting",
+    "regularization",
+    "complete ledger"
+  ],
+  "executor_sha256": "e1b1be42c1caecda420c8567d01445b7491144b809ce289a61e245cd20b562c1"
+}

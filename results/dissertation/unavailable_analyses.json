@@ -1,0 +1,6 @@
+{
+  "transformations": "15-option alternative-transform scores absent; preserve 13-option/199-dataset diagnostic as history only",
+  "holdout_clean": "new DP-SGD clean auxiliary fits absent for exploratory 41-family extension; no clean scores imputed",
+  "old_private_search": "historical confirmatory RF-12 search baselines remain 12-option runs; not rebranded as GBM-15",
+  "saturation": "descriptors unchanged, 13-option historical diagnostic not reinterpreted as 15-option result"
+}

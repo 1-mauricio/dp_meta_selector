@@ -1,0 +1,11 @@
+{
+  "results/portfolio-984-sgd/conditions_15.csv": "57989a20894485ecbf7128b3cd07a959a8edcd37888140a7e6972b9b73e1c73f",
+  "results/experiments/lodo_gbm15/lodo_picks.csv": "b7c61b8672475815142aa5d0723eb06734a6a874516a8f794f4a0d964f0960ba",
+  "results/experiments/lodo_15_preds/fallback_grid.csv": "c296a4220bf91e66b91a1981cb0db641a151d0687dcddf9359247a9c04837ab0",
+  "results/experiments/e6_e7/E6_final_public_rule.json": "59cf8728396640de7dbddeb46dfec885d8efe70cd89eb4a25efc3c881df0ade0",
+  "protocols/CONFIRMATORY_PROTOCOL_FINAL.md": "66933d771548a8048b38c5952dbc4a9e1675c31694421c0b39d5063af5dfc183",
+  "protocols/CONFIRMATORY_PROTOCOL_FINAL.sha256": "7b2ee6b40c60862b413ed08eaae173eff1484ee22ee415bc1c5b664cd900278a",
+  "results/holdout-openml/confirmatory/analysis.json": "9c4f9fe05e6867815648f4e65d129b098a8f09f0ae73ffef6d6bb07293675060",
+  "results/holdout-openml/exploratory_41/analysis.json": "439a8b9b9a943d7ba5c16cb919ce5651cace1fb04919cab725a549b452e9f5ee",
+  "data/openml_manifest_984_completed.csv": "297a5c79d1172fbc6ff8263065cfe8f5f73222b989208eff1b063b4ad5be77fd"
+}

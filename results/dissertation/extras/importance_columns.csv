@@ -1,0 +1,73 @@
+feature,group,label,changed,mean,ci_low,ci_high,share_of_all
+calib_dp_sgd__sigma,calib_dp_sgd,dp_sgd · sigma,0.1012575997885276,0.0023139208186856246,0.0013516441230021238,0.0035596571305052623,0.16342168454926065
+log_original_features,schema,log_original_features,0.11611067054366023,0.0019925286352725016,0.0011720697629198648,0.002880726677723063,0.14072321898803553
+log_numeric_features,schema,log_numeric_features,0.12176821746409376,0.0019606652040099564,0.0011571664356129175,0.0028365945270698773,0.13847285001672277
+calib_dp_sgd__dimension,calib_dp_sgd,dp_sgd · dimension,0.09199114459423738,0.0012641909180296442,0.0005354653675874437,0.002007881299480497,0.08928404453080356
+log_n_epsilon_per_feature,schema,log_n_epsilon_per_feature,0.08418649220195612,0.000854607581327912,0.00040372135346529166,0.0013377333625930715,0.060357039636519824
+calib_dp_sgd__sigma_sqrt_dim,calib_dp_sgd,dp_sgd · sigma_sqrt_dim,0.07040047581284695,0.00044122230923121465,6.232155506692996e-05,0.0008544904786461394,0.03116152136797742
+log_n,schema,log_n,0.07626839369107412,0.00037974855639138024,-0.00015546827346321962,0.0009797299882265964,0.026819910296619696
+log_nominal_levels,schema,log_nominal_levels,0.018193893735130848,0.00034799462617164694,3.754739281050425e-05,0.000765107753123534,0.024577274885043188
+log_classes_per_encoded_feature,schema,log_classes_per_encoded_feature,0.062532161423914,0.00029841061922558534,-0.00012005172360750568,0.0007944549337979937,0.021075382393133966
+log_mean_nominal_cardinality,schema,log_mean_nominal_cardinality,0.013057317825359063,0.00010640442225965028,-0.00013215622088489645,0.00035273800025833514,0.007514859535703665
+calib_categorical_nb__epsilon_per_query,calib_categorical_nb,categorical_nb · epsilon_per_query,0.0036426116838487966,5.237537018323556e-05,-5.635194274646378e-05,0.0001977284103687788,0.003699033759114278
+calib_categorical_nb__categories,calib_categorical_nb,categorical_nb · categories,0.0061192616089523295,4.9026942357882186e-05,-5.221333863989428e-05,0.00017524173681917634,0.0034625495581891595
+calib_gnb__log_scale_over_n_per_feature__sums,calib_gnb,gnb · log_scale_over_n_per_feature · sums,0.0001282051282051282,2.8735632183908045e-05,0.0,8.620689655172413e-05,0.002029466773521526
+calib_gnb__log_scale_over_n_per_feature__seconds,calib_gnb,gnb · log_scale_over_n_per_feature · seconds,0.0001282051282051282,2.8735632183908045e-05,0.0,8.620689655172413e-05,0.002029466773521526
+calib_gnb__log_scale_over_n__counts,calib_gnb,gnb · log_scale_over_n · counts,0.0001282051282051282,2.8735632183908045e-05,0.0,8.620689655172413e-05,0.002029466773521526
+log_nominal_features,schema,log_nominal_features,0.018016345052427527,2.4726718015242335e-05,-0.0001589053722698849,0.00022934970758823592,0.001746335431529932
+calib_categorical_nb__n_epsilon_per_query,calib_categorical_nb,categorical_nb · n_epsilon_per_query,0.0074061591329632566,2.2829667050736344e-05,-3.206736684494064e-05,8.105300745131589e-05,0.0016123553654049947
+calib_categorical_nb__nominal,calib_categorical_nb,categorical_nb · nominal,0.010906687813904307,2.0047825523734332e-05,-0.00013664758833838568,0.00018840500598659473,0.0014158865732057913
+log_max_nominal_cardinality,schema,log_max_nominal_cardinality,0.012976033130672308,1.9604161733576954e-05,-0.00017818039999092342,0.0002146920895523248,0.0013845526211640734
+calib_gnb__log_sens_l1__sums,calib_gnb,gnb · log_sens_l1 · sums,4.2735042735042735e-05,9.578544061302682e-06,0.0,2.8735632183908045e-05,0.0006764889245071753
+calib_categorical_nb__noise_scale,calib_categorical_nb,categorical_nb · noise_scale,0.005140320733104237,4.908270727159087e-06,-7.763054960560778e-05,7.819143508232922e-05,0.0003466487979963762
+calib_dp_sgd__clip,calib_dp_sgd,dp_sgd · clip,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_calibration_scale__seconds,calib_gnb,gnb · log_calibration_scale · seconds,0.0,0.0,0.0,0.0,0.0
+calib_softmax_output__regularization,calib_softmax_output,softmax_output · regularization,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_sens_linf__seconds,calib_gnb,gnb · log_sens_linf · seconds,0.0,0.0,0.0,0.0,0.0
+calib_dp_sgd__steps,calib_dp_sgd,dp_sgd · steps,0.0,0.0,0.0,0.0,0.0
+calib_forest__sensitivity_l1,calib_forest,forest · sensitivity_l1,0.0,0.0,0.0,0.0,0.0
+calib_dp_sgd__rho_total,calib_dp_sgd,dp_sgd · rho_total,0.0,0.0,0.0,0.0,0.0
+calib_forest__scale,calib_forest,forest · scale,0.0,0.0,0.0,0.0,0.0
+calib_forest__scale_sqrt_cells,calib_forest,forest · scale_sqrt_cells,0.0,0.0,0.0,0.0,0.0
+calib_forest__trees,calib_forest,forest · trees,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_sens_l2__seconds,calib_gnb,gnb · log_sens_l2 · seconds,0.0,0.0,0.0,0.0,0.0
+calib_forest__leaves,calib_forest,forest · leaves,0.0,0.0,0.0,0.0,0.0
+calib_forest__shard_size,calib_forest,forest · shard_size,0.0,0.0,0.0,0.0,0.0
+calib_forest__cells,calib_forest,forest · cells,0.0,0.0,0.0,0.0,0.0
+calib_categorical_nb__queries,calib_categorical_nb,categorical_nb · queries,0.0,0.0,0.0,0.0,0.0
+calib_forest__depth,calib_forest,forest · depth,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_sens_l1__seconds,calib_gnb,gnb · log_sens_l1 · seconds,0.0,0.0,0.0,0.0,0.0
+calib_gnb__delta_share__seconds,calib_gnb,gnb · delta_share · seconds,0.0,0.0,0.0,0.0,0.0
+calib_gnb__budget_share__sums,calib_gnb,gnb · budget_share · sums,0.0,0.0,0.0,0.0,0.0
+log_epsilon,schema,log_epsilon,0.0,0.0,0.0,0.0,0.0
+numeric_bounds_fraction,schema,numeric_bounds_fraction,0.0,0.0,0.0,0.0,0.0
+log_mean_numeric_bound_width,schema,log_mean_numeric_bound_width,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_zcdp_rho_total,calib_gnb,gnb · log_zcdp_rho_total,0.0,0.0,0.0,0.0,0.0
+calib_gnb__budget_share__counts,calib_gnb,gnb · budget_share · counts,0.0,0.0,0.0,0.0,0.0
+calib_gnb__delta_share__counts,calib_gnb,gnb · delta_share · counts,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_sens_l1__counts,calib_gnb,gnb · log_sens_l1 · counts,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_sens_l2__counts,calib_gnb,gnb · log_sens_l2 · counts,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_sens_linf__counts,calib_gnb,gnb · log_sens_linf · counts,0.0,0.0,0.0,0.0,0.0
+calib_gnb__budget_share__seconds,calib_gnb,gnb · budget_share · seconds,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_scale_over_n_per_feature__counts,calib_gnb,gnb · log_scale_over_n_per_feature · counts,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_calibration_scale__counts,calib_gnb,gnb · log_calibration_scale · counts,0.0,0.0,0.0,0.0,0.0
+calib_gnb__delta_share__sums,calib_gnb,gnb · delta_share · sums,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_sens_linf__sums,calib_gnb,gnb · log_sens_linf · sums,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_scale_over_n__sums,calib_gnb,gnb · log_scale_over_n · sums,0.0,0.0,0.0,0.0,0.0
+calib_categorical_nb__numeric_bins,calib_categorical_nb,categorical_nb · numeric_bins,0.0,0.0,0.0,0.0,0.0
+calib_gnb__log_sens_l2__sums,calib_gnb,gnb · log_sens_l2 · sums,0.0,0.0,0.0,0.0,0.0
+calib_softmax_output__sensitivity,calib_softmax_output,softmax_output · sensitivity,4.2735042735042735e-05,-1.4781465793646106e-06,-4.434439738093831e-06,0.0,-0.00010439475804868119
+calib_gnb__log_calibration_scale__sums,calib_gnb,gnb · log_calibration_scale · sums,4.2735042735042735e-05,-2.3025346301208356e-06,-6.907603890362507e-06,0.0,-0.00016261752992960935
+calib_categorical_nb__features,calib_categorical_nb,categorical_nb · features,0.00500815049784122,-3.2055916713672784e-06,-0.00012551620018444405,0.00011093534262648316,-0.00022639633417079948
+calib_gnb__log_scale_over_n__seconds,calib_gnb,gnb · log_scale_over_n · seconds,0.0001282051282051282,-6.907603890362507e-06,-2.0722811671087522e-05,0.0,-0.0004878525897888281
+calib_softmax_output__n_regularization,calib_softmax_output,softmax_output · n_regularization,0.0001288659793814433,-8.961400239469576e-06,-2.371911659380436e-05,0.0,-0.0006329028682520511
+calib_dp_sgd__regularization,calib_dp_sgd,dp_sgd · regularization,0.0359135166093929,-2.1447071535863086e-05,-0.00011300505570563613,7.521250393478157e-05,-0.001514708943683795
+calib_softmax_output__sigma,calib_softmax_output,softmax_output · sigma,0.0002570711075865715,-2.2752663368767773e-05,-7.644731699922439e-05,5.990762304897895e-06,-0.0016069169461980022
+calib_softmax_output__dimension,calib_softmax_output,softmax_output · dimension,8.591065292096219e-05,-2.5403964684324495e-05,-7.621189405297348e-05,0.0,-0.0017941662780407688
+calib_softmax_output__sigma_sqrt_dim,calib_softmax_output,softmax_output · sigma_sqrt_dim,0.00017182130584192438,-2.5702287347252823e-05,-7.680853937883015e-05,0.0,-0.001815235448481381
+calib_dp_sgd__sensitivity,calib_dp_sgd,dp_sgd · sensitivity,0.06485307075513261,-4.057933672677637e-05,-0.0004495432235153117,0.00044659425695469653,-0.0028659336621329975
+binary_nominal_fraction,schema,binary_nominal_fraction,0.014083179134725527,-7.197078298218552e-05,-0.0002849309152342403,0.00011889494932307775,-0.005082968482888256
+log_classes,schema,log_classes,0.022352409903956295,-7.43030019592267e-05,-0.00019519274334853622,4.547611245822694e-05,-0.005247682482990609
+nominal_fraction,schema,nominal_fraction,0.002397347783945722,-9.994370683154531e-05,-0.0002823283187020127,1.4688942638916799e-05,-0.007058568641854475
+log_encoded_features,schema,log_encoded_features,0.03451669750638823,-0.00010390168744180593,-0.0003416160156827095,0.00012152866550005221,-0.007338102778683546
+numeric_fraction,schema,numeric_fraction,0.011306723059300378,-0.00011069323325450755,-0.0002668806080280627,4.022850729503077e-05,-0.007817758715240451

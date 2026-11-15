@@ -1,0 +1,28 @@
+{
+  "bin_edges_log10_n_epsilon": [
+    "-inf",
+    2,
+    3,
+    4,
+    5,
+    "inf"
+  ],
+  "lambdas": [
+    0.03,
+    0.01,
+    0.0003,
+    0.0003,
+    0.0003
+  ],
+  "unique_training_datasets_per_bin": [
+    27,
+    46,
+    52,
+    38,
+    14
+  ],
+  "fallback_lambda": 0.0003,
+  "min_datasets": 5,
+  "tie_break": "largest_lambda",
+  "equal_weight": "dataset_within_bin"
+}

@@ -1,0 +1,10 @@
+{
+  "source": "results/dissertation-portfolio13/holdout/conditions_13.csv",
+  "sha256": "571631972451d0117372dd02d20ff4e1a247a78c9c636be865f9b1a6f24ff037",
+  "manifest_sha256": "e6b65549e4197c16a6bfe60a39c588308947cc289da703819134ecf8a02ee846",
+  "seed": 20260918,
+  "exploratory": true,
+  "private_only_continuation": true,
+  "alignment_audits": 54,
+  "auxiliary_clean_metrics_omitted_for_pending_datasets": true
+}

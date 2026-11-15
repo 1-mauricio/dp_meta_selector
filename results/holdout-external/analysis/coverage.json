@@ -1,0 +1,24 @@
+[
+  {
+    "source": "OpenML",
+    "completed_at": "2026-11-11T21:23:26.589308+00:00",
+    "datasets": 2,
+    "rows": 720,
+    "ledger_audits": 720,
+    "complete": true
+  },
+  {
+    "source": "UCI",
+    "datasets": 5,
+    "rows": 1800,
+    "ledger_audits": 1800,
+    "complete": true
+  },
+  {
+    "source": "Kaggle",
+    "datasets": 24,
+    "rows": 8640,
+    "ledger_audits": 8640,
+    "complete": true
+  }
+]

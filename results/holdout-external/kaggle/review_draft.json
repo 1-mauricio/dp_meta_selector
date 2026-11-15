@@ -1,0 +1,2921 @@
+{
+  "hqdataprofiler/cleaned-netflix-movies-and-tv-shows": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43362\", \"Netflix_movies\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "yigitsever/misuse-detection-in-containers-dataset": {
+    "status": "eligible_for_validation",
+    "target": "Label",
+    "target_evidence": "The attack scenarios have distinct labels:",
+    "origin_review": "Original Kubernetes misuse dataset, AINA 2024 DOI 10.1007/978-3-031-57942-4_22, explicitly superseding its own 2023 version; catalog/source names checked.",
+    "family": "Misuse Detection in Containers Dataset (AINA 2024)",
+    "metadata_sha256": "0b60e1fba3dd093535fd1a07c766a0bbee69d222844c63db6af74ff5022dc5ef"
+  },
+  "hamedetezadi/email-hamspam-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no declared target.",
+    "metadata_sha256": "130c32109e1dbec0e67dc262e0b38618566fd11515d80af197828992bba8cf6e"
+  },
+  "xiaojiu1414/digix-global-ai-challenge": {
+    "status": "excluded_declared_target",
+    "reason": "DIGIX source/target-domain relational logs have multiple label fields, including clicks/likes; no unique declared task/table.",
+    "metadata_sha256": "b0e2be12f0082c9b0f74889a2bb2235710ac43442882984fabd6d41465d85dd1"
+  },
+  "tareqalhmiedat/lidardataframes": {
+    "status": "eligible_for_validation",
+    "target": "id",
+    "target_evidence": "a unique identification number (label). For instance (room: 0, corridor: 1, doorway: 2, and hall: 3).",
+    "origin_review": "Source defines360 scan features numbered0-359 and one environment identification number(label); source CSV labels this last field id. The separate unnamed saved index is retained as a feature. Mapping reviewed on public headers before models.",
+    "family": "LidarDataFrames",
+    "metadata_sha256": "b21eb905700c0412142f377d08de8ce55f5e96a5424b50c016078a6235ceb39d"
+  },
+  "sarveshchhetri/student-lifestyle-vs-academic-performance-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"student_lifestyle_dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "ubobyclinton/mu-iot": {
+    "status": "excluded_rows",
+    "reason": "Source declares 34.8 million original records and four preprocessed subsets; no choosing a smaller variant.",
+    "metadata_sha256": "4532b432bb2cfd9105232d53748241a570b9f6d54f7ba34e9d965c443bc30180"
+  },
+  "sumeakash/how-ai-is-changing-student-life": {
+    "status": "excluded_declared_target",
+    "reason": "Multiple student-life outcomes; source declares no unique classification target.",
+    "metadata_sha256": "7dbb26c82c085d79b0c44f798c9257b572f63629642b2af5e7322b9b5d5a5393"
+  },
+  "williamhyun/amazon-bin-image-dataset-file-list": {
+    "status": "excluded_declared_target",
+    "reason": "Amazon image-bin file inventory, not a unique declared tabular classification task.",
+    "metadata_sha256": "f0c8e20a2975d5b88075298e78444552751bed5346a5a58bdca11862b3ecd212"
+  },
+  "kylefengkfeng209/validation-leakage-atlas": {
+    "status": "excluded_rows",
+    "reason": "Source declares 207,023 observations across 200 scenarios; no choosing scenario or sampling rows.",
+    "metadata_sha256": "cd0cd7048ee13ff4edcc17cd1ea4a227e1da9d17f3e046746dd1078376134c05"
+  },
+  "madhuri15/tsla-stock-prices": {
+    "status": "excluded_declared_target",
+    "reason": "Historical stock prices; no declared classification target.",
+    "metadata_sha256": "cad1903c263f7fa8982750913379ad4774723597eb40c2e869e22ec134c1cd01"
+  },
+  "fdemoribajolin/death-classification-icu": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46170\", \"patient\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "yekahaaagayeham/loantap-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "LoanTap fields match Lending Club loan_status/verification_status schema; renamed original origin uncertain against loan/credit catalog bases.",
+    "metadata_sha256": "8332eacdb998a24bbb3ebb987775b00878c94d171a41e7e2c7629503c8dd74cc"
+  },
+  "atharvaingle/video-games-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"42737\", \"fps-in-video-games\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "garvsachdeva0205/ml-ready-breast-cancer-diagnosis-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"breast-cancer\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "shaikhabdulrafay03/icc-mens-odi-world-cup-2003-2023": {
+    "status": "excluded_declared_target",
+    "reason": "Cricket match and ball-by-ball tables; winner/player-performance tasks are not uniquely designated.",
+    "metadata_sha256": "4e6d577aca5b55a706e686e4b09996c85059df160cd5710e20dddd6a652756ec"
+  },
+  "easonlai/sample-telco-customer-churn-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"Customer_Churn_Classification\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "muhammadfaizan65/weather-radar-stations-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Weather\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "immortal3/codeforces-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Codeforces task is explicitly multi-label tags; no unique scalar target.",
+    "metadata_sha256": "4bdfabaa3258e81466ffc976676c53bffa0a5e1fba884a381f325a2163040276"
+  },
+  "pranav941/hows-that-dog-for-me": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://www.kaggle.com/datasets/pranav941/youtubebillion-views-music-videos\", \"evidence\": {\"match\": [\"OpenML-full-catalog\", \"41492\", \"youtube\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "shubham8983/thyroid-dataset": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Thyroid Dataset\", \"match\": [\"data/openml_confirmatory_manifest_30_families.csv\", \"dataset_name\", \"BNG(sick,nominal,1000000)\"]}"
+  },
+  "kukuroo3/starbucks-locations-worldwide-2021-version": {
+    "status": "excluded_declared_target",
+    "reason": "Store-locator records; exploratory questions do not declare a classification target.",
+    "metadata_sha256": "ba7ba7e44526756d9350a516c0c45f1ae05c75a5cc8bfe4ca4cfafcca47a05d7"
+  },
+  "vivovinco/league-of-legends-champion-stats": {
+    "status": "excluded_declared_target",
+    "reason": "Champion Class, Role and Tier are separate categorical attributes; no single source-designated target; patch variants also ambiguous.",
+    "metadata_sha256": "eb51eaac07b67debf3ef02176ff6567a0f63b1a59eec9ac929d100d6e864c665"
+  },
+  "uom190346a/emoji-presentation-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Unicode emoji properties; source declares no unique classification target.",
+    "metadata_sha256": "c0c8ecb1c778090cf55c8f0cdf1b365c8632032a9011d6652ac26b31b4033390"
+  },
+  "stevenleehans/rsna-knee-llm-report-labels": {
+    "status": "excluded_declared_target",
+    "reason": "Twelve finding probabilities and multiple model-label variants; no unique classification target.",
+    "metadata_sha256": "9f06c34d584dba7fe59323c74ec628fbb9be6423f06cb8f38456a96955df43e3"
+  },
+  "sakhawathossen/self-reported-canada-admissions-and-fund-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Admission/funding self-reports have several outcomes; no unique declared classification target.",
+    "metadata_sha256": "a3bac2bec37738618ef6a3f8215a4b5a8e9f366e773e221303ccd2a27caa2cb9"
+  },
+  "arnoldkakas/real-estate-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43417\", \"Ottawa-Real-Estate-Data\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "ulrikthygepedersen/car-kick": {
+    "status": "excluded_declared_origin",
+    "reason": "Car Kick is the public DontGetKicked auction base, existing OpenML kick/dont-get-kicked family; conservative source exclusion.",
+    "metadata_sha256": "21b8132db02e0ee25891352cd01db71a83707b1f2fe2d4e554ffb7370290fd58"
+  },
+  "atifkhan12/ciciot2026": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares 200,000 traffic instances, above 50,000.",
+    "metadata_sha256": "37cbf544441a2938a5159feecdac962116b5fa72e8fa931a7f713532ccf1a46b"
+  },
+  "automlbenchmark/email-automl-benchmark-v1": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no declared target.",
+    "metadata_sha256": "7016d1ac098a8e3beca20a61327f0f42aec2c491a4409458d74c30aa09112c73"
+  },
+  "sayansh001/speech-accent-recognition": {
+    "status": "excluded_declared_origin",
+    "reason": "English/French/German/Italian/UK/US MFCC speech accents correspond to UCI Speaker Accent Recognition; exclude mirror/uncertainty.",
+    "metadata_sha256": "7a3e3c8d23cdacfae9f28dc497fa0834270d5d44b5f1aee33efa1386bcb5859a"
+  },
+  "foziashareen/indian-unicorn": {
+    "status": "excluded_declared_target",
+    "reason": "Indian unicorn company statistics; no declared unique target.",
+    "metadata_sha256": "279ffb544cae714724ce3b54ff8b3d55a50b4176f8b2929591f6fbd4bd54b47c"
+  },
+  "sujaykapadnis/whether-prediction-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Separate optional picnic labels and two weather variants; no unique declared target/table without joining or choosing variants.",
+    "metadata_sha256": "744e91b63f674b1d93acade2caeac197c7dec36bc23ec532a3366aa5f8eb403d"
+  },
+  "pedrohauy/sampledtftpattackcicddos2019": {
+    "status": "excluded_declared_origin",
+    "reason": "Explicit sampled CIC-DDoS-2019 parent; known network intrusion base lineage cannot certify novelty against catalog.",
+    "metadata_sha256": "800efad75c09bdad3295d34b3b54a9354cbaef1cf74fab5815b8d602e7641299"
+  },
+  "krishujeniya/e-commerce-customer-satisfaction-and-orders": {
+    "status": "excluded_rows",
+    "reason": "Source declares 115,337 orders; no row subsampling or smaller variant.",
+    "metadata_sha256": "4addb5bd744eb18c34ef2dfddb0920fdd8e2d10881e62408931a7e2876ca95f0"
+  },
+  "wladyslawkobcew/ueba-system-metrics-dataset-24h": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"dataSet_2\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "hubashaikh/movies": {
+    "status": "excluded_declared_target",
+    "reason": "Movie properties/ratings table; no unique declared classification target.",
+    "metadata_sha256": "bcde42715b27efcda9a4037551f3c9dc782d01a8ea50366ffd114519dd0de6c9"
+  },
+  "amarahmedhamed/air-quality": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Air Quality \ud83d\udd25\ud83e\udde0\", \"match\": [\"OpenML-full-catalog\", \"42057\", \"airquality\"]}"
+  },
+  "syahrulapriansyah2/myanimelist-2025": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://myanimelist.net/anime/season/archive\", \"evidence\": {\"match\": [\"OpenML-full-catalog\", \"43376\", \"Al_Hilal-Archive-Scores\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "aayushmishra1512/911calls-historic-data": {
+    "status": "excluded_declared_target",
+    "reason": "Historical 911 calls; no source-declared unique classification target.",
+    "metadata_sha256": "6a1eecc545ab1dcb55d1bdc0e1da0914cac12bb8f87826bd99e39d3886b5ad3b"
+  },
+  "ivantha/sri-lanka-electronic-ads-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Scraped electronics advertisements; no source-declared unique target.",
+    "metadata_sha256": "0536cd6d8d5c3151359726b8b62270b4c03f62b30984f19e250af09b20259492"
+  },
+  "mustafakeser4/bigquery-fintech-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Six interconnected fintech tables; no unique declared classification target/table.",
+    "metadata_sha256": "5e0b4d7e3b16ccb145de24a5da26cb73fce3b638e4cc8c0f021e58eab5b945ba"
+  },
+  "sakinak/philippine-drug-war-casualties": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"philippine_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "edwincaleb/iris-data-set": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"iris Data Set\", \"match\": [\"OpenML-full-catalog\", \"40508\", \"Iris_Dataset\"]}"
+  },
+  "brobear1995/rss-feed-topic-classifier": {
+    "status": "excluded_declared_target",
+    "reason": "RSS topic task lacks a uniquely declared column/schema; multiple source topics.",
+    "metadata_sha256": "761503d5038bb1599cd046595f1516f1464e249d654bab183ca7373cb563e331"
+  },
+  "stevenrferrer/tps-september-2021-preds": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "TPS September 2021 meta-prediction files from existing competition, not a new original base.",
+    "metadata_sha256": "a368aeea113b88cf18ae5d374e73be9352ec0e5c2ec49706dc340bd1100552fd"
+  },
+  "shubhamuttam/indian-names-by-gender": {
+    "status": "excluded_rows",
+    "reason": "Source declares 53,925 Indian names, above 50,000.",
+    "metadata_sha256": "2f5f140b2f2fbdeab58b5af26e143341797d37aa3c1d2a88102063649740f724"
+  },
+  "neyyanjayesh/non-parametric-energy-aspects-data": {
+    "status": "excluded_declared_target",
+    "reason": "Energy use/aspects data; no uniquely declared classification target.",
+    "metadata_sha256": "eb9d8156b39dda27748af8164a9a920275a83c0c70596abef730ab5632db21ab"
+  },
+  "devzohaib/smoker-condition": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Datacamp smoking/gene cancer case study corresponds to common lung-cancer base; original provenance insufficient to certify disjunction.",
+    "metadata_sha256": "bc517176dda95ab0707ec62ee328dbe09950477b216eb698d578d1470ff404ad"
+  },
+  "erenakbulut/user-car-prices-barcelona-2022": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://pixabay.com/photos/fiat-500-automobile-trees-4322521/\", \"evidence\": {\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Automobile\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "abdelazizsami/wine-quality": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Wine Quality\", \"match\": [\"OpenML-full-catalog\", \"287\", \"wine_quality\"]}"
+  },
+  "Microsoft/microsoft-security-incident-prediction": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"45579\", \"Microsoft\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "adityaramachandran27/top-imdb-rated-tv-shows": {
+    "status": "excluded_declared_target",
+    "reason": "IMDb top TV-show properties; no uniquely declared classification target.",
+    "metadata_sha256": "0f7582efd411d552198988de5e5a7f737d53af3f6d9bed94cfb96416d0847be1"
+  },
+  "foriinyou/lisa-in-coco": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no declared target.",
+    "metadata_sha256": "a2c7788cc687eab5f66348807edf0930e74408b0efcd5318bead1c022965b8b4"
+  },
+  "anujshakya/google-play-store-reviews": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43565\", \"Google-Play-Store-Reviews\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "reemmalih/wnba-player-statistics-with-mvp-votes-1997-2025": {
+    "status": "excluded_declared_target",
+    "reason": "MVP forecasting goal without declared classification label; source vote metrics are continuous.",
+    "metadata_sha256": "e9b004a009f03265f52e18d8856fac68e473c19b5d8fc3100cfa6b2ea20f4c7e"
+  },
+  "xixama/gallstone-dataset-uci": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Gallstone\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "renvexed/books-dataset-for-library-management-system": {
+    "status": "excluded_declared_target",
+    "reason": "Library-management catalog without declared classification target.",
+    "metadata_sha256": "e7761b7d751596ab8dbb926bd4930ec9d64a398033475e83f4c644156367748c"
+  },
+  "kevinvagan/fraud-detection-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46357\", \"Fraud_Detection_Dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "greegtitan/indonesia-climate": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"40918\", \"Climate\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "ahmadalijamali/british-literature-nlp-labeld-phrase": {
+    "status": "excluded_declared_target",
+    "reason": "Source explicitly labels author, book and century; multiple targets.",
+    "metadata_sha256": "fcb525fd7bc1ac7d73bba7592ffb9661933e47fbc15e7fc6ecc4e60aab6d094f"
+  },
+  "ganeshvkvk/student-performance-dataset": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Student Performance Dataset\", \"match\": [\"OpenML-full-catalog\", \"46255\", \"Student_Performance_Dataset\"]}"
+  },
+  "kushasabzevari/handwritten-persian-numerals": {
+    "status": "excluded_feature_lower_bound",
+    "reason": "Source declares 784 pixel attributes, above 512 encoded attributes.",
+    "metadata_sha256": "c0fe2480254697b2627bc9f7ccb76aae402b7f3586340af7645f2e212bab7ac3"
+  },
+  "meenalsinha/mnist-handwritten-digits-csv-format": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly declares classic MNIST, already present in OpenML.",
+    "metadata_sha256": "75bf4e80ae1688d35a513739ba9af4b588daf2affdea83ec8863879a28d94f9c"
+  },
+  "georgelaf/greek-super-league-match-stats-and-odds": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "football-data.co.uk historical match/odds parent overlaps existing football bases; extra team statistics do not certify a new base.",
+    "metadata_sha256": "3c33681e64b41ec343b6fcdc407596027b2fe044a06621ebdb23005b06ee60b9"
+  },
+  "uom190346a/global-coffee-health-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Source proposes sleep quality, stress level OR health-risk prediction; multiple possible targets.",
+    "metadata_sha256": "c5042082e7de54c7ae2ee4912af2f1f5913eda4a7e85d3e94692475eb98eff5d"
+  },
+  "morph1max/password-security-sber-dataset": {
+    "status": "eligible_for_validation",
+    "target": "complexity class",
+    "target_evidence": "2. its complexity class (0, 1, 2).",
+    "origin_review": "Source explicitly declares two-column Sber password/complexity table; second column is target; retain raw passwords.",
+    "family": "Password Security: Sber Dataset",
+    "metadata_sha256": "5517a192726399a40f45d9d7ba9eb41fb773513493d81fc14ae6717f365015f6",
+    "target_position": 1,
+    "source_column_count": 2,
+    "declared_class_values": [
+      "0",
+      "1",
+      "2"
+    ]
+  },
+  "sanchukanirupama/wifi-received-signal-strength-rssi-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "RSS coordinate interpolation/24 reference points and variants; no single declared classification target.",
+    "metadata_sha256": "883b2933caf162788e7e3f617698293ccaebaeebbcc5d399da9e8133794d968d"
+  },
+  "ankitkalauni/tps-october-2021-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "TPS October 2021 meta-model prediction dataset; competition derivative with unresolved parent.",
+    "metadata_sha256": "34399f4cb42ab5dd06f9923775c4daf9a599bf8932300f30b151dcb93e69b254"
+  },
+  "micheldc55/predicting-response-based-on-engagement-kpis": {
+    "status": "eligible_for_validation",
+    "target": "detection",
+    "target_evidence": "The objective is to try to predict this \"detection\" which can be equated to the user's interest in the study, based on his general engagement and inverse-click aversion values.",
+    "origin_review": "Source describes its own test-subject click experiment with ND/MD/SD outcomes; no derivative base declared.",
+    "family": "Predicting response based on engagement KPIs",
+    "metadata_sha256": "04a1f2e9e5d0d5f09a25de869f5daa2c6d139ab62da9f649c0088e1504cbdf77"
+  },
+  "d1ffic00lt/data-fusion-2026-case-1": {
+    "status": "excluded_declared_target",
+    "reason": "Russian bank event dictionary lists event/account/transaction variables without a uniquely designated target.",
+    "metadata_sha256": "d52b50724f3e3b689c847b299836e972fab7e390d1c775e8d7820726c4f90e50"
+  },
+  "nikee7/parkinsons-tremor-classification-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"parkinsons\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "parisrohan/credit-score-classification": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Credit score classification\", \"match\": [\"OpenML-full-catalog\", \"46441\", \"Credit_Score_Classification\"]}"
+  },
+  "ivantha/sri-lanka-vehicle-ads-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"vehicleNorm\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "manishtripathi86/fedex-data": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no declared target.",
+    "metadata_sha256": "f70e1fa9bd66dc1d6805feb932ea616318f156527a30286055e1d43f55bf02be"
+  },
+  "rentoda/japanese-names-with-gender": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares 69k+ names, above 50,000.",
+    "metadata_sha256": "d623e17919a866c4bc07d0c05194ed30a298c67a52e198b19db752b8e5f91a39"
+  },
+  "sujithmandala/simple-rainfall-classification-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Source lists rainfall and weather_condition but does not declare which is the target.",
+    "metadata_sha256": "b4510397c46997d652316c2de916238fdb734ab681358f36cbcba95a72d28ad9"
+  },
+  "muhamedumarjamil/pakistan-used-cars-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43305\", \"Used-Cars-Dataset\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "dhoogla/nfcsecicids2018v2": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Explicit NF-CSE-CIC-IDS2018-V2 derivative; existing intrusion base lineage unresolved.",
+    "metadata_sha256": "d4a522a8569952552dbe2e04ace63a6448b689c3f86d2fc8567e5e76c483dcff"
+  },
+  "dhanushnarayananr/credit-card-fraud": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Credit Card Fraud \", \"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Credit_Card_Fraud\"]}"
+  },
+  "iyadelwy/boxing-matches-dataset-predict-winner": {
+    "status": "excluded_declared_target",
+    "reason": "Two alternative boxing models/tables, without uniquely declared target column/schema.",
+    "metadata_sha256": "b9c8194e2e38c3673521e70f0cd099de303a57c4db726d97569785e2269858a5"
+  },
+  "walekhwatlphilip/walsoftai-semi-categorized-1-user-call-behaviour": {
+    "status": "excluded_declared_target",
+    "reason": "Source proposes full category OR binary business flag for unlabeled Unknown calls; no unique target task.",
+    "metadata_sha256": "5465793d2fea1d114b766ea079dbe941bd1aa4f3acb25830e3f72c2a66c99af0"
+  },
+  "kantesti/global-blood-test-health-insights-2025-2026": {
+    "status": "excluded_declared_target",
+    "reason": "Aggregated country-level prevalence statistics for multiple health conditions; no unique classification target.",
+    "metadata_sha256": "e5449912adbf04062fb2f250e403626e66103a8b7b7f86a742fa050b6450ae8e"
+  },
+  "adilashrafi/product-classification-and-clustering": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Product Classification and Clustering\", \"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Product Classification and Clustering\"]}"
+  },
+  "wayne127/2024-18": {
+    "status": "excluded_declared_target",
+    "reason": "Call event/phone-type dictionary declares no unique risk-label column.",
+    "metadata_sha256": "c11bf82c8e7a637e7824b95ac1a5383ed691a82e985a06a92bef58c180c4bcbe"
+  },
+  "anshulmehtakaggl/60k-responses-of-16-personalities-test-mbt": {
+    "status": "eligible_for_validation",
+    "target": "Personality",
+    "target_evidence": "personality (target column) they correspond to. So building a dataset of this magnitude and making it a valid dataset will actually take me a lot of effort but I am still in the Process of perfecting it. I actually every week better the dataset and run some AutoML Pycaret scripts and tune some hyperparameters to see if the quality has improved \ud83d\ude05. So this is like a research topic in itself and will eventually turn out to be a source in itself for people who want to work on this problem.",
+    "origin_review": "Author explicitly describes original synthetic make_classification data; URL declares 60k, loading must check n.",
+    "family": "Personality classification Data: 16 Personalities",
+    "metadata_sha256": "584dec65bad6cf88ca981e6b7b70cad17238d3a93e6b887938b798d298105aab"
+  },
+  "rahulagrawal1025/stackoverflow-survey-demographic-data": {
+    "status": "excluded_declared_target",
+    "reason": "Modified Stack Overflow demographics, age/salary categories; no unique declared target.",
+    "metadata_sha256": "9905825678e99caa721a754a4dd4896a67a88158aeaa07e303fc7720c88f5d37"
+  },
+  "rabieelkharoua/classification-of-physiotherapy-exercises-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"41937\", \"exercises\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "mansiaggarwal88/diabetes-risk-prediction": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Diabetes Risk Prediction\", \"match\": [\"data/openml_manifest_1000_final.csv\", \"semantic_family_id\", \"diabetes risk prediction\"]}"
+  },
+  "aliaamiri/titanic-passengers-and-crew-complete-list": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"titanic\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "yuehengzeng/steel-plates-faults": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Steel Plates Faults\", \"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Steel Plates Faults\"]}"
+  },
+  "adilashrafi/bank-marketing-classification-task": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"bank-marketing_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "priyaroycse/juindoorloc-wifi-fingerprint-indoor-localization": {
+    "status": "excluded_classes",
+    "reason": "Source identifies 1,000 indoor cell/location labels, above 30 classes; no choosing another task.",
+    "metadata_sha256": "d1c6acd70bfabe8d895352470a23912181ed187dc49a094b5a326fb1c19aa78a"
+  },
+  "silk1100/hms-features": {
+    "status": "excluded_declared_target",
+    "reason": "Three HMS EEG feature representations without unique declared label/schema/table.",
+    "metadata_sha256": "a32f7cc6185815f2d2f3827ffaad82f98e1a31bb2932edae28a59d2cc232b46f"
+  },
+  "victusadi/phishing-urls-dataset-with-extracted-features": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "PhishTank/OpenPhish/Alexa URL parents may overlap existing phishing families; disjunction unresolved.",
+    "metadata_sha256": "438e7e416ac8d2c139450bc5932457ccc2dbcf71be5dceeca7324f0bd90e9c87"
+  },
+  "conorsully1/credit-score": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Credit Score\", \"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Credit_Score\"]}"
+  },
+  "rabieelkharoua/sirtuin6-small-molecules-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Sirtuin6 Small Molecules\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "ireddragonicy/netflix-clean": {
+    "status": "excluded_declared_target",
+    "reason": "Fuzzy movie-quality synthesis task without a unique source-declared observed classification target.",
+    "metadata_sha256": "9fa4a7376d423a592b020c843b63d6afba3817283e11879e9b0cf7e6fe6e46a9"
+  },
+  "algord/fake-news": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Fake News\", \"match\": [\"OpenML-full-catalog\", \"43592\", \"Fake-News\"]}"
+  },
+  "sebastianwillmann/beverage-sales": {
+    "status": "excluded_declared_target",
+    "reason": "Sales simulation; no unique declared classification target.",
+    "metadata_sha256": "1f6b8c5a727627e7a3638499ef16b706297241ca84b3981e39509c6334cff730"
+  },
+  "ulrikthygepedersen/kickstarter-projects": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Kickstarter Projects\", \"match\": [\"OpenML-full-catalog\", \"42076\", \"kickstarter_projects\"]}"
+  },
+  "xubustein/used-car-prices-in-turkiye": {
+    "status": "excluded_declared_target",
+    "reason": "Source explicitly describes used-car price regression; no classification target.",
+    "metadata_sha256": "e0144231879f1bd1764c32982e5bfd0e0891d974e8ee853d0619066bf51b3900"
+  },
+  "akeshkumarhp/electronics-products-amazon-10k-items": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"Products\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "airiteam/kun-uz-yangiliklar": {
+    "status": "excluded_rows",
+    "reason": "Source declares 172,349 news articles, above 50,000.",
+    "metadata_sha256": "88690b075b70e347725ca54e627bd5f90e125f56966b3c9c8ba7205a059293f3"
+  },
+  "omarameen99/football-matches-data-from-soccerway": {
+    "status": "excluded_declared_target",
+    "reason": "Source lists result/score and pre-match prediction use cases but does not designate a single target column.",
+    "metadata_sha256": "d983201392c48eacc885aa3e8586bec0e895867ae74413c08a5476a026766c43"
+  },
+  "podsyp/fraud-transactions-detection": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Repeated company transactions with bad_flag but unnamed original organization/base; cannot certify source disjunction from fraud catalog bases.",
+    "metadata_sha256": "6539fc032555295e53d108101a688fdb8bd2e1c7b70c108c62373f2658858ff3"
+  },
+  "automlbenchmark/ip-address-automl-benchmark-v4": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no declared target.",
+    "metadata_sha256": "ef7f87e4878870d5a38e62383ea7e2eca203ea9c12ac6926ca3a6d204f01092c"
+  },
+  "prasad22/mumbai-local-train-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Train route/station/distance text records; no declared classification target.",
+    "metadata_sha256": "fdde822305c7fa5c37e530145f120533247c4d2835f431ff6c952eb2b941f664"
+  },
+  "arashnic/the-depression-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"semantic_family_id\", \"depression\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "yoshifumimiya/6-ovarian-cancer-datasets": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"45098\", \"Ovarian\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "hunter0007/m1-data": {
+    "status": "excluded_declared_repository_origin",
+    "reason": "{\"rule\": \"description declares UCI/OpenML provenance\"}"
+  },
+  "absipurampratyush/top-singers": {
+    "status": "excluded_declared_target",
+    "reason": "Billboard singers/song rankings without declared classification target.",
+    "metadata_sha256": "22595266ab34f6a71622be7ea2a93d7f237adcbf41a66b9ed2ddc590c41555e1"
+  },
+  "joolousada/test-case-prioritization-data": {
+    "status": "excluded_declared_target",
+    "reason": "Continuous integration execution history/prioritization, no unique declared classification target.",
+    "metadata_sha256": "3920538ae65ba8f2d4fbda132aaf14c91552d3f667f38898f585cc6d684dbd08"
+  },
+  "stealthtechnologies/predict-bankruptcy-in-poland": {
+    "status": "excluded_declared_repository_origin",
+    "reason": "{\"rule\": \"description declares UCI/OpenML provenance\"}"
+  },
+  "samoilovmikhail/floral-bouquets-images-and-girlfriend-scores": {
+    "status": "excluded_declared_target",
+    "reason": "Bouquet ratings/regression/classification alternatives; no uniquely declared categorical target.",
+    "metadata_sha256": "21e72764115756ddb4cebbd7921ead678066d96ad671c6df206b25eaca655ffa"
+  },
+  "imalok/loan-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43729\", \"Lending-Club-Loan-Data\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "faizaniftikharjanjua/metaverse-financial-transactions-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46329\", \"Transactions\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "salmankhaliq22/road-traffic-collision-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Accident and vehicle relational data; no unique declared classification target/table.",
+    "metadata_sha256": "63ed7790157428d0afb3610703cc0857e1156b9e749495b85d8b7b27662a97a9"
+  },
+  "prasertk/unicorn-decacorn-hectocron-in-2021": {
+    "status": "excluded_declared_target",
+    "reason": "Startup valuations and size categories without unique designated classification target.",
+    "metadata_sha256": "3cba0b3c9c16313bc255f31f7d2e54a5e43f82fcacbe87187e2870d1862aed14"
+  },
+  "mustafakeser4/bigquery-churn-dataset": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly names BigQuery telco_customer_churn_train, common Telco Customer Churn parent already represented.",
+    "metadata_sha256": "85e8fdcff1f7154afa2b35b54523243771fb349b7e69cedc3294b2289ef959bc"
+  },
+  "kuchhbhi/cpga-iq-placement": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"42121\", \"colleges\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "gargmanas/parkinsonsdataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"parkinsons\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "neevvv/human-procrastination-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Procrastination completion/duration alternatives, no unique named classification target declared.",
+    "metadata_sha256": "d9517f98b507dcfa81c02fbaa1eff68ada2b2730216f3bab70b023beca4ac11d"
+  },
+  "dhoogla/nfuqnidsv2": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "NF-UQ-NIDS-V2 collection explicitly combines established network intrusion parents.",
+    "metadata_sha256": "bb591313c00bb93df7bcacc71762dc9f6f108e2c87ca9a77b381335cd67a7e76"
+  },
+  "cosmox23/healthcare-clinic-digital-presence": {
+    "status": "eligible_for_validation",
+    "target": "patient_growth_tier",
+    "target_evidence": "**Primary classification target**: Low / Medium / High |",
+    "origin_review": "Original seeded synthetic clinic digital-presence generator described in source; continuous conversion rate is explicitly bonus regression, not another classification target.",
+    "family": "Healthcare Clinic Digital Presence",
+    "metadata_sha256": "bbe4b4cf6dc5cecc2579c4d8531797380e05ae742e696f814d9bf482cea42791"
+  },
+  "muhammad4hmed/monkeypox-patients-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46170\", \"patient\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "rabieelkharoua/auction-verification-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"44958\", \"auction_verification\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "purumalgi/music-genre-classification": {
+    "status": "eligible_for_validation",
+    "target": "Class",
+    "target_evidence": "Target Variable: 'Class\u2019 such as Rock, Indie, Alt, Pop, Metal, HipHop, Alt_Music, Blues, Acoustic/Folk, Instrumental, Country, Bollywood, ",
+    "origin_review": "MachineHack hackathon source explicitly declared; music-genre source checked against catalog names; retain text features.",
+    "family": "Music Genre Classification",
+    "metadata_sha256": "3d36e381b5e7f43f0aa54cf5a9c936aa470d92b3900b38b1447980c7e32c39cf"
+  },
+  "chumajin/heterogeneity-human-activity-recognition-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Heterogeneity Activity Recognition\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "razanihababdellatif/smart-city-digital-twin-ecosystem-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"systemdata\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "cdminix/us-drought-meteorological-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Weather\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "amirberenji/ultrasonic-flowmeter-diagnostics-data-set": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Ultrasonic flowmeter diagnostics\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "mansiaggarwal88/github-open-source-governance-and-health-dataset": {
+    "status": "eligible_for_validation",
+    "target": "governance_tier",
+    "target_evidence": "predict a repository's derived `governance_tier` based purely on its age, primary language, and popularity metrics?",
+    "origin_review": "Source declares GitHub REST API collection; retain repository text/IDs and validate encoded dimension.",
+    "family": "GitHub Governance,Popularity & Open Source Project",
+    "metadata_sha256": "37c7bf73ca1718a662ef057d3ca3d97bff57f3eda67c22c73ef49b1103c524bc"
+  },
+  "sumeakash/impact-of-social-media-on-health": {
+    "status": "excluded_declared_target",
+    "reason": "Multiple academic, health and overall-impact outcomes; no unique declared target.",
+    "metadata_sha256": "041c6b26c77d34ef0f7786c61fc8200d7e172c40c4fb7141f54dd8bf2cc32b5a"
+  },
+  "podsyp/is-this-a-good-customer": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Is this a good customer?\", \"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Is-this-a-good-customer\"]}"
+  },
+  "rabieelkharoua/retail-revelations-decoding-online-sales-trends": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46079\", \"Online_Sales\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "mobeenfatimah/mental-health-and-burnout-prediction-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46721\", \"Mental_Health_Dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "gmudit/employer-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Employee\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "harrotuin/dutch-news-headlines": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"41463\", \"sarcasm_detection\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "nextbigwhat/dataset-1": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Anonymized V1-V300 binary-target practice data from feature-selection course; original base unnamed and cannot certify novelty.",
+    "metadata_sha256": "ae104cf00dd5e215b8f5e53749d3e56d7f859ff36858bb9a3f64076f1752798a"
+  },
+  "djokester/protein-benchmarks": {
+    "status": "excluded_declared_target",
+    "reason": "Multiple ProteinBERT benchmarks and target resolutions; no unique base or target.",
+    "metadata_sha256": "97931c5ffb350bb6d6ba70440b130d676c62ae82a8190c2f275a8483721f4f85"
+  },
+  "emirhanai/omicron-variant-rnn-ml-gen-prediction-ai-project": {
+    "status": "excluded_declared_target",
+    "reason": "Two software algorithms with appended predictions/confusion results; no unique source-declared classification target.",
+    "metadata_sha256": "b6de237b3221eeace7e44b9f8b646fe188b3a40daf0e00aa47a1f1f3e186880a"
+  },
+  "trijalvijaykhade/titanic-test-csv": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"titanic\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "tariqbashir/financial-application-behavior-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Premium-product purchase goal without uniquely declared target column or original source certification.",
+    "metadata_sha256": "5ee6d5ff155ee7ea6ebaac6a17b040d83ef7e2a4fd061c0c040add7b22e4c7a4"
+  },
+  "bcccdatasets/bccc-vulscs-2023": {
+    "status": "eligible_for_validation",
+    "target": "label",
+    "target_evidence": "a binary label that indicates a contract as secure (0) or vulnerable (1). The dataset's extensive size and comprehensive features make it a valuable resource for machine-learning models to predict contract behavior, identify patterns, or classify contracts based on security and functionality criteria.",
+    "origin_review": "BCCC-VulSCs-2023 Solidity source-code collection and named publication; retain raw code/hash features for eligibility validation.",
+    "family": "Vulnerable Smart Contracts Detection using ML/DL",
+    "metadata_sha256": "5fe768396e3fa1cad17c79050bd1e429b009b96d394177d7b874cd2d6133a64e"
+  },
+  "sumeakash/spaceship-titanic": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"titanic\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "mightyglow/astronomical-image-and-csv-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Astronomical image/metadata collection without unique source-declared target column.",
+    "metadata_sha256": "452f3ddfb25a2107e3b5ff3ba1d2492cff4c5ad2e7f3bf1e7d456e89301ad21f"
+  },
+  "payaldhokane/deepfake-and-synthetic-media-detection-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Real/fake synthetic forensic concept stated but no unique named target column/schema declared.",
+    "metadata_sha256": "27edfa86ed17f7bffde17b98ddb21610f7ff1531f5aafd8d68768d7e0121a721"
+  },
+  "jayangupta00/ev-battery-degradation-and-telemetry": {
+    "status": "excluded_declared_target",
+    "reason": "Battery source lists warranty_status threshold category and several regression use cases without uniquely designating a classification target.",
+    "metadata_sha256": "44d63360ee0eb53aad8e561267cd8d9089be1d449660abb25deeb20e9113b466"
+  },
+  "waddahali/order-delivery-dataset": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares 100,000 delivery orders, above 50,000.",
+    "metadata_sha256": "dadeb67ccdc3a68bb0ef5f2f96abfe17f7d1ac22b19ba4979179fa470f2c389d"
+  },
+  "kiranmehta1/indian-telecom-customer-churn-prediction-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"Customer_Churn_Classification\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "sumit08/inter-state-portability-transactions-aug-2024": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46329\", \"Transactions\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "arashnic/har-1": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Human Activity Recognition Using Smartphones\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "caiocampiao/loan-approval-systemlas": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46092\", \"Loan_Approval_Dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "danushkhanna/dataset-fullcsv": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Phishing-domain engineered features have unnamed raw URL parent; overlap with catalog phishing bases cannot be excluded.",
+    "metadata_sha256": "26d5f47b2f1d141d5ded00db51791a50fa9e9213d7b48ae780946970746777e2"
+  },
+  "svenasai/japan-loto7-raw-data": {
+    "status": "excluded_declared_target",
+    "reason": "Lottery time series predicts multiple future numbers, not a unique scalar classification target.",
+    "metadata_sha256": "6a83946a2077049d9e1a0a7e3ba35c37024cf10d126fecafe09afbb4c08d6e5a"
+  },
+  "quadeer15sh/windows-store-top-apps-games": {
+    "status": "excluded_declared_target",
+    "reason": "Source proposes app category AND age-rating classification; no unique target.",
+    "metadata_sha256": "46f2f93535466e32b96a3b4c3757a6c99a17950a43dc92273146fb918bf2e0f8"
+  },
+  "neevvv/tingkat-kemiskinan-di-negri-hytamputyh": {
+    "status": "eligible_for_validation",
+    "target": "Tingkat_Kemiskinan",
+    "target_evidence": "Tingkat_Kemiskinan: Label klasifikasi yang menunjukkan status sosial ekonomi individu tersebut (merupakan variabel target untuk pemodelan prediktif).",
+    "origin_review": "Source describes its socio-economic collection/curation with named poverty label; no external parent declared and no name/source match in exclusion catalogs.",
+    "family": "Klasifikasi Tingkat Kemiskinan Seseorang",
+    "metadata_sha256": "e4c1954a40a04fafe88f11de1c0e11353df60e0785f14f026a4d3995dfca3276"
+  },
+  "sumedh1507/city-typeseda-and-model": {
+    "status": "excluded_declared_target",
+    "reason": "Air-quality city/area Type table offers classification/clustering/regression without source-designated unique target.",
+    "metadata_sha256": "ac785969248f1629b76b4f730089ea1252e2d5288f95099c35bd0d8fdee5a6f3"
+  },
+  "sahandnamvar/phishing-url-detection-111k-urls-22-features": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares 111,660 unique URLs, above 50,000.",
+    "metadata_sha256": "839d1d6c3b8df305ebb45957c4bc84618650517401347b42063c6aa265a646a4"
+  },
+  "foziashareen/floods": {
+    "status": "excluded_declared_target",
+    "reason": "Pakistan flood descriptive data; no declared classification target.",
+    "metadata_sha256": "5750b113f979cf63c8ca95b89c927bcded47531e9804be4b0c30b62b200a09c0"
+  },
+  "dhoogla/nftoniotv2": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "NF-ToN-IoT-V2 is explicitly a derivative of existing network intrusion parent.",
+    "metadata_sha256": "406928cf3f52d6090825cfb2e1a684cfaae4d1b30b1a98c275129f61c2ca0a55"
+  },
+  "shashwatwork/web-page-phishing-detection-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "URL/phishing benchmark mirrors are present in UCI/OpenML; source does not certify disjunction and no named target column is declared.",
+    "metadata_sha256": "954f95df9671267fecab55f0d30a28ffaad6775081d950566ab72da7d03791ef"
+  },
+  "gayathrirprog/vaers-data-as-of-19th-march-2021": {
+    "status": "excluded_declared_target",
+    "reason": "VAERS multi-table adverse-event records without a unique declared classification target.",
+    "metadata_sha256": "60e5a8080e0cc0f8f47f6853d2e57495924bc5c6769ad40b4482f12e73ba19a7"
+  },
+  "muhammad4hmed/malwaremicrosoftbig": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"45579\", \"Microsoft\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "joebeachcapital/credit-card-fraud": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Credit Card Fraud\", \"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Credit_Card_Fraud\"]}"
+  },
+  "jayeshraokherkar/4th-sem-result": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares 69 students, below 200.",
+    "metadata_sha256": "fa7c27084098d001023d038b2f12d02b53eceaf3ab6d25a689ef3ae67f00d96f"
+  },
+  "soulcelestia/fbref-data": {
+    "status": "excluded_declared_target",
+    "reason": "Position-segregated football tables; no declared unique target.",
+    "metadata_sha256": "10d599494763cc1cc3f29174e8b4c19f0648d3a0156b134d4c1c5bedd3022388"
+  },
+  "danishzulfiqar5050/heart-disease-prediction-using-machine-learning": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"e-learning\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "rabieelkharoua/alzheimers-disease-dataset": {
+    "status": "eligible_for_validation",
+    "target": "Diagnosis",
+    "target_evidence": "**Diagnosis**: Diagnosis status for Alzheimer's Disease, where 0 indicates No and 1 indicates Yes.",
+    "origin_review": "Author explicitly declares original synthetic Alzheimer's dataset, not a UCI clinical base.",
+    "family": "\ud83e\udde0 Alzheimer's Disease Dataset \ud83e\udde0",
+    "metadata_sha256": "de07a2d2426e30cbdd9dc7760af7d797350cb5749f16062699987286e8cd3b4d"
+  },
+  "programmerrdai/nasdaq-listings": {
+    "status": "excluded_declared_target",
+    "reason": "Nasdaq stock listings without a unique declared target.",
+    "metadata_sha256": "0c05e1febb0b4ff9ef538220c575fe1233fcd951bc2c2ca34ca93b53b8233d6c"
+  },
+  "alirezamehrad/red-and-white-wine-quality": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"wine-quality-red\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "fatemehmehrparvar/obesity-levels": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Estimation_of_Obesity_Levels\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "hrshuvo/tabular-sep-21": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "TPS September2021 test/validation prediction blends, no new source family.",
+    "metadata_sha256": "5b5c79fd4dbdbe1f07f8a2e6ffafd53bafd29bbb30f42724a97c06a62c22f7b9"
+  },
+  "pmenshih/retail-chain-salespeople-engagement": {
+    "status": "excluded_declared_target",
+    "reason": "Retail employee questionnaire offers engagement and job-predisposition outcomes, not one declared target.",
+    "metadata_sha256": "dfbe12b046d3a70049f2009483ade377623af0fcce6e7bf9357652377a1e8f70"
+  },
+  "avikumart/hrdatasetclassif": {
+    "status": "eligible_for_validation",
+    "target": "Status",
+    "target_evidence": "Status - Target varible wh whether the candidate joined or not",
+    "origin_review": "ScaleneWorks client recruitment collection; origin family checked against all catalog names; no source-level match certified.",
+    "family": "HR-dataset/classif",
+    "metadata_sha256": "7bf354f08054c495a05c948ad36f6d07e69e012992130d6269b2cf1825a9891a"
+  },
+  "razanihababdellatif/food-spoilage-iot-dataset": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares about150,000 IoT food-spoilage rows, above50,000.",
+    "metadata_sha256": "90e0943ea8b02aa70d70302807688c8f7ebead8891375afb38eff5fabd499896"
+  },
+  "siddharthchaini/unblinded-data-for-plasticc-challenge": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "PLAsTiCC unblinded challenge light curves, existing astronomy benchmark provenance uncertain against catalog.",
+    "metadata_sha256": "9dcf501e7383855dd8a105ae6258c955f83f38d7562e8ca3348f4b04e3448b5c"
+  },
+  "armandokeller/wifi-csi-object-detection": {
+    "status": "excluded_declared_target",
+    "reason": "WiFi CSI object table lists material type, objectID, position and configuration without uniquely declaring a classification target.",
+    "metadata_sha256": "e321213d85f81168297b3f5726ad4ef33f549893df2a4c3c30fc551f865a3a94"
+  },
+  "deeplumiere/hospital-management-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46245\", \"Hospital\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "kukuroo3/body-signal-of-smoking": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares shape (55692,27); no selecting a smaller competition split.",
+    "metadata_sha256": "1b7cd6bc7ec6ec5a438f981f6eb55ec79cd0b3974ac1aa4705b59cf60ccf5d6f"
+  },
+  "micheldc55/famous-tumor-prediction-problem-dataset": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly calls it the famous benign/malignant tumor radiography-metrics dataset; possible Wisconsin breast-cancer mirror, exclude conservatively.",
+    "metadata_sha256": "5d7a612bc145152d7b40d1743fba8d9fcb09dddf8796a26eb5e8658918f893e6"
+  },
+  "rabieelkharoua/predict-smart-home-device-efficiency-dataset": {
+    "status": "eligible_for_validation",
+    "target": "SmartHomeEfficiency",
+    "target_evidence": "SmartHomeEfficiency (Target Variable):** Efficiency status of the smart home device (0 - Inefficient, 1 - Efficient).",
+    "origin_review": "Original synthetic smart-home-device data explicitly declared by author.",
+    "family": "\ud83c\udfe0 Predict Smart Home Device Efficiency Dataset",
+    "metadata_sha256": "0e8ef1deb7732c47ffff1cceb0ee68a333912f9a67a56b72a58ee6b755cd76d1"
+  },
+  "hbugrae/best-selling-steam-games-of-all-time": {
+    "status": "excluded_declared_target",
+    "reason": "Steam/GameFAQs/SteamDB composite descriptive data; no declared unique target.",
+    "metadata_sha256": "b3e5b1a58f6dc908a66f90cfe89e9ab16d94c56f184b2d7f77c9f1816ae6e07d"
+  },
+  "jecs89/geometric-figures-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "b83c97c45040e07c3badd0642d1bef37aa76e3335ef598d3cb56220239310ce1"
+  },
+  "gauravjhaeigenvector/ai-impact-on-health": {
+    "status": "excluded_declared_target",
+    "reason": "Source explicitly offers several binned classification targets/features and continuous improvement, no unique target.",
+    "metadata_sha256": "cf33b09adb2adee93d9d6133a94f67777c01e30ed40bebbf05a9a2f1aad65f93"
+  },
+  "ahmeduzaki/eeg-eye-state-detection-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"EEGEyeState\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "galijithendranath/onion-retailers-in-bangalore": {
+    "status": "excluded_declared_target",
+    "reason": "Onion retailer locations/distances; no target declared.",
+    "metadata_sha256": "c42006adbe3bc97b1f055ba08eaa001f1909ee15946f5d9f35cb5bbbf96214b6"
+  },
+  "itzzomkar/ev-adoption-behavior-and-range-anxiety": {
+    "status": "excluded_declared_target",
+    "reason": "Source explicitly declares TWO targets: Range_Anxiety_Level and Will_Buy_EV.",
+    "metadata_sha256": "91a8afc22450de7a1234feed5bd4dd74cc3c5cd037502d719bd9d3d4d5a1705f"
+  },
+  "adityasharma95/predicting-employee-attrition": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Employee\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "rinichristy/covid19-coronavirus-pandemic": {
+    "status": "excluded_declared_target",
+    "reason": "Country-level COVID counts; no declared unique classification target.",
+    "metadata_sha256": "7e8ebe39da1c9035cf5c38f79a5381eb38fa5a6512c863e6b0334af822659a25"
+  },
+  "dhoogla/cicbotiot": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"45279\", \"BOT-IoT\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "subhajournal/gender-detection": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "643d6877854b92a73debf9b4f02b6c883daac5165dc346361f90ed6542ba92be"
+  },
+  "rentoda/japanese-names-with-gender-extended": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://www.kaggle.com/code/rentoda/japanese-names-with-gender-v2-metadataset-creator\", \"evidence\": {\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Meta-data\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "datacertlaboratoria/projeto-3-segmentao-de-clientes-no-ecommerce": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_families.csv\", \"dataset_name\", \"BNG(segment)\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "jinweitu/amexlastmonthfeather": {
+    "status": "excluded_declared_origin",
+    "reason": "AMEX default competition derivative with imputation/one-hot; original parent not certified novel.",
+    "metadata_sha256": "6f69ee6fae28621b476edfb1d45ab5e18fa456bf88cc5d155f929a01da0ac0bf"
+  },
+  "ledecanteur/fragrantica-perfumes": {
+    "status": "excluded_declared_target",
+    "reason": "Fragrantica perfume ratings/gender/votes properties; no uniquely designated target.",
+    "metadata_sha256": "20cbd589b98b72f8d7411cae15d1d6dd4044f5f13ec3f2f3d0652e1fa89d08d5"
+  },
+  "dhoogla/nfbotiotv2": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"45279\", \"BOT-IoT\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "arashnic/animal-behavior-analysis": {
+    "status": "excluded_declared_target",
+    "reason": "Source proposes Behavior_1 through Behavior_3; no unique target; no feature engineering allowed.",
+    "metadata_sha256": "37ec963ebfe0c05365b9a429c03fc48af8a3fa58dc9c7296ab41652bc2fa37a4"
+  },
+  "fridrichmrtn/user-churn-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Explicit Retail Rocket Recommender parent with alternative churn definitions; disjunction and unique target unresolved.",
+    "metadata_sha256": "c4961c3722f1401fb1318e63ee5fb818a7ec5f757b22054a38973466dff1760a"
+  },
+  "alirezanasirianfar/synthetic-credit-card-fraud-v4-2-10k-free": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"creditcard\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "prashantshukla91/cyber-threat-detection": {
+    "status": "eligible_for_validation",
+    "target": "severity",
+    "target_evidence": "Predict the ordinal target **`severity`** for each row in `test.csv`.",
+    "origin_review": "Author explicitly declares original synthetic AI-agent incident telemetry, not a classic reused intrusion corpus; train.csv uniquely declared labeled table.",
+    "family": "Cyber-threat-detection",
+    "metadata_sha256": "2230559becee7436a053a532ea0c437dfd91f5ba690e8bcf3fe8c6a250cab73d",
+    "source_file": "train.csv",
+    "table_evidence": "`train.csv` \u2014 4,000 labeled rows"
+  },
+  "iamsouravbanerjee/gender-development-index-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Gender Development Index continuous country-level indicators; no declared classification target.",
+    "metadata_sha256": "9cc8efe57d5e2250bb69964afeb609f1aab80120232eb6b8d073a7e134178f17"
+  },
+  "wesleyhowe/titanic-labelled-test-set": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"titanic\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "shahriarrahman009/dubais-finest-eats-13k-restaurant-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "TripAdvisor restaurant properties/reviews; no unique target declared.",
+    "metadata_sha256": "b18e7dcf052ff77ab0af49c0fb7499567961e29931f7d7a457a615eb62551323"
+  },
+  "jankondracki/titanic-combined-dataset-with-relatiships": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"titanic\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "aymanmostafa11/eeg-motor-imagery-bciciv-2a": {
+    "status": "excluded_ambiguous_source_table",
+    "reason": "BCI IV 2a all-patient and per-patient variants; no unique declared target column/table; potential existing EEG family.",
+    "metadata_sha256": "79b4e3549da360c0dddfd5265afd8033741eaa6f739d814fe5d01a9ead9bf57f"
+  },
+  "nitishraj/song-popularity-k-folds": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Song Popularity competition derivative with k-fold column; no certified novel parent.",
+    "metadata_sha256": "0420b77ea27f3008400bbb2e9ba051eaa14a2959df7e61e9c48ba38120f9e205"
+  },
+  "rabieelkharoua/predicting-manufacturing-defects-dataset": {
+    "status": "eligible_for_validation",
+    "target": "DefectStatus",
+    "target_evidence": "**DefectStatus**: Predicted defect status.",
+    "origin_review": "Original synthetic manufacturing-defect data explicitly declared by author.",
+    "family": "\ud83c\udfed Predicting Manufacturing Defects Dataset",
+    "metadata_sha256": "915fb395554b2492e7ee739edf1e1233a3e492402c409a2b5c4c50bed29ac14f"
+  },
+  "anmol420/animal-disease-prediction": {
+    "status": "excluded_declared_target",
+    "reason": "Animal outbreak epidemiology with multiple disease/intervention outcomes, no named unique target.",
+    "metadata_sha256": "34fbccdf67dc9c2e3524376349a8acdb934c9a3aa523d9c9f0d3f4504097bbad"
+  },
+  "srifqi/iot-23-cleaned-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Source explicitly cleaned IoT-23, an established network-traffic parent; no disjunction certification.",
+    "metadata_sha256": "997967c8bffcf17440d4521ef2c502f53808684a34969442eaf31716d852287c"
+  },
+  "saitejabandaruin/remote-work-productivity-dataset-2025": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"dataSet_2\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "yasserh/wine-quality-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"wine-quality-red\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "mohdnazuan/harumanis-mango-physical-measurement": {
+    "status": "excluded_rows",
+    "reason": "Source declares105 Harumanis mango records, below200.",
+    "metadata_sha256": "ccb726cc73750bcd3840ef61efe26a9f49761e4f81c6c3bb77ce7db4f8d80b3b"
+  },
+  "ahmeduzaki/diagnostic-breast-cancer-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"breast-cancer\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "mcfly1/vehicle-collision-data-in-seattle-2005-2019": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"vehicleNorm\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "kidrulit/hackernews-who-is-hiring-listings-from-2018": {
+    "status": "excluded_declared_target",
+    "reason": "HackerNews job postings; no uniquely declared classification target.",
+    "metadata_sha256": "cba0a5d1c02e5ceb427e061169590d7f3da3cc1b58be8637cd3962ef6f81f108"
+  },
+  "intelai/dataset-accessibility-user-reviews": {
+    "status": "excluded_declared_target",
+    "reason": "Accessibility sentiment study uses TextBlob AND VADER labelers; no uniquely declared scalar target.",
+    "metadata_sha256": "423e7e268a57e7d12ff1843dc6f1b35aeffeb493045b6e566f67a4a156e6b191"
+  },
+  "prachi13/customer-analytics": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"45074\", \"Shipping\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "ravi20076/playgrounds3e26fe": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Playground S3E26 features from competition/public notebook; source lineage to existing benchmark base is unresolved.",
+    "metadata_sha256": "dc9bb7fc19260bc965a8ea1284ec5bb5fc11a257b45efbe75ee2f2856d513035"
+  },
+  "atifmasih/students-drugs-addiction-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"41199\", \"Students\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "automlbenchmark/email-automl-benchmark-v3": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "3265b083afeff9d23f0d5cd99daba9d6dfc3c0d7d0a734f183a0687074c9139e"
+  },
+  "taeefnajib/handwriting-data-to-detect-alzheimers-disease": {
+    "status": "excluded_declared_repository_origin",
+    "reason": "{\"rule\": \"description declares UCI/OpenML provenance\"}"
+  },
+  "wilstrup/cuneiform-language-identification": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"http://oracc.museum.upenn.edu/doc/opendata/\", \"evidence\": {\"match\": [\"OpenML-full-catalog\", \"43369\", \"U.S.-Airbnb-Open-Data\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "shubamsumbria/statlog-heart-data-set": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"heart-statlog\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "ptdevsecops/cybria-federated-learning-network-security-iot": {
+    "status": "excluded_declared_target",
+    "reason": "Federated cyber framework description without unique declared source target/table.",
+    "metadata_sha256": "e6d741785a6ea4ebdd518aab2b14c4c037ef836ced6e3a890804d578d372d544"
+  },
+  "abirambharathisa/mobile-usage-and-addiction-habits-2026": {
+    "status": "eligible_for_validation",
+    "target": "addicted_flag",
+    "target_evidence": "addicted_flag is 1 when addiction_score is at least 38. That threshold is an arbitrary choice, not a clinical cutoff.",
+    "origin_review": "Author explicitly declares independently generated NumPy synthetic data with fixed seed42; only binary classification label is addicted_flag, addiction_score is continuous.",
+    "family": "Mobile Usage and Addiction Habits, 2026",
+    "metadata_sha256": "cc9c0ec19450de8e49444969f9176ed5189466c5775b7079cbe6465e807a8ed0"
+  },
+  "hamzbriel/early-stunting-risk-prediction-dataset": {
+    "status": "excluded_ambiguous_source_table",
+    "reason": "Source supplies train/validation/test labeled partitions without one full/primary labeled table; no concatenation or arbitrary variant choice.",
+    "metadata_sha256": "f0e8a1d7b2563e7f043393ee053fbb00e2cb32ab528e846cc867f3277224aac3"
+  },
+  "kylefengkfeng209/the-ethics-of-self-driving-cars-who-dies": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares600,217 moral-machine response outcomes, above50,000.",
+    "metadata_sha256": "ef9c6428ab728e94c4d76df3f77e5f8b48cefcea70a757f8179414877ebc9cbf"
+  },
+  "abirpaul/supermarket-sales": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43605\", \"Sales_DataSet_of_SuperMarket\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "bricevergnou/spotify-recommendation": {
+    "status": "eligible_for_validation",
+    "target": "liked",
+    "target_evidence": "**liked** : 1 for liked songs , 0 for disliked songs",
+    "origin_review": "Author collected 100 liked and 95 disliked Spotify songs; validator must reject n<200.",
+    "family": "Spotify Recommendation",
+    "metadata_sha256": "151b3ae233046c0a6a26561cb7abe880d2e16f84b39c9e9c51f4f23c67442cd5"
+  },
+  "josephsatzl/predicting-the-2026-fifa-world-cup": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Explicit International Football matches1872-2026 parent; overlap with historical football bases cannot be excluded.",
+    "metadata_sha256": "67372f8fdb74ff440a6478bd6aabc898eedf44f79b8de5308108f70f10776467"
+  },
+  "sameerk2004/fraud-detection-dataset": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Fraud Detection Dataset\", \"match\": [\"OpenML-full-catalog\", \"46357\", \"Fraud_Detection_Dataset\"]}"
+  },
+  "jainaru/thyroid-disease-data": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Thyroid Disease Data\", \"match\": [\"data/openml_confirmatory_manifest_30_families.csv\", \"dataset_name\", \"BNG(sick,nominal,1000000)\"]}"
+  },
+  "giorgiocarbone/complete-competitive-pokmon-datasets-may-2022": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46572\", \"database\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "rabieelkharoua/parkinsons-disease-dataset-analysis": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"parkinsons\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "nilshmeier/bike-underground-detection": {
+    "status": "excluded_declared_target",
+    "reason": "Cycling recordings and train/test metadata require joining/feature extraction; no unique scalar target table.",
+    "metadata_sha256": "f8a3c1277d182cf03dda52ba1be42b02d15868138821092cfdc86d82f4ed1441"
+  },
+  "brijlaldhankour/cloud-access-control-parameter-management": {
+    "status": "excluded_declared_target",
+    "reason": "Access-control parameter list does not designate a single classification target.",
+    "metadata_sha256": "081db1a345f81004f5e58f339ecaac667c20b0668dfb9f1374f1f8580c42deb2"
+  },
+  "ahtshamzafar/tiawr6843aop-gesture-language-data": {
+    "status": "excluded_declared_target",
+    "reason": "mmWave point-cloud gestures require preprocessing and do not declare a unique raw tabular target column.",
+    "metadata_sha256": "20527bed3bf98b8802729cf3d36ed625c72e75a1e313c7715b1911d91b27d382"
+  },
+  "jacopoferretti/iris-2-0-modern-flower-morphometrics-200k": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly calls Iris2.0 an evolution of Fisher Iris; exclude derivative/source uncertainty.",
+    "metadata_sha256": "1ee6e9188bed6d601d70fae4e5b208611aabc443d3b5790c508c4e28c7001d21"
+  },
+  "dhoogla/cictoniot": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Source explicitly CIC-ToN-IoT, a feature extraction of UNSW-ToN-IoT parent.",
+    "metadata_sha256": "ac406eb4f3541a081645e2ac86530261b0aff67101e2b2521568c03e26cd2d4e"
+  },
+  "amith1707/video-game-market-price-and-revenue-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Large relational gaming market simulation; multiple regression/classification tasks without unique target.",
+    "metadata_sha256": "27a9d438b42dfba78f8cc6d1b99cf8e9750f812dee8e76d4131fbb30606822cb"
+  },
+  "rabieelkharoua/split-or-stay-divorce-predictor-dataset": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly declares Divorce Predictors Scale study, already present in UCI and OpenML.",
+    "metadata_sha256": "be3b5e89dd3458668e4f0e2ffe3f37e8024507bc2210fd142310a88415b3de24"
+  },
+  "sezermehmetemre/dax40-financial-news-sentiment-llm-labeled": {
+    "status": "excluded_declared_target",
+    "reason": "Source declares sentiment direction, impact, horizon and confidence LLM labels; no unique classification target.",
+    "metadata_sha256": "6944fa6b6005816d8054e95696d4b1b2b5fd53f721ca771899d62e58c597022a"
+  },
+  "razanihababdellatif/bank-marketing-and-customer-behavior-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"bank-marketing_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "psychocoderxd/toolmaster-multi-task-prediction": {
+    "status": "excluded_rows",
+    "reason": "Source declares140,000 total/100,000 labeled training records, above50,000.",
+    "metadata_sha256": "2c126738364cf92789e7b6af136ffdd7744059761a888adfb02b8369773fdcfb"
+  },
+  "mubashirsidiki/student-academic-performance-500-students": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"41199\", \"Students\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "brijlaldhankour/flight-vs-train": {
+    "status": "excluded_declared_target",
+    "reason": "Flight/train fare comparison; no classification target declared.",
+    "metadata_sha256": "269803cf293b16f31d73a6bad340b8650f510e31e873b865db5b4519fe743280"
+  },
+  "yasserh/heart-disease-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"heart-c\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "sarveshchhetri/ai-resume-screening-and-hiring-analytics-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Synthetic multi-stage HR pipeline description without a unique named classification target.",
+    "metadata_sha256": "56299969c2ab1261418cece03b02529c61cc22b1a022e54fe39563025d080ce4"
+  },
+  "zkyfauzi/food-delivery-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43446\", \"Online-Food-Delivery-Preferences-Bangalore-region\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "rouzbeh/introds": {
+    "status": "excluded_declared_origin",
+    "reason": "Drug.csv clinical drug classification matches existing Drug-Classification OpenML family; conservative exclusion.",
+    "metadata_sha256": "175c83955649e8f90a3b19a04b0ba9ee1f13049ede7c3274b8a4b610bd62307e"
+  },
+  "ameyachopade/telecom-customer-churn-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"Customer_Churn_Classification\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "ac1414/clean-classification-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Processed encoded loan application data has unnamed original parent; cannot certify novel source.",
+    "metadata_sha256": "6f58f755c334b3ea6518d041b5a3456ecd33798f7ba888feaa547391122421f1"
+  },
+  "pritsheta/dlf-data-set-from25092019to23092021": {
+    "status": "excluded_declared_target",
+    "reason": "DLF historical stock prices are time-series/regression data, no declared classification target.",
+    "metadata_sha256": "242c29a4bf2c3cd035a9334344526c8977d262292d8667b29353d3d109de7ab7"
+  },
+  "dhoogla/nfbotiot": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"45279\", \"BOT-IoT\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "laavanya/stress-level-detection": {
+    "status": "eligible_for_validation",
+    "target": "Stress Level",
+    "target_evidence": "stress levels of the human being are detected and analyzed here. A dataset of 2001 samples is provided for human body humidity, body temperature and the number of steps taken by the user. Three different classifications of stress are performed, low stress, normal stress, and high stress. More information on how this data is analyzed can be found at \u201cL. Rachakonda, S. P. Mohanty, E. Kougianos, and P. Sundaravadivel, \u201cStress-Lysis: A DNN-Integrated Edge Device for Stress Level Detection in the IoMT,\u201d IEEE Trans. Conum. Electron., vol. 65, no. 4, pp. 474\u2013483, 2019.\u201d ",
+    "origin_review": "Original Stress-Lysis publication by Rachakonda et al., 2019; exact study name checked against UCI and OpenML.",
+    "family": "Stress-Lysis",
+    "metadata_sha256": "90cbc86ecf7d2d858d44366e2e82cda3dfd4c9deff5dac3e8abfb3eb62cdbf18"
+  },
+  "yoshifumimiya/pharyngitis": {
+    "status": "eligible_for_validation",
+    "target": "RADT",
+    "target_evidence": "Can we predict RADT positive?",
+    "origin_review": "Source describes its own pediatric pharyngitis signs/symptoms validity study; no external base declared; raw target name must match source concept uniquely.",
+    "family": "676 cases of pharyngitis in children",
+    "metadata_sha256": "c26b84a0b012c5fa72c9195208bfbc3f690b1d73ffc2441202e0b26f1b701a98"
+  },
+  "udaymalviya/bank-loan-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "person_age/person_income/cb_person_cred_hist_length schema is a synthetic extension of the common Credit Risk loan base; unnamed original generator/source uncertain.",
+    "metadata_sha256": "e7e2b740ff14b69e9bdf01115aa8042b69acdcc6110412e9b4c14abea5c2ca05"
+  },
+  "gonzalorecioc/color-polygon-images": {
+    "status": "excluded_declared_target",
+    "reason": "Source explicitly offers polygon shape AND color classification plus coordinate regression; no unique target.",
+    "metadata_sha256": "e8f40fbd1fd76b525db9689a995fe37c18d8eae667f8d140af92ada9effd6cd3"
+  },
+  "mohammedzakishaikh/movie-ratings": {
+    "status": "excluded_declared_target",
+    "reason": "Movie rating/popularity properties; no unique classification target declared.",
+    "metadata_sha256": "be9575f009444aee89876452f42f12797abfd70bc517be61c63b5316ed267036"
+  },
+  "ban7002/example-churn-data": {
+    "status": "excluded_rows",
+    "reason": "Source identifies churn_100k.csv;100,000 rows exceeds50,000; common telco parent also uncertain.",
+    "metadata_sha256": "7dc7fc91bdfb56ee68f9b4188081a7ba1fe3f5efdc76b19bcbb982e146e4a561"
+  },
+  "dariushafshar/s6e10-golem-oof-library": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "S6E10 OOF/test predictions from airline satisfaction competition, no new original family.",
+    "metadata_sha256": "8bd6bc4cb8b131be9fc228248271ec18965d0dfa2403e250d30c686790b87229"
+  },
+  "kapturovalexander/predict-students-drop-out-of-the-course": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"41199\", \"Students\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "foziashareen/floods-pakistan": {
+    "status": "excluded_declared_target",
+    "reason": "Pakistan2010 flood statistics without unique classification target.",
+    "metadata_sha256": "9bc7be8928a6dae224c4278d5755ec906e89aae263c3fabd0d2cb724626f20b5"
+  },
+  "python16/cyclone-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Cyclone tracking/intensity time series offers multiple tasks without a unique classification target.",
+    "metadata_sha256": "ae6f74ce3ac4dc38e4423bb6749e62f5b26779c48815ae3f1bee983e646ccb63"
+  },
+  "hugoferquiroz/credit-default-only-numbers": {
+    "status": "excluded_declared_origin",
+    "reason": "Translated GiveMeSomeCredit schema: revolving utilization, age,90/60/30day delays, debt ratio, monthly income, dependents; original base already represented.",
+    "metadata_sha256": "09ee57725ef111e33c8a1c7a714a5a0586c7ba2f0e637d8a4c3e25c63e7e90c2"
+  },
+  "emanafi/churndataset": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Customer Churn\", \"match\": [\"data/openml_manifest_1000_final.csv\", \"semantic_family_id\", \"customer churn\"]}"
+  },
+  "abdullahorzan/moodify-dataset": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares nearly 278,000 Spotify songs, above 50,000.",
+    "metadata_sha256": "2ce97b26e1f2d378ae92be39a0ccf3021578ed393c5a698b7811b3bea08ca27d"
+  },
+  "ameythakur20/unsupervisedlearning": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"47032\", \"Clustering\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "rahman4li/stack-overflow-tag-co-occurrence-network": {
+    "status": "excluded_declared_target",
+    "reason": "Stack Overflow co-occurrence graph; no scalar tabular classification target declared.",
+    "metadata_sha256": "d9829400da237927d8ef0a233e22bf3b789cd2f664aba4bffddd4a85b7ac035c"
+  },
+  "muhammadwaqas023/pipeline-dataset-in-oil-and-gas-sector": {
+    "status": "excluded_declared_target",
+    "reason": "Pipeline engineering properties/material/corrosion data, no unique classification target declared.",
+    "metadata_sha256": "405a416ddaefa6fb0173d6b77328068c126e9b53838b71abee530864699ad547"
+  },
+  "niraliivaghani/flipkart-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"Products\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "rabieelkharoua/students-performance-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"StudentsPerformance\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "arthur1511/cblol-2021-dataset": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://oracleselixir.com/contact\", \"evidence\": {\"match\": [\"OpenML-full-catalog\", \"1419\", \"contact-lenses\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "girishvutukuri/back-orders": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared; common backorders base uncertain.",
+    "metadata_sha256": "2110f2c77797bf378fb66a69765a74c42948ce0f9407a5e742c23205c9c203f6"
+  },
+  "shahriarrahman009/tripadvisor-new-zealand-hotels-4k-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "TripAdvisor hotel property/review data; no classification target declared.",
+    "metadata_sha256": "ad13f37ab0d2923df0b77073eca34476a98b0b5bc113a69a0884708e704d70ac"
+  },
+  "rafay12/anti-freeze-protein-classification": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Protein Data\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "oscarm524/fraud-detection-in-grocery-shopping-transactions": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46357\", \"Fraud_Detection_Dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "shashwatwork/android-malware-dataset-for-machine-learning": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"e-learning\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "adityasharma95/amexpert-2021-machine-learning-hackathon": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"e-learning\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "sarveshchhetri/play-tennis-practice-dataset-for-classification": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Weather\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "anushiagrawal/effects-on-personality-due-to-covid19": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "10ab3a6354b2be0b981888e4fb88c523f08750d8a4b2fc2713daecf5f0befc40"
+  },
+  "flexonafft/stellar-data": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly SDSS star_classification catalog/Playground support; existing SDSS family.",
+    "metadata_sha256": "e3c31139a2d99c1f3b01f6a89832ba9b36a35737d017994774ecefcbce750abf"
+  },
+  "meeratif/diabetes-specific-data-all-countries": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"diabetes\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "shelvigarg/wine-quality-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"wine-quality-red\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "hussnainmamoon1/global-antibiotic-resistance-2018-2024-glass": {
+    "status": "excluded_rows",
+    "reason": "WHO GLASS core table138 rows; all five structured tables each below200; no concatenation.",
+    "metadata_sha256": "5f4142a12685c75d4f82169f64c2451eb406bccf6d82ac9a13f3df21c016fe5f"
+  },
+  "yasirabdaali/ted-talks-dataset-5600": {
+    "status": "excluded_declared_target",
+    "reason": "TED talk metadata; no classification target declared.",
+    "metadata_sha256": "ded6bb3569f942868bf2d06c51ad177ee346d9fecaa5c3e673d37ad2fb8d9f0d"
+  },
+  "karlorusovan/league-of-legends-soloq-matches-at-10-minutes-2024": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "OpenML has League-of-Legends-Diamond-Games-(First-15-Minutes) and other Solo-Q bases; same game/first-15-minute schema, disjunction uncertain.",
+    "metadata_sha256": "8c46a79bfed52c94bc0a942333426eadfc9a0e5b31405d9c3aaac4de97e95c62"
+  },
+  "danushkumarv/glass-identification-data-set": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Glass Identification Data Set\", \"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"glass-0-1-4-6_vs_2\"]}"
+  },
+  "swaroopnath6/semantic-web-parsing-dataset-part-i": {
+    "status": "excluded_declared_target",
+    "reason": "Semantic web parsing task without a unique scalar classification target declared.",
+    "metadata_sha256": "28e13f0964ef3f37e43f07dd60a63d7985df49ec810b77f21fed790e5dba8802"
+  },
+  "muhriddinmalik/top-goal-scorer-football-players-over-500-goals": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "8bc124e77bc7d5a77a06686bbf052038f9420eff532bc17ce3cba06e5be6fd2d"
+  },
+  "abhishekrp1517/online-retail-transactions-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46329\", \"Transactions\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "subhajournal/keylogger-detection": {
+    "status": "excluded_declared_target",
+    "reason": "Keylogger background description does not declare a target column or original task schema.",
+    "metadata_sha256": "613595299d05a539e39e1311ff544a1645083a3080d8f594dac07d8255d74c25"
+  },
+  "ahmeduzaki/egypt-redsea-earthquake-dataset-1955-2024": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://creativecommons.org/licenses/by/4.0/\", \"evidence\": {\"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"led7digit-0-2-4-5-6-7-8-9_vs_1\"], \"rule\": \"multi-token source-name containment\"}}"
+  },
+  "waddahali/ai-stream-index-2026": {
+    "status": "excluded_declared_target",
+    "reason": "Source explicitly offers Churn_Risk_Probability OR Engagement_Score, continuous outcomes; no single classification target.",
+    "metadata_sha256": "c57cebf3ba640f4d1a563e7efa0bac8866fbc492168a60fabdabfca922d90ee4"
+  },
+  "adityaramachandran27/world-air-quality-index-by-city-and-coordinates": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"42057\", \"airquality\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "patrickstarrrr/iris-dataset-encoded-by-gaussian-receptive-fields": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"40508\", \"Iris_Dataset\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "nitinchoudhary012/user-subscription-dummy-data": {
+    "status": "excluded_declared_target",
+    "reason": "Random dummy subscription/user/rating properties; no unique target designated by source.",
+    "metadata_sha256": "ff6bfeb608b8b1a42d4672e4efd1ac391d40117cbf06b6abc2193ade5e35df20"
+  },
+  "mohammadbolandraftar/my-dataset": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://www.kaggle.com/code/mohammadbolandraftar/a-deep-dive-into-fraud-detection-through-eda\", \"evidence\": {\"match\": [\"OpenML-full-catalog\", \"46357\", \"Fraud_Detection_Dataset\"], \"rule\": \"multi-token source-name containment\"}}"
+  },
+  "sagarvarandekar/spacex-falcon9-launch-data": {
+    "status": "excluded_declared_target",
+    "reason": "Falcon9 launch/landing outcome description does not identify a unique named classification target/schema; IBM course parent uncertain.",
+    "metadata_sha256": "9eb4b70bcf227d3f433f3b2fb121e23ee88fe9ed27471f897c2e1bb19e0edf4b"
+  },
+  "pritiraijain/covid19-go-away-2020-c19ga20": {
+    "status": "excluded_declared_target",
+    "reason": "COVID student questionnaire description without unique classification target declared.",
+    "metadata_sha256": "b6c457320e491dfe0fac3c0ce17bca08eaf9f57049e24c67c2a3636c2bdf4135"
+  },
+  "davidgauthier/the-kaggle-dataset": {
+    "status": "excluded_rows",
+    "reason": "Source declares nearly200,000 Kaggle datasets as metadata records, above50,000.",
+    "metadata_sha256": "2219ebd681328b6bb0c089f153d2f74a2b586cedc9301067a7e0c760ac97e358"
+  },
+  "amith1707/multi-font-character-skeleton-features-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Multi-font skeleton summaries and per-letter measurements; no uniquely designated target/table in description; README not used to guess.",
+    "metadata_sha256": "a604a91ef3f4ec06436e1abf21946ba9b388afb9ada768fdf7a6dadb9eaed0ab"
+  },
+  "aakashverma8900/portuguese-bank-marketing": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"bank-marketing_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "kirankunapuli/credit-card-lead-prediction": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"creditcard\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "yasserh/ibm-attrition-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"ibm-employee-attrition\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "akshatshaw7/national-poll-on-healthy-aging-npha": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"National Poll on Healthy Aging (NPHA)\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "matevaradi/oscar-prediction-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Source explicitly offers six Academy Award categories; no unique target.",
+    "metadata_sha256": "acc838257abfc6c8f9b93a6c1058bf0eb92e7644d6beab8376cc401db37041f4"
+  },
+  "rabieelkharoua/chronic-kidney-disease-dataset-analysis": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Predicting_Risk_Factors_of_Chronic_Kidney_Disease\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "automlbenchmark/email-automl-benchmark-v2": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "3109fccd1ddf6620234fa04b264a0928ef458d8103d847dcedffb72ef3765b5b"
+  },
+  "purnamaridzkynugraha/bitcoin-historical-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"dataSet_2\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "abhishekinnvonix/epilepsy-seizure-dataset-seina-scalp-complete": {
+    "status": "excluded_declared_target",
+    "reason": "Siena EEG raw recordings/preictal-seizure alternatives, no unique scalar tabular target declared.",
+    "metadata_sha256": "56b7a23209e122023b3ca670ab279b9617c7fbef7579d25b82a7fde8ef03e26a"
+  },
+  "miriamodeyianypeter/sentiment-analysis-amazon-product-reviews": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46698\", \"amazon-reviews\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "dariushafshar/s6e8-golem-oof-library": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "S6E8 OOF/test model predictions only, explicitly no labels/source rows; competition derivative.",
+    "metadata_sha256": "e51207b1d79f891a70ee1bc700e2aeb0804b881bd4c03cd171796d5a582041ca"
+  },
+  "vijayaadithyanvg/rock-or-mine-classification": {
+    "status": "excluded_declared_origin",
+    "reason": "Rock-or-mine submarine sonar problem matches UCI Sonar family; conservative mirror exclusion.",
+    "metadata_sha256": "10a237e8379b2da24fbbc30ced605be012d5f20302f97c426e4fe366bfa114da"
+  },
+  "michau96/multiclass-syntetic-data-for-practice": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares one million rows, above50,000.",
+    "metadata_sha256": "67a18563e780bd1bacbd2cc1f24ff2154ed7a53b41e470ee8e0b834c7c5a58a8"
+  },
+  "prabinraj/india-loksabha-elections-data19622019": {
+    "status": "excluded_declared_target",
+    "reason": "Loksabha election descriptive results, no unique classification target declared.",
+    "metadata_sha256": "4935e9dd5a94a1db6c3b3f5d433017199029729ca9a26cb63b6c41f5389b1546"
+  },
+  "yuriykatser/power-transformers-fdd-and-rul": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://www.kaggle.com/competitions/transformer/data\", \"evidence\": {\"alias\": \"data\", \"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"data\"]}}"
+  },
+  "rabieelkharoua/sundanese-twitter-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"emotions\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "serdartafrali/persona": {
+    "status": "excluded_declared_target",
+    "reason": "Game product price/demographic persona data without unique classification target declared.",
+    "metadata_sha256": "2cd110613c29abe1da8e5f171c7c5808ef621d4ce7e583f9e2c6932ae25f8eac"
+  },
+  "kasima022/west-yorkshire-stop-and-search-dataset": {
+    "status": "excluded_rows",
+    "reason": "Source declares approximately55K police stops, above50,000.",
+    "metadata_sha256": "8bd05094a50f50eb28ea45b806d4f9cf6637c73729639caabbfc0ac5a8ef2ff1"
+  },
+  "arakawayuito/roadside-noise-level-dataset-with-labels": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares417,000 noise measurements, above50,000.",
+    "metadata_sha256": "4b6983be5f003f730f715963de2e18f2533e070f53cfd3f0c76e2b3b3110e0fb"
+  },
+  "scriptseeker/gallstone-prediction-from-bioimpedance-and-lab-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Gallstone\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "olgagmiufana1/aromo-ru-fragrance-dataset": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares78,410 perfume records, above50,000.",
+    "metadata_sha256": "710a0d4b130eba6db42d8cf6321f523e89253034abf4d089df004a154ba49564"
+  },
+  "arhamrumi/amazon-product-reviews": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46698\", \"amazon-reviews\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "muhammadammarjamshed/monthly-orders-for-snacksmunchies-application": {
+    "status": "excluded_declared_target",
+    "reason": "Personal snack-order records; no unique classification target declared.",
+    "metadata_sha256": "d5270fdf4370b5f8ea8ace6e938f292329e8836c2eb24f158967329f6455137d"
+  },
+  "suhanigupta04/saas-customer-churn-prediction-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"Customer_Churn_Classification\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "programmerrdai/country-codes": {
+    "status": "excluded_declared_target",
+    "reason": "Country code dictionary; no classification target declared.",
+    "metadata_sha256": "07b1ac64fd719665a72b02bb63246e1e330bd44f2dc7381e667b44c17395c263"
+  },
+  "ikpeleambrose/irish-loan-data": {
+    "status": "excluded_rows",
+    "reason": "Source declares over one million CTGAN loan records; no smaller variant selection.",
+    "metadata_sha256": "1e24ab3bd04619ed4d417d3be8ffa567db4e4e01ecd5c789981e31c357ae053b"
+  },
+  "jmourad100/mnad-moroccan-news-articles-dataset": {
+    "status": "excluded_rows",
+    "reason": "MNAD corpus declares over one million news articles; no choosing a smaller source/site/version.",
+    "metadata_sha256": "845d6ba1b676d35df249b4b03e6ebb495c53c404ca2188ab0c34a1d6b44c967a"
+  },
+  "seansaliga/spy-start-10312023": {
+    "status": "eligible_for_validation",
+    "target": "IsNextUp",
+    "target_evidence": "`IsNextUp` : For Classification CSV; is 1 if the *next* day's Close &gt; *next* day's Open, 0 otherwise",
+    "origin_review": "Author derives next-day direction labels from original SPY stock table; alias SPY must be checked; dates retained for encoding eligibility.",
+    "family": "SPY",
+    "metadata_sha256": "ceee8f7e6ea7f0fafa04fad663465f4d20cea3b3794b908c45640a392778b59b"
+  },
+  "saumitgp/occupancy-detection-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Occupancy Detection \"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "sajjdeus/digikala-sentimentanalysis-3milioncomments": {
+    "status": "excluded_rows",
+    "reason": "Digikala source declares millions of comments, above50,000.",
+    "metadata_sha256": "91cc91c9ad04495952bf13ad2fed50387b0e812fe3fb6309d8602b1ae7c7b1d7"
+  },
+  "adilashrafi/wine-quality": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Wine Quality ||\ud83d\udd14\ud83d\udd14\ud83d\udd14\ud83d\udcc1\", \"match\": [\"OpenML-full-catalog\", \"287\", \"wine_quality\"]}"
+  },
+  "poojarajesh12/quads": {
+    "status": "excluded_declared_target",
+    "reason": "Agriculture query intents AND sub-intents; no unique scalar target declared.",
+    "metadata_sha256": "58107c57c5134f31d80df09037136516b9b0af26e055422ae732975515f7b6aa"
+  },
+  "dariushafshar/s6e9-golem-oof-library": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Playground S6E9 OOF/test model predictions; explicitly no source labels or rows.",
+    "metadata_sha256": "c65292f3dd29f4516da0df3bfa2a6951ccc105bb842c457a50d61dc079e823cd"
+  },
+  "dariushafshar/s6e10-original-data-aligned": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly Arseniy Shutko airline survey129,880 rows; existing airline-satisfaction parent/competition derivative.",
+    "metadata_sha256": "e555c83b45fa71596e7fd4d118eddbe8a045c99b4fcee1689fba74f1da99c9e8"
+  },
+  "shinyunaa/compiled-jav-metadata": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Meta-data\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "josh101/machinery-fault-database-induction-motor-fault": {
+    "status": "excluded_declared_target",
+    "reason": "Machinery sensor time-series collection without unique source-declared tabular target column.",
+    "metadata_sha256": "320647c62bd29b1150cc86a01edb57c576af107ba91cc89bb59ec963f2eb2ba8"
+  },
+  "harmannahal/nsl-kdd-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"41676\", \"NSL-KDD\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "benjaminawd/new-york-times-articles-comments-2020": {
+    "status": "excluded_declared_target",
+    "reason": "Source explicitly proposes comments count, recommendation count and Times Pick targets; multiple tasks.",
+    "metadata_sha256": "a97f6f8fe45acb5ced2ab4b2063832aac6fe90460a9a33dd9586343e8aa375d0"
+  },
+  "rkiattisak/student-performance-in-mathematics": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43812\", \"Performance-Prediction\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "mohamedriyas72/tn-weather": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Weather\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "algovai/bd-ethnic-languages": {
+    "status": "eligible_for_validation",
+    "target": "language",
+    "target_evidence": "its corresponding language label. This dataset is valuable for tasks related to multilingual NLP, language classification, and preservation of underrepresented languages.",
+    "origin_review": "Author describes collected Bangladesh ethnic-language text; no parent declared; retain raw texts.",
+    "family": "Bd Ethnic Languages Classification",
+    "metadata_sha256": "626bb4d985f25687b313e9386effaffd894e38df23e1f95069e51242b4fa79c4"
+  },
+  "ivantha/sri-lanka-property-ads-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Property advertisement text/table data, no unique declared classification target.",
+    "metadata_sha256": "371c7235b02e0ac5af6b92bc294da7ab4586e71b94630f60b40de78778a59539"
+  },
+  "saadbouhya/accidents-gouv": {
+    "status": "excluded_ambiguous_source_table",
+    "reason": "French BAAC four relational tables require aggregation/joining for severity; no one target table designated.",
+    "metadata_sha256": "8ef7de00c53ac91814d4c2d5fe6913a87c1a55e0b97f1ab27877a2ce9f764636"
+  },
+  "diraf0/sloan-digital-sky-survey-dr18": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly Sloan Digital Sky Survey DR18, existing SDSS star classification family.",
+    "metadata_sha256": "d502dbadb711dc942fbd2e2f8f3892faef37bdad9bec000e4530294b388ebf37"
+  },
+  "saumitgp/absenteeism-at-work": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Absenteeism At Work\", \"match\": [\"OpenML-full-catalog\", \"42887\", \"absenteeism-at-work\"]}"
+  },
+  "gzdekzlkaya/migraine-symptom-dataset-for-classification": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Migraine type data explicitly derived from F1000Research publication34745568; common migraine benchmark, source-level novelty unresolved.",
+    "metadata_sha256": "f4232158e48ca8d94687e7dd190a4724ae96f96222587966c5efd57a3f3d6cdb"
+  },
+  "stephanmatzka/predictive-maintenance-dataset-ai4i-2020": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"42890\", \"AI4I2020\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "datacertlaboratoria/proyecto-3-segmentacin-de-clientes-en-ecommerce": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_families.csv\", \"dataset_name\", \"BNG(segment)\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "nitishraj/tps-dec21-5-folds": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly TPS December2021 original and folds; existing Forest CoverType parent lineage.",
+    "metadata_sha256": "b0fbbe0eb071060c492db8cc9fda164f449e5a8d0fb691ee49a5c9bf44a9f032"
+  },
+  "lara311/diabetes-dataset-using-many-medical-metrics": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Diabetes dataset \", \"match\": [\"OpenML-full-catalog\", \"43384\", \"Diabetes-Data-Set\"]}"
+  },
+  "noeyislearning/weekly-hospital-respiratory-data-and-metrics": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46245\", \"Hospital\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "pratiksharm/mbti-personality": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "05138cad9b21682ddc5d77d1bc263f63a8cad1e0cb5c319167a897192fb0ec26"
+  },
+  "roiiith/ai-fair-recrutment-dataset": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares119,971 recruitment rows, above50,000.",
+    "metadata_sha256": "de5937a5c96424a63ba9b7c0d2b667cde31629e59402c7e5bd1021471a1df7e7"
+  },
+  "zumarkhalid/a-test-case-data-set-with-requirements": {
+    "status": "excluded_declared_target",
+    "reason": "Testcase priority concept without unique source-declared target column/schema.",
+    "metadata_sha256": "ecf60fd0937af1a2289c43b2a6a2e9f528f6395586703adcb84c54c771689a90"
+  },
+  "oscarm524/forecast-cyclically-demanded-products": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"Products\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "priyanshuganwani09/electric-vehicle-population-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"vehicleNorm\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "dannyrevaldo/android-malware-detection-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Android malware static-feature parent unnamed; potential Drebin/NATICUS/UCI mirrors cannot be ruled out.",
+    "metadata_sha256": "c00da81581045050d588d95641837b4259fbd4fa7f5dc65ac38c04c4fff323c8"
+  },
+  "banddaniel/musk-v2-multiple-instance-learning-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"e-learning\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "sergeynesteruk/minerals": {
+    "status": "excluded_classes",
+    "reason": "Source declares over5,000 mineral varieties, above30 classes; image processing also unsupported.",
+    "metadata_sha256": "7f5edc739cadd75473bb801bdcd105983cf1f0fa70e93c3aed759b513731b6fa"
+  },
+  "sheemamasood/diabetes-130-us-hospitals-for-years-1999-2008": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Diabetes 130-US Hospitals for Years 1999-2008\", \"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Diabetes 130-US Hospitals for Years 1999-2008\"]}"
+  },
+  "greenwarbler/malware-benignpe-files": {
+    "status": "excluded_declared_target",
+    "reason": "PE malware binary concept described but no unique named source target column/schema or original executable collection identified.",
+    "metadata_sha256": "b4e62d8786c2b8bea078c80d4fc6532eac58a73241a94ec0b61a0321b70e8b4f"
+  },
+  "teocalvo/analytical-base-table-churn": {
+    "status": "excluded_declared_target",
+    "reason": "Description states churn goal but does not declare the target column/schema.",
+    "metadata_sha256": "621a281190874630b50f1d24e42f69464572f38c94420f15a1508b311698beab"
+  },
+  "udy061/clean-adult": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly cleaned Adult Census Income, existing UCI/OpenML family.",
+    "metadata_sha256": "66d7436949d496cc7e5dc5ccbeaf35aceac509ad2a46a43af240f23513ccd006"
+  },
+  "yasserh/breast-cancer-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"breast-cancer\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "arunavakrchakraborty/financial-payment-services-fraud-data": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares6,362,620 payment records, above50,000.",
+    "metadata_sha256": "fad3b4ca8c366bd4245a5c5824f5f6254f94779458d7017b4b020e1e6b6afc0f"
+  },
+  "priyangshumukherjee/mental-health-text-classification-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46721\", \"Mental_Health_Dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "automlbenchmark/ip-address-automl-benchmark-v3": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "112f8c6817f2a9250156b7d7f3dfeb4869711bee6b033850992f5adc2b51995b"
+  },
+  "mcarujo/euro-cup-2020": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://onefootball.com/en/competition/uefa-euro-2020-20/results\", \"evidence\": {\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Dota2-Games-Results-Data-Set\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "michau96/classification-syntetic-data-for-practice": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares one million synthetic rows, above50,000.",
+    "metadata_sha256": "4cef3f7b9b7e71000e07acaa4bb1d2d5a796eae80a4dc01c1acfadb597079e1f"
+  },
+  "rabieelkharoua/predict-conversion-in-digital-marketing-dataset": {
+    "status": "eligible_for_validation",
+    "target": "Conversion",
+    "target_evidence": "**Conversion**: Binary variable indicating whether the customer converted (1) or not (0). ",
+    "origin_review": "Original synthetic digital-marketing campaign data explicitly declared by author.",
+    "family": "\ud83d\udcc8 Predict Conversion in Digital Marketing Dataset",
+    "metadata_sha256": "ea995553bbc41ab5764c4e5a3bf52c7a24515a081c50fcccbecc639b498e32b3"
+  },
+  "estebanmarcelloni/liga-argentina-futbol": {
+    "status": "excluded_declared_target",
+    "reason": "Description proposes predicting football game results but declares no target column or unique label.",
+    "metadata_sha256": "aa156f7980833093f4d7b32598d74bd18c99468e01e4913133e4220e1f0196a9"
+  },
+  "sumeetsawant/pump-it-up-challenge-driven-data": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly Taarifa/Tanzania Ministry water-pump competition, existing PumpItUp/waterpoint family; no new base.",
+    "metadata_sha256": "c4eab5ccd3b185c1bf1c523781ff37670c259e52985cc44db37b01be810c08f5"
+  },
+  "zahidmughal2343/employee-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Employee\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "dylanmoraes/credit-card-fraud-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"creditcard\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "mfarhaannazirkhan/heart-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"heart-c\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "lejian/a04-data": {
+    "status": "excluded_declared_target",
+    "reason": "Service-outsourcing competition project storage with no unique source-declared target/schema.",
+    "metadata_sha256": "337bc851b40eb6927a409acc28338cd858494d87e06d7c06a79999157391dad4"
+  },
+  "heyrobin/space-x-launches-falcon9-and-falcon-heavy": {
+    "status": "excluded_declared_target",
+    "reason": "Multiple SpaceX launch versions and no uniquely declared target.",
+    "metadata_sha256": "4a66b0ab4f23ce9fb1afbd89a3577e235c0f0f582c321fee1be3e3ceeee42c25"
+  },
+  "gzdekzlkaya/scoutium-player-attribute-ratings-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Scoutium ratings/evaluations table without unique classification target declared.",
+    "metadata_sha256": "bc92ba56425028cacc7d39a8f2e97d1253fe72cb2c12149ad01d49db28e51339"
+  },
+  "hemanthsai7/loandefault": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"6331\", \"LoanDefaultPrediction\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "dylanyves/motion-data-for-badminton-shots": {
+    "status": "excluded_declared_target",
+    "reason": "Badminton motion/video-derived records without unique tabular target declared; no feature extraction allowed.",
+    "metadata_sha256": "c7948bede2699e74461d183959f1d87895d6e64bec9c86b9b4af667668c587e7"
+  },
+  "mahipalkumarsingh/consultant-job-placement-data-2023": {
+    "status": "eligible_for_validation",
+    "target": "Hired",
+    "target_evidence": "**Hired (Y/N):** The key target column indicating whether the consultant was hired (Y = Yes, N = No).",
+    "origin_review": "Source explicitly declares Hired with Y/N type annotation; public CSV header is matched without the prose type annotation; no data renaming.",
+    "family": "Consultant Job Placement Data (2023)",
+    "metadata_sha256": "f3a194c1226120123797bdbedeb7412653237256057c2ad017b401cdae0ebdc7"
+  },
+  "automlbenchmark/ip-address-automl-benchmark-v2": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "e1696faffc4f102a93879ad5b5b848843642a9135d86c26fd08568d813726d00"
+  },
+  "sanskar457/fraud-transaction-detection": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares 1.75 million transactions, above 50,000.",
+    "metadata_sha256": "246c9e8ddd09dc27cec89e07839810a5a805c00a1aa3e1865c6cfbbc821f36dc"
+  },
+  "nabihazahid/spotify-dataset-for-churn-analysis": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"dataSet_2\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "wafaaelhusseini/wine-and-food-pairing-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Pairing_quality numeric score and quality_label string encode same outcome; no unique designated classification target.",
+    "metadata_sha256": "93f5fc86d4f18aeb4b827d62d285e615a0c056954c795dbc9eca2a0eb948e832"
+  },
+  "tejashvi14/travel-insurance-prediction-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"45064\", \"Insurance\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "sourabhsingh03993493/question-and-answering": {
+    "status": "excluded_declared_target",
+    "reason": "Question/context/MCQ task; no unique named tabular classification target declared.",
+    "metadata_sha256": "743d185339a93d4bc332a7be325deaa7aa8d383934a9e241285812ab6092c520"
+  },
+  "ibrahimonmars/45k-cnn-comments-likes-and-dates": {
+    "status": "excluded_declared_target",
+    "reason": "CNN comments/likes/dates, no unique classification target declared.",
+    "metadata_sha256": "811c9c5f848b16427b5bd62677eaec27fbd69d3863fa7a9072828a16e225df05"
+  },
+  "tulasiram574/students-dropout-and-academic-success": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Students' dropout and academic success\", \"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"students_dropout_and_academic_success\"]}"
+  },
+  "itsananya/cryptocurrency-news": {
+    "status": "excluded_declared_target",
+    "reason": "Cryptocurrency headline metadata with NLP/summarization alternatives, no unique target declared.",
+    "metadata_sha256": "2cafbf8c84963fa8d85fca4b49b899415fc901ef1e87732a6b5c53b67a937005"
+  },
+  "mkhoirulmustaqim/student-depression-detection-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"student_depression_dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "adeolaadesina/factors-affecting-children-anemia-level": {
+    "status": "excluded_declared_target",
+    "reason": "Source describes anemia as predictor and dependent variable inconsistently; no unambiguous named target column.",
+    "metadata_sha256": "63113cd6144ae67456114a522bbdb64b880a08904b44a6f16b739c28b7cb6f36"
+  },
+  "linkanjarad/contexttopic-classification-from-statement": {
+    "status": "excluded_declared_target",
+    "reason": "Context-topic paragraphs list semantic classes but no unique declared target column/schema.",
+    "metadata_sha256": "b1750f7b400be3fcb4f344f381a90bec0d327a0c77237da3c5e7e2d9aeec90c6"
+  },
+  "arnavsharma45/quora-insincere-questions-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43345\", \"Quora_Insincere_Questions_2018\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "jacopoferretti/expedia-travel-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Expedia clicks/bookings table; no source-declared unique target; possible existing Expedia base.",
+    "metadata_sha256": "6c1f668021f9b4fa49cbfad46940822e6d2b3d1b409a464f936b08281739ca18"
+  },
+  "alessiasimone/lego-sets-and-price-1955-2023": {
+    "status": "excluded_declared_target",
+    "reason": "Rebrickable Lego set/price merged metadata, no unique classification target declared.",
+    "metadata_sha256": "af78b5c5299587cc9faf26256a1f697e007eec0dcb71c6a2dd19e10460aeca2e"
+  },
+  "suryadeepthi/corporate-work-hours-productivity": {
+    "status": "excluded_declared_target",
+    "reason": "Productivity is continuous; source proposes creating categories, which is forbidden relabeling.",
+    "metadata_sha256": "c59729f96d1c0418388e8251964ade6a6b8770afb123377da1e7572bd5e79e2f"
+  },
+  "ac1414/clean-netflix-appetency-data": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly processed Netflix Appetency competition parent, existing benchmark family.",
+    "metadata_sha256": "d16445e96434747c5428c9b8349156ee9e3f9554db674f9feb6f5a1560c403ea"
+  },
+  "saicharan1206/ai-generated-skill-metadata-dataset-1800": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Meta-data\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "rhythmghai/resume-screening-dataset-200k-candidates": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"dataSet_2\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "xjoannax88/spacex-falcon-9-launches": {
+    "status": "excluded_declared_target",
+    "reason": "Source lists launch outcome AND booster landing as separate outcomes, no unique designated target.",
+    "metadata_sha256": "f1de5a6d51645032e31880ea571c411749c74f60bad412be950930c09ca20c10"
+  },
+  "gfbati/hdl-hand-drawn-digital-logic-gates-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Hand-drawn logic-gate image embeddings/CSV variants with no uniquely declared target column/schema.",
+    "metadata_sha256": "c0304cd453b5ede2d72a2d0bd6fac2ad5d242a16752ec5d14d8daec62dda5c96"
+  },
+  "shreydan/stanford-dogs-csv": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"http://vision.stanford.edu/aditya86/ImageNetDogs/\", \"evidence\": {\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"ImageNet\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "itzzomkar/buy-now-pay-later-bnpl-default-risk": {
+    "status": "eligible_for_validation",
+    "target": "Default_Risk",
+    "target_evidence": "Target Variable: Default_Risk (Categorical: Low, Medium, High). Modeled mathematically based on debt-to-income ratio, credit score, and late payment history.",
+    "origin_review": "Source explicitly describes original synthetic10,000 BNPL shoppers; no common observed loan base declared.",
+    "family": "Buy Now Pay Later (BNPL) Default Risk",
+    "metadata_sha256": "d419197ecbbbd99fc01aabd68d36a7fc65cf21b7ae0aa93eb77f1dc5127f975d"
+  },
+  "victorreznovblops2/iphone-12-predictive-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "iPhone purchasing behavior goal without unique source-declared target column/schema.",
+    "metadata_sha256": "cc54503cbb6995fd59d0066ccbd1e7e593961a852bdeb401b910dae6f0f68925"
+  },
+  "ulrikthygepedersen/diamonds": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Diamonds\", \"match\": [\"OpenML-full-catalog\", \"42225\", \"diamonds\"]}"
+  },
+  "nisargpatel344/student-course-completion-prediction-dataset": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares 100,000 course records, above 50,000.",
+    "metadata_sha256": "4b1e44d8656d21bbd9ffd93322adc0d9fdf1db79da2518d31114f963ea689255"
+  },
+  "umerfarooq09/skill-based-task-assignment": {
+    "status": "excluded_declared_target",
+    "reason": "Task/skill resource matching is not a uniquely declared scalar classification task.",
+    "metadata_sha256": "724577b676c162b38acbbb09998ce2b9a76bad940889a7bda91883a4e6cd2d86"
+  },
+  "girishvutukuri/hepatitis": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Hepatitis\", \"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"hepatitis\"]}"
+  },
+  "muhammadshahidazeem/customer-conversion-dataset-for-stuffmart-com": {
+    "status": "eligible_for_validation",
+    "target": "Conversion (Target)",
+    "target_evidence": "Conversion (Target): ",
+    "origin_review": "Source explicitly labels Conversion(Target); the parenthetical annotation is present in the actual CSV header and is retained; synthetic Stuffmart generation declared.",
+    "family": "Customer Conversion Dataset for stuffmart.com",
+    "metadata_sha256": "3433cb6d40b53ac31a2deab096e8a293de2424a9403a6f45df4662c9aaca0fcb"
+  },
+  "gustavomodelli/waitlist-kidney-brazil": {
+    "status": "excluded_declared_target",
+    "reason": "Kidney waiting-time/transplant event alternatives; no uniquely declared named classification target.",
+    "metadata_sha256": "7cd47237da4b1373e0ab5cf5213d0b137372c72ca9ec266866bb53d0e147d7a8"
+  },
+  "ikjotsingh221/machine-failure-cleaned": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://www.kaggle.com/datasets/dineshmanikanta/machine-failure-predictions/data\", \"evidence\": {\"alias\": \"data\", \"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"data\"]}}"
+  },
+  "h2020simargl/simargl2022": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "RoEduNet-SIMARGL network intrusion known parent/version; disjunction from established intrusion bases unresolved.",
+    "metadata_sha256": "ba74c883619cbaae054c6f7835c037a689f6c1ddd4ace711f2866777750a4b1c"
+  },
+  "dhruvb2028/darwin": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46170\", \"patient\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "asimgulkhan/covid19-vaccine-tweets": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "fe468a804adff551653403a42a420b9b24516b3a5fd74d8f711cda7215d9c1bd"
+  },
+  "msarmi9/walch-apple-watch-sleep-dataset": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://physionet.org/content/sleep-accel/1.0.0/\", \"evidence\": {\"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"camel-1.0\"], \"rule\": \"multi-token source-name containment\"}}"
+  },
+  "laavanya/human-stress-detection-in-and-through-sleep": {
+    "status": "eligible_for_validation",
+    "target": "sl",
+    "target_evidence": "Stress Levels (0- low/normal, 1 \u2013 medium low, 2- medium, 3-medium high, 4 -high) that has been generated from Literature Review. (No human subjects were considered)",
+    "origin_review": "SaYoPillow source describes eight sensor/sleep measurements followed by Stress Levels; public CSV abbreviates Stress Levels as sl, after matching all eight source feature concepts. No alternative target or record cleaning; pre-model header mapping.",
+    "family": "SaYoPillow",
+    "metadata_sha256": "12ee9cd329e73a022550b7dd250bd3bd8875dc3ba028b2a9fb4e69421fcede98"
+  },
+  "oossiiris/machinehack-ml-merchandise-popularity-prediction": {
+    "status": "eligible_for_validation",
+    "target": "popularity",
+    "target_evidence": "popularity - Class of popularity **(Target Column)**",
+    "origin_review": "Source explicitly names MachineHack Merchandise Popularity Prediction challenge; no source catalog match; unique labeled train table declared.",
+    "family": "MachineHack ML - Merchandise Popularity Prediction",
+    "metadata_sha256": "2c7313320634df67d7f3c0708e79f9235b93bc97b1ce49c528a98985055eee88"
+  },
+  "sashankgarg23/crop-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46019\", \"crop.data\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "ravi20076/belka2024ancillary": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "BELKA competition ancillary/interim files; no new original source family certified.",
+    "metadata_sha256": "3f65ea953f3253765d6bad00a00a54cefac5abd06d0fb47463662cc82da773f2"
+  },
+  "abbas829/lone-dataset": {
+    "status": "eligible_for_validation",
+    "target": "default",
+    "target_evidence": "**`default`**: Target binary variable indicator (1 = Defaulted, 0 = Paid back successfully).",
+    "origin_review": "Source explicitly declares synthetic1,000-individual financial dataset with6 columns; no observed credit parent declared.",
+    "family": "Lone dataset",
+    "metadata_sha256": "d3561a67ff6a35958ca939f6b143bdf3f7cca4f370eeabc8fcf54afedf38ce95"
+  },
+  "hamzaghanmi/expresso-churn-prediction-challenge": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Source explicitly Zindi Expresso Churn parent, no certification against common telecom churn benchmark bases.",
+    "metadata_sha256": "eae8d2445ec5e2326f5ae6f301e8a72c2b220379829278ddd506ebb11bea631c"
+  },
+  "vinayjose/glioma-grading-clinical-and-mutation-features": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Glioma Grading Clinical and Mutation Features\", \"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"glioma_grading_clinical_and_mutation_features\"]}"
+  },
+  "sushantshetty/shabd-complete-hindi-characters-dataset": {
+    "status": "excluded_feature_lower_bound",
+    "reason": "Source declares1,024 pixel features, above512; also more than30 Hindi characters.",
+    "metadata_sha256": "6f3d55444221c70a62cd6324e7a96ef76ae78540f2a67cbb30eb0d97f2050ae6"
+  },
+  "sairupeshl/online-shoppers-purchase-intention": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"online-shoppers-intention\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "pooriamst/occupancy-detection": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Occupancy Detection\", \"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Occupancy Detection \"]}"
+  },
+  "prateek146/loan-defaulter-classification": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Bank Indessa loan-default challenge is a common LendingClub-derived loan base; original lineage not certified new.",
+    "metadata_sha256": "9d7ec765ad9bb4f11a5551bd68ff798923bb7513934f322b2af561d494e613c4"
+  },
+  "ferrariboy4k/top5leagues": {
+    "status": "excluded_declared_target",
+    "reason": "European football pre/post-match statistics without uniquely designated source target.",
+    "metadata_sha256": "e087949597cc442f7500f5a2df4e1ace822d350355381d56de9b3d398f70535c"
+  },
+  "muhammadfaizan65/hospital-infections-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46245\", \"Hospital\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "sarveshchhetri/mental-health-symptom-dataset-one-hot-encoded": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46721\", \"Mental_Health_Dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "ezalos/lol-victory-prediction-from-champion-selection": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "League-of-Legends champion-selection/victory records; multiple existing LoL ranked-game catalog families, same-base uncertainty.",
+    "metadata_sha256": "a1832e248152b99596eca28eb11a2ce623e7fe4c0f646b53000a211f89c11c28"
+  },
+  "nuhmanpk/iphone-15-15-pro-pro-max-reviews": {
+    "status": "excluded_declared_target",
+    "reason": "YouTube iPhone review transcripts; no unique declared classification target.",
+    "metadata_sha256": "5ef740cda6eaeac94b6b00e139311da665ec8617f9be81a4edce1ece4787324c"
+  },
+  "maggieakarn/lego-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Lego set metadata and price forecasting; no declared classification target.",
+    "metadata_sha256": "21470596fef1cee4044c8b3decdc4c2bf260aa83a9ac81aa32a0f4a203a8c0ab"
+  },
+  "rabieelkharoua/masala-insights-cooking-comments-classification": {
+    "status": "excluded_ambiguous_source_table",
+    "reason": "Two manually labeled cooking-comment datasets plus preprocessed versions; no unique raw target table designated.",
+    "metadata_sha256": "d8ac5ff8935f905038a03304e8a238807aae9b8353e1f2f696f3441a08a5d4d7"
+  },
+  "singhnproud77/hr-attrition-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46572\", \"database\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "thefrenchguy/2-google-topics-for-top-1-million-domain-names": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly top one million domains, above50,000.",
+    "metadata_sha256": "bd366913a5eca2528cfd9aa4269ea39116a3b70a642eaa7a5fa8ae6376a73d8c"
+  },
+  "andrewabeles/dnd-stats": {
+    "status": "eligible_for_validation",
+    "target": "race",
+    "target_evidence": "predict character race) or to just practice data analysis.",
+    "origin_review": "Author describes original10,000 D&D characters from4d6 rolls, uniform playable races and modifiers; GitHub generator cited; no observed base reused.",
+    "family": "DnD Stats",
+    "metadata_sha256": "733601ff8aad6028d0c74190ab3180441b021a300e0a538465aaad41d72563f2"
+  },
+  "promac1234/advertisement-sale-prediction": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "609d20e73e3e6ac72d06b437cb3f1789571ce221e0ca6b1b3b3e5dd041ca8d99"
+  },
+  "tatheerabbas/car-price-classification-ready-data": {
+    "status": "eligible_for_validation",
+    "target": "Price_Category",
+    "target_evidence": "`Price_Category` - **Classification Target** (Budget, Mid-Range, Premium, Luxury)",
+    "origin_review": "Author Tatheer Abbas declares 300 original synthetic cars (February 2026); distinct from UCI Car Evaluation/Automobile.",
+    "family": "car-price-classification-ready-data",
+    "metadata_sha256": "005eceae1400b0c564c24cf2fac17dc6dc7f34b9fd8cf41f3bdb3c2e6d635b28"
+  },
+  "dellalkhaled/gold-reserves-list-of-countries": {
+    "status": "excluded_declared_target",
+    "reason": "Country gold-reserve continuous amounts, no declared classification target.",
+    "metadata_sha256": "4e14ed994f6fdae91c49d2e39005c9cb7d9d5a3ef131f1128e915adb6c4a85d0"
+  },
+  "socialanimal/social-animal-10k-articles-with-text-and-nlp-data": {
+    "status": "excluded_declared_target",
+    "reason": "Social Animal article/text/NLP metrics, no unique classification target declared.",
+    "metadata_sha256": "0e71065d54859c916256717c93328c8de9ce20d252d799e1f7b7043b7cf1cb3b"
+  },
+  "jayeshrmohanani/dataset-for-microplastic-consumption-in-food-items": {
+    "status": "excluded_declared_target",
+    "reason": "Microplastic consumption estimates, no unique classification target declared.",
+    "metadata_sha256": "d22f877fe47d79fde09f7344aed27107394e6c182a593480710c24f77729d11f"
+  },
+  "mikeschmidtavemac/emailblog": {
+    "status": "excluded_declared_target",
+    "reason": "Source explicitly generates multiple sentiment/alignment labels; no single target; Enron parent already common.",
+    "metadata_sha256": "8aba50a01ab77bc5ae4355d50cd589d8bf28d1e0fe65f1f42cd7d99fde5ed01d"
+  },
+  "rinichristy/2022-fuel-consumption-ratings": {
+    "status": "excluded_declared_target",
+    "reason": "Canadian fuel-consumption continuous ratings; no declared classification target.",
+    "metadata_sha256": "830f29595808dd0bde00aac17e44e407751b90760a05aa1fa64c28e57362286a"
+  },
+  "iremnurtokuroglu/credit-score-classification-cleaned-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Credit_Score\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "shes1r/fifa-world-cup-2026-winner-prediction": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Historical WorldCup1982-2022 team outcomes with 2026 prediction rows; relation to existing historical FIFA/WorldCup families unresolved.",
+    "metadata_sha256": "3a36d86373a43dd546dd97569b2ec3c78c92798be9d6cf9d6d2481530635a35f"
+  },
+  "fridrichmrtn/e-commerce-churn-dataset-retail-rocket": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly Retail Rocket parent, same e-commerce churn origin as candidate200; no new independent base.",
+    "metadata_sha256": "f1cfcd3e1596b0f2ae44a68ed3033fcdcc694989ab59faa8a745bf027c85fac6"
+  },
+  "pankajbhowmik/bank-marketing-campaign-subscriptions": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"bank-marketing_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "livtoft/sirna-activity": {
+    "status": "excluded_declared_target",
+    "reason": "siRNA activity/potency is continuous; no source-declared classes without thresholding.",
+    "metadata_sha256": "4f177c2be8ee95648a7f92e70b07f7ae48bb9208c701f2aa76d73a921d0b7b47"
+  },
+  "milapgohil/flavorsense-tastes-predicted-by-life-and-climate": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"40918\", \"Climate\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "viv6369/mls-season-2021-players-stats-and-their-salaries": {
+    "status": "excluded_declared_target",
+    "reason": "MLS player statistics/salaries, no classification target declared.",
+    "metadata_sha256": "d4ca2ebe1bc29c3ce62ce457839da145153914c3cfaa6288a05b0c0ee598ae47"
+  },
+  "aryashah2k/nfuqnidsv2-network-intrusion-detection-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "NF-UQ-NIDS combines established intrusion bases; cannot certify disjunction from full OpenML/UCI catalogs.",
+    "metadata_sha256": "159d1cecc77ada6b27d9a3cf58260f34f51826ddb50a4493a5e01e3b9ff6e5c2"
+  },
+  "rabieelkharoua/predict-pet-adoption-status-dataset": {
+    "status": "eligible_for_validation",
+    "target": "AdoptionLikelihood",
+    "target_evidence": "**AdoptionLikelihood:** Likelihood of the pet being adopted (0 - Unlikely, 1 - Likely).",
+    "origin_review": "Original synthetic pet-adoption data explicitly declared by author.",
+    "family": "\ud83d\udc3e Predict Pet Adoption Status Dataset \ud83d\udc3e",
+    "metadata_sha256": "d0ac2f7aa4850bf0010fabd32eb7766b41d1ad8a28c64c524dbce77fddb2ee17"
+  },
+  "datazone25/bsl-british-sign-language-numbers-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "British sign-language numbers/MediaPipe concept without declared target column/schema.",
+    "metadata_sha256": "83d4199af096d8249e588d3eeb8c8816c111365b4d9f3b144461bc6114c6c4e0"
+  },
+  "atharvapatil1905/global-gaming-companies-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Gaming company descriptive metadata, no unique target declared.",
+    "metadata_sha256": "e5216780e7d0373b46df77db1fcdda34b0ccbe43e26ddf08d997d40158326f03"
+  },
+  "hemachandiranmurugan/house-price-india-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Source explicitly house-price regression; no classification target.",
+    "metadata_sha256": "ba58b92bb6ac524a0455e14406c2f9774cadd2fdfd69c811ee54eedafd86af8f"
+  },
+  "hemajitpatel/superheros-abilities-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Superhero source offers alignment classification as an example plus score regression, without unique named target/schema.",
+    "metadata_sha256": "5a6eb5ca8d7a14f60f8c6c57eaf0952062ff6bccbed386526b7d17ae7368cf3f"
+  },
+  "nisargpatel344/bank-marketing-dataset-for-term-deposit-prediction": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"bank-marketing_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "akki2703/ecg-of-cardiac-ailments-dataset": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://www.shin-norinco.com/article/autonomous-detection-of-cardia-ailments-diagnosed-by-electrocardiogram-using-various-supervised-machine-learning-algorithms\", \"evidence\": {\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"e-learning\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "yashaswitasingh/money-spent": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "15d4e76fe4f56640315e4c860da73e6dd8877afc75bd526c89ffd03ca283beaf"
+  },
+  "razanihababdellatif/diabetes-hospital-readmission-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"diabetes\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "wangboluo/human-activity-recognition-trondheim-harth": {
+    "status": "excluded_declared_repository_origin",
+    "reason": "{\"rule\": \"description declares UCI/OpenML provenance\"}"
+  },
+  "die9origephit/human-activity-recognition": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Human Activity Recognition Using Smartphones\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "fouadtrad2/evasive-pdf-samples": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares500,000 evasive PDFs, above50,000.",
+    "metadata_sha256": "9e274f0c291fdaf19b45ac2d42f140e5791e1f3c30404cc253f51622ba17641f"
+  },
+  "ravi20076/playgrounds4e03ancillary": {
+    "status": "excluded_declared_repository_origin",
+    "reason": "{\"rule\": \"description declares UCI/OpenML provenance\"}"
+  },
+  "serkantysz/490k-spotify-song-audio-embeddings-and-metadata": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Meta-data\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "sarveshchhetri/e-commerce-return-abuse-detection-dataset": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares60,000 return transactions, above50,000.",
+    "metadata_sha256": "7bae798ef0929833fa40f51db62c8ba1a38d49a8da597ecc7918033a4c151cd6"
+  },
+  "automlbenchmark/ip-address-automl-benchmark-v1": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "e762d1a884721dc52839a824b27f708fb882d018b7eff95bda230ee6c899cc16"
+  },
+  "razanihababdellatif/coffee-quality-and-pricing-benchmark": {
+    "status": "eligible_for_validation",
+    "target": "quality_grade",
+    "target_evidence": "**`quality_grade`** **(Classification):** Categorical grading tiers (e.g., Commercial, Good, Very Good, Excellent, Exceptional).",
+    "origin_review": "Author explicitly describes original Synthetic Coffee Value generator; uniquely designated classification outcome; other targets are regression.",
+    "family": "Coffee Quality & Pricing Benchmark",
+    "metadata_sha256": "161616a42444717864eb1bbebfadbb0746e769a31dc0a1bc6dd35751d4490200"
+  },
+  "girishvutukuri/weightheight": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "2e04b410d0c34e5c89372df716895b2fdaaae5c8ee10f4e8e4b68fd8d6bc2f25"
+  },
+  "sumeakash/ai-impact-on-job-sector": {
+    "status": "eligible_for_validation",
+    "target": "Job_Status",
+    "target_evidence": "Job_Status \u2192 This is what you want to predict in ML models (e.g., classify whether a job is Replaced,             Modified, or Unchanged).                                                                                                                                          ",
+    "origin_review": "Author declares 2,000 synthetic AI employment records; no declared reused base.",
+    "family": "AI Impact on Job Sector",
+    "metadata_sha256": "890391c563bf944f83eaa7f55e79fb0903fa366a239fbac4a433d1b093054bdc"
+  },
+  "abbas829/bankruptcy": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"qualitative-bankruptcy\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "raminhuseyn/dataset-from-tiktok": {
+    "status": "eligible_for_validation",
+    "target": "claim_status",
+    "target_evidence": "whether a video contains a claim or offers an opinion. A successful prediction model will help reduce the backlog of user reports and enable more efficient prioritization.",
+    "origin_review": "Source explicitly states TikTok claim/opinion task for pedagogical data; raw texts/IDs remain and must pass encoding limit.",
+    "family": "Dataset from TikTok",
+    "metadata_sha256": "45326571676e61723f159aff83cd3e9e004abbc441f3026b5fce7e11bf7f1657"
+  },
+  "bcccdatasets/bccc-cpacket-cloud-ddos-2024": {
+    "status": "excluded_declared_target",
+    "reason": "CloudDDoS source describes26 labels but no uniquely declared named target/schema; no raw source table selected.",
+    "metadata_sha256": "dc1b1e9aed221cc3378b9cba43fbbaa975ca82be4f8545076be988c500a52af7"
+  },
+  "rabieelkharoua/male-female-gait-classification-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Gait Classification\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "vittoriorossi/balanced-flight-cancellation-and-delay-2019-2023": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://www.kaggle.com/datasets/patrickzel/flight-delay-and-cancellation-dataset-2019-2023\", \"evidence\": {\"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"dataSet_2\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "teejmahal20/airline-passenger-satisfaction": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://www.kaggle.com/johndddddd/customer-satisfaction\", \"evidence\": {\"match\": [\"data/openml_confirmatory_manifest_30_canonical.csv\", \"dataset_name\", \"SantanderCustomerSatisfaction\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "varunraskar/is-hcp": {
+    "status": "excluded_declared_target",
+    "reason": "HCP ad-bid property dictionary identifies indicator fields but does not uniquely designate a prediction target.",
+    "metadata_sha256": "9e7192a7f4ab42b74d8a511f2a46f71fd0758a720099911231f80cf89f5b35c7"
+  },
+  "dagloxkankwanda/startup-failures": {
+    "status": "excluded_declared_target",
+    "reason": "Failure causes are multi-flag taxonomy/sector variants of startup postmortems; no unique declared target.",
+    "metadata_sha256": "e11bb9d61c58b7e444631bc3b4265a5e58cac6fa9e48a66cb91d4c8d4f04741e"
+  },
+  "ahmeduzaki/earthquake-alert-prediction-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Earthquake alert source leaves raw catalog unspecified; existing OpenML Earthquakes bases make disjunction uncertain.",
+    "metadata_sha256": "35dc5694a42c7e524a7d6b9fc89f370d9815b1b6fcc8a5066cea69456d8ce586"
+  },
+  "mohitduklan/namegender": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Name/gender data scraped from unspecified various places; relation to existing name-gender bases cannot be excluded.",
+    "metadata_sha256": "da0f016b51a6d8e9b078635841941ad23d5bb6b4711f79aa78f0bbe6dbf3d397"
+  },
+  "itzzomkar/wearable-tech-sleep-quality-and-stress": {
+    "status": "eligible_for_validation",
+    "target": "Daily_Stress_Level",
+    "target_evidence": "Daily_Stress_Level (Multi-class classification: Low, Medium, High).",
+    "origin_review": "Author explicitly describes synthetic10,000 wearable daily-habit/physiology records; sleep quality is regression, not alternative classification.",
+    "family": "Wearable Tech: Sleep Quality & Stress",
+    "metadata_sha256": "b66e3ebb389eda3dcc9df2c2641bff94d1f16fd6cd3d3871c94038ec4a31f752"
+  },
+  "uom190346a/ai-generated-ghibli-style-image-trends-2025": {
+    "status": "excluded_declared_target",
+    "reason": "Synthetic image engagement metrics; source lists many possible analyses but no unique target.",
+    "metadata_sha256": "b87fb05eba3d0df7ad3a875a01a67f884c6977e4aa1f30a133ae252038249bef"
+  },
+  "deependraverma13/lending-club-loan-data-analysis-deep-learning": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43729\", \"Lending-Club-Loan-Data\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "arsenycheplukov/onliner-reviews-extended-raw": {
+    "status": "excluded_declared_target",
+    "reason": "Raw Onliner composite product assessments without unique declared classification target.",
+    "metadata_sha256": "63e891f6a8ce0448fea32764b81bfae41b2c49788b583bfea62337c8f5f1752a"
+  },
+  "ravi20076/playgrounds4e02ancillary": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Playground S4E02 ancillary files, common obesity parent; no new independent family.",
+    "metadata_sha256": "d39798a4baff64ec07f55e67c1e7fb5a68bcf0b680d2c18b91b881dbc92ad1cd"
+  },
+  "kienngx/sms-spam-dataset-african-english-context": {
+    "status": "excluded_declared_target",
+    "reason": "African-English spam corpus provenance described but no unique declared target column/schema; multiple timestamps/contact metadata.",
+    "metadata_sha256": "b0729dc147a1aaaca89c4caf6d8b02ed23f0525d9dc038d89dc5f9af27b9fef5"
+  },
+  "chauhankaranraj/ceph-drive-telemetry-data": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://telemetry-public.ceph.com/devices/\", \"evidence\": {\"match\": [\"OpenML-full-catalog\", \"43351\", \"Temperature-Readings--IOT-Devices\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "bhavikjikadara/fake-news-detection": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43592\", \"Fake-News\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "gzdekzlkaya/credit-card-fraud-detection-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"creditcard\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "mafrojaakter/ad-click-data": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "7baddc74d22b6151c237d15d0171c591bfd0e7112e0c8d9635e76ce460374202"
+  },
+  "subhajournal/credit-card-fraud-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"creditcard\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "pritsheta/axis-bank": {
+    "status": "excluded_declared_target",
+    "reason": "Axis Bank future stock-price prediction is regression/time series, no classification target.",
+    "metadata_sha256": "43f1c63753abbb0dea4a4efded9e030410e89f79bfa728d63fd416283e9e43dd"
+  },
+  "ibrahimonmars/kaggle-unveiled-exploring-scraped-discourse": {
+    "status": "excluded_declared_target",
+    "reason": "Kaggle discussion scrape without unique classification target declared.",
+    "metadata_sha256": "0a7f2b709830e90b805aaa7d73f1174336c3aaf2dbb1d7cce6ed1518b658973c"
+  },
+  "kentvejrupmadsen/dataset-performance": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://github.com/HardwarePerformanceArchive/Archive\", \"evidence\": {\"match\": [\"OpenML-full-catalog\", \"43376\", \"Al_Hilal-Archive-Scores\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "kaushalnandania/credit-card-fraud-detection": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Credit Card Fraud Detection\", \"match\": [\"OpenML-full-catalog\", \"42175\", \"CreditCardFraudDetection\"]}"
+  },
+  "rabieelkharoua/air-quality-and-health-impact-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"42057\", \"airquality\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "ppb00x/credit-risk-customers": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Credit-Risk-Classification-Dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "rabieelkharoua/predict-online-course-engagement-dataset": {
+    "status": "eligible_for_validation",
+    "target": "CourseCompletion",
+    "target_evidence": "CourseCompletion (Target Variable):** Course completion status (0: Not Completed, 1: Completed)",
+    "origin_review": "Original synthetic online-course engagement data explicitly declared by author.",
+    "family": "\ud83c\udf93 Predict Online Course Engagement Dataset",
+    "metadata_sha256": "26109de0cf3bf9a56fd15e2a428066101ea802662751e67ab7654eff22057664"
+  },
+  "rabieelkharoua/predict-online-gaming-behavior-dataset": {
+    "status": "eligible_for_validation",
+    "target": "EngagementLevel",
+    "target_evidence": "**EngagementLevel**: Indicates the level of player engagement categorized as 'High', 'Medium', or 'Low'. ",
+    "origin_review": "Original synthetic online-gaming engagement data explicitly declared by author.",
+    "family": "\ud83c\udfae Predict Online Gaming Behavior Dataset",
+    "metadata_sha256": "61e95a7756acf848b19aa02f7c06b8f8b0e2631d8041ce9292e39d955e4b0de8"
+  },
+  "pritsheta/name-data-set": {
+    "status": "eligible_for_validation",
+    "target": "gender",
+    "target_evidence": "target value is 0 for females and 1 for males.",
+    "origin_review": "Author explicitly declares gender target for1,299 Indian names; no external parent declared; retain names.",
+    "family": "NAME DATA SET",
+    "metadata_sha256": "89c920ad9893a19e8a94d73b7308aeb092bb1a3c3d35d3f2dcf1cc7dac32332f"
+  },
+  "vivekumar001/fastagfrauddetection-csv": {
+    "status": "eligible_for_validation",
+    "target": "Fraud_Indicator",
+    "target_evidence": "Fraud_Indicator: (Target Variable) A binary flag: 0 for legitimate, 1 for fraudulent transaction.",
+    "origin_review": "Source explicitly names FASTag toll transactions with binary fraud outcome; example/placeholder metadata must match actual CSV without guessing.",
+    "family": "FastagFraudDetection.csv",
+    "metadata_sha256": "3cd0313174f00662ff7a0306466f114cd86989690a8c78dab218bffc9b14fb6e"
+  },
+  "undersc0re/predict-the-churn-risk-rate": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Customer Churn\", \"match\": [\"data/openml_manifest_1000_final.csv\", \"semantic_family_id\", \"customer churn\"]}"
+  },
+  "mikhailkaravaev/activity-table-short-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Activity funnel click/lead/consultation/deal types with external schema reference, no single target declared in description.",
+    "metadata_sha256": "10eb14cd27bcf0ee1faca5d5f9f8357acef13897d9d3ac9640b7d73437af61df"
+  },
+  "dshassan/loan-dataset": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"loan_dataset\", \"match\": [\"OpenML-full-catalog\", \"46499\", \"Loan_data_set\"]}"
+  },
+  "priyamkumarupadhyay/billboard-year-end-hot-100-singles": {
+    "status": "excluded_declared_target",
+    "reason": "Billboard singer/year rankings, no classification target declared.",
+    "metadata_sha256": "7115adbdb274231989d886acb2fb95d46046e68ca5a35b5ac57af702324d07c1"
+  },
+  "arpit3043/ten-ads-optimization": {
+    "status": "excluded_declared_target",
+    "reason": "Ten-ad reinforcement-learning optimization matrix, no unique supervised target declared.",
+    "metadata_sha256": "97af0a39dc1092bd686fb31ef9b276592018d6c6213eaf1c1b117a320513389c"
+  },
+  "rabieelkharoua/consumer-electronics-sales-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46830\", \"sales_data\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "longtng/bank-marketing-data-set": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \" Bank Marketing Data Set\", \"match\": [\"OpenML-full-catalog\", \"43718\", \"Bank-Marketing-Dataset\"]}"
+  },
+  "abdelazizsami/predictive-maintenance-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"AI4I 2020 Predictive Maintenance Dataset\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "mcfly1/ssbu-fighter-and-mirror-match-data": {
+    "status": "excluded_declared_target",
+    "reason": "Smash fighter stats/mirror-match results offer multiple tasks without unique designated target.",
+    "metadata_sha256": "f7eec9a9aba8ed34aeb7ad2fec2091832d4c676b31642d1afbf2bdaee2c1623b"
+  },
+  "sagnik1511/car-insurance-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"45064\", \"Insurance\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "ashishbadal18/32000-songs-ragas-mental-health-classification": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46721\", \"Mental_Health_Dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "nawfeelrahman1124444/the-ultimate-fifa-world-cup-dataset-1930-to-2026": {
+    "status": "excluded_declared_target",
+    "reason": "Football historical/prediction tables; no unique declared labeled target/table for 2026.",
+    "metadata_sha256": "5586ca7becf8c3e9210af2cd43ad86fa10878850049c1b98285a96f395c183ad"
+  },
+  "ulkutuncerkucuktas/turkey-earthquake-relief-tweets-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Tweet classes are conceptually described but no declared target column/schema; no guessing from CSV cardinality.",
+    "metadata_sha256": "079a77a994a8013bbf0ff704a9ce40faf02315bdfd70b7889209aac9414c8029"
+  },
+  "datamunge/intrusion-detection-as-an-image-classifier": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "996f7b98fb5de53242e15a8e224dd489a1d29115351f602a459391c33927a4a3"
+  },
+  "ulrikthygepedersen/star-wars-characters": {
+    "status": "eligible_for_validation",
+    "target": "homeworld",
+    "target_evidence": "predict a characters homeworld based on their attributes?**",
+    "origin_review": "Star Wars characters; validator must check row/class/encoding bounds without discarding text columns.",
+    "family": "Star Wars Characters",
+    "metadata_sha256": "d08c553235fcc4c9034cbda622e2807ea329f81a0c42fce928745ff86c49199d"
+  },
+  "deeplumiere/load-pred-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46430\", \"LT-Vehicle-Loan-Default-Prediction\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "surendra365/recruitement-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Job/applicant best-match label OR score, mixed synthetic/public parent unspecified; no unique classification target.",
+    "metadata_sha256": "7f5c009e9ef233f3c4d99ce96d1057fe5ad66e8f6c09834757738ca944e91630"
+  },
+  "neelagiriaditya/ufc-datasets-1994-2025": {
+    "status": "excluded_declared_target",
+    "reason": "Relational UFC fight/fighter/round records; no source-designated unique target.",
+    "metadata_sha256": "b67146ccaa0ddfdf62f4d394d18d125a58028afd80f294641b1dd720dbd19059"
+  },
+  "letslive/alpha-thalassemia-dataset": {
+    "status": "excluded_ambiguous_source_table",
+    "reason": "Source explicitly gives two phenotype tasks/carrier tables; no one unique target definition/table.",
+    "metadata_sha256": "ad19ea6205d8bc79921d00d830b8ff91319cd3a41988eb7ea763096a2830095b"
+  },
+  "rabieelkharoua/predict-customer-purchase-behavior-dataset": {
+    "status": "eligible_for_validation",
+    "target": "PurchaseStatus",
+    "target_evidence": "PurchaseStatus (Target Variable):** Likelihood of the customer making a purchase (0: No, 1: Yes)",
+    "origin_review": "Original synthetic customer-purchase data explicitly declared by author.",
+    "family": "\ud83d\udecd\ufe0f Predict Customer Purchase Behavior Dataset",
+    "metadata_sha256": "27896c039029a2a4835e374e19e9551f0b3b18c20ab0901b27ddcc197907a22c"
+  },
+  "noahjanes/canadian-cheese-directory": {
+    "status": "excluded_declared_target",
+    "reason": "Canadian cheese directory, no unique classification target declared.",
+    "metadata_sha256": "38ec4530daad1b8306c6b68d0601755fcdee4a5f61d97f7de3610b7c1a4df103"
+  },
+  "rabieelkharoua/fictional-character-battle-outcome-prediction": {
+    "status": "eligible_for_validation",
+    "target": "Battle Outcome",
+    "target_evidence": "Battle Outcome (Target Variable)**:",
+    "origin_review": "Author describes simulated individual fictional characters with shuffled abilities, evaluated against average opponent; no reused observational base declared.",
+    "family": "\ud83e\uddb8 Fictional Character Battle Outcome Prediction",
+    "metadata_sha256": "8d7c17e47d9bc65a202a33cbe2c4ea4adb5369f19bd59d09c5353cdaab50d7b9"
+  },
+  "vishushekhar/pokemonunitedataset": {
+    "status": "excluded_declared_target",
+    "reason": "Pokemon Unite descriptive game attributes, no unique classification target declared.",
+    "metadata_sha256": "50031d417e537e7e2252c36b6fcf0543dfb27a58ebb508e2b2cf3b3df903e1c4"
+  },
+  "rajatrc1705/youtube-videos-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"41492\", \"youtube\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "chanchalsh05/student-placement-preparation-dataset": {
+    "status": "eligible_for_validation",
+    "target": "Placement_Status",
+    "target_evidence": "target variable indicates whether a student was placed or not placed.",
+    "origin_review": "Author explicitly declares synthetic student preparation/placement data; no observed parent declared; source concept must map uniquely to CSV column.",
+    "family": "Student Placement Preparation Dataset",
+    "metadata_sha256": "316c06e654c2351b743687380075ff4298e9f38426838b0659d1ce5e1dce3d90"
+  },
+  "nilesh2042/nyc-green-taxi-tripdata-jan-2026-to-may-2026": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"44986\", \"nyc_taxi_green\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "swish9/synthetic-indian-automobile-crash-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Automobile\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "rockyt0/company-employee-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Employee\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "boss0ayush/salary-survey-data": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"http://opendatacommons.org/licenses/dbcl/1.0/\", \"evidence\": {\"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"camel-1.0\"], \"rule\": \"multi-token source-name containment\"}}"
+  },
+  "alessandrodaldossi/dummysub": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Dummy public-leaderboard submission for Playground S6E7; not a new independent dataset.",
+    "metadata_sha256": "64c34b15251e058932c9072ab4f8a534a913b2374c9acf5e48c0f7ec37657b75"
+  },
+  "prasad22/economic-census-data": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46096\", \"Economic_Census_Delhi\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "fatihb/coffee-quality-data-cqi": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://github.com/jldbc/coffee-quality-database\", \"evidence\": {\"match\": [\"OpenML-full-catalog\", \"46572\", \"database\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "prasertk/forbes-worlds-billionaires-list-2022": {
+    "status": "excluded_origin_family",
+    "reason": "{\"url\": \"https://www.pexels.com/photo/100-us-dollar-banknotes-3483098/\", \"evidence\": {\"match\": [\"OpenML-full-catalog\", \"46208\", \"Banknote\"], \"rule\": \"compact-name containment >=7\"}}"
+  },
+  "rupakroy/ethereum-fraud-detection": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46357\", \"Fraud_Detection_Dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "ramyapintchy/personal-finance-data": {
+    "status": "excluded_declared_target",
+    "reason": "Mock personal-finance transactions, no unique classification target declared.",
+    "metadata_sha256": "185d56655d4add7ebcffd1c5619e124a3ba9fc9532c68f9111a201ebcbe751a4"
+  },
+  "nilanjansamanta1210/airline-passenger-satisfaction": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Airline passenger satisfaction survey has known original airline-satisfaction parent already represented; mirror uncertainty.",
+    "metadata_sha256": "df0b83307633db2864de4a1d663d6f26bda8dc0a746053b559cbfcf40977ddd4"
+  },
+  "ozgurdogan646/blog-or-not-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "Blog-or-not URL-feature article parent not named precisely; overlap with existing web/blog/spam bases unresolved.",
+    "metadata_sha256": "6f333e70a4422db4e30fedf22c15bd871dbbf12e3dec94d301f50fe006280f3c"
+  },
+  "maqdadali/credit-card-fraud-detection": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"creditcard\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "samuelcortinhas/tps-feb-22-train-set-with-measurement-errors": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly TPS Feb2022 bacterial-classification measurement errors; existing Gas/clinical bacteria parent lineage unresolved.",
+    "metadata_sha256": "43635ab722bffd41fd703a8152b4897ef49785d749f1ee288210e72fce5448cf"
+  },
+  "rabieelkharoua/predicting-hiring-decisions-in-recruitment-data": {
+    "status": "eligible_for_validation",
+    "target": "HiringDecision",
+    "target_evidence": "**Target Variable**: HiringDecision (Binary)",
+    "origin_review": "Original synthetic recruitment decisions explicitly declared by author.",
+    "family": "\ud83d\udcbc Predicting Hiring Decisions in Recruitment Data",
+    "metadata_sha256": "4473f2455a9c2ad35d0e1cb1e0acdee4d8fdbe774bc7eaf9b845426794182ceb"
+  },
+  "waddahali/fraud-detection": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Fraud-Detection-Updated\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "jorgemora/classification-of-human-poses-keypoints": {
+    "status": "eligible_for_validation",
+    "target": "last column",
+    "target_evidence": "In the last column are the labels, which can be three:",
+    "origin_review": "Original multimodal robotic-assistant OpenPose project; source explicitly designates first16 keypoints and last target among17 columns.",
+    "family": "Classification of human poses - keypoints",
+    "metadata_sha256": "e1e297670186d92a8995078a12089864e7e8400dae53277f735bbb432b84fc91",
+    "target_position": -1,
+    "source_column_count": 17,
+    "declared_class_values": [
+      "Stop",
+      "Question",
+      "None"
+    ]
+  },
+  "mhmdkardosha/premier-league-matches": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Premier League Matches\", \"match\": [\"OpenML-full-catalog\", \"42197\", \"Premier_League_matches\"]}"
+  },
+  "gamersclub/brazilian-csgo-plataform-dataset-by-gamers-club": {
+    "status": "excluded_declared_target",
+    "reason": "Relational CS:GO tables and player performance statistics; no source-designated unique target.",
+    "metadata_sha256": "0049cba3a3cb6b892b42fed38127b79cccba64c1ed0e3356aeb941fb6910eb4f"
+  },
+  "niloy333/kuhar": {
+    "status": "excluded_ambiguous_source_table",
+    "reason": "KU-HAR raw/per-sample/interpolated/subsample variants; no unique raw full table, transformation/concatenation not permitted.",
+    "metadata_sha256": "b184580f32982432cda7a2377929f95c86b8ac0b7aa825538b5a53308abb9fc0"
+  },
+  "fabiochiusano/medium-articles": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"43667\", \"Medium-Articles\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "baguspurnama/weather-dataset-2009-2018": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_12_options_initial.csv\", \"dataset_name\", \"dataSet_2\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "mustafakeser4/classification-dataset-10-classes": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "d228d04f7eb3231b1d5b9aa3860ddb491112168ddc4546fa9d77e2bcb425822b"
+  },
+  "calathea22/benchmarking-dataset-for-fair-ml": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly derives from UCI Student Alcohol Consumption/Performance; grade predictions do not create new family.",
+    "metadata_sha256": "05d882797526ea49410c703107e800f12a92686f53516759eb56b1f03c2b6e6d"
+  },
+  "hosseinmousavi/phd-measures": {
+    "status": "excluded_declared_target",
+    "reason": "PhD expert-system acceptance AND scientific-level tasks without unique target designated.",
+    "metadata_sha256": "f9c3cefcd6f07407f5a36d4bc9823a328264362cb9d5f0e9017ffbdb673b4d1c"
+  },
+  "kacperjarosik1/polish-sign-language-google-landmarks-csv-data": {
+    "status": "excluded_classes",
+    "reason": "Source explicitly enumerates more than30 Polish alphabet/digraph target signs; no class selection.",
+    "metadata_sha256": "ce9ab2b3dc0f7aa5e1ff11a9cd902770e0af16d6a097a57b993c431e1f08e244"
+  },
+  "varunnagpalspyz/precipitation-prediction-in-la": {
+    "status": "excluded_declared_target",
+    "reason": "College precipitation DIY project description has no unique named categorical target.",
+    "metadata_sha256": "5861f14054d9ddda4894d2c666c09165090445258306cf360d5fa8022fc661b6"
+  },
+  "girishvutukuri/diabetes-binary-classification": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"diabetes\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "sgpjesus/bank-account-fraud-dataset-neurips-2022": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "BAF six CTGAN variants from original bank data; no unique base/variant certification; possible catalog overlap.",
+    "metadata_sha256": "38819352472d8540d94ee6bbc80f4029a85bf867e89e30fed55a532ebf874b25"
+  },
+  "sahideseker/spam-mail-classifier-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Synthetic spam/ham text concept without uniquely declared target column/schema; no NLP transformation allowed.",
+    "metadata_sha256": "c3ffb0ce94b64666f7962282db785d65217bcdb516ac873f535de3076a285927"
+  },
+  "rabieelkharoua/patient-ratings-identifying-best-drugs": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46170\", \"patient\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "rxnach/student-stress-factors-a-comprehensive-analysis": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"41199\", \"Students\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "shankar3234/ping-pong-game-playing-dataset": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares411,059 ping-pong rows, above50,000.",
+    "metadata_sha256": "47cd405cfc8e84acb75f49d079380d662107c7031f71eaaff41683a5937e9228"
+  },
+  "alitaqishah/ckd-nhanes-2021-2023-staged-kidney-disease": {
+    "status": "excluded_declared_repository_origin",
+    "reason": "{\"rule\": \"description declares UCI/OpenML provenance\"}"
+  },
+  "cherrycalosa/telco-leveraging": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "4927684fc466d03999eefdd180a968e1b7ae409cc491a9120d7d9e472418c1dd"
+  },
+  "ban7002/fraud-challenge-data": {
+    "status": "eligible_for_validation",
+    "target": "EVENT_LABEL",
+    "target_evidence": "The target is EVENT_LABEL 1 = fraud 0 = not fraud ",
+    "origin_review": "Source explicitly declares fraud challenge label; original organization not stated; no source/name overlap detected; all high-cardinality features retained.",
+    "family": "Fraud Challenge Data",
+    "metadata_sha256": "43375544a9c7db6436409971bd82c1bca60c0487a662b7dce922211bbe71fa45"
+  },
+  "marcpaulo/titanic-huge-dataset-1m-passengers": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"titanic\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "dhirajnirne/bank-marketing": {
+    "status": "excluded_name_or_family",
+    "reason": "{\"alias\": \"Bank Marketing\", \"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"bank-marketing_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True\"]}"
+  },
+  "jayitabhattacharyya/estimation-of-obesity-levels-uci-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Estimation_of_Obesity_Levels\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "gauravkumar2525/shark-attacks": {
+    "status": "excluded_declared_target",
+    "reason": "Shark-attack type/circumstances/outcomes without unique source-designated target.",
+    "metadata_sha256": "783c7348f7296c05e9d13ef43ef5f06a06e384b9b1367b54085eab67446105e3"
+  },
+  "linnaeus/donacilla-cornea-shell-size-and-coloration-ua": {
+    "status": "excluded_declared_target",
+    "reason": "Shell population, pattern class and coloration are separate categorical properties; no uniquely designated target.",
+    "metadata_sha256": "f7663586e7f2c9253ed668aba944316692e28a03540a412a7eebafebc3867665"
+  },
+  "uom190346a/water-quality-and-potability": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46085\", \"Water_Quality\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "farukalam/weather-timeseries-data-in-sylhet-bangladesh": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Weather\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "dhoogla/nfunswnb15v2": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46301\", \"UNSW_NB15\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "deviduttaparida/the-loan-prediction-data-compendium": {
+    "status": "excluded_declared_origin",
+    "reason": "Source explicitly merges overlapping public loan datasets; no independent original family.",
+    "metadata_sha256": "e474a191d90f22c5411c913c44e47c80f0c29a7973b54523f571f1c2b2e7903b"
+  },
+  "seddiktrk/protein-go-annotations-taxonomy": {
+    "status": "excluded_declared_target",
+    "reason": "Protein GO mappings are multi-label/function/taxonomy alternatives, no scalar target declared.",
+    "metadata_sha256": "548f6ba74f40581cda975a0b93b715e9486f7e2b31732b3ac708643db90a07f0"
+  },
+  "aronpollner/us-fbi-nibrs-crime-data-2021-all-states": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"315\", \"us_crime\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "chiragtagadiya/genesdata": {
+    "status": "excluded_declared_target",
+    "reason": "Single-cell RNA hierarchical-structure/gene discovery task, no unique supervised target declared.",
+    "metadata_sha256": "3aa64a5a77ec6e1dbdb3784c48ff2a24728bf9fc551f220a8827e666166fdda9"
+  },
+  "codingmaster24/access-to-electricity-percentage-of-population": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"electricity_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "kunalgupta2616/hackerearth-customer-segmentation-hackathon": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_families.csv\", \"dataset_name\", \"BNG(segment)\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "rupakroy/online-payments-fraud-detection-dataset": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"46357\", \"Fraud_Detection_Dataset\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "yamaerenay/mbtitypes": {
+    "status": "excluded_declared_target",
+    "reason": "MBTI, dating topics and lists of tags are multiple possible labels; no single classification target declared.",
+    "metadata_sha256": "74b08da9af2f73e967eeb1aa81518409536e1d2c2c0f1c2a4210ad6666e75b65"
+  },
+  "mcfurland/10-m-beatport-tracks-spotify-audio-features": {
+    "status": "excluded_rows",
+    "reason": "Source explicitly declares over 10 million songs, above 50,000.",
+    "metadata_sha256": "17b55f73493776c9839bbce59ba28f72e65668d9fbecd4296a82ebd5a4943a4e"
+  },
+  "prakharkatiyar08/30days-folds": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "30days of ML challenge cross-validation folds; derivative of existing competition base.",
+    "metadata_sha256": "77f7370e7935421036acc6f5c3ed16a89c3349bb91c4d40e4f47ad65e9713fed"
+  },
+  "adrienriaux/steel-plate-defect-extra-dataset": {
+    "status": "excluded_declared_repository_origin",
+    "reason": "{\"rule\": \"description declares UCI/OpenML provenance\"}"
+  },
+  "galijithendranath/onion-warehouse-locations-in-bangalore": {
+    "status": "excluded_declared_target",
+    "reason": "Onion warehouse locations/coordinates; no classification target declared.",
+    "metadata_sha256": "c7015cfa686d95559f6bb7266d9a84af8e6ab436ff6002cb89c746358d92fa7a"
+  },
+  "vizdom/customer-orders": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "00dc42bc17bef7d1068f30849ac49cdd99987ec585f3d667354c768a7ac9c156"
+  },
+  "ravi20076/playgrounds4e06originaldata": {
+    "status": "excluded_declared_repository_origin",
+    "reason": "{\"rule\": \"description declares UCI/OpenML provenance\"}"
+  },
+  "alipakzad/telecom-customer-churn": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_confirmatory_manifest_30_holdout.csv\", \"dataset_name\", \"Customer_Churn_Classification\"], \"rule\": \"multi-token source-name containment\"}"
+  },
+  "satyampandey4229/iit-and-nit-colleges-admission-criteria": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"OpenML-full-catalog\", \"42121\", \"colleges\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "enrique4/activity-recognition-with-accelerometer-and-sound": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"results/holdout-external/uci_catalog.csv\", \"source\", \"Accelerometer\"], \"rule\": \"compact-name containment >=7\"}"
+  },
+  "akshayramakrishnan28/hotel-risk-classification-dataset": {
+    "status": "excluded_declared_target",
+    "reason": "Hotel-risk title contradicts mobile-app feedback description; priority score/problem domain alternatives with no unique designated target.",
+    "metadata_sha256": "6e01c29570ef98c04b2fd1c11fd98eda6b6b9aa7c3cd94727fc2b0458fbf9e26"
+  },
+  "yudhaislamisulistya/dataset-aroma-tahu-berfomalin": {
+    "status": "eligible_for_validation",
+    "target": "label",
+    "target_evidence": "label: The aroma quality of the preserved tofu, which is the target variable.",
+    "origin_review": "Author describes formalin tofu gas-sensor chemical measurements; no external parent declared and no UCI/OpenML source-name match.",
+    "family": "Dataset of Formalin Tofu Aroma",
+    "metadata_sha256": "6f132d2d13fe5bef616406ecc0ccf7344f270e8b606baec5fdd46f317e95998a"
+  },
+  "shikameow/dota-2-pro-scene-dataset": {
+    "status": "excluded_declared_origin",
+    "reason": "Dota2 professional match/win task; existing UCI/OpenML Dota2 base family, conservative mirror exclusion.",
+    "metadata_sha256": "c3c35db523547f50f96338202e04a96d91843f51c28a2d494574ab465acfe8d2"
+  },
+  "omarmuhamed/os-performance-counters-for-malware-detection": {
+    "status": "excluded_declared_target",
+    "reason": "Empty source description; no target declared.",
+    "metadata_sha256": "8a443d3fd1a4664d12d34717cb4aa4d60f549ef2b3b68eef5e660727ad14d234"
+  },
+  "yasirabdaali/kaggle-trending-datasets-august-2022": {
+    "status": "excluded_declared_target",
+    "reason": "Kaggle trending metadata properties, no classification target declared.",
+    "metadata_sha256": "3894b5ef7f7fc699fd3a9ca9ff2d415a60073f49d58292ae44177acc43686ed9"
+  },
+  "rishavraj1232/student-early-stress-detection": {
+    "status": "excluded_declared_repository_origin",
+    "reason": "{\"rule\": \"description declares UCI/OpenML provenance\"}"
+  },
+  "shafieeamir/ensemble-transformer-defect-data": {
+    "status": "excluded_feature_lower_bound",
+    "reason": "Source explicitly declares3,861 columns including3,840 model embedding features, above512 encoded attributes.",
+    "metadata_sha256": "ade1c1bab423d30de44da04dfa527faf6810f77c19f6b40975d47a808b7ba7b2"
+  },
+  "rameshmehta/credit-risk-analysis": {
+    "status": "excluded_uncertain_same_base",
+    "reason": "{\"match\": [\"data/openml_manifest_1000_final.csv\", \"dataset_name\", \"Credit-Risk-Classification-Dataset\"], \"rule\": \"multi-token source-name containment\"}"
+  }
+}

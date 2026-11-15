@@ -1,0 +1,439 @@
+[
+  {
+    "path": "data/openml_confirmatory_manifest_12_options_initial.csv",
+    "sha256": "c469dbe53cbdb322ff3c11931b5cadf267a097684a3b5545eadcd3fa5196a7a5",
+    "rows": 50,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json"
+    ]
+  },
+  {
+    "path": "data/openml_confirmatory_manifest_30_canonical.csv",
+    "sha256": "076500f3d83bcb2ba20ec2194466ad101e81af907a44178ab5f0c73cf38a2af3",
+    "rows": 30,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json"
+    ]
+  },
+  {
+    "path": "data/openml_confirmatory_manifest_30_families.csv",
+    "sha256": "15fd0a1bd9d4a7df770ff4e80e553d3ee6a4c3740488d59b417ab56194ad6d25",
+    "rows": 30,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json"
+    ]
+  },
+  {
+    "path": "data/openml_confirmatory_manifest_30_holdout.csv",
+    "sha256": "e8c2da65fc5257c7fe281b73ef52ac6cbcc4ee34f24392edbeff59c15d9f9e1c",
+    "rows": 30,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json"
+    ]
+  },
+  {
+    "path": "data/openml_confirmatory_manifest_40_extension.csv",
+    "sha256": "d0ae88c94bb9b1ec3ab6d1538f1c2d84c706ef1c1305dee4872185628a813c13",
+    "rows": 12,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json"
+    ]
+  },
+  {
+    "path": "data/openml_confirmatory_manifest_40_extension_audited.csv",
+    "sha256": "60983213d0a7b19f4a1ecd8bfa4b24a554760e6efe30ee63e9ff6a25b164bcea",
+    "rows": 11,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json"
+    ]
+  },
+  {
+    "path": "data/openml_confirmatory_manifest_41_combined.csv",
+    "sha256": "e6b65549e4197c16a6bfe60a39c588308947cc289da703819134ecf8a02ee846",
+    "rows": 41,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json"
+    ]
+  },
+  {
+    "path": "data/openml_holdout_30_sparse_addendum.csv",
+    "sha256": "13a3594e1b61c57a18aefc219940956dbb596ab4477cb6c4e63f2396e770a921",
+    "rows": 2,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_1000_final.csv",
+    "sha256": "dca7a93486f1f631a1b090b2be4b47e1ee8591fa4de3d341fd9095539d866bcf",
+    "rows": 1000,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json",
+      "local_data_path",
+      "dataset_sha256",
+      "semantic_family_id"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_1000_final_pending.csv",
+    "sha256": "7a1e48984136b0b8f2b9a8c8735a9969f7dccbd65f1527ccf10bff43394002b1",
+    "rows": 222,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json",
+      "local_data_path",
+      "dataset_sha256",
+      "semantic_family_id"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_1000_unique.csv",
+    "sha256": "a812c0e6df42619db4bd88989ce051e9a71e07ac2222466145242468ebb75ab9",
+    "rows": 1000,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json",
+      "local_data_path",
+      "dataset_sha256"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_1000_validated.csv",
+    "sha256": "bd5dd1e2b7d5db35bf222585c38ab1f3d7ab483657ab917b0a81a0ca7d5e9318",
+    "rows": 1000,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json",
+      "local_data_path",
+      "dataset_sha256",
+      "semantic_family_id"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_1000_validated_pending.csv",
+    "sha256": "bc353f414712c2269c8f62a158a86e82ec1b1c56137fee419abafe0d1adbc829",
+    "rows": 242,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json",
+      "local_data_path",
+      "dataset_sha256",
+      "semantic_family_id"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_1000_validated_remaining.csv",
+    "sha256": "c52a3e2be16fd97ae2bd83e7a57b828bceb97065771fdde510590a5df5531c70",
+    "rows": 43,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json",
+      "local_data_path",
+      "dataset_sha256",
+      "semantic_family_id"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_250.csv",
+    "sha256": "c3ee4d2b52762534f195e44d41b2812d84d0a1a015d437106bef44baf979b113",
+    "rows": 250,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_500.csv",
+    "sha256": "a977c535bf19fa7d5ffa75547ddcadb6085e2dfa021b3c9f426d5a448a4e949b",
+    "rows": 500,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_500_unique.csv",
+    "sha256": "ad12fd928d60f0da76c6bc1a1dd1510546bb7bb821f4c5cf4a3ed32cc7ffc502",
+    "rows": 500,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_984_completed.csv",
+    "sha256": "297a5c79d1172fbc6ff8263065cfe8f5f73222b989208eff1b063b4ad5be77fd",
+    "rows": 984,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json",
+      "local_data_path",
+      "dataset_sha256",
+      "semantic_family_id"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_984_content_audit.csv",
+    "sha256": "10db15b7aab37280150473b93f5ede603a6fff5e213c535af67510f2f20fcf0b",
+    "rows": 984,
+    "columns": [
+      "dataset_id",
+      "dataset_name",
+      "local_data_path",
+      "sha256"
+    ]
+  },
+  {
+    "path": "data/openml_manifest_984_cutoff_10000.csv",
+    "sha256": "03e056e8a22edd5ac1eb9d14189fbd8b3d8bd51c4be1019db50769e5bf8ce450",
+    "rows": 862,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json",
+      "local_data_path",
+      "dataset_sha256",
+      "semantic_family_id"
+    ]
+  },
+  {
+    "path": "data/openml_measured_results_exclusion.csv",
+    "sha256": "17d972ecd3235fb2e68add62d57714d76803c62e649a4abc16c1c788ea614eb3",
+    "rows": 1184,
+    "columns": [
+      "dataset_id",
+      "dataset_version",
+      "dataset_name",
+      "task_id",
+      "target_name",
+      "family_id",
+      "n_instances",
+      "n_features",
+      "n_encoded_features",
+      "n_classes",
+      "n_nominal_features",
+      "selection_source",
+      "public_schema_json",
+      "local_data_path",
+      "dataset_sha256",
+      "semantic_family_id"
+    ]
+  }
+]

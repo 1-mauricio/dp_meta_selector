@@ -1,0 +1,691 @@
+id,name,tasks,n,features,metadata_ok
+1,Abalone,"['Classification', 'Regression']",4177,8.0,True
+2,Adult,['Classification'],48842,14.0,True
+3,Annealing,['Classification'],798,38.0,True
+4,Anonymous Microsoft Web Data,['Recommender-Systems'],37711,294.0,True
+5,Arrhythmia,['Classification'],452,279.0,True
+6,Artificial Characters,['Classification'],6000,7.0,True
+7,Audiology (Original),['Classification'],226,,True
+8,Audiology (Standardized),['Classification'],226,70.0,True
+9,Auto MPG,['Regression'],398,7.0,True
+10,Automobile,['Regression'],205,25.0,True
+11,Badges,['Classification'],294,0.0,True
+12,Balance Scale,['Classification'],625,4.0,True
+13,Balloons,['Classification'],16,4.0,True
+14,Breast Cancer,['Classification'],286,9.0,True
+15,Breast Cancer Wisconsin (Original),['Classification'],699,9.0,True
+16,Breast Cancer Wisconsin (Prognostic),"['Classification', 'Regression']",198,33.0,True
+17,Breast Cancer Wisconsin (Diagnostic),['Classification'],569,30.0,True
+18,Pittsburgh Bridges,['Classification'],108,12.0,True
+19,Car Evaluation,['Classification'],1728,6.0,True
+20,Census Income,['Classification'],48842,14.0,True
+21,Chess (King-Rook vs. King-Knight),['Classification'],0,0.0,True
+22,Chess (King-Rook vs. King-Pawn),['Classification'],3196,35.0,True
+23,Chess (King-Rook vs. King),['Classification'],28056,6.0,True
+24,Chess (Domain Theories),[],0,0.0,True
+25,Bach Chorales,[],100,6.0,True
+26,Connect-4,['Classification'],67557,42.0,True
+27,Credit Approval,['Classification'],690,15.0,True
+28,Japanese Credit Screening,['Classification'],125,15.0,True
+29,Computer Hardware,['Regression'],209,10.0,True
+30,Contraceptive Method Choice,['Classification'],1473,9.0,True
+31,Covertype,['Classification'],581012,54.0,True
+32,Cylinder Bands,['Classification'],512,39.0,True
+33,Dermatology,['Classification'],366,34.0,True
+34,Diabetes,['Classification'],1,20.0,True
+35,DGP2 - The Second Data Generation Program,[],0,0.0,True
+36,Document Understanding,[],0,0.0,True
+37,EBL Domain Theories,[],0,0.0,True
+38,Echocardiogram,['Classification'],132,9.0,True
+39,Ecoli,['Classification'],336,7.0,True
+40,Flags,['Classification'],194,30.0,True
+41,Function Finding,['Function-Learning'],352,0.0,True
+42,Glass Identification,['Classification'],214,9.0,True
+43,Haberman's Survival,['Classification'],306,3.0,True
+44,Hayes-Roth,['Classification'],160,4.0,True
+45,Heart Disease,['Classification'],303,13.0,True
+46,Hepatitis,['Classification'],155,19.0,True
+47,Horse Colic,['Classification'],368,27.0,True
+49,ICU,['Classification'],1,,True
+50,Image Segmentation,['Classification'],2310,19.0,True
+51,Internet Advertisements,['Classification'],3279,1558.0,True
+52,Ionosphere,['Classification'],351,34.0,True
+53,Iris,['Classification'],150,4.0,True
+54,ISOLET,['Classification'],7797,617.0,True
+55,Kinship,['Relational-Learning'],104,12.0,True
+56,Labor Relations,[],57,16.0,True
+57,LED Display Domain,['Classification'],0,7.0,True
+58,Lenses,['Classification'],24,3.0,True
+59,Letter Recognition,['Classification'],20000,16.0,True
+60,Liver Disorders,['Regression'],345,5.0,True
+61,Logic Theorist,[],0,0.0,True
+62,Lung Cancer,['Classification'],32,56.0,True
+63,Lymphography,['Classification'],148,19.0,True
+64,Mechanical Analysis,['Classification'],209,8.0,True
+65,Meta-data,['Classification'],528,0.0,True
+66,Mobile Robots,[],0,0.0,True
+67,Molecular Biology (Promoter Gene Sequences),['Classification'],106,0.0,True
+68,Molecular Biology (Protein Secondary Structure),['Classification'],128,0.0,True
+69,Molecular Biology (Splice-junction Gene Sequences),['Classification'],3190,60.0,True
+70,MONK's Problems,['Classification'],432,6.0,True
+71,Moral Reasoner,[],202,0.0,True
+72,Multiple Features,['Classification'],2000,0.0,True
+73,Mushroom,['Classification'],8124,22.0,True
+74,Musk (Version 1),['Classification'],476,168.0,True
+75,Musk (Version 2),['Classification'],6598,166.0,True
+76,Nursery,['Classification'],12960,8.0,True
+77,Othello Domain Theory,[],0,0.0,True
+78,Page Blocks Classification,['Classification'],5473,10.0,True
+80,Optical Recognition of Handwritten Digits,['Classification'],5620,64.0,True
+81,Pen-Based Recognition of Handwritten Digits,['Classification'],10992,16.0,True
+82,Post-Operative Patient,['Classification'],90,8.0,True
+83,Primary Tumor,['Classification'],339,17.0,True
+84,Prodigy,[],0,0.0,True
+85,Qualitative Structure Activity Relationships,[],0,0.0,True
+86,Quadruped Mammals,['Classification'],0,72.0,True
+87,Servo,['Regression'],167,4.0,True
+88,Shuttle Landing Control,['Classification'],15,6.0,True
+89,Solar Flare,['Regression'],1389,10.0,True
+90,Soybean (Large),['Classification'],307,35.0,True
+91,Soybean (Small),['Classification'],47,35.0,True
+92,Challenger USA Space Shuttle O-Ring,['Regression'],23,4.0,True
+93,Low Resolution Spectrometer,['Classification'],531,102.0,True
+94,Spambase,['Classification'],4601,57.0,True
+95,SPECT Heart,['Classification'],267,22.0,True
+96,SPECTF Heart,['Classification'],267,44.0,True
+97,Sponge,['Clustering'],76,0.0,True
+98,Statlog Project,['Other'],1,,True
+99,Student Loan Relational,[],1000,0.0,True
+100,Teaching Assistant Evaluation,['Classification'],151,0.0,True
+101,Tic-Tac-Toe Endgame,['Classification'],958,9.0,True
+102,Thyroid Disease,['Classification'],7200,5.0,True
+103,Trains,['Classification'],10,0.0,True
+104,University,['Classification'],285,17.0,True
+105,Congressional Voting Records,['Classification'],435,16.0,True
+106,Water Treatment Plant,['Clustering'],527,0.0,True
+107,Waveform Database Generator (Version 1),['Classification'],5000,21.0,True
+108,Waveform Database Generator (Version 2),['Classification'],5000,0.0,True
+109,Wine,['Classification'],178,13.0,True
+110,Yeast,['Classification'],1484,8.0,True
+111,Zoo,['Classification'],101,16.0,True
+112,Undocumented,[],0,0.0,True
+113,Twenty Newsgroups,[],20000,0.0,True
+114,Australian Sign Language Signs,['Classification'],6650,0.0,True
+115,Australian Sign Language Signs (High Quality),['Classification'],2565,0.0,True
+116,US Census Data (1990),['Clustering'],2458285,68.0,True
+117,Census-Income (KDD),['Classification'],299285,41.0,True
+118,Coil 1999 Competition Data,[],340,0.0,True
+119,Corel Image Features,[],68040,0.0,True
+120,E. Coli Genes,[],0,0.0,True
+121,EEG Database,['Classification'],122,0.0,True
+122,El Nino,['Other'],178080,11.0,True
+123,Entree Chicago Recommendation Data,['Recommender-Systems'],50672,0.0,True
+124,CMU Face Images,['Classification'],640,0.0,True
+125,Insurance Company Benchmark (COIL 2000),"['Regression', 'Description']",9000,0.0,True
+126,Internet Usage Data,[],10104,0.0,True
+127,IPUMS Census Database,[],256932,0.0,True
+128,Japanese Vowels,['Classification'],640,0.0,True
+129,KDD Cup 1998,['Regression'],191779,0.0,True
+130,KDD Cup 1999 Data,['Classification'],4000000,0.0,True
+131,M. Tuberculosis Genes,[],0,0.0,True
+132,Movie,[],10000,0.0,True
+133,MSNBC.com Anonymous Web Data,[],989818,0.0,True
+134,NSF Research Award Abstracts 1990-2003,[],129000,0.0,True
+135,Pioneer-1 Mobile Robot Data,[],0,0.0,True
+136,Pseudo Periodic Synthetic Time Series,[],100000,0.0,True
+137,Reuters-21578 Text Categorization Collection,['Classification'],21578,5.0,True
+138,Robot Execution Failures,['Classification'],463,90.0,True
+139,Synthetic Control Chart Time Series,"['Classification', 'Clustering']",600,0.0,True
+140,Syskill and Webert Web Page Ratings,['Classification'],332,5.0,True
+141,UNIX User Data,[],0,0.0,True
+142,Volcanoes on Venus - JARtool experiment,['Classification'],1,,True
+143,Statlog (Australian Credit Approval),['Classification'],690,14.0,True
+144,Statlog (German Credit Data),['Classification'],1000,20.0,True
+145,Statlog (Heart),['Classification'],270,13.0,True
+146,Statlog (Landsat Satellite),['Classification'],6435,36.0,True
+147,Statlog (Image Segmentation),['Classification'],2310,19.0,True
+148,Statlog (Shuttle),['Classification'],58000,7.0,True
+149,Statlog (Vehicle Silhouettes),['Classification'],946,18.0,True
+150,Connectionist Bench (Nettalk Corpus),[],20008,0.0,True
+151,"Connectionist Bench (Sonar, Mines vs. Rocks)",['Classification'],208,60.0,True
+152,Connectionist Bench (Vowel Recognition - Deterding Data),['Classification'],528,10.0,True
+153,Economic Sanctions,[],0,0.0,True
+154,Protein Data,[],0,0.0,True
+155,Cloud,['Other'],1024,10.0,True
+156,CalIt2 Building People Counts,[],10080,0.0,True
+157,Dodgers Loop Sensor,[],50400,0.0,True
+158,Poker Hand,['Classification'],1025010,10.0,True
+159,MAGIC Gamma Telescope,['Classification'],19020,10.0,True
+160,UJI Pen Characters,['Classification'],1364,0.0,True
+161,Mammographic Mass,['Classification'],961,5.0,True
+162,Forest Fires,['Regression'],517,12.0,True
+163,Reuters Transcribed Subset,['Classification'],200,0.0,True
+164,Bag of Words,['Clustering'],8000000,100000.0,True
+165,Concrete Compressive Strength,['Regression'],1030,8.0,True
+166,Hill-Valley,['Classification'],606,101.0,True
+167,Arcene,['Classification'],900,10000.0,True
+168,Dexter,['Classification'],2600,20000.0,True
+169,Dorothea,['Classification'],1950,100000.0,True
+170,Gisette,['Classification'],13500,5000.0,True
+171,Madelon,['Classification'],4400,0.0,True
+172,Ozone Level Detection,['Classification'],2536,72.0,True
+173,Abscisic Acid Signaling Network,['Causal-Discovery'],300,43.0,True
+174,Parkinsons,['Classification'],197,22.0,True
+175,Character Trajectories,"['Classification', 'Clustering']",2858,0.0,True
+176,Blood Transfusion Service Center,['Classification'],748,4.0,True
+177,UJI Pen Characters (Version 2),['Classification'],11640,0.0,True
+178,Semeion Handwritten Digit,['Classification'],1593,0.0,True
+179,SECOM,"['Classification', 'Causal-Discovery']",1567,591.0,True
+180,Plants,['Clustering'],34781,70.0,True
+181,Libras Movement,"['Classification', 'Clustering']",360,0.0,True
+182,Concrete Slump Test,['Regression'],103,0.0,True
+183,Communities and Crime,['Regression'],1994,127.0,True
+184,Acute Inflammations,['Classification'],120,6.0,True
+186,Wine Quality,"['Classification', 'Regression']",4898,11.0,True
+187,URL Reputation,['Classification'],2396130,3231961.0,True
+188,p53 Mutants,['Classification'],16772,5408.0,True
+189,Parkinsons Telemonitoring,['Regression'],5875,19.0,True
+190,Demospongiae,['Classification'],503,0.0,True
+191,Opinosis Opinion / Review,['Classification'],51,,True
+192,Breast Tissue,['Classification'],106,0.0,True
+193,Cardiotocography,['Classification'],2126,21.0,True
+194,Wall-Following Robot Navigation Data,['Classification'],5456,0.0,True
+195,Spoken Arabic Digit,['Classification'],8800,13.0,True
+196,Localization Data for Person Activity,['Classification'],164860,8.0,True
+197,AutoUniv,['Classification'],0,0.0,True
+198,Steel Plates Faults,['Classification'],1941,27.0,True
+199,MiniBooNE particle identification,['Classification'],130065,0.0,True
+203,Year Prediction MSD,['Regression'],515345,0.0,True
+204,PEMS-SF,['Classification'],440,138672.0,True
+205,OpinRank Review Dataset,[],0,0.0,True
+206,Relative location of CT slices on axial axis,['Regression'],53500,386.0,True
+208,Online Handwritten Assamese Characters Dataset,['Classification'],8235,0.0,True
+209,PubChem Bioassay Data,['Classification'],0,0.0,True
+210,Record Linkage Comparison Patterns,['Classification'],5749132,0.0,True
+211,Communities and Crime Unnormalized,['Regression'],2215,125.0,True
+212,Vertebral Column,['Classification'],310,6.0,True
+213,EMG Physical Action Data Set,['Classification'],10000,0.0,True
+214,Vicon Physical Action Data Set,['Classification'],3000,0.0,True
+215,Amazon Commerce Reviews,['Classification'],1500,10000.0,True
+216,Amazon Access Samples,"['Regression', 'Clustering', 'Causal-Discovery']",30000,20000.0,True
+217,Reuter_50_50,"['Classification', 'Clustering']",2500,10000.0,True
+218,Farm Ads,['Classification'],4143,54877.0,True
+219,DBWorld e-mails,['Classification'],64,4702.0,True
+220,KEGG Metabolic Relation Network (Directed),"['Classification', 'Regression', 'Clustering']",53414,0.0,True
+221,KEGG Metabolic Reaction Network (Undirected),"['Classification', 'Regression', 'Clustering']",65554,0.0,True
+222,Bank Marketing,['Classification'],45211,16.0,True
+223,YouTube Comedy Slam Preference Data,['Classification'],1138562,3.0,True
+224,Gas Sensor Array Drift Dataset,['Classification'],13910,0.0,True
+225,ILPD (Indian Liver Patient Dataset),['Classification'],583,10.0,True
+226,OPPORTUNITY Activity Recognition,['Classification'],2551,0.0,True
+227,Nomao,['Classification'],34465,0.0,True
+228,SMS Spam Collection,"['Classification', 'Clustering']",5574,0.0,True
+229,Skin Segmentation,['Classification'],245057,3.0,True
+230,Planning Relax,['Classification'],182,0.0,True
+231,PAMAP2 Physical Activity Monitoring,['Classification'],3850505,0.0,True
+232,Restaurant & consumer data,[],138,0.0,True
+233,CNAE-9,['Classification'],1080,0.0,True
+235,Individual Household Electric Power Consumption,"['Regression', 'Clustering']",2075259,9.0,True
+236,Seeds,"['Classification', 'Clustering']",210,0.0,True
+237,Northix,['Classification'],115,200.0,True
+238,QtyT40I10D100K,['Other'],3960456,0.0,True
+239,Legal Case Reports,['Classification'],0,0.0,True
+240,Human Activity Recognition Using Smartphones,"['Classification', 'Clustering']",10299,0.0,True
+241,One-hundred plant species leaves data set,['Classification'],1600,64.0,True
+242,Energy Efficiency,"['Classification', 'Regression']",768,8.0,True
+243,Yacht Hydrodynamics,['Regression'],308,0.0,True
+244,Fertility,"['Classification', 'Regression']",100,9.0,True
+245,Daphnet Freezing of Gait,['Classification'],237,0.0,True
+246,"3D Road Network (North Jutland, Denmark)","['Regression', 'Clustering']",434874,4.0,True
+247,ISTANBUL STOCK EXCHANGE,"['Classification', 'Regression']",536,10.0,True
+248,Buzz in social media ,"['Regression', 'Classification']",140000,0.0,True
+249,First-order theorem proving,['Classification'],6118,0.0,True
+250,Wearable Computing: Classification of Body Postures and Movements (PUC-Rio),['Classification'],165632,0.0,True
+251,Gas sensor arrays in open sampling settings,['Classification'],18000,1950000.0,True
+252,Climate Model Simulation Crashes,['Classification'],540,0.0,True
+253,MicroMass,['Classification'],931,1300.0,True
+254,QSAR biodegradation,['Classification'],1055,0.0,True
+255,BLOGGER,['Classification'],100,0.0,True
+256,Daily and Sports Activities,"['Classification', 'Clustering']",9120,5625.0,True
+257,User Knowledge Modeling,"['Classification', 'Clustering']",403,5.0,True
+259,"Reuters RCV1 RCV2 Multilingual, Multiview Text Categorization Test collection",['Classification'],111740,0.0,True
+260,NYSK,['Clustering'],10421,7.0,True
+262,Turkiye Student Evaluation,"['Classification', 'Clustering']",5820,0.0,True
+263,ser Knowledge Modeling Data (Students' Knowledge Levels on DC Electrical Machines),['Classification'],403,5.0,True
+264,EEG Eye State,['Classification'],14980,14.0,True
+265,Physicochemical Properties of Protein Tertiary Structure,['Regression'],45730,0.0,True
+266,seismic-bumps,['Classification'],2584,0.0,True
+267,Banknote Authentication,['Classification'],1372,4.0,True
+268,"USPTO Algorithm Challenge, run by NASA-Harvard Tournament Lab and TopCoder    Problem: Pat",['Classification'],306,5.0,True
+269,YouTube Multiview Video Games Dataset,"['Classification', 'Clustering']",120000,1000000.0,True
+270,Gas Sensor Array Drift at Different Concentrations,"['Classification', 'Regression', 'Clustering', 'Causa']",13910,128.0,True
+271,Activities of Daily Living (ADLs) Recognition Using Binary Sensors,"['Classification', 'Clustering']",2747,0.0,True
+272,SkillCraft1 Master Table Dataset,['Regression'],3395,0.0,True
+273,Weight Lifting Exercises monitored with Inertial Measurement Units,['Classification'],39242,0.0,True
+274,SML2010,['Regression'],4137,0.0,True
+275,Bike Sharing,['Regression'],17389,13.0,True
+276,Predict keywords activities in a online social media,[],51,35.0,True
+277,Thoracic Surgery Data,['Classification'],470,16.0,True
+278,EMG dataset in Lower Limb,[],132,5.0,True
+279,SUSY,['Classification'],5000000,0.0,True
+280,HIGGS,['Classification'],11000000,0.0,True
+281,Qualitative_Bankruptcy,['Classification'],250,0.0,True
+282,LSVT Voice Rehabilitation,['Classification'],126,0.0,True
+283,Dataset for ADL Recognition with Wrist-worn Accelerometer,"['Classification', 'Clustering']",0,0.0,True
+285,Wilt,['Classification'],4889,0.0,True
+286,User Identification From Walking Activity,"['Classification', 'Clustering']",0,0.0,True
+287,Activity Recognition from Single Chest-Mounted Accelerometer,"['Classification', 'Clustering']",0,0.0,True
+288,Leaf,['Classification'],340,0.0,True
+289,Dresses_Attribute_Sales,"['Classification', 'Clustering']",501,13.0,True
+290,Tamilnadu Electricity Board Hourly Readings,"['Classification', 'Regression', 'Clustering']",45781,0.0,True
+291,Airfoil Self-Noise,['Regression'],1503,5.0,True
+292,Wholesale customers,"['Classification', 'Clustering']",440,7.0,True
+293,Twitter Data set for Arabic Sentiment Analysis,['Classification'],2000,2.0,True
+294,Combined Cycle Power Plant,['Regression'],9568,4.0,True
+295,Urban Land Cover,['Classification'],168,148.0,True
+296,Diabetes 130-US Hospitals for Years 1999-2008,"['Classification', 'Clustering']",101766,47.0,True
+298,Bach Choral Harmony,['Classification'],5665,0.0,True
+299,StoneFlakes,"['Classification', 'Clustering', 'Causal-Discovery']",79,0.0,True
+300,Tennis Major Tournament Match Statistics,"['Classification', 'Regression', 'Clustering']",127,42.0,True
+301,Parkinson's Speech with Multiple Types of Sound Recordings,"['Classification', 'Regression']",1040,0.0,True
+302,Gesture Phase Segmentation,"['Classification', 'Clustering']",9900,0.0,True
+303,Perfume Data,"['Classification', 'Clustering']",560,0.0,True
+304,BlogFeedback,['Regression'],60021,0.0,True
+305,REALDISP Activity Recognition Dataset,['Classification'],1419,0.0,True
+306,Newspaper and magazine images segmentation dataset,['Classification'],101,0.0,True
+307,AAAI 2014 Accepted Papers,['Clustering'],399,0.0,True
+308,Gas sensor array under flow modulation,"['Classification', 'Regression']",58,120432.0,True
+309,Gas sensor array exposed to turbulent gas mixtures,"['Classification', 'Regression']",180,150000.0,True
+310,UJIIndoorLoc,"['Classification', 'Regression']",21048,0.0,True
+311,Sentence Classification,['Classification'],0,0.0,True
+312,Dow Jones Index,"['Classification', 'Clustering']",750,15.0,True
+313,sEMG for Basic Hand movements,['Classification'],3000,2500.0,True
+314,AAAI 2013 Accepted Papers,['Clustering'],150,0.0,True
+315,Geographical Origin of Music,"['Classification', 'Regression']",1059,68.0,True
+316,Condition Based Maintenance of Naval Propulsion Plants,['Regression'],11934,0.0,True
+317,Grammatical Facial Expressions,"['Classification', 'Clustering']",27965,0.0,True
+318,NoisyOffice,"['Classification', 'Regression']",216,216.0,True
+319,MHEALTH,['Classification'],120,0.0,True
+320,Student Performance,"['Classification', 'Regression']",649,30.0,True
+321,ElectricityLoadDiagrams20112014,"['Regression', 'Clustering']",370,140256.0,True
+322,Gas sensor array under dynamic gas mixtures,"['Classification', 'Regression']",4178504,19.0,True
+323,microblogPCU,"['Classification', 'Causal-Discovery']",221579,20.0,True
+324,Firm-Teacher_Clave-Direction_Classification,['Classification'],10800,20.0,True
+325,Dataset for Sensorless Drive Diagnosis,['Classification'],58509,0.0,True
+326,TV News Channel Commercial Detection Dataset,"['Classification', 'Clustering']",129685,12.0,True
+327,Phishing Websites,['Classification'],11055,30.0,True
+328,Greenhouse Gas Observing Network,['Regression'],2921,5232.0,True
+329,Diabetic Retinopathy Debrecen,['Classification'],1151,19.0,True
+330,HIV-1 protease cleavage,['Classification'],6590,1.0,True
+331,Sentiment Labelled Sentences,['Classification'],3000,0.0,True
+332,Online News Popularity,"['Classification', 'Regression']",39797,58.0,True
+333,Forest type mapping,['Classification'],326,27.0,True
+334,wiki4HE,"['Regression', 'Clustering', 'Causal-Discovery']",913,0.0,True
+335,Online Video Characteristics and Transcoding Time Dataset,['Regression'],168286,0.0,True
+336,Chronic Kidney Disease,['Classification'],400,24.0,True
+337,Machine Learning based ZZAlpha Ltd. Stock Recommendations 2012-2014,['Classification'],314080,0.0,True
+338,Folio,"['Classification', 'Clustering']",637,20.0,True
+339,"Taxi Service Trajectory - Prediction Challenge, ECML PKDD 2015","['Clustering', 'Causal-Discovery']",1710671,9.0,True
+340,Cuff-Less Blood Pressure Estimation,"['Classification', 'Regression']",12000,0.0,True
+341,Smartphone-Based Recognition of Human Activities and Postural Transitions,['Classification'],10929,0.0,True
+342,Mice Protein Expression,"['Classification', 'Clustering']",1080,80.0,True
+343,UJIIndoorLoc-Mag,"['Classification', 'Regression', 'Clustering']",40000,0.0,True
+344,Heterogeneity Activity Recognition,"['Classification', 'Clustering']",43930257,0.0,True
+346,Educational Process Mining (EPM): A Learning Analytics Data Set,"['Classification', 'Regression', 'Clustering']",230318,0.0,True
+347,HEPMASS,['Classification'],10500000,0.0,True
+348,Indoor User Movement Prediction from RSS data,['Classification'],13197,4.0,True
+349,Open University Learning Analytics dataset,"['Classification', 'Regression', 'Clustering']",0,0.0,True
+350,Default of Credit Card Clients,['Classification'],30000,23.0,True
+351,Mesothelioma's disease data set ,['Classification'],324,0.0,True
+352,Online Retail,"['Classification', 'Clustering']",541909,6.0,True
+353,SIFT10M,['Causal-Discovery'],11164866,0.0,True
+354,GPS Trajectories,"['Classification', 'Regression']",163,15.0,True
+355,Detect Malacious Executable(AntiVirus),['Classification'],373,0.0,True
+357,Occupancy Detection ,['Classification'],20560,6.0,True
+358,Improved Spiral Test Using Digitized Graphics Tablet for Monitoring Parkinson's Disease,"['Classification', 'Regression', 'Clustering']",40,7.0,True
+359,News Aggregator,"['Classification', 'Clustering']",422937,0.0,True
+360,Air Quality,['Regression'],9358,15.0,True
+361,Twin gas sensor arrays,"['Classification', 'Regression']",640,480000.0,True
+362,Gas sensors for home activity monitoring,['Classification'],919438,0.0,True
+363,Facebook Comment Volume,['Regression'],40949,0.0,True
+364,Smartphone Dataset for Human Activity Recognition (HAR) in Ambient Assisted Living (AAL),['Classification'],5744,0.0,True
+365,Polish Companies Bankruptcy,['Classification'],10503,65.0,True
+366,Activity Recognition system based on Multisensor data fusion (AReM),['Classification'],42240,6.0,True
+367,Dota2 Games Results,['Classification'],102944,115.0,True
+368,Facebook Metrics,['Regression'],500,18.0,True
+369,UbiqLog (smartphone lifelogging),['Causal-Discovery'],9782222,0.0,True
+371,NIPS Conference Papers 1987-2015,['Clustering'],11463,5812.0,True
+372,HTRU2,"['Classification', 'Clustering']",17898,8.0,True
+373,Drug Consumption (Quantified),['Classification'],1885,12.0,True
+374,Appliances Energy Prediction,['Regression'],19735,28.0,True
+375,Miskolc IIS Hybrid IPS,"['Classification', 'Clustering', 'Causal-Discovery']",1540,0.0,True
+376,KDC-4007 dataset Collection,"['Classification', 'Regression']",4007,0.0,True
+377,Geo-Magnetic field and WLAN dataset for indoor localisation from wristband and smartphone,"['Classification', 'Regression', 'Clustering']",153540,25.0,True
+378,DrivFace,"['Classification', 'Regression', 'Clustering']",606,6400.0,True
+379,Website Phishing,['Classification'],1353,9.0,True
+380,YouTube Spam Collection,['Classification'],1956,3.0,True
+381,Beijing PM2.5,['Regression'],43824,11.0,True
+382,Cargo 2000 Freight Tracking and Tracing,"['Classification', 'Regression']",3942,98.0,True
+383,Cervical Cancer (Risk Factors),['Classification'],858,36.0,True
+384,Quality Assessment of Digital Colposcopies,['Classification'],287,0.0,True
+385,KASANDR,['Other'],17764280,2158859.0,True
+386,FMA: A Dataset For Music Analysis,"['Classification', 'Clustering']",106574,0.0,True
+387,Air quality,['Regression'],9358,15.0,True
+389,Devanagari Handwritten Character Dataset,['Classification'],92000,0.0,True
+390,Stock Portfolio Performance,['Regression'],315,12.0,True
+391,MoCap Hand Postures,"['Classification', 'Clustering']",78095,0.0,True
+392,Early biomarkers of Parkinson’s disease based on natural connected speech,"['Classification', 'Regression']",130,0.0,True
+393,Data for Software Engineering Teamwork Assessment in Education Setting,['Classification'],74,0.0,True
+394,PM2.5 Data of Five Chinese Cities,['Regression'],52854,0.0,True
+395,Parkinson Disease Spiral Drawings Using Digitized Graphics Tablet,"['Classification', 'Regression', 'Clustering']",77,0.0,True
+396,Sales Transactions Weekly,['Clustering'],811,106.0,True
+397,Las Vegas Strip,"['Classification', 'Regression']",504,0.0,True
+398,Eco-hotel,[],401,0.0,True
+399,MEU-Mobile KSD,['Classification'],2856,0.0,True
+400,Crowdsourced Mapping,['Classification'],10546,29.0,True
+401,gene expression cancer RNA-Seq,"['Classification', 'Clustering']",801,20531.0,True
+402,"Hybrid Indoor Positioning Dataset from WiFi RSSI, Bluetooth and magnetometer",['Classification'],1540,0.0,True
+403,chestnut - LARVIC,"['Classification', 'Clustering']",1451,3.0,True
+404,Burst Header Packet (BHP) flooding attack on Optical Burst Switching (OBS) Network,['Classification'],1075,22.0,True
+405,Motion Capture Hand Postures,"['Classification', 'Clustering']",78095,0.0,True
+406,Anuran Calls (MFCCs),"['Classification', 'Clustering']",7195,0.0,True
+407,TTC-3600: Benchmark dataset for Turkish text categorization,"['Classification', 'Clustering']",3600,4814.0,True
+408,Gastrointestinal Lesions in Regular Colonoscopy,['Classification'],76,698.0,True
+409,Daily Demand Forecasting Orders,['Regression'],60,12.0,True
+410,Paper Reviews,"['Classification', 'Regression']",405,10.0,True
+411,extention of Z-Alizadeh sani dataset,['Classification'],303,0.0,True
+412,Z-Alizadeh Sani,['Classification'],303,0.0,True
+413,Dynamic Features of VirusShare Executables,"['Classification', 'Regression']",107888,482.0,True
+414,IDA2016Challenge,['Classification'],76000,0.0,True
+415,DSRC Vehicle Communications,['Clustering'],10000,5.0,True
+416,Mturk User-Perceived Clusters over Images,['Clustering'],180,0.0,True
+417,Character Font Images,['Classification'],745000,0.0,True
+418,DeliciousMIL: A Data Set for Multi-Label Multi-Instance Learning with Instance Labels,['Classification'],12234,8519.0,True
+419,Autistic Spectrum Disorder Screening Data for Children  ,['Classification'],292,20.0,True
+420,Autistic Spectrum Disorder Screening Data for Adolescent   ,['Classification'],104,21.0,True
+421,APS Failure at Scania Trucks,['Classification'],60000,171.0,True
+422,Wireless Indoor Localization,['Classification'],2000,0.0,True
+423,HCC Survival,['Classification'],165,0.0,True
+424,CSM (Conventional and Social Media Movies) Dataset 2014 and 2015,"['Classification', 'Regression']",217,12.0,True
+425,University of Tehran Question Dataset 2016 (UTQD.2016),['Classification'],1175,3.0,True
+426,Autism Screening Adult,['Classification'],704,20.0,True
+427,Activity recognition with healthy older people using a batteryless wearable sensor,['Classification'],75128,9.0,True
+428,Immunotherapy Dataset,['Classification'],90,8.0,True
+429,Cryotherapy Dataset ,['Classification'],90,0.0,True
+430,OCT data & Color Fundus Images of Left & Right Eyes,['Classification'],50,0.0,True
+431,Discrete Tone Image Dataset,['Classification'],71,11.0,True
+432,News Popularity in Multiple Social Media Platforms,['Regression'],93239,0.0,True
+433,Ultrasonic flowmeter diagnostics,['Classification'],540,0.0,True
+434,ICMLA 2014 Accepted Papers Data Set,"['Classification', 'Clustering']",105,0.0,True
+435,BLE RSSI Dataset for Indoor localization and Navigation,"['Classification', 'Clustering']",6611,0.0,True
+436,Container Crane Controller Data Set,"['Classification', 'Regression']",15,0.0,True
+437,Residential Building,['Regression'],372,0.0,True
+438,Health News in Twitter,['Clustering'],58000,25000.0,True
+439,chipseq,['Classification'],4960,0.0,True
+440,SGEMM GPU kernel performance,['Regression'],241600,0.0,True
+441,Repeat Consumption Matrices,['Clustering'],130000,21000.0,True
+442,detection_of_IoT_botnet_attacks_N_BaIoT,"['Classification', 'Clustering']",7062606,0.0,True
+445,Absenteeism at work,"['Classification', 'Clustering']",740,19.0,True
+446,SCADI,"['Classification', 'Clustering']",70,0.0,True
+447,Condition monitoring of hydraulic systems,"['Classification', 'Regression']",2205,43680.0,True
+448,Carbon Nanotubes,['Regression'],10721,0.0,True
+449,Optical Interconnection Network ,"['Classification', 'Regression']",640,0.0,True
+450,Sports articles for objectivity analysis,['Classification'],1000,0.0,True
+451,Breast Cancer Coimbra,['Classification'],116,9.0,True
+452,GNFUV Unmanned Surface Vehicles Sensor Data,['Regression'],1672,0.0,True
+453,Dishonest Internet users Dataset,"['Classification', 'Clustering']",322,0.0,True
+454,Victorian Era Authorship Attribution,['Classification'],93600,1000.0,True
+455,Simulated Falls and Daily Living Activities Data Set,['Classification'],3060,138.0,True
+456,Multimodal Damage Identification for Humanitarian Computing,['Classification'],5879,0.0,True
+457,EEG Steady-State Visual Evoked Potential Signals,"['Classification', 'Regression']",9200,0.0,True
+458,Roman Urdu Data Set,['Classification'],20000,0.0,True
+459,Avila,['Classification'],20867,0.0,True
+460,PANDOR,['Recommendation'],48000000,,True
+461,Drug Reviews (Druglib.com),"['Classification', 'Regression', 'Clustering']",4143,8.0,True
+463,Physical Unclonable Functions,['Classification'],6000000,0.0,True
+464,Superconductivty Data,['Regression'],21263,81.0,True
+465,WESAD (Wearable Stress and Affect Detection),"['Classification', 'Regression']",63000000,0.0,True
+466,GNFUV Unmanned Surface Vehicles Sensor Data Set 2,['Regression'],10190,0.0,True
+467,Student Academics Performance,['Classification'],300,22.0,True
+468,Online Shoppers Purchasing Intention Dataset,"['Classification', 'Clustering']",12330,17.0,True
+469,PMU-UD,['Classification'],5180,9.0,True
+470,Parkinson's Disease Classification,['Classification'],756,754.0,True
+471,Electrical Grid Stability Simulated Data ,"['Classification', 'Regression']",10000,12.0,True
+472,Caesarian Section Classification Dataset,['Classification'],80,0.0,True
+473,BAUM-1,['Classification'],1184,0.0,True
+474,BAUM-2,['Classification'],1047,0.0,True
+475,Audit Data,['Classification'],777,0.0,True
+476,BuddyMove Data Set,"['Classification', 'Clustering']",249,0.0,True
+477,Real Estate Valuation,['Regression'],414,6.0,True
+479,Somerville Happiness Survey,['Classification'],143,0.0,True
+480,2.4 GHZ Indoor Channel Measurements,['Classification'],7840,0.0,True
+481,EMG Data for Gestures,['Classification'],30000,0.0,True
+482,Parking Birmingham,"['Classification', 'Regression', 'Clustering']",35717,4.0,True
+483,Behavior of the urban traffic of the city of Sao Paulo in Brazil,"['Classification', 'Regression']",135,18.0,True
+484,Travel Reviews,"['Classification', 'Clustering']",980,10.0,True
+485,Travel Review Ratings,"['Classification', 'Clustering']",5456,24.0,True
+486,Rice Leaf Diseases,['Classification'],120,0.0,True
+487,Gas sensor array temperature modulation,"['Classification', 'Regression']",4095000,0.0,True
+488,Facebook Live Sellers in Thailand,['Clustering'],7051,11.0,True
+489,Parkinson Dataset with replicated acoustic features ,['Classification'],240,0.0,True
+492,Metro Interstate Traffic Volume,['Regression'],48204,8.0,True
+493,Query Analytics Workloads Dataset,"['Regression', 'Clustering']",260000,8.0,True
+494,Wave Energy Converters,['Regression'],288000,0.0,True
+495,PPG-DaLiA,['Regression'],8300000,0.0,True
+496,Alcohol QCM Sensor,"['Classification', 'Regression', 'Clustering']",125,8.0,True
+498,Incident management process enriched event log,"['Regression', 'Clustering']",141712,36.0,True
+499,Opinion Corpus for Lebanese Arabic Reviews (OCLAR),['Classification'],3916,3916.0,True
+500,MEx,"['Classification', 'Clustering']",6262,0.0,True
+501,Beijing Multi-Site Air Quality,['Regression'],420768,0.0,True
+502,Online Retail II,"['Classification', 'Regression', 'Clustering']",1067371,0.0,True
+503,Hepatitis C Virus (HCV) for Egyptian patients,['Classification'],1385,28.0,True
+504,QSAR fish toxicity,['Regression'],908,0.0,True
+505,QSAR aquatic toxicity,['Regression'],546,0.0,True
+506,Human Activity Recognition from Continuous Ambient Sensor Data,['Classification'],13956534,0.0,True
+507,WISDM Smartphone and Smartwatch Activity and Biometrics Dataset ,['Classification'],15630426,6.0,True
+508,QSAR oral toxicity,['Classification'],8992,1024.0,True
+509,QSAR androgen receptor,['Classification'],1687,1024.0,True
+510,QSAR Bioconcentration classes dataset,"['Classification', 'Regression']",779,14.0,True
+511,QSAR fish bioconcentration factor (BCF),['Regression'],1056,7.0,True
+512,A study of  Asian Religious and Biblical Texts,"['Classification', 'Clustering']",590,8265.0,True
+513,Real-time Election Results: Portugal 2019,['Regression'],21643,29.0,True
+514,Bias correction of numerical prediction model temperature forecast,['Regression'],7750,7.0,True
+515,Bar Crawl: Detecting Heavy Drinking,"['Classification', 'Regression']",14057567,15.0,True
+516,Kitsune Network Attack,"['Classification', 'Clustering', 'Causal-Discovery']",27170754,7.0,True
+517,Shoulder Implant X-Ray Manufacturer Classification,['Classification'],597,1.0,True
+518,Speaker Accent Recognition,['Classification'],329,12.0,True
+519,Heart Failure Clinical Records,"['Classification', 'Regression', 'Clustering']",299,12.0,True
+520,Deepfakes: Medical Image Tamper Detection,['Classification'],20000,200000.0,True
+521,selfBACK,"['Classification', 'Clustering']",26136,6.0,True
+522,South German Credit,"['Classification', 'Regression', 'Clustering']",1000,21.0,True
+523,Exasens,"['Classification', 'Clustering']",399,4.0,True
+524,Swarm Behaviour,['Classification'],24017,2400.0,True
+525,Crop mapping using fused optical-radar data set,['Classification'],325834,175.0,True
+526,Bitcoin Heist Ransomware Address,"['Classification', 'Clustering']",2916697,10.0,True
+527,Facebook Large Page-Page Network,['Classification'],22470,4714.0,True
+528,Amphibians,['Classification'],189,23.0,True
+529,Early Stage Diabetes Risk Prediction,['Classification'],520,16.0,True
+530,Turkish Spam V01,['Classification'],826,2.0,True
+531,Stock keeping units,['Clustering'],2279,9.0,True
+533,Detect Malware Types,['Classification'],7107,280.0,True
+534,Wave Energy Converters,['Regression'],288000,49.0,True
+535,Youtube cookery channels viewers comments in Hinglish,['Classification'],9800,3.0,True
+536,Pedestrians in Traffic,"['Classification', 'Regression', 'Causal-Discovery']",4760,14.0,True
+537,Cervical Cancer Behavior Risk,"['Classification', 'Clustering']",72,19.0,True
+538,Sattriya_Dance_Single_Hand_Gestures Dataset,['Classification'],1450,0.0,True
+539,Divorce Predictors data set,['Classification'],170,54.0,True
+540,3W dataset,"['Classification', 'Clustering']",1984,8.0,True
+541,Malware static and dynamic features VxHeaven and Virus Total,['Classification'],2955,1087.0,True
+542,Internet Firewall Data,['Classification'],65532,12.0,True
+543,User Profiling and Abusive Language Detection Dataset,['Classification'],65919,3.0,True
+544,Estimation of Obesity Levels Based On Eating Habits and Physical Condition ,"['Classification', 'Regression', 'Clustering']",2111,16.0,True
+545,Rice (Cammeo and Osmancik),['Classification'],3810,7.0,True
+546,Vehicle routing and scheduling problems,['Clustering'],18,9.0,True
+547,Algerian Forest Fires,"['Classification', 'Regression']",244,14.0,True
+548,Breath Metabolomics,"['Classification', 'Clustering']",104,1656.0,True
+549,Horton General Hospital,['Causal-Discovery'],139,6.0,True
+550,"UrbanGB, urban road accidents coordinates labelled by the urban center",['Clustering'],360177,2.0,True
+551,Gas Turbine CO and NOx Emission Data Set,"['Regression', 'Clustering']",36733,12.0,True
+552,Activity recognition using wearable physiological measurements,['Classification'],4480,533.0,True
+553,Clickstream Data for Online Shopping,"['Classification', 'Regression', 'Clustering']",165474,14.0,True
+554,CNNpred: CNN-based stock market prediction using a diverse set of variables,"['Classification', 'Regression']",1985,84.0,True
+555,Apartment for Rent Classified,"['Classification', 'Regression', 'Clustering']",10000,21.0,True
+556,: Simulated Data set of Iraqi tourism places,"['Classification', 'Clustering']",232,16.0,True
+557,Nasarian CAD Dataset,['Classification'],150,52.0,True
+560,Seoul Bike Sharing Demand,['Regression'],8760,13.0,True
+561,Person Classification Gait Data,['Classification'],48,321.0,True
+562,Shill Bidding Dataset,"['Classification', 'Clustering']",6321,13.0,True
+563,Iranian Churn,"['Classification', 'Regression']",3150,13.0,True
+564,Unmanned Aerial Vehicle (UAV) Intrusion Detection,['Classification'],17256,55.0,True
+565,Bone marrow transplant: children,"['Classification', 'Regression']",187,36.0,True
+566,Exasens,"['Classification', 'Clustering']",399,4.0,True
+567,COVID-19 Surveillance,['Classification'],14,7.0,True
+568,Refractive errors,['Classification'],467,79.0,True
+570,CLINC150,['Classification'],23700,0.0,True
+571,HCV data,"['Classification', 'Clustering']",615,12.0,True
+572,Taiwanese Bankruptcy Prediction,['Classification'],6819,95.0,True
+573,South German Credit,"['Classification', 'Regression', 'Clustering']",1000,21.0,True
+574,IIWA14-R820-Gazebo-Dataset-10Trajectories,['Regression'],0,0.0,True
+575,Guitar Chords finger positions,['Classification'],2633,5.0,True
+576,Russian Corpus of Biographical Texts,['Classification'],200,2.0,True
+577,Codon usage,"['Classification', 'Clustering']",13028,69.0,True
+578,Intelligent Media Accelerometer and Gyroscope (IM-AccGyro) Dataset,['Classification'],800,9.0,True
+579,Myocardial infarction complications,['Classification'],1700,111.0,True
+580,Hungarian Chickenpox Cases,['Regression'],521,20.0,True
+581,Simulated data for survival modelling,['Regression'],120000,25.0,True
+582,Student Performance on an Entrance Examination,['Classification'],666,11.0,True
+583,Chemical Composition of Ceramic Samples,"['Classification', 'Clustering']",88,19.0,True
+584,Labeled Text Forum Threads Dataset,['Classification'],200,9.0,True
+585,Stock keeping units,['Clustering'],2279,9.0,True
+586,BLE RSSI dataset for Indoor localization,['Classification'],23570,5.0,True
+587,Basketball dataset,['Classification'],10000,7.0,True
+588,GitHub MUSAE,['Classification'],37700,4006.0,True
+589,Anticancer peptides,['Classification'],1850,2.0,True
+591,Gender by Name,"['Classification', 'Clustering']",147270,4.0,True
+595,LastFM Asia Social Network,['Classification'],7624,7842.0,True
+596,Wheat Kernels,['Classification'],314,15.0,True
+597,Productivity Prediction of Garment Employees,"['Classification', 'Regression']",1197,14.0,True
+598,Multi-view Brain Networks,"['Classification', 'Clustering']",70,70.0,True
+599,LastFM Asia Social Network,['Classification'],7624,7842.0,True
+600,Wisesight Sentiment Corpus,['Classification'],26737,4.0,True
+601,AI4I 2020 Predictive Maintenance Dataset,"['Classification', 'Regression', 'Causal-Discovery']",10000,6.0,True
+602,Dry Bean,['Classification'],13611,16.0,True
+603,In-Vehicle Coupon Recommendation,['Classification'],12684,25.0,True
+604,Gait Classification,['Classification'],48,321.0,True
+605,Wikipedia Math Essentials,['Regression'],731,1068.0,True
+606,Wikipedia Math Essentials,['Regression'],731,1068.0,True
+607,Synchronous Machine,['Regression'],557,5.0,True
+608,Traffic Flow Forecasting,['Regression'],2101,0.0,True
+611,Hierarchical Sales Data,"['Clustering', 'Other']",1798,237.0,True
+613,Smartphone Dataset for Anomaly Detection in Crowds,['Classification'],14221,,True
+683,MNIST Database of Handwritten Digits,['Classification'],70000,,True
+690,Palmer Penguins,['Classification'],344,,True
+691,CIFAR-10,['Classification'],60000,0.0,True
+692,2D elastodynamic metamaterials,['Regression'],20521,1.0,True
+693,ImageNet,['Classification'],14000000,0.0,True
+695,Sundanese Twitter Dataset,['Classification'],2510,1.0,True
+696,Open Web Text Corpus,"['Classification', 'Regression', 'Clustering']",8013769,0.0,True
+697,Predict Students' Dropout and Academic Success,['Classification'],4424,36.0,True
+713,Auction Verification,"['Classification', 'Regression']",2043,7.0,True
+715,LT-FS-ID: Intrusion detection in WSNs,['Regression'],182,4.0,True
+719,Bengali Hate Speech Detection Dataset,['Classification'],4500,0.0,True
+722,NATICUSdroid (Android Permissions),['Classification'],29333,86.0,True
+728,Toxicity,['Classification'],171,1203.0,True
+729,Period Changer,['Classification'],90,1177.0,True
+730,Physical Therapy Exercises,"['Classification', 'Clustering', 'Other']",268881,,True
+732,DARWIN,['Classification'],174,451.0,True
+733,Water Quality Prediction,['Regression'],705,0.0,True
+734,Traffic Flow Forecasting,['Regression'],2101,0.0,True
+735,Cisco Secure Workload Networks of Computing Hosts,"['Clustering', 'Other']",1000000,0.0,True
+742,SoDA,['Classification'],1800,,True
+743,MaskReminder,['Classification'],7600,,True
+747,181 early modern English plays: Transcriptions of early editions in TEI encoding,['Regression'],181,,True
+748,Sirtuin6 Small Molecules,['Classification'],100,6.0,True
+750,Similarity Prediction,['Classification'],200,0.0,True
+752,Bosch CNC Machining Dataset ,"['Classification', 'Clustering']",2700,3.0,True
+754,Dataset based on UWB for Clinical Establishments,['Other'],608,8.0,True
+755,Accelerometer Gyro Mobile Phone,['Classification'],31991,8.0,True
+759,Glioma Grading Clinical and Mutation Features,"['Classification', 'Other']",839,23.0,True
+760,Multivariate Gait Data,"['Classification', 'Regression', 'Clustering']",181800,7.0,True
+763,Land Mines,"['Classification', 'Clustering']",338,3.0,True
+769,Turkish User Reviews,['Other'],37056,,True
+770,NASA Flood Extent Detection,['Classification'],50000,,True
+773,DeFungi,['Classification'],9114,0.0,True
+779,HARTH,['Classification'],6461328,8.0,True
+780,HAR70+,['Classification'],2259597,6.0,True
+791,MetroPT-3 Dataset,['Classification'],1516948,15.0,True
+799,Single Elder Home Monitoring: Gas and Position,['Classification'],444631,10.0,True
+813,TUNADROMD,['Classification'],4465,242.0,True
+827,Sepsis Survival Minimal Clinical Records,['Classification'],110341,3.0,True
+830,Visegrad Group companies data,"['Classification', 'Clustering']",85,83.0,True
+837,Product Classification and Clustering,"['Classification', 'Clustering', 'Other']",35311,7.0,True
+844,Average Localization Error (ALE) in sensor node localization process in WSNs,['Regression'],107,4.0,True
+845,TamilSentiMix,['Classification'],15744,,True
+846,Accelerometer,"['Classification', 'Regression']",153000,5.0,True
+847,Pedal Me Bicycle Deliveries,['Regression'],36,15.0,True
+848,Secondary Mushroom,['Classification'],61068,20.0,True
+849,Power Consumption of Tetouan City,['Regression'],52417,6.0,True
+850,Raisin,['Classification'],900,7.0,True
+851,Steel Industry Energy Consumption,['Regression'],35040,9.0,True
+852,Gender Gap in Spanish WP,['Classification'],4746,18.0,True
+853,Non Verbal Tourists,"['Classification', 'Clustering']",73,22.0,True
+854,Roman Urdu Sentiment Analysis Dataset (RUSAD),['Classification'],11000,2.0,True
+855,TUANDROMD (Tezpur University Android Malware Dataset),['Classification'],4464,241.0,True
+856,Higher Education Students Performance Evaluation,['Classification'],145,31.0,True
+857,Risk Factor Prediction of Chronic Kidney Disease,"['Classification', 'Regression']",200,28.0,True
+858,Rocket League Skillshots,['Classification'],297,,True
+859,Image Recognition Task Execution Times in Mobile Edge Computing,['Regression'],4000,2.0,True
+860,REJAFADA,['Classification'],1996,6825.0,True
+861,Influenza Outbreak Event Prediction via Twitter,['Classification'],75839,523.0,True
+862,Turkish Music Emotion,['Classification'],400,50.0,True
+863,Maternal Health Risk,['Classification'],1013,6.0,True
+864,Room Occupancy Estimation,['Classification'],10129,18.0,True
+866,9mers from cullpdb,"['Classification', 'Regression']",158716,,True
+869,Shell Commands Used by Participants of Hands-on Cybersecurity Training,"['Classification', 'Regression', 'Clustering', 'Other']",21459,9.0,True
+877,MOVER: Medical Informatics Operating Room Vitals and Events Repository,"['Classification', 'Regression', 'Clustering', 'Other']",83468,,True
+878,Cirrhosis Patient Survival Prediction,['Classification'],418,17.0,True
+879,Ajwa or Medjool,['Classification'],200,6.0,True
+880,SUPPORT2,"['Classification', 'Regression', 'Other']",9105,42.0,True
+882,Large-scale Wave Energy Farm,['Regression'],63600,149.0,True
+887,National Health and Nutrition Health Survey 2013-2014 (NHANES) Age Prediction Subset,['Classification'],6287,7.0,True
+890,AIDS Clinical Trials Group Study 175,"['Classification', 'Regression']",2139,23.0,True
+891,CDC Diabetes Health Indicators,['Classification'],253680,21.0,True
+892,TCGA Kidney Cancers,"['Classification', 'Clustering']",1024,60660.0,True
+894,Bongabdo,['Other'],111,,True
+908,RealWaste,['Classification'],4752,,True
+911,Recipe Reviews and User Feedback,"['Classification', 'Other']",18182,15.0,True
+913,Forty Soybean Cultivars from Subsequent Harvests,"['Classification', 'Regression', 'Clustering', 'Other']",320,11.0,True
+915,Differentiated Thyroid Cancer Recurrence,['Classification'],383,16.0,True
+920,Jute Pest,"['Classification', 'Other']",7235,17.0,True
+925,Infrared Thermography Temperature,['Regression'],1020,33.0,True
+936,National Poll on Healthy Aging (NPHA),['Classification'],714,14.0,True
+938,Regensburg Pediatric Appendicitis,['Classification'],782,53.0,True
+942,RT-IoT2022 ,"['Classification', 'Regression', 'Clustering']",123117,83.0,True
+963,UR3 CobotOps,"['Classification', 'Regression', 'Clustering', 'Other']",7409,20.0,True
+966,An eye on the vine - a dataset for fungi segmentation in microscopic vine wood images,['Classification'],1308,,True
+967,PhiUSIIL Phishing URL (Website),['Classification'],235795,54.0,True
+990,Printed Circuit Board Processed Image,"['Classification', 'Clustering']",723552,5.0,True
+994,Micro Gas Turbine Electrical Energy Prediction,['Regression'],71225,1.0,True
+995,ApisTox,['Classification'],1035,13.0,True
+1013,Synthetic Circle Data Set,"['Classification', 'Clustering']",10000,2.0,True
+1025,Turkish Crowdfunding Startups,"['Classification', 'Regression', 'Clustering']",1628,38.0,True
+1031,Assessing Mathematics Learning in Higher Education,"['Classification', 'Regression', 'Clustering']",9546,8.0,True
+1035,CAN-MIRGU,['Classification'],48,,True
+1050,Twitter Geospatial Data,"['Classification', 'Regression', 'Clustering']",14262517,4.0,True
+1081,Gas sensor array low-concentration ,"['Classification', 'Regression', 'Clustering']",90,,True
+1091,Lattice-physics (PWR fuel assembly neutronics simulation results),['Regression'],24000,39.0,True
+1101,PIRvision_FoG_presence_detection,['Classification'],15302,59.0,True
+1104,Drug Induced Autoimmunity Prediction ,['Classification'],477,195.0,True
+1125,Inflation Research Abstracts Classification,['Classification'],1138,1.0,True
+1128,RecGym: Gym Workouts Recognition Dataset with IMU and Capacitive Sensor,['Classification'],4432070,11.0,True
+1134,BEED: Bangalore EEG Epilepsy Dataset ,['Classification'],8000,17.0,True
+1150,Gallstone,['Classification'],320,38.0,True
+1158,High-Resolution Load Dataset from Smart Meters Across Various Cities in Morocco,"['Classification', 'Regression', 'Clustering', 'Other']",5,5.0,True
+1162,Neurofibromatosis Type 1; Clinical Symptoms of Familial and Sporadic Cases,['Classification'],331,20.0,True
+1175,PGCB Hourly Generation Dataset (Bangladesh),['Regression'],92650,14.0,True
+1186,Paddy Dataset,"['Classification', 'Regression', 'Clustering']",2790,45.0,True
+1192,Amaranthus Viridis leaves,['Classification'],12,2.0,True
+1198,COREVQA,['Other'],5608,,True
+1202,HLS-CMDS: Heart and Lung Sounds Dataset Recorded from a Clinical Manikin using Digital Stethoscope,"['Classification', 'Regression', 'Clustering', 'Other']",535,,True
+1276,Amazon Product and Google Locations Reviews,['Regression'],3055000,2.0,True
+1277,Human Activity Recognition Using 9-axis Accelerometer,['Classification'],10,,True

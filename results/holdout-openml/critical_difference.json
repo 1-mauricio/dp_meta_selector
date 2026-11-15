@@ -1,0 +1,27 @@
+{
+  "ranks": {
+    "Gaussiano (zCDP) \u00b7 GaussianNB": 10.5,
+    "Laplace \u00b7 GaussianNB": 12.5,
+    "Staircase vetorial \u00b7 GaussianNB": 14.5,
+    "Gaussiano anal\u00edtico \u00b7 GaussianNB": 14.0,
+    "Gaussiano anal\u00edtico \u00b7 Softmax": 12.5,
+    "DP-SGD \u00b7 Softmax (25 passos)": 9.0,
+    "Laplace \u00b7 Random Forest (25 \u00e1rvores, profundidade 3)": 13.5,
+    "DP-SGD \u00b7 Softmax (100 passos)": 12.5,
+    "DP-SGD \u00b7 Softmax (100 passos, clip 2, \u03bb=0,03)": 10.0,
+    "Gaussiano anal\u00edtico \u00b7 Random Forest (25 \u00e1rvores, profundidade 3)": 14.0,
+    "NB antigo": 3.25,
+    "Exponencial \u00b7 Random Forest (25 \u00e1rvores, profundidade 3)": 14.0,
+    "NB b8u": 4.75,
+    "DP-SGD \u03bb regra": 7.0,
+    "DP-SGD \u03bb=0,0003": 5.5,
+    "Seletor GBM-15": 4.5,
+    "Seletor GBM-13": 5.25,
+    "Seletor RF-12": 3.75
+  },
+  "cd": 18.624480299821922,
+  "friedman_p": 0.2547950399089435,
+  "n": 2,
+  "k": 18,
+  "descriptive": true
+}

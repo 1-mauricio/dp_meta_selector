@@ -1,0 +1,322 @@
+{
+  "checked_at": "2026-11-12T14:37:42.716289+00:00",
+  "manifest_sha256": "fbf5437da9e2a41777c9aed85d6af70a0f304fff86f67e9bdd11f680fe6c4a74",
+  "manifests_checked": [
+    {
+      "path": "data/openml_confirmatory_manifest_40_extension_audited.csv",
+      "sha256": "60983213d0a7b19f4a1ecd8bfa4b24a554760e6efe30ee63e9ff6a25b164bcea"
+    },
+    {
+      "path": "data/openml_measured_results_exclusion.csv",
+      "sha256": "17d972ecd3235fb2e68add62d57714d76803c62e649a4abc16c1c788ea614eb3"
+    },
+    {
+      "path": "data/openml_manifest_1000_validated_pending.csv",
+      "sha256": "bc353f414712c2269c8f62a158a86e82ec1b1c56137fee419abafe0d1adbc829"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest_30_holdout.csv",
+      "sha256": "e8c2da65fc5257c7fe281b73ef52ac6cbcc4ee34f24392edbeff59c15d9f9e1c"
+    },
+    {
+      "path": "data/openml_manifest_250.csv",
+      "sha256": "c3ee4d2b52762534f195e44d41b2812d84d0a1a015d437106bef44baf979b113"
+    },
+    {
+      "path": "data/openml_manifest_1000_validated.csv",
+      "sha256": "bd5dd1e2b7d5db35bf222585c38ab1f3d7ab483657ab917b0a81a0ca7d5e9318"
+    },
+    {
+      "path": "data/openml_holdout_30_sparse_addendum.csv",
+      "sha256": "13a3594e1b61c57a18aefc219940956dbb596ab4477cb6c4e63f2396e770a921"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest_30_holdout.selection.json",
+      "sha256": "72a07980f029df6eb84c76418ec7713b3bd928ceff6180856ea2ff09547b1ded"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest_40_extension.csv",
+      "sha256": "d0ae88c94bb9b1ec3ab6d1538f1c2d84c706ef1c1305dee4872185628a813c13"
+    },
+    {
+      "path": "data/openml_manifest_500_unique.csv",
+      "sha256": "ad12fd928d60f0da76c6bc1a1dd1510546bb7bb821f4c5cf4a3ed32cc7ffc502"
+    },
+    {
+      "path": "data/openml_measured_results_exclusion_provenance.json",
+      "sha256": "e97f327682c10a3a5bbaecdd5fc2a96dcf49c797ccdc1d7fcbc188ba4395cd2c"
+    },
+    {
+      "path": "data/openml_manifest_984_completed.csv",
+      "sha256": "297a5c79d1172fbc6ff8263065cfe8f5f73222b989208eff1b063b4ad5be77fd"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest_41_combined.csv",
+      "sha256": "e6b65549e4197c16a6bfe60a39c588308947cc289da703819134ecf8a02ee846"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest_30_families.csv",
+      "sha256": "15fd0a1bd9d4a7df770ff4e80e553d3ee6a4c3740488d59b417ab56194ad6d25"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest.csv",
+      "sha256": "f728f72823645026a717daf2061e3aa67f66747c75470dae7057d8a04fdda7d4"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest_30_families.selection.json",
+      "sha256": "3459aeecd95d13d5c77345a339cadb6a3aeecb9fd90b168223468314bda817d0"
+    },
+    {
+      "path": "data/openml_manifest_984_content_audit.csv",
+      "sha256": "10db15b7aab37280150473b93f5ede603a6fff5e213c535af67510f2f20fcf0b"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest.selection.json",
+      "sha256": "e8958fc64e60eeab613f680ab5f98d4069b15c4fc1c0b344c80f16ca0c655cda"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest_40_extension.selection.json",
+      "sha256": "fd87ee2da2df5cdb3b19c9b2fb6e5d448bd22712924b72392d2dc3784f117de7"
+    },
+    {
+      "path": "data/openml_manifest_1000_unique.csv",
+      "sha256": "a812c0e6df42619db4bd88989ce051e9a71e07ac2222466145242468ebb75ab9"
+    },
+    {
+      "path": "data/openml_manifest_1000_validated_remaining.csv",
+      "sha256": "c52a3e2be16fd97ae2bd83e7a57b828bceb97065771fdde510590a5df5531c70"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest_30_canonical.selection.json",
+      "sha256": "256b8675aa68f44f2565dbb665d8190cb06afe6c7c5ee92bf4a1f1af13359b09"
+    },
+    {
+      "path": "data/openml_manifest_984_cutoff_10000.csv",
+      "sha256": "03e056e8a22edd5ac1eb9d14189fbd8b3d8bd51c4be1019db50769e5bf8ce450"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest_12_options_initial.csv",
+      "sha256": "c469dbe53cbdb322ff3c11931b5cadf267a097684a3b5545eadcd3fa5196a7a5"
+    },
+    {
+      "path": "data/openml_confirmatory_manifest_30_canonical.csv",
+      "sha256": "076500f3d83bcb2ba20ec2194466ad101e81af907a44178ab5f0c73cf38a2af3"
+    },
+    {
+      "path": "data/openml_manifest_1000_final.csv",
+      "sha256": "dca7a93486f1f631a1b090b2be4b47e1ee8591fa4de3d341fd9095539d866bcf"
+    },
+    {
+      "path": "data/openml_manifest_500.csv",
+      "sha256": "a977c535bf19fa7d5ffa75547ddcadb6085e2dfa021b3c9f426d5a448a4e949b"
+    },
+    {
+      "path": "data/openml_manifest_1000_final_pending.csv",
+      "sha256": "7a1e48984136b0b8f2b9a8c8735a9969f7dccbd65f1527ccf10bff43394002b1"
+    }
+  ],
+  "openml_names": 25245,
+  "catalog_sha256": "eb10617bddb2e5042a97f7c5afa896b17e881220730335eeaaab0f6c92d6857e",
+  "checks": [
+    {
+      "uci_id": 763,
+      "name": "Land Mines",
+      "repository_url": "https://archive.ics.uci.edu/dataset/763/land+mines-1",
+      "doi": "10.24432/C54C8Z",
+      "intro_paper": {
+        "ID": 163,
+        "type": "NATIVE",
+        "title": "Passive Mine Detection and Classification Method Based on Hybrid Model",
+        "authors": "C. Yilmaz, H. Kahraman, Salih Söyler",
+        "venue": "IEEE Access",
+        "year": 2018,
+        "journal": "IEEE Access",
+        "DOI": null,
+        "URL": "https://www.semanticscholar.org/paper/c70a13956cfeb634a235bc9a5b3398f2000fe68c",
+        "sha": null,
+        "corpus": null,
+        "arxiv": null,
+        "mag": null,
+        "acl": null,
+        "pmid": null,
+        "pmcid": null
+      },
+      "source_urls": [
+        "https://archive.ics.uci.edu/dataset/763/land+mines-1",
+        "https://archive.ics.uci.edu/static/public/763/data.csv",
+        "https://www.semanticscholar.org/paper/c70a13956cfeb634a235bc9a5b3398f2000fe68c"
+      ],
+      "source_dois": [
+        "10.24432/C54C8Z"
+      ],
+      "manifest_origin_collisions": [],
+      "distinctive_source_aliases": [
+        "landmines",
+        "passiveminedetection"
+      ],
+      "openml_alias_matches": [],
+      "conclusion": "No normalized/canonical/semantic/source-origin collision; public source describes distinct base. Rice and Raisin have shared authors but distinct specimens, labels and source papers."
+    },
+    {
+      "uci_id": 936,
+      "name": "National Poll on Healthy Aging (NPHA)",
+      "repository_url": "https://archive.ics.uci.edu/dataset/936/national+poll+on+healthy+aging+(npha)",
+      "doi": "https://doi.org/10.3886/ICPSR37305.v1",
+      "intro_paper": {
+        "ID": 352,
+        "type": "NATIVE",
+        "title": "National Poll on Healthy Aging (NPHA)",
+        "authors": "Malani, Preeti N., Kullgren, Jeffrey, and Solway, Erica",
+        "venue": "Inter-university Consortium for Political and Social Research",
+        "year": 2017,
+        "journal": null,
+        "DOI": null,
+        "URL": "https://doi.org/10.3886/ICPSR37305.v1",
+        "sha": null,
+        "corpus": null,
+        "arxiv": null,
+        "mag": null,
+        "acl": null,
+        "pmid": null,
+        "pmcid": null
+      },
+      "source_urls": [
+        "https://archive.ics.uci.edu/dataset/936/national+poll+on+healthy+aging+(npha)",
+        "https://archive.ics.uci.edu/static/public/936/data.csv",
+        "https://doi.org/10.3886/ICPSR37305.v1"
+      ],
+      "source_dois": [
+        "10.3886/ICPSR37305.v1"
+      ],
+      "manifest_origin_collisions": [],
+      "distinctive_source_aliases": [
+        "npha",
+        "nationalpollonhealthyaging",
+        "icpsr37305"
+      ],
+      "openml_alias_matches": [],
+      "conclusion": "No normalized/canonical/semantic/source-origin collision; public source describes distinct base. Rice and Raisin have shared authors but distinct specimens, labels and source papers."
+    },
+    {
+      "uci_id": 545,
+      "name": "Rice (Cammeo and Osmancik)",
+      "repository_url": "https://archive.ics.uci.edu/dataset/545/rice+cammeo+and+osmancik",
+      "doi": "10.24432/C5MW4Z",
+      "intro_paper": {
+        "ID": 276,
+        "type": "NATIVE",
+        "title": "Classification of Rice Varieties Using Artificial Intelligence Methods",
+        "authors": "Ilkay Cinar, M. Koklu",
+        "venue": "International Journal of Intelligent Systems and Applications in Engineering",
+        "year": 2019,
+        "journal": null,
+        "DOI": "10.18201/ijisae.2019355381",
+        "URL": "https://www.semanticscholar.org/paper/4e508bb906c8fdc04ead6f20bd8918fcb3605d1c",
+        "sha": null,
+        "corpus": null,
+        "arxiv": null,
+        "mag": null,
+        "acl": null,
+        "pmid": null,
+        "pmcid": null
+      },
+      "source_urls": [
+        "https://archive.ics.uci.edu/dataset/545/rice+cammeo+and+osmancik",
+        "https://archive.ics.uci.edu/static/public/545/data.csv",
+        "https://www.semanticscholar.org/paper/4e508bb906c8fdc04ead6f20bd8918fcb3605d1c"
+      ],
+      "source_dois": [
+        "10.18201/ijisae.2019355381",
+        "10.24432/C5MW4Z"
+      ],
+      "manifest_origin_collisions": [],
+      "distinctive_source_aliases": [
+        "cammeo",
+        "osmancik"
+      ],
+      "openml_alias_matches": [],
+      "conclusion": "No normalized/canonical/semantic/source-origin collision; public source describes distinct base. Rice and Raisin have shared authors but distinct specimens, labels and source papers."
+    },
+    {
+      "uci_id": 862,
+      "name": "Turkish Music Emotion",
+      "repository_url": "https://archive.ics.uci.edu/dataset/862/turkish+music+emotion",
+      "doi": "10.24432/C5JG93",
+      "intro_paper": {
+        "ID": 273,
+        "type": "NATIVE",
+        "title": "Music Emotion Recognition by Using Chroma Spectrogram and Deep Visual Features",
+        "authors": "M. Er, Ibrahim Berkan Aydilek",
+        "venue": "International Journal of Computational Intelligence Systems",
+        "year": 2019,
+        "journal": null,
+        "DOI": null,
+        "URL": "https://www.semanticscholar.org/paper/79b35f61ee84f2f7161c98f591b55f0bb31c4d0e",
+        "sha": null,
+        "corpus": null,
+        "arxiv": null,
+        "mag": null,
+        "acl": null,
+        "pmid": null,
+        "pmcid": null
+      },
+      "source_urls": [
+        "https://archive.ics.uci.edu/dataset/862/turkish+music+emotion",
+        "https://doi.org/10.2991/ijcis.d.191216.001",
+        "https://www.semanticscholar.org/paper/79b35f61ee84f2f7161c98f591b55f0bb31c4d0e"
+      ],
+      "source_dois": [
+        "10.24432/C5JG93",
+        "10.2991/ijcis.d.191216.001"
+      ],
+      "manifest_origin_collisions": [],
+      "distinctive_source_aliases": [
+        "turkishmusicemotion",
+        "chroma_spectrogram"
+      ],
+      "openml_alias_matches": [],
+      "conclusion": "No normalized/canonical/semantic/source-origin collision; public source describes distinct base. Rice and Raisin have shared authors but distinct specimens, labels and source papers."
+    },
+    {
+      "uci_id": 850,
+      "name": "Raisin",
+      "repository_url": "https://archive.ics.uci.edu/dataset/850/raisin",
+      "doi": "10.24432/C5660T",
+      "intro_paper": {
+        "ID": 261,
+        "type": "NATIVE",
+        "title": "Kuru Üzüm Tanelerinin Makine Görüşü ve Yapay Zeka Yöntemleri Kullanılarak Sınıflandırılması",
+        "authors": "İ̇lkay Çinar, Murat Koklu, Sakir Tasdemir",
+        "venue": "Gazi Journal of Engineering Sciences",
+        "year": 2020,
+        "journal": null,
+        "DOI": null,
+        "URL": "https://www.semanticscholar.org/paper/6e67a463c29bde6a78ead7a10508674e693b74f3",
+        "sha": null,
+        "corpus": null,
+        "arxiv": null,
+        "mag": null,
+        "acl": null,
+        "pmid": null,
+        "pmcid": null
+      },
+      "source_urls": [
+        "https://archive.ics.uci.edu/dataset/850/raisin",
+        "https://archive.ics.uci.edu/static/public/850/data.csv",
+        "https://www.semanticscholar.org/paper/6e67a463c29bde6a78ead7a10508674e693b74f3"
+      ],
+      "source_dois": [
+        "10.24432/C5660T"
+      ],
+      "manifest_origin_collisions": [],
+      "distinctive_source_aliases": [
+        "raisin",
+        "kecimen",
+        "besni"
+      ],
+      "openml_alias_matches": [],
+      "conclusion": "No normalized/canonical/semantic/source-origin collision; public source describes distinct base. Rice and Raisin have shared authors but distinct specimens, labels and source papers."
+    }
+  ],
+  "review_before_models": true
+}

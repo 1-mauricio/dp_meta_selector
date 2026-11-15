@@ -1,0 +1,90 @@
+\chapter{Introdução}
+\label{chap:introducao}
+
+\section{Contextualização}
+\label{sec:contextualizacao}
+
+O compartilhamento e a utilização de dados em aplicações de aprendizado de máquina esbarram em restrições legais e éticas relacionadas à proteção da privacidade dos indivíduos, como a Lei Geral de Proteção de Dados (LGPD) \cite{ref01b} e o \textit{General Data Protection Regulation} (GDPR) \cite{ref01}. Uma resposta recorrente é anonimizar os dados antes de disponibilizá-los, mas abordagens baseadas em modelos sintáticos, como \textit{k-anonymity}, ou na simples geração de dados sintéticos, permanecem vulneráveis a ataques de reidentificação e de inferência quando o adversário dispõe de conhecimento auxiliar \cite{ref03,ref14} ou tem acesso a múltiplas publicações da mesma base \cite{ref12}.
+
+Essas limitações motivaram a busca por garantias formais, matematicamente comprováveis e independentes do conhecimento auxiliar do atacante. A Privacidade Diferencial (\textit{Differential Privacy}, DP) \cite{ref02,ref16} atende a esse requisito por ser uma propriedade do mecanismo aleatorizado, não dos dados publicados: é imune ao pós-processamento e sua degradação sob composição é analiticamente quantificável \cite{ref20}. Por isso, consolidou-se como padrão de referência, tanto em aprendizado de máquina \cite{ref17} quanto em sistemas de produção, como o Censo de 2020 dos Estados Unidos \cite{ref51,ref41}, e tornou-se objeto de diretrizes técnicas governamentais \cite{ref18,ref20}.
+
+Como qualquer técnica de proteção, a DP troca privacidade por utilidade, e esse \textit{trade-off} é controlado por um orçamento de privacidade $\varepsilon$. Um mecanismo aleatorizado $\mathcal{M}$ satisfaz $\varepsilon$-DP quando, para quaisquer bases vizinhas $D$ e $D'$ (isto é, obtidas uma da outra pela substituição de um único registro, com o mesmo número de instâncias), a probabilidade de qualquer saída muda no máximo por um fator $e^{\varepsilon}$ entre $\mathcal{M}(D)$ e $\mathcal{M}(D')$ \cite{ref02,ref04}; a definição formal aparece na Seção~\ref{sec:dp-fundamentos}. Quanto menor o $\varepsilon$, mais forte a garantia e maior o ruído injetado. A escolha adequada desse parâmetro permanece um problema aberto na prática \cite{ref20}, fora do escopo deste trabalho, que recebe $\varepsilon$ como entrada definida pelo responsável pelos dados.
+
+Fixado o $\varepsilon$, o impacto do ruído na utilidade ainda depende do conjunto de dados. Caudas pesadas, esparsidade de atributos em alta dimensionalidade e desbalanceamento de subgrupos, com risco de impacto desproporcional sobre minorias \cite{ref05}, fazem com que o mesmo algoritmo de DP, sob o mesmo $\varepsilon$, apresente comportamentos substancialmente distintos a depender da base.
+
+\section{Problema de pesquisa}
+\label{sec:problema-pesquisa}
+
+Se o desempenho sob DP depende da base, a escolha precisa ser feita para cada conjunto de dados, e o que se escolhe vai além do mecanismo isolado: o mesmo ruído de Laplace ou Gaussiano produz utilidades diferentes conforme o modelo que o recebe, seja nas estatísticas suficientes de um Naive Bayes, nos gradientes de uma regressão logística ou nas folhas de uma árvore. A escolha é, portanto, de um \emph{par mecanismo-modelo}. Avaliar todos os pares sobre os dados privados e ficar com o melhor não resolve o problema: cada avaliação consome orçamento por composição, e a própria seleção do melhor resultado vaza informação sobre os dados \cite{ref65}. Uma busca desse tipo ainda ignora que o ruído da DP é aleatório, de modo que uma única execução por par produz resultados variáveis que induzem a erros de decisão.
+
+As ferramentas usuais de seleção de algoritmos esbarram no mesmo obstáculo. Elas caracterizam o conjunto de dados por meta-features calculadas sobre as suas células \cite{ref26,ref33}. Sob DP, calcular essas meta-features sem proteção quebra a garantia antes mesmo do treinamento, e calculá-las com proteção consome parte do orçamento que o responsável pelos dados reservou para o modelo.
+
+Qualquer forma de consultar os dados para escolher, portanto, custa privacidade. Daí o problema de pesquisa: como recomendar, para um conjunto de dados tabular arbitrário, com atributos numéricos e categóricos, o par mecanismo-modelo de menor arrependimento de utilidade (\textit{regret}), definido na Seção~\ref{sec:meta-dataset}, sem consumir orçamento de privacidade na escolha, isto é, usando apenas metadados públicos, disponíveis antes do acesso às células?
+
+\section{Delimitação do escopo}
+\label{sec:delimitacao-problema}
+
+A garantia formal baseada em demonstrações matemáticas não é exclusiva da DP: técnicas criptográficas, como a Criptografia Homomórfica, também protegem os dados por propriedades demonstráveis. A opção pela DP se justifica, portanto, pela adequação do modelo de ameaça e pelo custo computacional, além da existência de prova. A Criptografia Homomórfica protege o dado \emph{durante} a computação, mas nada afirma sobre o que a saída revela: ao final, o modelo é decifrado e publicado, e o risco de inferência sobre um participante permanece intacto. Soma-se a isso uma sobrecarga computacional de várias ordens de magnitude \cite{ref13}. A DP ataca exatamente o risco residual da publicação e permite treinar e liberar modelos tabulares com contabilização explícita do risco de participação individual.
+
+\textit{Federated Learning} e \textit{Secure Multi-Party Computation} lidam com treinamento distribuído sem centralização dos dados brutos, um problema de topologia distinto do aqui investigado, que pressupõe uma base tabular já centralizada sobre a qual o curador treina e publica um modelo privado. A geração de dados sintéticos sem DP, pelas limitações apontadas na Seção~\ref{sec:contextualizacao}, também fica fora do escopo.
+
+O escopo desta dissertação é, assim, o modelo central da DP aplicado à classificação supervisionada sobre dados tabulares centralizados. O \textit{framework} não escolhe $\varepsilon$, não publica dados sintéticos e não trata regressão, séries temporais ou dados com forte dependência espacial.
+
+\section{Proposta}
+\label{sec:proposta}
+
+Este trabalho propõe um \textit{framework} de recomendação baseado em Meta-Learning \cite{ref33}, que escolhe um par mecanismo-modelo em um portfólio fixo. Ao longo do texto, cada par do portfólio é chamado de \emph{opção}. O ``orçamento de privacidade contabilizado'' do título é o orçamento do modelo treinado, não um custo da recomendação: a escolha é pós-processamento de metadados públicos e não consome $\varepsilon$.
+
+O \textit{framework} opera em dois modos. O modo de produção usa apenas \emph{metadados públicos}: o \textit{schema} declarado (número de instâncias, número e tipos de atributos, número de classes), o orçamento $\varepsilon$ e a calibração do ruído de cada opção; como nenhuma célula é lida, a recomendação não consome privacidade. O modo de ablação acrescenta descritores extraídos dos dados de treino, sem proteção ou liberados com DP, e mede quanto a recomendação perde ao se restringir aos metadados públicos. Um regressor de \textit{gradient boosting} aprende a vantagem de cada opção sobre o Naive Bayes categórico original. A recomendação só abandona a b8u congelada quando a vantagem prevista supera $\tau=0{,}02$. O portfólio contém 15 opções, incluindo o Naive Bayes categórico Laplace com oito intervalos numéricos e prior uniforme na decisão (b8u), mantendo a mesma contabilidade de privacidade do original. Acrescenta também DP-SGD com regularização pela regra pública $n\varepsilon$ e com $\lambda=0{,}0003$, ambos com a contabilidade H27. A validação principal usa LODO agrupado por família semântica, com 667 grupos e 973 conjuntos de dados tabulares do repositório OpenML \cite{ref07,ref28}, documentados individualmente no Apêndice~\ref{ap:datasets}.
+
+\section{Objetivos}
+\label{sec:objetivos}
+
+\subsection{Objetivo geral}
+\label{sec:objetivo-geral}
+
+Desenvolver, calibrar e validar um \textit{framework} baseado em Meta-Learning capaz de recomendar automaticamente pares mecanismo-modelo de Privacidade Diferencial para tarefas de classificação tabular usando apenas metadados públicos, sem consumo de orçamento de privacidade na recomendação.
+
+\subsection{Objetivos específicos}
+\label{sec:objetivos-especificos}
+
+\begin{enumerate}[label=\alph*)]
+    \item Formular um protocolo de extração de meta-features com contrato duplo: um modo de produção baseado exclusivamente em metadados públicos, isto é, no \textit{schema} e na calibração do ruído de cada opção ($n_{\text{inst}}$, número e tipos de atributos, $n_{\text{classes}}$, $\varepsilon$, sensibilidades e escalas de ruído), sem consumo adicional de privacidade; e um modo exploratório de pesquisa, com descritores extraídos dos dados de treino, sem proteção e liberados com DP;
+    \item Construir um meta-dataset que incorpora a estocasticidade do ruído de DP, mediante 3 repetições independentes por condição sobre 973 conjuntos de dados tabulares, 15 pares mecanismo-modelo e 8 valores de $\varepsilon$ (350.280 linhas de utilidade medida), após 11 falhas de validação entre os 984 candidatos;
+    \item Treinar um metamodelo de regressão residual único para os orçamentos, com retorno à b8u congelada, e comparar estratégias e descritores em análises secundárias;
+    \item Medir o preço da privacidade das meta-features, isto é, o ganho de liberá-las com DP mantendo fixo o orçamento total $\varepsilon_{\text{modelo}} + \varepsilon_{\text{meta}}$, e identificar quais meta-features mais influenciam a recomendação;
+    \item Avaliar formalmente o \textit{framework} sob o protocolo inferencial de \citeonline{ref44}, com validação cruzada agrupada por família semântica, preservando a confirmação histórica da RF-12 e distinguindo a tentativa confirmatória GBM-15 sem poder da reutilização exploratória do \textit{holdout} antigo;
+    \item Comparar o \textit{framework} com o oráculo teórico, com a melhor opção fixa, com uma opção fixa forte pré-especificada e com \textit{baselines} ingênuos, quantificando a redução de arrependimento na média e na cauda (mediana, quantil de 90\% e \textit{Conditional Value at Risk} no quantil de 90\%, CVaR$_{90}$).
+\end{enumerate}
+
+\section{Perguntas de pesquisa e hipóteses}
+\label{sec:perguntas-pesquisa}
+
+A validação empírica foi organizada em torno de cinco questões de pesquisa:
+\begin{description}
+    \item[Questão 1.] Quanto a recomendação perde ao usar apenas metadados públicos, em vez de descritores extraídos dos dados de treino, e compensa gastar orçamento de privacidade para liberar esses descritores com DP?
+    \item[Questão 2.] Quais meta-features mais influenciam a recomendação do metamodelo?
+    \item[Questão 3.] Como a preferência entre pares mecanismo-modelo muda ao longo da grade de $\varepsilon$?
+    \item[Questão 4.] Qual é a amplitude de risco entre a melhor e a pior opção disponível em cada condição, e o que isso revela sobre o custo de uma escolha não informada?
+    \item[Questão 5.] O metamodelo em modo de produção reduz o arrependimento em relação à melhor opção fixa sem piorar a cauda da distribuição?
+\end{description}
+
+As duas hipóteses centrais da pesquisa foram formuladas da seguinte forma:
+\begin{description}
+    \item[Hipótese 1.] O melhor par mecanismo-modelo varia entre conjuntos de dados e orçamentos: nenhuma opção vence a maioria das condições, e as opções diferem de forma consistente em arrependimento, ainda que com efeito pequeno.
+    \item[Hipótese 2.] Um metamodelo preditivo, treinado \textit{offline} e operando em produção com metadados públicos (sem consumo adicional de privacidade), reduz com significância estatística o arrependimento médio, sem piorar a mediana, o quantil de 90\% nem o CVaR$_{90}$, em duas comparações complementares: \textbf{H2a}, frente à melhor opção fixa do desenvolvimento, na validação por LODO; e \textbf{H2b}, frente à opção fixa pré-especificada no protocolo confirmatório, em famílias novas.
+\end{description}
+
+A Hipótese 1 responde às Questões 3 e 4; H2a mede a vantagem interna sobre uma referência fixa forte, a b8u. Na GBM-15, a configuração e a escolha de fallback/limiar são exploratórias, posteriores ao protocolo histórico e feitas no desenvolvimento. H2b mantém a história da comparação RF-12 congelada contra H27; não se transporta essa confirmação ao novo seletor.
+
+O protocolo GBM-15 congelou a comparação externa primária contra b8u antes de selecionar novas famílias. Ele denomina esse critério H2a GBM-15: limite inferior do IC95\% do ganho maior que zero. Apenas duas famílias novas elegíveis existiam no catálogo OpenML examinado, em vez das 40 pretendidas; o ganho de 1,08 p.p. [$-0,28$; 2,44] não atingiu o critério e não dispõe de poder adequado. Nas 41 famílias antigas, a avaliação é exclusivamente exploratória. Confirmar transferência requer outras fontes de dados sob o protocolo congelado.
+
+\section{Contribuições}
+\label{sec:contribuicoes}
+
+As contribuições desta dissertação são quatro. A primeira é tratar a escolha sob DP como seleção de pares mecanismo-modelo para o treinamento privado de classificadores tabulares, em vez de mecanismos isolados ou de algoritmos de resposta a consultas. A segunda é uma recomendação que, ao contrário dos seletores de mecanismos existentes \cite{ref35}, não consome orçamento de privacidade, acompanhada de uma ablação que mede, sob o mesmo orçamento total, quanto custaria liberar meta-features com DP. A terceira é um meta-dataset de 350.280 avaliações que trata a estocasticidade do ruído como parte do alvo. A quarta é um protocolo de avaliação que exige, além do ganho médio, que a cauda do arrependimento não piore, e que usa a família do conjunto de dados como unidade inferencial.
+
+\section{Estrutura da dissertação}
+\label{sec:estrutura}
+
+O Capítulo~\ref{chap:fundamentacao} apresenta a fundamentação teórica: as garantias sintáticas e suas limitações, a definição e as propriedades da Privacidade Diferencial, os mecanismos e os classificadores privados usados no trabalho, a literatura sobre a escolha de $\varepsilon$, o Meta-Learning para seleção de algoritmos e de \textit{pipelines}, os trabalhos sobre seleção dependente de dados sob DP e uma comparação com os \textit{frameworks} relacionados. O Capítulo~\ref{chap:metodologia} descreve o \textit{framework}: o corpus, a grade de orçamentos, o portfólio de pares mecanismo-modelo, as meta-features, o meta-dataset, o metamodelo e o protocolo estatístico. O Capítulo~\ref{chap:resultados} apresenta e discute os resultados. O Capítulo~\ref{chap:conclusao} reúne as conclusões, as limitações e os trabalhos futuros. O Apêndice~\ref{ap:datasets} documenta cada um dos 973 conjuntos de dados efetivamente validados do corpus.

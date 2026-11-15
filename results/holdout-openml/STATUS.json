@@ -1,0 +1,29 @@
+{
+  "completed_at": "2026-11-11T22:41:24.234492+00:00",
+  "stage": "complete",
+  "protocol_preserved": true,
+  "confirmatory_families": 2,
+  "target_families": 40,
+  "primary": {
+    "gain": 0.010799354115485653,
+    "ci_low": -0.0027777777777778095,
+    "ci_high": 0.024376486008749115,
+    "families": 2,
+    "reference": "b8u",
+    "sign_flip_p_two_sided": 1.0,
+    "exploratory": false,
+    "p_holm": null,
+    "holm_reject_05": null
+  },
+  "success": false,
+  "exploratory_completed": 41,
+  "exploratory_planned": 41,
+  "data_or_fit_errors": 0,
+  "prescribed_output_ledger_audits": 2688,
+  "additional_alignment_audits": 54,
+  "tests_passed": 102,
+  "figures_pdf_png": 6,
+  "operational_amendments": "AMENDMENT_EXECUTION.md",
+  "summary": "SUMMARY.md",
+  "summary_sha256": "dad05c7f0cf226f25c0f7b9d432f53fb1aa3e82164c6afaaeb8b81af1b98e23d"
+}

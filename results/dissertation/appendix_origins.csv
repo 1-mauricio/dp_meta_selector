@@ -1,0 +1,10 @@
+selection_source,datasets,percent
+OpenML-cache,492,50.56526207605344
+OpenML-active-catalog,212,21.788283658787254
+OpenML-parquet-compact,184,18.91058581706064
+OpenML-CC18,35,3.597122302158273
+OpenML-catalog-small-replacement,20,2.055498458376156
+OpenML-catalog-dedup-replacement,14,1.4388489208633095
+OpenML-parquet-inferred,8,0.8221993833504625
+OpenML-catalog-replacement,6,0.6166495375128468
+OpenML-padding-attack-replacement,2,0.20554984583761562

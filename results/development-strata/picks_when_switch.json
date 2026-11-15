@@ -1,0 +1,11 @@
+{
+ "escolhas_quando_troca": {
+  "softmax__dp_sgd_clip2_lam0003": 0.607,
+  "softmax__dp_sgd_clip2_lamrule": 0.303,
+  "softmax__dp_sgd_clip2_reg003": 0.045,
+  "softmax__dp_sgd": 0.033,
+  "softmax__dp_sgd_steps100": 0.007,
+  "categorical_naive_bayes__laplace_histograms": 0.005,
+  "random_forest__laplace_parallel_shards_25": 0.001
+ }
+}

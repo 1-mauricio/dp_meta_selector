@@ -1,0 +1,16 @@
+pipeline,datasets
+categorical_naive_bayes__laplace_histograms_b8u,240
+categorical_naive_bayes__laplace_histograms,146
+softmax__dp_sgd_clip2_lam0003,114
+softmax__dp_sgd,85
+softmax__dp_sgd_clip2_lamrule,66
+softmax__dp_sgd_clip2_reg003,64
+softmax__analytic_gaussian,46
+softmax__dp_sgd_steps100,40
+gnb__analytic_gaussian_equal,36
+gnb__gaussian_zcdp_equal,33
+gnb__staircase_vector_equal,29
+gnb__laplace_equal,29
+random_forest__laplace_parallel_shards_25,19
+random_forest__analytic_gaussian_parallel_shards,14
+random_forest__exponential_majority_parallel_shards,12

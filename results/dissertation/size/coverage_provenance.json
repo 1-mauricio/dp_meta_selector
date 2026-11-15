@@ -1,0 +1,7 @@
+{
+  "source": "results/portfolio-984-shared-selector/small_dataset_coverage.csv",
+  "reason": "mesmos datasets, schema, seeds e splits; descritores independem do seletor",
+  "source_sha256": "285cabe87f5de8f6a1f65ccf78910091777c09576c91e7ab0dc56b0cdcd128e9",
+  "incomplete_test_classes": 39,
+  "splits": 606
+}

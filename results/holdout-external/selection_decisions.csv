@@ -1,0 +1,527 @@
+position,uci_id,name,at,status,reason
+1,755,Accelerometer Gyro Mobile Phone,2026-11-12T14:36:46.564254+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+2,158,Poker Hand,2026-11-12T14:36:46.595761+00:00,excluded_name_or_family,"{""alias"": ""Poker Hand"", ""match"": [""data/openml_confirmatory_manifest_30_holdout.csv"", ""dataset_name"", ""pokerhand""]}"
+3,555,Apartment for Rent Classified,2026-11-12T14:36:46.596037+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+4,890,AIDS Clinical Trials Group Study 175,2026-11-12T14:36:46.629841+00:00,excluded_name_or_family,"{""alias"": ""aids"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""aids""]}"
+5,483,Behavior of the urban traffic of the city of Sao Paulo in Brazil,2026-11-12T14:36:46.630131+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42896"", ""behavior-urban-traffic""], ""rule"": ""multi-token source-name containment""}"
+6,247,ISTANBUL STOCK EXCHANGE,2026-11-12T14:36:46.653298+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+7,11,Badges,2026-11-12T14:36:46.688082+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+8,139,Synthetic Control Chart Time Series,2026-11-12T14:36:46.723389+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""synthetic_control""], ""rule"": ""compact-name containment >=7""}"
+9,145,Statlog (Heart),2026-11-12T14:36:46.738813+00:00,excluded_name_or_family,"{""alias"": ""heart-statlog"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""heart-c""]}"
+10,229,Skin Segmentation,2026-11-12T14:36:46.739071+00:00,excluded_name_or_family,"{""alias"": ""Skin Segmentation"", ""match"": [""data/openml_confirmatory_manifest_30_holdout.csv"", ""dataset_name"", ""skin-segmentation""]}"
+11,186,Wine Quality,2026-11-12T14:36:46.739307+00:00,excluded_name_or_family,"{""alias"": ""Wine Quality"", ""match"": [""OpenML-full-catalog"", ""287"", ""wine_quality""]}"
+12,752,Bosch CNC Machining Dataset ,2026-11-12T14:36:46.739543+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+13,295,Urban Land Cover,2026-11-12T14:36:46.767050+00:00,excluded_rows,declared rows=168
+14,472,Caesarian Section Classification Dataset,2026-11-12T14:36:46.802178+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42901"", ""caesarian-section""], ""rule"": ""compact-name containment >=7""}"
+15,196,Localization Data for Person Activity,2026-11-12T14:36:46.822437+00:00,excluded_rows,declared rows=164860
+16,770,NASA Flood Extent Detection,2026-11-12T14:36:46.854198+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+17,214,Vicon Physical Action Data Set,2026-11-12T14:36:46.887488+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+18,742,SoDA,2026-11-12T14:36:46.919756+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+19,263,ser Knowledge Modeling Data (Students' Knowledge Levels on DC Electrical Machines),2026-11-12T14:36:46.953256+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""41199"", ""Students""], ""rule"": ""compact-name containment >=7""}"
+20,94,Spambase,2026-11-12T14:36:46.972780+00:00,excluded_name_or_family,"{""alias"": ""Spambase"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""spambase""]}"
+21,475,Audit Data,2026-11-12T14:36:46.973175+00:00,excluded_name_or_family,"{""alias"": ""Audit Data"", ""match"": [""OpenML-full-catalog"", ""42931"", ""audit-data""]}"
+22,837,Product Classification and Clustering,2026-11-12T14:36:46.973573+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""47032"", ""Clustering""], ""rule"": ""compact-name containment >=7""}"
+23,1277,Human Activity Recognition Using 9-axis Accelerometer,2026-11-12T14:36:46.997146+00:00,excluded_rows,declared rows=10
+24,1125,Inflation Research Abstracts Classification,2026-11-12T14:36:47.029807+00:00,validation_loading_failure,ValueError: encoded_features_above_512
+25,516,Kitsune Network Attack,2026-11-12T14:36:47.072592+00:00,excluded_rows,declared rows=27170754
+26,697,Predict Students' Dropout and Academic Success,2026-11-12T14:36:47.105480+00:00,excluded_name_or_family,"{""alias"": ""students_dropout_and_academic_success"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""students_dropout_and_academic_success""]}"
+27,461,Drug Reviews (Druglib.com),2026-11-12T14:36:47.105790+00:00,excluded_name_or_family,"{""alias"": ""Drug Reviews (Druglib.com)"", ""match"": [""OpenML-full-catalog"", ""46608"", ""drug_reviews_druglib_com""]}"
+28,188,p53 Mutants,2026-11-12T14:36:47.106065+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+29,83,Primary Tumor,2026-11-12T14:36:47.139183+00:00,excluded_name_or_family,"{""alias"": ""Primary Tumor"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(primary-tumor)""]}"
+30,104,University,2026-11-12T14:36:47.139464+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""46323"", ""university_reviews""], ""rule"": ""compact-name containment >=7""}"
+31,187,URL Reputation,2026-11-12T14:36:47.163171+00:00,excluded_rows,declared rows=2396130
+32,419,Autistic Spectrum Disorder Screening Data for Children  ,2026-11-12T14:36:47.196800+00:00,excluded_name_or_family,"{""alias"": ""Autism-Screening"", ""match"": [""OpenML-full-catalog"", ""43414"", ""Autism-Screening""]}"
+33,208,Online Handwritten Assamese Characters Dataset,2026-11-12T14:36:47.197102+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+34,212,Vertebral Column,2026-11-12T14:36:47.228678+00:00,excluded_name_or_family,"{""alias"": ""vertebra-column"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""vertebra-column""]}"
+35,485,Travel Review Ratings,2026-11-12T14:36:47.228973+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+36,481,EMG Data for Gestures,2026-11-12T14:36:47.261786+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+37,447,Condition monitoring of hydraulic systems,2026-11-12T14:36:47.294612+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+38,476,BuddyMove Data Set,2026-11-12T14:36:47.327443+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+39,163,Reuters Transcribed Subset,2026-11-12T14:36:47.359975+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""reuters""], ""rule"": ""compact-name containment >=7""}"
+40,80,Optical Recognition of Handwritten Digits,2026-11-12T14:36:47.377713+00:00,excluded_name_or_family,"{""alias"": ""optdigits"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(optdigits)""]}"
+41,536,Pedestrians in Traffic,2026-11-12T14:36:47.378006+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+42,713,Auction Verification,2026-11-12T14:36:47.411209+00:00,excluded_name_or_family,"{""alias"": ""Auction Verification"", ""match"": [""OpenML-full-catalog"", ""44958"", ""auction_verification""]}"
+43,327,Phishing Websites,2026-11-12T14:36:47.411515+00:00,excluded_name_or_family,"{""alias"": ""Phishing Websites"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""PhishingWebsites_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+44,846,Accelerometer,2026-11-12T14:36:47.411799+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""1438"", ""AccelerometerData""], ""rule"": ""compact-name containment >=7""}"
+45,101,Tic-Tac-Toe Endgame,2026-11-12T14:36:47.437531+00:00,excluded_name_or_family,"{""alias"": ""tic-tac-toe"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""tic-tac-toe""]}"
+46,105,Congressional Voting Records,2026-11-12T14:36:47.437842+00:00,excluded_name_or_family,"{""alias"": ""vote"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""vote""]}"
+47,18,Pittsburgh Bridges,2026-11-12T14:36:47.438132+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_30_canonical.csv"", ""dataset_name"", ""BNG(bridges_version1)""], ""rule"": ""compact-name containment >=7""}"
+48,148,Statlog (Shuttle),2026-11-12T14:36:47.455356+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""shuttle_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""], ""rule"": ""compact-name containment >=7""}"
+49,571,HCV data,2026-11-12T14:36:47.471794+00:00,excluded_name_or_family,"{""alias"": ""HCV data"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""HCV_data""]}"
+50,176,Blood Transfusion Service Center,2026-11-12T14:36:47.472082+00:00,excluded_name_or_family,"{""alias"": ""Blood Transfusion Service Center"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""blood-transfusion-service-center""]}"
+51,589,Anticancer peptides,2026-11-12T14:36:47.472366+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+52,298,Bach Choral Harmony,2026-11-12T14:36:47.504922+00:00,excluded_name_or_family,"{""alias"": ""Bach Choral Harmony"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""BachChoralHarmony""]}"
+53,204,PEMS-SF,2026-11-12T14:36:47.505211+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+54,251,Gas sensor arrays in open sampling settings,2026-11-12T14:36:47.537874+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+55,108,Waveform Database Generator (Version 2),2026-11-12T14:36:47.570620+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""waveform""], ""rule"": ""compact-name containment >=7""}"
+56,277,Thoracic Surgery Data,2026-11-12T14:36:47.587712+00:00,excluded_name_or_family,"{""alias"": ""Thoracic Surgery Data"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Thoracic_Surgery_Data""]}"
+57,166,Hill-Valley,2026-11-12T14:36:47.588063+00:00,excluded_name_or_family,"{""alias"": ""Hill-Valley"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""hill-valley""]}"
+58,290,Tamilnadu Electricity Board Hourly Readings,2026-11-12T14:36:47.588383+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""electricity_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""], ""rule"": ""compact-name containment >=7""}"
+59,222,Bank Marketing,2026-11-12T14:36:47.605805+00:00,excluded_name_or_family,"{""alias"": ""Bank Marketing"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""bank-marketing_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+60,62,Lung Cancer,2026-11-12T14:36:47.606140+00:00,excluded_name_or_family,"{""alias"": ""Lung Cancer"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""lung-cancer""]}"
+61,223,YouTube Comedy Slam Preference Data,2026-11-12T14:36:47.606449+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""41492"", ""youtube""], ""rule"": ""compact-name containment >=7""}"
+62,722,NATICUSdroid (Android Permissions),2026-11-12T14:36:47.626404+00:00,excluded_name_or_family,"{""alias"": ""NATICUSdroid"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""NATICUSdroid""]}"
+63,344,Heterogeneity Activity Recognition,2026-11-12T14:36:47.626733+00:00,excluded_rows,declared rows=43930257
+64,43,Haberman's Survival,2026-11-12T14:36:47.658260+00:00,excluded_name_or_family,"{""alias"": ""haberman"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""haberman""]}"
+65,540,3W dataset,2026-11-12T14:36:47.658624+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+66,966,An eye on the vine - a dataset for fungi segmentation in microscopic vine wood images,2026-11-12T14:36:47.691304+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(segment)""], ""rule"": ""compact-name containment >=7""}"
+67,319,MHEALTH,2026-11-12T14:36:47.705316+00:00,excluded_rows,declared rows=120
+68,428,Immunotherapy Dataset,2026-11-12T14:36:47.738435+00:00,excluded_rows,declared rows=90
+69,330,HIV-1 protease cleavage,2026-11-12T14:36:47.771419+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+70,436,Container Crane Controller Data Set,2026-11-12T14:36:47.804599+00:00,excluded_rows,declared rows=15
+71,827,Sepsis Survival Minimal Clinical Records,2026-11-12T14:36:47.837976+00:00,excluded_name_or_family,"{""alias"": ""Sepsis Survival Minimal Clinical Records"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""sepsis_survival_minimal_clinical_records""]}"
+72,892,TCGA Kidney Cancers,2026-11-12T14:36:47.838344+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+73,575,Guitar Chords finger positions,2026-11-12T14:36:47.873054+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+74,467,Student Academics Performance,2026-11-12T14:36:47.905726+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""46255"", ""Student_Performance_Dataset""], ""rule"": ""multi-token source-name containment""}"
+75,17,Breast Cancer Wisconsin (Diagnostic),2026-11-12T14:36:47.929057+00:00,excluded_name_or_family,"{""alias"": ""wdbc"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""wdbc""]}"
+76,845,TamilSentiMix,2026-11-12T14:36:47.929432+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+77,856,Higher Education Students Performance Evaluation,2026-11-12T14:36:47.963501+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""StudentsPerformance""], ""rule"": ""compact-name containment >=7""}"
+78,341,Smartphone-Based Recognition of Human Activities and Postural Transitions,2026-11-12T14:36:47.980863+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Smartphone-Based_Recognition_of_Human_Activities""], ""rule"": ""compact-name containment >=7""}"
+79,378,DrivFace,2026-11-12T14:36:47.997386+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+80,541,Malware static and dynamic features VxHeaven and Virus Total,2026-11-12T14:36:48.030537+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+81,556,: Simulated Data set of Iraqi tourism places,2026-11-12T14:36:48.061886+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+82,349,Open University Learning Analytics dataset,2026-11-12T14:36:48.094704+00:00,excluded_rows,declared rows=0
+83,852,Gender Gap in Spanish WP,2026-11-12T14:36:48.126216+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+84,34,Diabetes,2026-11-12T14:36:48.158846+00:00,excluded_name_or_family,"{""alias"": ""Diabetes"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""diabetes""]}"
+85,51,Internet Advertisements,2026-11-12T14:36:48.159519+00:00,excluded_name_or_family,"{""alias"": ""Internet Advertisements"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Internet-Advertisements_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+86,465,WESAD (Wearable Stress and Affect Detection),2026-11-12T14:36:48.159928+00:00,excluded_rows,declared rows=63000000
+87,73,Mushroom,2026-11-12T14:36:48.192046+00:00,excluded_name_or_family,"{""alias"": ""Mushroom"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(mushroom)""]}"
+88,194,Wall-Following Robot Navigation Data,2026-11-12T14:36:48.192414+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""wall-robot-navigation""], ""rule"": ""multi-token source-name containment""}"
+89,366,Activity Recognition system based on Multisensor data fusion (AReM),2026-11-12T14:36:48.208956+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+90,1031,Assessing Mathematics Learning in Higher Education,2026-11-12T14:36:48.240804+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+91,780,HAR70+,2026-11-12T14:36:48.267080+00:00,excluded_rows,declared rows=2259597
+92,455,Simulated Falls and Daily Living Activities Data Set,2026-11-12T14:36:48.300135+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+93,351,Mesothelioma's disease data set ,2026-11-12T14:36:48.330810+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+94,138,Robot Execution Failures,2026-11-12T14:36:48.362828+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+95,695,Sundanese Twitter Dataset,2026-11-12T14:36:48.397730+00:00,validation_loading_failure,"ValueError: no_unique_archive_table_matching_declared_schema:['data.csv', 'test.csv']"
+96,348,Indoor User Movement Prediction from RSS data,2026-11-12T14:36:48.432105+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+97,563,Iranian Churn,2026-11-12T14:36:48.463582+00:00,excluded_name_or_family,"{""alias"": ""UCI_churn"", ""match"": [""OpenML-full-catalog"", ""44232"", ""UCI_churn""]}"
+98,613,Smartphone Dataset for Anomaly Detection in Crowds,2026-11-12T14:36:48.463989+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+99,44,Hayes-Roth,2026-11-12T14:36:48.495758+00:00,excluded_name_or_family,"{""alias"": ""Hayes-Roth"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""hayes-roth""]}"
+100,170,Gisette,2026-11-12T14:36:48.496156+00:00,excluded_name_or_family,"{""alias"": ""Gisette"", ""match"": [""OpenML-full-catalog"", ""41026"", ""gisette""]}"
+101,500,MEx,2026-11-12T14:36:48.496527+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+102,301,Parkinson's Speech with Multiple Types of Sound Recordings,2026-11-12T14:36:48.529438+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""parkinsons""], ""rule"": ""compact-name containment >=7""}"
+103,743,MaskReminder,2026-11-12T14:36:48.545128+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+104,487,Gas sensor array temperature modulation,2026-11-12T14:36:48.578883+00:00,excluded_rows,declared rows=4095000
+105,322,Gas sensor array under dynamic gas mixtures,2026-11-12T14:36:48.611445+00:00,excluded_rows,declared rows=4178504
+106,26,Connect-4,2026-11-12T14:36:48.644289+00:00,excluded_name_or_family,"{""alias"": ""Connect-4"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""connect-4_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+107,408,Gastrointestinal Lesions in Regular Colonoscopy,2026-11-12T14:36:48.644723+00:00,excluded_rows,declared rows=76
+108,565,Bone marrow transplant: children,2026-11-12T14:36:48.676972+00:00,excluded_name_or_family,"{""alias"": ""Bone marrow transplant: children"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""bone_marrow_transplant_children""]}"
+109,283,Dataset for ADL Recognition with Wrist-worn Accelerometer,2026-11-12T14:36:48.677396+00:00,excluded_rows,declared rows=0
+110,576,Russian Corpus of Biographical Texts,2026-11-12T14:36:48.709800+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+111,572,Taiwanese Bankruptcy Prediction,2026-11-12T14:36:48.743716+00:00,excluded_name_or_family,"{""alias"": ""Taiwanese Bankruptcy Prediction"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""taiwanese_bankruptcy_prediction""]}"
+112,601,AI4I 2020 Predictive Maintenance Dataset,2026-11-12T14:36:48.744170+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42890"", ""AI4I2020""], ""rule"": ""compact-name containment >=7""}"
+113,403,chestnut - LARVIC,2026-11-12T14:36:48.764236+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+114,799,Single Elder Home Monitoring: Gas and Position,2026-11-12T14:36:48.800102+00:00,excluded_rows,declared rows=444631
+115,168,Dexter,2026-11-12T14:36:48.831919+00:00,excluded_name_or_family,"{""alias"": ""Dexter"", ""match"": [""OpenML-full-catalog"", ""4136"", ""Dexter""]}"
+116,236,Seeds,2026-11-12T14:36:48.832365+00:00,excluded_name_or_family,"{""alias"": ""Seeds"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""seeds""]}"
+117,331,Sentiment Labelled Sentences,2026-11-12T14:36:48.832781+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+118,732,DARWIN,2026-11-12T14:36:48.866419+00:00,excluded_name_or_family,"{""alias"": ""DARWIN"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""darwin""]}"
+119,528,Amphibians,2026-11-12T14:36:48.866854+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""45761"", ""Amphibian""], ""rule"": ""compact-name containment >=7""}"
+120,130,KDD Cup 1999 Data,2026-11-12T14:36:48.893503+00:00,excluded_rows,declared rows=4000000
+121,411,extention of Z-Alizadeh sani dataset,2026-11-12T14:36:48.925977+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+122,359,News Aggregator,2026-11-12T14:36:48.957342+00:00,excluded_name_or_family,"{""alias"": ""News Aggregator"", ""match"": [""OpenML-full-catalog"", ""42634"", ""news-aggregator""]}"
+123,412,Z-Alizadeh Sani,2026-11-12T14:36:48.957783+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+124,49,ICU,2026-11-12T14:36:48.991275+00:00,excluded_name_or_family,"{""alias"": ""ICU"", ""match"": [""OpenML-full-catalog"", ""1097"", ""ICU""]}"
+125,763,Land Mines,2026-11-12T14:36:48.991721+00:00,accepted,"public schema, encoding, 3 splits and conservative disjunction validated"
+126,320,Student Performance,2026-11-12T14:36:49.076087+00:00,excluded_name_or_family,"{""alias"": ""Student Performance"", ""match"": [""OpenML-full-catalog"", ""41448"", ""StudentPerformance""]}"
+127,6,Artificial Characters,2026-11-12T14:36:49.076539+00:00,excluded_name_or_family,"{""alias"": ""Artificial Characters"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""artificial-characters""]}"
+128,178,Semeion Handwritten Digit,2026-11-12T14:36:49.076958+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""semeion""], ""rule"": ""compact-name containment >=7""}"
+129,308,Gas sensor array under flow modulation,2026-11-12T14:36:49.092150+00:00,excluded_rows,declared rows=58
+130,696,Open Web Text Corpus,2026-11-12T14:36:49.125757+00:00,excluded_rows,declared rows=8013769
+131,151,"Connectionist Bench (Sonar, Mines vs. Rocks)",2026-11-12T14:36:49.158545+00:00,excluded_name_or_family,"{""alias"": ""sonar"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""sonar""]}"
+132,244,Fertility,2026-11-12T14:36:49.159016+00:00,excluded_name_or_family,"{""alias"": ""Fertility"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""fertility""]}"
+133,347,HEPMASS,2026-11-12T14:36:49.159451+00:00,excluded_rows,declared rows=10500000
+134,486,Rice Leaf Diseases,2026-11-12T14:36:49.192648+00:00,excluded_rows,declared rows=120
+135,864,Room Occupancy Estimation,2026-11-12T14:36:49.225613+00:00,validation_loading_failure,ValueError: unsupported_declared_type:Date:date
+136,2,Adult,2026-11-12T14:36:49.263984+00:00,excluded_name_or_family,"{""alias"": ""Adult"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""adult_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+137,936,National Poll on Healthy Aging (NPHA),2026-11-12T14:36:49.264450+00:00,accepted,"public schema, encoding, 3 splits and conservative disjunction validated"
+138,7,Audiology (Original),2026-11-12T14:36:49.306967+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""audiology""], ""rule"": ""compact-name containment >=7""}"
+139,354,GPS Trajectories,2026-11-12T14:36:49.323595+00:00,excluded_rows,declared rows=163
+140,171,Madelon,2026-11-12T14:36:49.356115+00:00,excluded_name_or_family,"{""alias"": ""Madelon"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""madelon""]}"
+141,167,Arcene,2026-11-12T14:36:49.356554+00:00,excluded_name_or_family,"{""alias"": ""Arcene"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""arcene_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+142,431,Discrete Tone Image Dataset,2026-11-12T14:36:49.357007+00:00,excluded_rows,declared rows=71
+143,529,Early Stage Diabetes Risk Prediction,2026-11-12T14:36:49.389969+00:00,excluded_name_or_family,"{""alias"": ""early-stage-diabetes"", ""match"": [""OpenML-full-catalog"", ""42994"", ""early-stage-diabetes""]}"
+144,20,Census Income,2026-11-12T14:36:49.390458+00:00,excluded_name_or_family,"{""alias"": ""Census Income"", ""match"": [""OpenML-full-catalog"", ""4535"", ""Census-Income""]}"
+145,887,National Health and Nutrition Health Survey 2013-2014 (NHANES) Age Prediction Subset,2026-11-12T14:36:49.390901+00:00,excluded_name_or_family,"{""alias"": ""NHANES_age"", ""match"": [""OpenML-full-catalog"", ""46946"", ""NHANES_age""]}"
+146,525,Crop mapping using fused optical-radar data set,2026-11-12T14:36:49.391381+00:00,excluded_rows,declared rows=325834
+147,530,Turkish Spam V01,2026-11-12T14:36:49.423097+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+148,848,Secondary Mushroom,2026-11-12T14:36:49.455163+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(mushroom)""], ""rule"": ""compact-name containment >=7""}"
+149,453,Dishonest Internet users Dataset,2026-11-12T14:36:49.470794+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+150,542,Internet Firewall Data,2026-11-12T14:36:49.505460+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_30_holdout.csv"", ""dataset_name"", ""internet_firewall""], ""rule"": ""compact-name containment >=7""}"
+151,221,KEGG Metabolic Reaction Network (Undirected),2026-11-12T14:36:49.521555+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""4533"", ""KEGGMetabolicReactionNetwork""], ""rule"": ""compact-name containment >=7""}"
+152,93,Low Resolution Spectrometer,2026-11-12T14:36:49.541033+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""spectrometer""], ""rule"": ""compact-name containment >=7""}"
+153,567,COVID-19 Surveillance,2026-11-12T14:36:49.560061+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""43365"", ""Covid-19-Case-Surveillance-Public-Use-Dataset""], ""rule"": ""multi-token source-name containment""}"
+154,218,Farm Ads,2026-11-12T14:36:49.582390+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+155,1186,Paddy Dataset,2026-11-12T14:36:49.615077+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+156,38,Echocardiogram,2026-11-12T14:36:49.647276+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42177"", ""echocardiogram-uci""], ""rule"": ""compact-name containment >=7""}"
+157,286,User Identification From Walking Activity,2026-11-12T14:36:49.668798+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_unique.csv"", ""dataset_name"", ""walking-activity""], ""rule"": ""compact-name containment >=7""}"
+158,326,TV News Channel Commercial Detection Dataset,2026-11-12T14:36:49.685867+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""46652"", ""news_channel""], ""rule"": ""compact-name containment >=7""}"
+159,312,Dow Jones Index,2026-11-12T14:36:49.708480+00:00,excluded_name_or_family,"{""alias"": ""Dow Jones Index"", ""match"": [""OpenML-full-catalog"", ""43038"", ""dow-jones-index""]}"
+160,169,Dorothea,2026-11-12T14:36:49.708976+00:00,excluded_name_or_family,"{""alias"": ""Dorothea"", ""match"": [""OpenML-full-catalog"", ""4137"", ""Dorothea""]}"
+161,545,Rice (Cammeo and Osmancik),2026-11-12T14:36:49.709458+00:00,accepted,"public schema, encoding, 3 splits and conservative disjunction validated"
+162,878,Cirrhosis Patient Survival Prediction,2026-11-12T14:36:49.752750+00:00,excluded_name_or_family,"{""alias"": ""Cirrhosis Patient Survival Prediction"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Cirrhosis_Patient_Survival_Prediction""]}"
+163,65,Meta-data,2026-11-12T14:36:49.753304+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""43374"", ""Kaggle-YouTube-Video-Metadata""], ""rule"": ""compact-name containment >=7""}"
+164,458,Roman Urdu Data Set,2026-11-12T14:36:49.774898+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+165,337,Machine Learning based ZZAlpha Ltd. Stock Recommendations 2012-2014,2026-11-12T14:36:49.807483+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_30_canonical.csv"", ""dataset_name"", ""e-learning""], ""rule"": ""compact-name containment >=7""}"
+166,67,Molecular Biology (Promoter Gene Sequences),2026-11-12T14:36:49.823199+00:00,excluded_rows,declared rows=106
+167,539,Divorce Predictors data set,2026-11-12T14:36:49.856485+00:00,excluded_rows,declared rows=170
+168,508,QSAR oral toxicity,2026-11-12T14:36:49.889147+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""toxicity""], ""rule"": ""compact-name containment >=7""}"
+169,535,Youtube cookery channels viewers comments in Hinglish,2026-11-12T14:36:49.906321+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""41492"", ""youtube""], ""rule"": ""compact-name containment >=7""}"
+170,582,Student Performance on an Entrance Examination,2026-11-12T14:36:49.926523+00:00,excluded_name_or_family,"{""alias"": ""Student Performance on an Entrance Examination"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Student_Performance_on_an_Entrance_Examination""]}"
+171,198,Steel Plates Faults,2026-11-12T14:36:49.927043+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""steel-plates-fault""], ""rule"": ""compact-name containment >=7""}"
+172,375,Miskolc IIS Hybrid IPS,2026-11-12T14:36:49.943322+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+173,306,Newspaper and magazine images segmentation dataset,2026-11-12T14:36:49.978719+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(segment)""], ""rule"": ""compact-name containment >=7""}"
+174,445,Absenteeism at work,2026-11-12T14:36:49.993559+00:00,excluded_name_or_family,"{""alias"": ""Absenteeism at work"", ""match"": [""OpenML-full-catalog"", ""42887"", ""absenteeism-at-work""]}"
+175,267,Banknote Authentication,2026-11-12T14:36:49.994059+00:00,excluded_name_or_family,"{""alias"": ""Banknote Authentication"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""banknote-authentication""]}"
+176,857,Risk Factor Prediction of Chronic Kidney Disease,2026-11-12T14:36:49.994540+00:00,excluded_name_or_family,"{""alias"": ""Predicting_Risk_Factors_of_Chronic_Kidney_Disease"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Predicting_Risk_Factors_of_Chronic_Kidney_Disease""]}"
+177,338,Folio,2026-11-12T14:36:49.995044+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+178,1013,Synthetic Circle Data Set,2026-11-12T14:36:50.028311+00:00,validation_loading_failure,ValueError: no_unique_archive_table_matching_declared_schema:[]
+179,362,Gas sensors for home activity monitoring,2026-11-12T14:36:50.063296+00:00,excluded_rows,declared rows=919438
+180,3,Annealing,2026-11-12T14:36:50.097253+00:00,excluded_name_or_family,"{""alias"": ""Annealing"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(anneal,10000,5)""]}"
+181,361,Twin gas sensor arrays,2026-11-12T14:36:50.097794+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+182,526,Bitcoin Heist Ransomware Address,2026-11-12T14:36:50.130202+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""BitcoinHeist_Ransomware""], ""rule"": ""compact-name containment >=7""}"
+183,142,Volcanoes on Venus - JARtool experiment,2026-11-12T14:36:50.148852+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""semantic_family_id"", ""volcanoes""], ""rule"": ""compact-name containment >=7""}"
+184,554,CNNpred: CNN-based stock market prediction using a diverse set of variables,2026-11-12T14:36:50.166580+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""43645"", ""stock-market-prediction""], ""rule"": ""compact-name containment >=7""}"
+185,577,Codon usage,2026-11-12T14:36:50.188324+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+186,220,KEGG Metabolic Relation Network (Directed),2026-11-12T14:36:50.222806+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""46288"", ""kegg_metabolic_directed""], ""rule"": ""multi-token source-name containment""}"
+187,484,Travel Reviews,2026-11-12T14:36:50.246003+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+188,313,sEMG for Basic Hand movements,2026-11-12T14:36:50.278526+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+189,376,KDC-4007 dataset Collection,2026-11-12T14:36:50.312354+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+190,377,Geo-Magnetic field and WLAN dataset for indoor localisation from wristband and smartphone,2026-11-12T14:36:50.344663+00:00,excluded_rows,declared rows=153540
+191,28,Japanese Credit Screening,2026-11-12T14:36:50.377174+00:00,excluded_rows,declared rows=125
+192,599,LastFM Asia Social Network,2026-11-12T14:36:50.410051+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+193,855,TUANDROMD (Tezpur University Android Malware Dataset),2026-11-12T14:36:50.444729+00:00,validation_loading_failure,ValueError: source_row_count_disagrees_with_metadata
+194,213,EMG Physical Action Data Set,2026-11-12T14:36:50.659581+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+195,393,Data for Software Engineering Teamwork Assessment in Education Setting,2026-11-12T14:36:50.692996+00:00,excluded_rows,declared rows=74
+196,281,Qualitative_Bankruptcy,2026-11-12T14:36:50.726995+00:00,excluded_name_or_family,"{""alias"": ""Qualitative_Bankruptcy"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""qualitative-bankruptcy""]}"
+197,469,PMU-UD,2026-11-12T14:36:50.727567+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+198,63,Lymphography,2026-11-12T14:36:50.760900+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""41332"", ""lymphography-normal-fibrosis""], ""rule"": ""compact-name containment >=7""}"
+199,33,Dermatology,2026-11-12T14:36:50.792914+00:00,excluded_name_or_family,"{""alias"": ""Dermatology"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(dermatology,nominal,1000000)""]}"
+200,417,Character Font Images,2026-11-12T14:36:50.793516+00:00,excluded_rows,declared rows=745000
+201,215,Amazon Commerce Reviews,2026-11-12T14:36:50.827938+00:00,excluded_name_or_family,"{""alias"": ""Amazon Commerce Reviews"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""amazon-commerce-reviews_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+202,91,Soybean (Small),2026-11-12T14:36:50.828517+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""soybean""], ""rule"": ""compact-name containment >=7""}"
+203,552,Activity recognition using wearable physiological measurements,2026-11-12T14:36:50.846660+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+204,395,Parkinson Disease Spiral Drawings Using Digitized Graphics Tablet,2026-11-12T14:36:50.878991+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""40750"", ""parkinson""], ""rule"": ""compact-name containment >=7""}"
+205,429,Cryotherapy Dataset ,2026-11-12T14:36:50.911284+00:00,excluded_rows,declared rows=90
+206,564,Unmanned Aerial Vehicle (UAV) Intrusion Detection,2026-11-12T14:36:50.942881+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_30_canonical.csv"", ""dataset_name"", ""vehicleNorm""], ""rule"": ""compact-name containment >=7""}"
+207,195,Spoken Arabic Digit,2026-11-12T14:36:50.957792+00:00,excluded_name_or_family,"{""alias"": ""Spoken Arabic Digit"", ""match"": [""data/openml_confirmatory_manifest_30_holdout.csv"", ""dataset_name"", ""spoken-arabic-digit""]}"
+208,241,One-hundred plant species leaves data set,2026-11-12T14:36:50.958330+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+209,81,Pen-Based Recognition of Handwritten Digits,2026-11-12T14:36:50.989751+00:00,excluded_name_or_family,"{""alias"": ""pendigits"", ""match"": [""data/openml_confirmatory_manifest_12_options_initial.csv"", ""dataset_name"", ""Pen_global""]}"
+210,268,"USPTO Algorithm Challenge, run by NASA-Harvard Tournament Lab and TopCoder    Problem: Pat",2026-11-12T14:36:50.990329+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+211,264,EEG Eye State,2026-11-12T14:36:51.026412+00:00,excluded_name_or_family,"{""alias"": ""EEG Eye State"", ""match"": [""data/openml_confirmatory_manifest_30_canonical.csv"", ""dataset_name"", ""EEGEyeState""]}"
+212,230,Planning Relax,2026-11-12T14:36:51.026999+00:00,excluded_name_or_family,"{""alias"": ""Planning Relax"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""planning-relax""]}"
+213,68,Molecular Biology (Protein Secondary Structure),2026-11-12T14:36:51.027574+00:00,excluded_rows,declared rows=128
+214,147,Statlog (Image Segmentation),2026-11-12T14:36:51.060053+00:00,excluded_name_or_family,"{""alias"": ""segment"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(segment)""]}"
+215,52,Ionosphere,2026-11-12T14:36:51.060647+00:00,excluded_name_or_family,"{""alias"": ""Ionosphere"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""ionosphere""]}"
+216,473,BAUM-1,2026-11-12T14:36:51.061195+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+217,59,Letter Recognition,2026-11-12T14:36:51.094840+00:00,excluded_name_or_family,"{""alias"": ""letter"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(letter,5000,1)""]}"
+218,382,Cargo 2000 Freight Tracking and Tracing,2026-11-12T14:36:51.095437+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42910"", ""cargo-2000""], ""rule"": ""compact-name containment >=7""}"
+219,358,Improved Spiral Test Using Digitized Graphics Tablet for Monitoring Parkinson's Disease,2026-11-12T14:36:51.114587+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""parkinsons""], ""rule"": ""compact-name containment >=7""}"
+220,506,Human Activity Recognition from Continuous Ambient Sensor Data,2026-11-12T14:36:51.130626+00:00,excluded_rows,declared rows=13956534
+221,231,PAMAP2 Physical Activity Monitoring,2026-11-12T14:36:51.162521+00:00,excluded_rows,declared rows=3850505
+222,379,Website Phishing,2026-11-12T14:36:51.194596+00:00,excluded_name_or_family,"{""alias"": ""Website Phishing"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""website_phishing""]}"
+223,557,Nasarian CAD Dataset,2026-11-12T14:36:51.195190+00:00,excluded_rows,declared rows=150
+224,111,Zoo,2026-11-12T14:36:51.230684+00:00,excluded_name_or_family,"{""alias"": ""Zoo"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(zoo,nominal,1000000)""]}"
+225,303,Perfume Data,2026-11-12T14:36:51.231332+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+226,58,Lenses,2026-11-12T14:36:51.264023+00:00,excluded_rows,declared rows=24
+227,346,Educational Process Mining (EPM): A Learning Analytics Data Set,2026-11-12T14:36:51.297634+00:00,excluded_rows,declared rows=230318
+228,31,Covertype,2026-11-12T14:36:51.329588+00:00,excluded_name_or_family,"{""alias"": ""Covertype"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""covertype_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+229,74,Musk (Version 1),2026-11-12T14:36:51.330182+00:00,excluded_name_or_family,"{""alias"": ""musk"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""musk""]}"
+230,523,Exasens,2026-11-12T14:36:51.330796+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+231,566,Exasens,2026-11-12T14:36:51.365013+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+232,174,Parkinsons,2026-11-12T14:36:51.398734+00:00,excluded_name_or_family,"{""alias"": ""Parkinsons"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""parkinsons""]}"
+233,604,Gait Classification,2026-11-12T14:36:51.399357+00:00,excluded_rows,declared rows=48
+234,257,User Knowledge Modeling,2026-11-12T14:36:51.432830+00:00,excluded_name_or_family,"{""alias"": ""user-knowledge"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""user-knowledge""]}"
+235,121,EEG Database,2026-11-12T14:36:51.433486+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""46572"", ""database""], ""rule"": ""compact-name containment >=7""}"
+236,69,Molecular Biology (Splice-junction Gene Sequences),2026-11-12T14:36:51.457179+00:00,excluded_name_or_family,"{""alias"": ""splice"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""splice""]}"
+237,426,Autism Screening Adult,2026-11-12T14:36:51.457813+00:00,excluded_name_or_family,"{""alias"": ""autism-adult-data"", ""match"": [""OpenML-full-catalog"", ""42878"", ""autism-adult-data""]}"
+238,296,Diabetes 130-US Hospitals for Years 1999-2008,2026-11-12T14:36:51.458425+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""diabetes""], ""rule"": ""compact-name containment >=7""}"
+239,410,Paper Reviews,2026-11-12T14:36:51.474251+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+240,237,Northix,2026-11-12T14:36:51.506683+00:00,excluded_rows,declared rows=115
+241,332,Online News Popularity,2026-11-12T14:36:51.539799+00:00,excluded_name_or_family,"{""alias"": ""Online News Popularity"", ""match"": [""OpenML-full-catalog"", ""4545"", ""OnlineNewsPopularity""]}"
+242,470,Parkinson's Disease Classification,2026-11-12T14:36:51.540410+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""parkinsons""], ""rule"": ""compact-name containment >=7""}"
+243,115,Australian Sign Language Signs (High Quality),2026-11-12T14:36:51.556800+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Australian""], ""rule"": ""compact-name containment >=7""}"
+244,357,Occupancy Detection ,2026-11-12T14:36:51.572486+00:00,validation_loading_failure,ValueError: source_row_count_disagrees_with_metadata
+245,591,Gender by Name,2026-11-12T14:36:51.618037+00:00,excluded_name_or_family,"{""alias"": ""Gender by Name"", ""match"": [""OpenML-full-catalog"", ""42996"", ""gender-by-name""]}"
+246,352,Online Retail,2026-11-12T14:36:51.618668+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""43368"", ""Online-Retail-II-UCI""], ""rule"": ""compact-name containment >=7""}"
+247,1158,High-Resolution Load Dataset from Smart Meters Across Various Cities in Morocco,2026-11-12T14:36:51.643289+00:00,excluded_rows,declared rows=5
+248,463,Physical Unclonable Functions,2026-11-12T14:36:51.674328+00:00,excluded_rows,declared rows=6000000
+249,318,NoisyOffice,2026-11-12T14:36:51.708844+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+250,245,Daphnet Freezing of Gait,2026-11-12T14:36:51.742436+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+251,750,Similarity Prediction,2026-11-12T14:36:51.774494+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+252,479,Somerville Happiness Survey,2026-11-12T14:36:51.807254+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42913"", ""somerville-happiness""], ""rule"": ""compact-name containment >=7""}"
+253,177,UJI Pen Characters (Version 2),2026-11-12T14:36:51.840576+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+254,39,Ecoli,2026-11-12T14:36:51.873041+00:00,excluded_name_or_family,"{""alias"": ""Ecoli"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""ecoli""]}"
+255,509,QSAR androgen receptor,2026-11-12T14:36:51.873714+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+256,315,Geographical Origin of Music,2026-11-12T14:36:51.906305+00:00,excluded_name_or_family,"{""alias"": ""Geographical Origin of Music"", ""match"": [""OpenML-full-catalog"", ""44965"", ""geographical_origin_of_music""]}"
+257,418,DeliciousMIL: A Data Set for Multi-Label Multi-Instance Learning with Instance Labels,2026-11-12T14:36:51.906979+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_30_canonical.csv"", ""dataset_name"", ""e-learning""], ""rule"": ""compact-name containment >=7""}"
+258,333,Forest type mapping,2026-11-12T14:36:51.922811+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+259,384,Quality Assessment of Digital Colposcopies,2026-11-12T14:36:51.955591+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+260,1081,Gas sensor array low-concentration ,2026-11-12T14:36:51.988139+00:00,excluded_rows,declared rows=90
+261,446,SCADI,2026-11-12T14:36:52.020770+00:00,excluded_name_or_family,"{""alias"": ""SCADI"", ""match"": [""OpenML-full-catalog"", ""42877"", ""SCADI""]}"
+262,266,seismic-bumps,2026-11-12T14:36:52.021451+00:00,excluded_name_or_family,"{""alias"": ""seismic-bumps"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""seismic-bumps""]}"
+263,365,Polish Companies Bankruptcy,2026-11-12T14:36:52.022474+00:00,excluded_name_or_family,"{""alias"": ""Polish Companies Bankruptcy"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""polish_companies_bankruptcy""]}"
+264,380,YouTube Spam Collection,2026-11-12T14:36:52.023096+00:00,excluded_name_or_family,"{""alias"": ""youtube-spam-psy"", ""match"": [""OpenML-full-catalog"", ""42904"", ""youtube-spam-psy""]}"
+265,364,Smartphone Dataset for Human Activity Recognition (HAR) in Ambient Assisted Living (AAL),2026-11-12T14:36:52.023770+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+266,507,WISDM Smartphone and Smartwatch Activity and Biometrics Dataset ,2026-11-12T14:36:52.056687+00:00,excluded_rows,declared rows=15630426
+267,285,Wilt,2026-11-12T14:36:52.090322+00:00,excluded_name_or_family,"{""alias"": ""Wilt"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""wilt""]}"
+268,8,Audiology (Standardized),2026-11-12T14:36:52.091004+00:00,excluded_name_or_family,"{""alias"": ""audiology"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""audiology""]}"
+269,519,Heart Failure Clinical Records,2026-11-12T14:36:52.091683+00:00,excluded_name_or_family,"{""alias"": ""Heart Failure Clinical Records"", ""match"": [""OpenML-full-catalog"", ""46612"", ""heart_failure_clinical_records""]}"
+270,400,Crowdsourced Mapping,2026-11-12T14:36:52.092347+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+271,454,Victorian Era Authorship Attribution,2026-11-12T14:36:52.125407+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42834"", ""authorship""], ""rule"": ""compact-name containment >=7""}"
+272,324,Firm-Teacher_Clave-Direction_Classification,2026-11-12T14:36:52.147348+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+273,691,CIFAR-10,2026-11-12T14:36:52.179559+00:00,excluded_name_or_family,"{""alias"": ""CIFAR-10"", ""match"": [""data/openml_confirmatory_manifest_30_canonical.csv"", ""dataset_name"", ""CIFAR_10""]}"
+274,760,Multivariate Gait Data,2026-11-12T14:36:52.180238+00:00,excluded_rows,declared rows=181800
+275,54,ISOLET,2026-11-12T14:36:52.212898+00:00,excluded_name_or_family,"{""alias"": ""ISOLET"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""isolet""]}"
+276,1101,PIRvision_FoG_presence_detection,2026-11-12T14:36:52.213591+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+277,78,Page Blocks Classification,2026-11-12T14:36:52.245868+00:00,excluded_name_or_family,"{""alias"": ""page-blocks"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(page-blocks,nominal,295245)""]}"
+278,46,Hepatitis,2026-11-12T14:36:52.246587+00:00,excluded_name_or_family,"{""alias"": ""Hepatitis"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""hepatitis""]}"
+279,588,GitHub MUSAE,2026-11-12T14:36:52.247258+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+280,253,MicroMass,2026-11-12T14:36:52.282112+00:00,excluded_name_or_family,"{""alias"": ""MicroMass"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""micro-mass_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+281,310,UJIIndoorLoc,2026-11-12T14:36:52.283126+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""46293"", ""ujiindoorloc_latitude""], ""rule"": ""compact-name containment >=7""}"
+282,597,Productivity Prediction of Garment Employees,2026-11-12T14:36:52.306456+00:00,excluded_name_or_family,"{""alias"": ""garments-worker-productivity"", ""match"": [""OpenML-full-catalog"", ""42989"", ""garments-worker-productivity""]}"
+283,480,2.4 GHZ Indoor Channel Measurements,2026-11-12T14:36:52.307155+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+284,1128,RecGym: Gym Workouts Recognition Dataset with IMU and Capacitive Sensor,2026-11-12T14:36:52.340290+00:00,excluded_rows,declared rows=4432070
+285,269,YouTube Multiview Video Games Dataset,2026-11-12T14:36:52.371590+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""41492"", ""youtube""], ""rule"": ""compact-name containment >=7""}"
+286,830,Visegrad Group companies data,2026-11-12T14:36:52.391382+00:00,excluded_rows,declared rows=85
+287,5,Arrhythmia,2026-11-12T14:36:52.423602+00:00,excluded_name_or_family,"{""alias"": ""Arrhythmia"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""arrhythmia""]}"
+288,389,Devanagari Handwritten Character Dataset,2026-11-12T14:36:52.424297+00:00,excluded_rows,declared rows=92000
+289,990,Printed Circuit Board Processed Image,2026-11-12T14:36:52.456457+00:00,excluded_rows,declared rows=723552
+290,963,UR3 CobotOps,2026-11-12T14:36:52.489859+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+291,719,Bengali Hate Speech Detection Dataset,2026-11-12T14:36:52.524255+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+292,47,Horse Colic,2026-11-12T14:36:52.556990+00:00,excluded_name_or_family,"{""alias"": ""colic"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""colic""]}"
+293,863,Maternal Health Risk,2026-11-12T14:36:52.557749+00:00,excluded_name_or_family,"{""alias"": ""Maternal Health Risk"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""maternal_health_risk""]}"
+294,70,MONK's Problems,2026-11-12T14:36:52.558478+00:00,excluded_name_or_family,"{""alias"": ""MONK's Problems"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""monks-problems-1""]}"
+295,82,Post-Operative Patient,2026-11-12T14:36:52.559202+00:00,excluded_name_or_family,"{""alias"": ""Post-Operative Patient"", ""match"": [""data/openml_manifest_1000_final.csv"", ""semantic_family_id"", ""postoperative patient""]}"
+296,482,Parking Birmingham,2026-11-12T14:36:52.559922+00:00,excluded_name_or_family,"{""alias"": ""Parking Birmingham"", ""match"": [""OpenML-full-catalog"", ""42961"", ""parking-birmingham""]}"
+297,137,Reuters-21578 Text Categorization Collection,2026-11-12T14:36:52.560909+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""reuters""], ""rule"": ""compact-name containment >=7""}"
+298,114,Australian Sign Language Signs,2026-11-12T14:36:52.577800+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Australian""], ""rule"": ""compact-name containment >=7""}"
+299,503,Hepatitis C Virus (HCV) for Egyptian patients,2026-11-12T14:36:52.594657+00:00,excluded_name_or_family,"{""alias"": ""Hepatitis C Virus (HCV) for Egyptian patients"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""hepatitis_c_virus_hcv_for_egyptian_patients""]}"
+300,911,Recipe Reviews and User Feedback,2026-11-12T14:36:52.595362+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""40967"", ""feedback""], ""rule"": ""compact-name containment >=7""}"
+301,175,Character Trajectories,2026-11-12T14:36:52.615578+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+302,45,Heart Disease,2026-11-12T14:36:52.648049+00:00,excluded_name_or_family,"{""alias"": ""Heart Disease"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""heart-c""]}"
+303,159,MAGIC Gamma Telescope,2026-11-12T14:36:52.648796+00:00,excluded_name_or_family,"{""alias"": ""MagicTelescope"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""MagicTelescope_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+304,32,Cylinder Bands,2026-11-12T14:36:52.649563+00:00,excluded_name_or_family,"{""alias"": ""Cylinder Bands"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""cylinder-bands""]}"
+305,515,Bar Crawl: Detecting Heavy Drinking,2026-11-12T14:36:52.651240+00:00,excluded_rows,declared rows=14057567
+306,407,TTC-3600: Benchmark dataset for Turkish text categorization,2026-11-12T14:36:52.683545+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+307,96,SPECTF Heart,2026-11-12T14:36:52.715342+00:00,excluded_name_or_family,"{""alias"": ""SPECTF Heart"", ""match"": [""data/openml_confirmatory_manifest_30_canonical.csv"", ""dataset_name"", ""BNG(spectf_test)""]}"
+308,967,PhiUSIIL Phishing URL (Website),2026-11-12T14:36:52.716094+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""website_phishing""], ""rule"": ""multi-token source-name containment""}"
+309,1162,Neurofibromatosis Type 1; Clinical Symptoms of Familial and Sporadic Cases,2026-11-12T14:36:52.728383+00:00,validation_loading_failure,ValueError: no_unique_archive_table_matching_declared_schema:[]
+310,90,Soybean (Large),2026-11-12T14:36:52.815129+00:00,excluded_name_or_family,"{""alias"": ""Soybean (Large)"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Soybean_Large""]}"
+311,270,Gas Sensor Array Drift at Different Concentrations,2026-11-12T14:36:52.815908+00:00,excluded_name_or_family,"{""alias"": ""gas-drift-different-concentrations"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""gas-drift-different-concentrations""]}"
+312,248,Buzz in social media ,2026-11-12T14:36:52.816705+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""4548"", ""BuzzinsocialmediaTomsHardware""], ""rule"": ""compact-name containment >=7""}"
+313,995,ApisTox,2026-11-12T14:36:52.840128+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+314,226,OPPORTUNITY Activity Recognition,2026-11-12T14:36:52.870241+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+315,425,University of Tehran Question Dataset 2016 (UTQD.2016),2026-11-12T14:36:52.902853+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_12_options_initial.csv"", ""dataset_name"", ""dataSet_2""], ""rule"": ""compact-name containment >=7""}"
+316,568,Refractive errors,2026-11-12T14:36:52.917970+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+317,282,LSVT Voice Rehabilitation,2026-11-12T14:36:52.950316+00:00,excluded_rows,declared rows=126
+318,920,Jute Pest,2026-11-12T14:36:52.983737+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+319,279,SUSY,2026-11-12T14:36:53.016552+00:00,excluded_name_or_family,"{""alias"": ""SUSY"", ""match"": [""OpenML-full-catalog"", ""42226"", ""SUSY""]}"
+320,225,ILPD (Indian Liver Patient Dataset),2026-11-12T14:36:53.017321+00:00,excluded_name_or_family,"{""alias"": ""Indian-Liver-Patient-Dataset"", ""match"": [""OpenML-full-catalog"", ""43759"", ""Indian-Liver-Patient-Dataset""]}"
+321,262,Turkiye Student Evaluation,2026-11-12T14:36:53.018108+00:00,excluded_name_or_family,"{""alias"": ""Turkiye Student Evaluation"", ""match"": [""OpenML-full-catalog"", ""4553"", ""TurkiyeStudentEvaluation""]}"
+322,386,FMA: A Dataset For Music Analysis,2026-11-12T14:36:53.018863+00:00,excluded_rows,declared rows=106574
+323,401,gene expression cancer RNA-Seq,2026-11-12T14:36:53.052761+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+324,693,ImageNet,2026-11-12T14:36:53.084917+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""46577"", ""tiny-imagenet-200""], ""rule"": ""compact-name containment >=7""}"
+325,730,Physical Therapy Exercises,2026-11-12T14:36:53.108866+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""41937"", ""exercises""], ""rule"": ""compact-name containment >=7""}"
+326,877,MOVER: Medical Informatics Operating Room Vitals and Events Repository,2026-11-12T14:36:53.129698+00:00,excluded_rows,declared rows=83468
+327,517,Shoulder Implant X-Ray Manufacturer Classification,2026-11-12T14:36:53.161652+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+328,27,Credit Approval,2026-11-12T14:36:53.194311+00:00,excluded_name_or_family,"{""alias"": ""Credit Approval"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""credit-approval""]}"
+329,287,Activity Recognition from Single Chest-Mounted Accelerometer,2026-11-12T14:36:53.195363+00:00,excluded_rows,declared rows=0
+330,350,Default of Credit Card Clients,2026-11-12T14:36:53.227929+00:00,excluded_name_or_family,"{""alias"": ""Default of Credit Card Clients"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""default-of-credit-card-clients""]}"
+331,427,Activity recognition with healthy older people using a batteryless wearable sensor,2026-11-12T14:36:53.228754+00:00,excluded_rows,declared rows=75128
+332,309,Gas sensor array exposed to turbulent gas mixtures,2026-11-12T14:36:53.264580+00:00,excluded_rows,declared rows=180
+333,471,Electrical Grid Stability Simulated Data ,2026-11-12T14:36:53.298488+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""electrical_grid_stability_simulated_classification""], ""rule"": ""multi-token source-name containment""}"
+334,292,Wholesale customers,2026-11-12T14:36:53.316207+00:00,excluded_name_or_family,"{""alias"": ""Wholesale customers"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""wholesale-customers""]}"
+335,600,Wisesight Sentiment Corpus,2026-11-12T14:36:53.316988+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+336,383,Cervical Cancer (Risk Factors),2026-11-12T14:36:53.349525+00:00,excluded_name_or_family,"{""alias"": ""Cervical Cancer (Risk Factors)"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Cervical_Cancer_Risk_Factors""]}"
+337,110,Yeast,2026-11-12T14:36:53.350354+00:00,excluded_name_or_family,"{""alias"": ""Yeast"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""yeast""]}"
+338,423,HCC Survival,2026-11-12T14:36:53.351165+00:00,excluded_rows,declared rows=165
+339,587,Basketball dataset,2026-11-12T14:36:53.384598+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+340,391,MoCap Hand Postures,2026-11-12T14:36:53.418323+00:00,excluded_name_or_family,"{""alias"": ""MoCap Hand Postures"", ""match"": [""OpenML-full-catalog"", ""42997"", ""mocap-hand-postures""]}"
+341,273,Weight Lifting Exercises monitored with Inertial Measurement Units,2026-11-12T14:36:53.419155+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""41937"", ""exercises""], ""rule"": ""compact-name containment >=7""}"
+342,853,Non Verbal Tourists,2026-11-12T14:36:53.439157+00:00,excluded_rows,declared rows=73
+343,311,Sentence Classification,2026-11-12T14:36:53.473807+00:00,excluded_rows,declared rows=0
+344,533,Detect Malware Types,2026-11-12T14:36:53.506478+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+345,184,Acute Inflammations,2026-11-12T14:36:53.539322+00:00,excluded_name_or_family,"{""alias"": ""Acute Inflammations"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""acute-inflammations""]}"
+346,596,Wheat Kernels,2026-11-12T14:36:53.540142+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+347,117,Census-Income (KDD),2026-11-12T14:36:53.574386+00:00,excluded_name_or_family,"{""alias"": ""Census-Income (KDD)"", ""match"": [""OpenML-full-catalog"", ""42750"", ""Census-Income-KDD""]}"
+348,242,Energy Efficiency,2026-11-12T14:36:53.575199+00:00,excluded_name_or_family,"{""alias"": ""Energy Efficiency"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""energy-efficiency""]}"
+349,602,Dry Bean,2026-11-12T14:36:53.575995+00:00,excluded_name_or_family,"{""alias"": ""beans"", ""match"": [""OpenML-full-catalog"", ""45741"", ""beans""]}"
+350,1192,Amaranthus Viridis leaves,2026-11-12T14:36:53.577069+00:00,excluded_rows,declared rows=12
+351,340,Cuff-Less Blood Pressure Estimation,2026-11-12T14:36:53.609484+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+352,300,Tennis Major Tournament Match Statistics,2026-11-12T14:36:53.645463+00:00,excluded_rows,declared rows=127
+353,595,LastFM Asia Social Network,2026-11-12T14:36:53.676872+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+354,95,SPECT Heart,2026-11-12T14:36:53.711880+00:00,excluded_name_or_family,"{""alias"": ""SPECT"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""SPECT""]}"
+355,140,Syskill and Webert Web Page Ratings,2026-11-12T14:36:53.712716+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+356,854,Roman Urdu Sentiment Analysis Dataset (RUSAD),2026-11-12T14:36:53.746320+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+357,524,Swarm Behaviour,2026-11-12T14:36:53.778846+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+358,271,Activities of Daily Living (ADLs) Recognition Using Binary Sensors,2026-11-12T14:36:53.813855+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+359,759,Glioma Grading Clinical and Mutation Features,2026-11-12T14:36:53.847745+00:00,excluded_name_or_family,"{""alias"": ""Glioma Grading Clinical and Mutation Features"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""glioma_grading_clinical_and_mutation_features""]}"
+360,143,Statlog (Australian Credit Approval),2026-11-12T14:36:53.848602+00:00,excluded_name_or_family,"{""alias"": ""australian_credit_approval"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""credit-approval""]}"
+361,862,Turkish Music Emotion,2026-11-12T14:36:53.849445+00:00,accepted,"public schema, encoding, 3 splits and conservative disjunction validated"
+362,402,"Hybrid Indoor Positioning Dataset from WiFi RSSI, Bluetooth and magnetometer",2026-11-12T14:36:53.900378+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+363,433,Ultrasonic flowmeter diagnostics,2026-11-12T14:36:53.932693+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+364,102,Thyroid Disease,2026-11-12T14:36:53.968215+00:00,excluded_name_or_family,"{""alias"": ""Thyroid Disease"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(sick,nominal,1000000)""]}"
+365,499,Opinion Corpus for Lebanese Arabic Reviews (OCLAR),2026-11-12T14:36:53.969064+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+366,152,Connectionist Bench (Vowel Recognition - Deterding Data),2026-11-12T14:36:54.002140+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""semantic_family_id"", ""connect""], ""rule"": ""compact-name containment >=7""}"
+367,219,DBWorld e-mails,2026-11-12T14:36:54.020147+00:00,excluded_rows,declared rows=64
+368,522,South German Credit,2026-11-12T14:36:54.055315+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""semantic_family_id"", ""german_credit""], ""rule"": ""compact-name containment >=7""}"
+369,908,RealWaste,2026-11-12T14:36:54.073408+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+370,259,"Reuters RCV1 RCV2 Multilingual, Multiview Text Categorization Test collection",2026-11-12T14:36:54.107365+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""reuters""], ""rule"": ""compact-name containment >=7""}"
+371,518,Speaker Accent Recognition,2026-11-12T14:36:54.124443+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+372,124,CMU Face Images,2026-11-12T14:36:54.156750+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+373,942,RT-IoT2022 ,2026-11-12T14:36:54.189597+00:00,excluded_rows,declared rows=123117
+374,193,Cardiotocography,2026-11-12T14:36:54.222737+00:00,excluded_name_or_family,"{""alias"": ""Cardiotocography"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""cardiotocography""]}"
+375,325,Dataset for Sensorless Drive Diagnosis,2026-11-12T14:36:54.223609+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""4536"", ""SensorlessDriveDiagnosis""], ""rule"": ""compact-name containment >=7""}"
+376,1,Abalone,2026-11-12T14:36:54.255073+00:00,excluded_name_or_family,"{""alias"": ""Abalone"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""abalone""]}"
+377,1050,Twitter Geospatial Data,2026-11-12T14:36:54.256195+00:00,excluded_rows,declared rows=14262517
+378,228,SMS Spam Collection,2026-11-12T14:36:54.289241+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+379,86,Quadruped Mammals,2026-11-12T14:36:54.322848+00:00,excluded_rows,declared rows=0
+380,1134,BEED: Bangalore EEG Epilepsy Dataset ,2026-11-12T14:36:54.356137+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+381,103,Trains,2026-11-12T14:36:54.390638+00:00,excluded_name_or_family,"{""alias"": ""Trains"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""trains""]}"
+382,413,Dynamic Features of VirusShare Executables,2026-11-12T14:36:54.391499+00:00,excluded_rows,declared rows=107888
+383,392,Early biomarkers of Parkinson’s disease based on natural connected speech,2026-11-12T14:36:54.425793+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""parkinsons""], ""rule"": ""compact-name containment >=7""}"
+384,30,Contraceptive Method Choice,2026-11-12T14:36:54.441966+00:00,excluded_name_or_family,"{""alias"": ""Contraceptive Method Choice"", ""match"": [""OpenML-full-catalog"", ""43701"", ""Contraceptive-Method-Choice""]}"
+385,434,ICMLA 2014 Accepted Papers Data Set,2026-11-12T14:36:54.442822+00:00,excluded_rows,declared rows=105
+386,578,Intelligent Media Accelerometer and Gyroscope (IM-AccGyro) Dataset,2026-11-12T14:36:54.474403+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+387,435,BLE RSSI Dataset for Indoor localization and Navigation,2026-11-12T14:36:54.506324+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+388,209,PubChem Bioassay Data,2026-11-12T14:36:54.538406+00:00,excluded_rows,declared rows=0
+389,109,Wine,2026-11-12T14:36:54.572641+00:00,excluded_name_or_family,"{""alias"": ""Wine"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""wine""]}"
+390,57,LED Display Domain,2026-11-12T14:36:54.573534+00:00,excluded_name_or_family,"{""alias"": ""LED Display Domain"", ""match"": [""data/openml_confirmatory_manifest_12_options_initial.csv"", ""dataset_name"", ""led7digit-0-2-4-5-6-7-8-9_vs_1""]}"
+391,107,Waveform Database Generator (Version 1),2026-11-12T14:36:54.574412+00:00,excluded_name_or_family,"{""alias"": ""waveform-5000"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""waveform-5000""]}"
+392,40,Flags,2026-11-12T14:36:54.575308+00:00,excluded_name_or_family,"{""alias"": ""Flags"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""flags""]}"
+393,858,Rocket League Skillshots,2026-11-12T14:36:54.576178+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+394,562,Shill Bidding Dataset,2026-11-12T14:36:54.609715+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42889"", ""shill-bidding""], ""rule"": ""compact-name containment >=7""}"
+395,424,CSM (Conventional and Social Media Movies) Dataset 2014 and 2015,2026-11-12T14:36:54.632642+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_12_options_initial.csv"", ""dataset_name"", ""dataSet_2""], ""rule"": ""compact-name containment >=7""}"
+396,1025,Turkish Crowdfunding Startups,2026-11-12T14:36:54.648593+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+397,880,SUPPORT2,2026-11-12T14:36:54.675224+00:00,excluded_name_or_family,"{""alias"": ""SUPPORT2"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Support2""]}"
+398,773,DeFungi,2026-11-12T14:36:54.676153+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+399,172,Ozone Level Detection,2026-11-12T14:36:54.705268+00:00,excluded_name_or_family,"{""alias"": ""ozone_level"", ""match"": [""data/openml_confirmatory_manifest_12_options_initial.csv"", ""dataset_name"", ""ozone_level""]}"
+400,586,BLE RSSI dataset for Indoor localization,2026-11-12T14:36:54.706170+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+401,355,Detect Malacious Executable(AntiVirus),2026-11-12T14:36:54.740984+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+402,521,selfBACK,2026-11-12T14:36:54.775555+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+403,891,CDC Diabetes Health Indicators,2026-11-12T14:36:54.810455+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_30_holdout.csv"", ""dataset_name"", ""cdc_diabetes""], ""rule"": ""compact-name containment >=7""}"
+404,256,Daily and Sports Activities,2026-11-12T14:36:54.828265+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+405,12,Balance Scale,2026-11-12T14:36:54.861382+00:00,excluded_name_or_family,"{""alias"": ""Balance Scale"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""balance-scale""]}"
+406,53,Iris,2026-11-12T14:36:54.862251+00:00,excluded_name_or_family,"{""alias"": ""Iris"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""iris""]}"
+407,512,A study of  Asian Religious and Biblical Texts,2026-11-12T14:36:54.863099+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+408,255,BLOGGER,2026-11-12T14:36:54.897010+00:00,excluded_name_or_family,"{""alias"": ""BLOGGER"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""blogger""]}"
+409,813,TUNADROMD,2026-11-12T14:36:54.897881+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+410,42,Glass Identification,2026-11-12T14:36:54.926815+00:00,excluded_name_or_family,"{""alias"": ""Glass Identification"", ""match"": [""data/openml_confirmatory_manifest_12_options_initial.csv"", ""dataset_name"", ""glass-0-1-4-6_vs_2""]}"
+411,233,CNAE-9,2026-11-12T14:36:54.928138+00:00,excluded_name_or_family,"{""alias"": ""CNAE-9"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""cnae-9_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+412,210,Record Linkage Comparison Patterns,2026-11-12T14:36:54.929037+00:00,excluded_rows,declared rows=5749132
+413,544,Estimation of Obesity Levels Based On Eating Habits and Physical Condition ,2026-11-12T14:36:54.962647+00:00,excluded_name_or_family,"{""alias"": ""Estimation_of_Obesity_Levels"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Estimation_of_Obesity_Levels""]}"
+414,160,UJI Pen Characters,2026-11-12T14:36:54.963590+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+415,442,detection_of_IoT_botnet_attacks_N_BaIoT,2026-11-12T14:36:54.997045+00:00,excluded_rows,declared rows=7062606
+416,372,HTRU2,2026-11-12T14:36:55.029742+00:00,excluded_name_or_family,"{""alias"": ""Pulsar-Dataset-HTRU2"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Pulsar-Dataset-HTRU2""]}"
+417,192,Breast Tissue,2026-11-12T14:36:55.030855+00:00,excluded_name_or_family,"{""alias"": ""Breast Tissue"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""breast-tissue""]}"
+418,422,Wireless Indoor Localization,2026-11-12T14:36:55.031782+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+419,342,Mice Protein Expression,2026-11-12T14:36:55.065075+00:00,excluded_name_or_family,"{""alias"": ""Mice Protein Expression"", ""match"": [""OpenML-full-catalog"", ""43445"", ""Mice-Protein-Expression""]}"
+420,100,Teaching Assistant Evaluation,2026-11-12T14:36:55.066192+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""teachingAssistant""], ""rule"": ""compact-name containment >=7""}"
+421,280,HIGGS,2026-11-12T14:36:55.083370+00:00,excluded_name_or_family,"{""alias"": ""HIGGS"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""ATLAS-Higgs-Boson-Machine-Learning-Challenge-2014""]}"
+422,197,AutoUniv,2026-11-12T14:36:55.084256+00:00,excluded_name_or_family,"{""alias"": ""AutoUniv"", ""match"": [""data/openml_manifest_1000_final.csv"", ""semantic_family_id"", ""autouniv""]}"
+423,224,Gas Sensor Array Drift Dataset,2026-11-12T14:36:55.085166+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""gas-drift""], ""rule"": ""multi-token source-name containment""}"
+424,302,Gesture Phase Segmentation,2026-11-12T14:36:55.101804+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(segment)""], ""rule"": ""compact-name containment >=7""}"
+425,913,Forty Soybean Cultivars from Subsequent Harvests,2026-11-12T14:36:55.118050+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""soybean""], ""rule"": ""compact-name containment >=7""}"
+426,474,BAUM-2,2026-11-12T14:36:55.132356+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+427,179,SECOM,2026-11-12T14:36:55.167025+00:00,excluded_name_or_family,"{""alias"": ""SECOM"", ""match"": [""OpenML-full-catalog"", ""41066"", ""secom""]}"
+428,406,Anuran Calls (MFCCs),2026-11-12T14:36:55.167988+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+429,779,HARTH,2026-11-12T14:36:55.201694+00:00,excluded_rows,declared rows=6461328
+430,584,Labeled Text Forum Threads Dataset,2026-11-12T14:36:55.235964+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+431,561,Person Classification Gait Data,2026-11-12T14:36:55.271599+00:00,excluded_rows,declared rows=48
+432,553,Clickstream Data for Online Shopping,2026-11-12T14:36:55.304425+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42914"", ""clickstream""], ""rule"": ""compact-name containment >=7""}"
+433,468,Online Shoppers Purchasing Intention Dataset,2026-11-12T14:36:55.336074+00:00,excluded_name_or_family,"{""alias"": ""online-shoppers-intention"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""online-shoppers-intention""]}"
+434,397,Las Vegas Strip,2026-11-12T14:36:55.337035+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+435,543,User Profiling and Abusive Language Detection Dataset,2026-11-12T14:36:55.370425+00:00,excluded_rows,declared rows=65919
+436,420,Autistic Spectrum Disorder Screening Data for Adolescent   ,2026-11-12T14:36:55.402546+00:00,excluded_rows,declared rows=104
+437,367,Dota2 Games Results,2026-11-12T14:36:55.434952+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Dota2-Games-Results-Data-Set""], ""rule"": ""compact-name containment >=7""}"
+438,850,Raisin,2026-11-12T14:36:55.453211+00:00,accepted,"public schema, encoding, 3 splits and conservative disjunction validated"
+439,305,REALDISP Activity Recognition Dataset,2026-11-12T14:36:55.494332+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+440,64,Mechanical Analysis,2026-11-12T14:36:55.528640+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+441,249,First-order theorem proving,2026-11-12T14:36:55.564926+00:00,excluded_name_or_family,"{""alias"": ""First-order theorem proving"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""first-order-theorem-proving_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+442,430,OCT data & Color Fundus Images of Left & Right Eyes,2026-11-12T14:36:55.565905+00:00,excluded_rows,declared rows=50
+443,199,MiniBooNE particle identification,2026-11-12T14:36:55.599882+00:00,excluded_name_or_family,"{""alias"": ""MiniBooNE particle identification"", ""match"": [""OpenML-full-catalog"", ""4539"", ""MiniBooNEparticleidentification""]}"
+444,13,Balloons,2026-11-12T14:36:55.601058+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""balloon""], ""rule"": ""compact-name containment >=7""}"
+445,683,MNIST Database of Handwritten Digits,2026-11-12T14:36:55.623514+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""46572"", ""database""], ""rule"": ""compact-name containment >=7""}"
+446,144,Statlog (German Credit Data),2026-11-12T14:36:55.646860+00:00,excluded_name_or_family,"{""alias"": ""credit-g"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(credit-g,nominal,1000000)""]}"
+447,456,Multimodal Damage Identification for Humanitarian Computing,2026-11-12T14:36:55.648009+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+448,254,QSAR biodegradation,2026-11-12T14:36:55.680500+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""qsar-biodeg""], ""rule"": ""compact-name containment >=7""}"
+449,510,QSAR Bioconcentration classes dataset,2026-11-12T14:36:55.698351+00:00,excluded_name_or_family,"{""alias"": ""QSAR Bioconcentration classes dataset"", ""match"": [""OpenML-full-catalog"", ""43581"", ""QSAR-Bioconcentration-classes-dataset""]}"
+450,489,Parkinson Dataset with replicated acoustic features ,2026-11-12T14:36:55.699480+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""46094"", ""Parkinson_Dataset""], ""rule"": ""compact-name containment >=7""}"
+451,72,Multiple Features,2026-11-12T14:36:55.721995+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+452,538,Sattriya_Dance_Single_Hand_Gestures Dataset,2026-11-12T14:36:55.756683+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+453,146,Statlog (Landsat Satellite),2026-11-12T14:36:55.789894+00:00,excluded_name_or_family,"{""alias"": ""satellite_image"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""Satellite_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+454,343,UJIIndoorLoc-Mag,2026-11-12T14:36:55.790848+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+455,128,Japanese Vowels,2026-11-12T14:36:55.824239+00:00,excluded_name_or_family,"{""alias"": ""Japanese Vowels"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""JapaneseVowels""]}"
+456,75,Musk (Version 2),2026-11-12T14:36:55.825227+00:00,excluded_name_or_family,"{""alias"": ""Musk (Version 2)"", ""match"": [""OpenML-full-catalog"", ""46615"", ""Musk_Version_2""]}"
+457,869,Shell Commands Used by Participants of Hands-on Cybersecurity Training,2026-11-12T14:36:55.826211+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+458,22,Chess (King-Rook vs. King-Pawn),2026-11-12T14:36:55.856395+00:00,excluded_name_or_family,"{""alias"": ""kr-vs-kp"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(kr-vs-kp,10000,10)""]}"
+459,299,StoneFlakes,2026-11-12T14:36:55.857413+00:00,excluded_rows,declared rows=79
+460,240,Human Activity Recognition Using Smartphones,2026-11-12T14:36:55.893397+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+461,520,Deepfakes: Medical Image Tamper Detection,2026-11-12T14:36:55.925665+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+462,50,Image Segmentation,2026-11-12T14:36:55.957877+00:00,excluded_name_or_family,"{""alias"": ""segment"", ""match"": [""data/openml_confirmatory_manifest_30_families.csv"", ""dataset_name"", ""BNG(segment)""]}"
+463,373,Drug Consumption (Quantified),2026-11-12T14:36:55.958922+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+464,88,Shuttle Landing Control,2026-11-12T14:36:55.992096+00:00,excluded_name_or_family,"{""alias"": ""Shuttle Landing Control"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""shuttle_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+465,573,South German Credit,2026-11-12T14:36:55.995374+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""semantic_family_id"", ""german_credit""], ""rule"": ""compact-name containment >=7""}"
+466,748,Sirtuin6 Small Molecules,2026-11-12T14:36:56.014738+00:00,excluded_rows,declared rows=100
+467,791,MetroPT-3 Dataset,2026-11-12T14:36:56.047918+00:00,excluded_rows,declared rows=1516948
+468,15,Breast Cancer Wisconsin (Original),2026-11-12T14:36:56.082708+00:00,excluded_name_or_family,"{""alias"": ""breast-w"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""breast-w""]}"
+469,217,Reuter_50_50,2026-11-12T14:36:56.083719+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+470,861,Influenza Outbreak Event Prediction via Twitter,2026-11-12T14:36:56.117051+00:00,excluded_rows,declared rows=75839
+471,289,Dresses_Attribute_Sales,2026-11-12T14:36:56.149665+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""dresses-sales""], ""rule"": ""multi-token source-name containment""}"
+472,866,9mers from cullpdb,2026-11-12T14:36:56.166831+00:00,excluded_rows,declared rows=158716
+473,860,REJAFADA,2026-11-12T14:36:56.201159+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+474,293,Twitter Data set for Arabic Sentiment Analysis,2026-11-12T14:36:56.234691+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""43628"", ""Twitter-Sentiment-Analysis""], ""rule"": ""multi-token source-name containment""}"
+475,459,Avila,2026-11-12T14:36:56.258400+00:00,excluded_name_or_family,"{""alias"": ""Avila"", ""match"": [""OpenML-full-catalog"", ""42932"", ""avila""]}"
+476,603,In-Vehicle Coupon Recommendation,2026-11-12T14:36:56.259413+00:00,excluded_name_or_family,"{""alias"": ""In-Vehicle Coupon Recommendation"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""in_vehicle_coupon_recommendation""]}"
+477,728,Toxicity,2026-11-12T14:36:56.260426+00:00,excluded_name_or_family,"{""alias"": ""Toxicity"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""toxicity""]}"
+478,21,Chess (King-Rook vs. King-Knight),2026-11-12T14:36:56.261430+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""King-rook-vs-King""], ""rule"": ""compact-name containment >=7""}"
+479,537,Cervical Cancer Behavior Risk,2026-11-12T14:36:56.278110+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42912"", ""behavior-cervical""], ""rule"": ""multi-token source-name containment""}"
+480,938,Regensburg Pediatric Appendicitis,2026-11-12T14:36:56.300987+00:00,excluded_name_or_family,"{""alias"": ""Regensburg Pediatric Appendicitis"", ""match"": [""OpenML-full-catalog"", ""46603"", ""regensburg_pediatric_appendicitis""]}"
+481,583,Chemical Composition of Ceramic Samples,2026-11-12T14:36:56.302032+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42915"", ""chemical-ceramic""], ""rule"": ""multi-token source-name containment""}"
+482,190,Demospongiae,2026-11-12T14:36:56.325397+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+483,14,Breast Cancer,2026-11-12T14:36:56.358818+00:00,excluded_name_or_family,"{""alias"": ""Breast Cancer"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""breast-cancer""]}"
+484,181,Libras Movement,2026-11-12T14:36:56.359894+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_confirmatory_manifest_12_options_initial.csv"", ""dataset_name"", ""libras_move""], ""rule"": ""compact-name containment >=7""}"
+485,1202,HLS-CMDS: Heart and Lung Sounds Dataset Recorded from a Clinical Manikin using Digital Stethoscope,2026-11-12T14:36:56.379144+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+486,76,Nursery,2026-11-12T14:36:56.405745+00:00,excluded_name_or_family,"{""alias"": ""Nursery"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""nursery""]}"
+487,252,Climate Model Simulation Crashes,2026-11-12T14:36:56.406802+00:00,excluded_name_or_family,"{""alias"": ""Climate Model Simulation Crashes"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""climate-model-simulation-crashes""]}"
+488,496,Alcohol QCM Sensor,2026-11-12T14:36:56.407840+00:00,excluded_name_or_family,"{""alias"": ""Alcohol QCM Sensor"", ""match"": [""OpenML-full-catalog"", ""42930"", ""alcohol-qcm-sensor""]}"
+489,879,Ajwa or Medjool,2026-11-12T14:36:56.409056+00:00,validation_loading_failure,ValueError: source_row_count_disagrees_with_metadata
+490,451,Breast Cancer Coimbra,2026-11-12T14:36:56.882624+00:00,excluded_name_or_family,"{""alias"": ""Breast Cancer Coimbra"", ""match"": [""OpenML-full-catalog"", ""42900"", ""breast-cancer-coimbra""]}"
+491,414,IDA2016Challenge,2026-11-12T14:36:56.883730+00:00,excluded_rows,declared rows=76000
+492,323,microblogPCU,2026-11-12T14:36:56.919965+00:00,excluded_rows,declared rows=221579
+493,239,Legal Case Reports,2026-11-12T14:36:56.955259+00:00,excluded_rows,declared rows=0
+494,439,chipseq,2026-11-12T14:36:56.991170+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+495,250,Wearable Computing: Classification of Body Postures and Movements (PUC-Rio),2026-11-12T14:36:57.025208+00:00,excluded_rows,declared rows=165632
+496,329,Diabetic Retinopathy Debrecen,2026-11-12T14:36:57.058489+00:00,validation_loading_failure,ValueError: invalid_feature_names
+497,19,Car Evaluation,2026-11-12T14:36:57.095054+00:00,excluded_name_or_family,"{""alias"": ""Car Evaluation"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""car_evaluation""]}"
+498,457,EEG Steady-State Visual Evoked Potential Signals,2026-11-12T14:36:57.096230+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+499,449,Optical Interconnection Network ,2026-11-12T14:36:57.128357+00:00,excluded_name_or_family,"{""alias"": ""Optical Interconnection Network "", ""match"": [""OpenML-full-catalog"", ""42365"", ""optical_interconnection_network""]}"
+500,1104,Drug Induced Autoimmunity Prediction ,2026-11-12T14:36:57.129442+00:00,validation_loading_failure,"ValueError: no_unique_archive_table_matching_declared_schema:['DIA_testset_RDKit_descriptors.csv', 'DIA_trainingset_RDKit_descriptors.csv']"
+501,1035,CAN-MIRGU,2026-11-12T14:36:57.202948+00:00,excluded_rows,declared rows=48
+502,405,Motion Capture Hand Postures,2026-11-12T14:36:57.237964+00:00,excluded_rows,declared rows=78095
+503,547,Algerian Forest Fires,2026-11-12T14:36:57.271446+00:00,excluded_name_or_family,"{""alias"": ""Algerian Forest Fires"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""algerian_forest_fires""]}"
+504,729,Period Changer,2026-11-12T14:36:57.272736+00:00,excluded_rows,declared rows=90
+505,399,MEU-Mobile KSD,2026-11-12T14:36:57.310247+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+506,570,CLINC150,2026-11-12T14:36:57.346319+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+507,191,Opinosis Opinion / Review,2026-11-12T14:36:57.381004+00:00,excluded_rows,declared rows=51
+508,598,Multi-view Brain Networks,2026-11-12T14:36:57.417927+00:00,excluded_rows,declared rows=70
+509,23,Chess (King-Rook vs. King),2026-11-12T14:36:57.454104+00:00,excluded_name_or_family,"{""alias"": ""kr-vs-k"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""kr-vs-k""]}"
+510,421,APS Failure at Scania Trucks,2026-11-12T14:36:57.455708+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""APSFailure_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True""], ""rule"": ""compact-name containment >=7""}"
+511,1150,Gallstone,2026-11-12T14:36:57.473420+00:00,validation_loading_failure,ValueError: no_unique_archive_table_matching_declared_schema:[]
+512,16,Breast Cancer Wisconsin (Prognostic),2026-11-12T14:36:57.507289+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""breast-cancer""], ""rule"": ""compact-name containment >=7""}"
+513,336,Chronic Kidney Disease,2026-11-12T14:36:57.523945+00:00,excluded_name_or_family,"{""alias"": ""Chronic Kidney Disease"", ""match"": [""OpenML-full-catalog"", ""42972"", ""chronic-kidney-disease""]}"
+514,161,Mammographic Mass,2026-11-12T14:36:57.525007+00:00,excluded_name_or_family,"{""alias"": ""mammography"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""mammography""]}"
+515,527,Facebook Large Page-Page Network,2026-11-12T14:36:57.526086+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+516,227,Nomao,2026-11-12T14:36:57.559608+00:00,excluded_name_or_family,"{""alias"": ""Nomao"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""nomao_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True""]}"
+517,317,Grammatical Facial Expressions,2026-11-12T14:36:57.560757+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+518,502,Online Retail II,2026-11-12T14:36:57.594700+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""43368"", ""Online-Retail-II-UCI""], ""rule"": ""compact-name containment >=7""}"
+519,690,Palmer Penguins,2026-11-12T14:36:57.616799+00:00,excluded_uncertain_same_base,"{""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""penguins""], ""rule"": ""compact-name containment >=7""}"
+520,288,Leaf,2026-11-12T14:36:57.634895+00:00,excluded_name_or_family,"{""alias"": ""Leaf"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""leaf""]}"
+521,404,Burst Header Packet (BHP) flooding attack on Optical Burst Switching (OBS) Network,2026-11-12T14:36:57.635992+00:00,excluded_uncertain_same_base,"{""match"": [""OpenML-full-catalog"", ""42898"", ""burst-header-packet""], ""rule"": ""compact-name containment >=7""}"
+522,915,Differentiated Thyroid Cancer Recurrence,2026-11-12T14:36:57.658303+00:00,excluded_name_or_family,"{""alias"": ""Differentiated Thyroid Cancer Recurrence"", ""match"": [""data/openml_manifest_1000_final.csv"", ""dataset_name"", ""differentiated_thyroid_cancer_recurrence""]}"
+523,548,Breath Metabolomics,2026-11-12T14:36:57.659424+00:00,excluded_rows,declared rows=104
+524,450,Sports articles for objectivity analysis,2026-11-12T14:36:57.694874+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+525,579,Myocardial infarction complications,2026-11-12T14:36:57.729679+00:00,excluded_declared_target,source must declare exactly one target; no target choice/relabeling
+526,149,Statlog (Vehicle Silhouettes),2026-11-12T14:36:57.763690+00:00,excluded_name_or_family,"{""alias"": ""vehicle"", ""match"": [""data/openml_confirmatory_manifest_30_canonical.csv"", ""dataset_name"", ""vehicleNorm""]}"

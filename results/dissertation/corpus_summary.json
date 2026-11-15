@@ -1,0 +1,28 @@
+{
+  "datasets": 973,
+  "canonical_families": 973,
+  "semantic_lodo_families": 667,
+  "semantic_declared_families": 666,
+  "missing_semantic_ids": [
+    41526,
+    45939
+  ],
+  "semantic_missing_unique_families": 668.0,
+  "multi_dataset_families": 45,
+  "datasets_with_relatives": 351,
+  "independent_datasets": 622,
+  "validation_failures": [
+    350,
+    386,
+    389,
+    391,
+    392,
+    394,
+    395,
+    401,
+    47138,
+    47266,
+    47267
+  ],
+  "cost_exclusions": 16
+}

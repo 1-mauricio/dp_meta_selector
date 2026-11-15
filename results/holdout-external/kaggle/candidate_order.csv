@@ -1,0 +1,601 @@
+api_rank,kaggle_id,ref,name,votes,position
+144,8517037,hqdataprofiler/cleaned-netflix-movies-and-tv-shows,Netflix Movies and TV Shows - CLEANED,37,1
+348,5529410,yigitsever/misuse-detection-in-containers-dataset,Misuse Detection in Containers Dataset (AINA 2024),11,2
+452,1920275,hamedetezadi/email-hamspam-dataset,Email_HamSpam_Dataset,5,3
+220,2370668,xiaojiu1414/digix-global-ai-challenge,CTR Prediction - 2022 DIGIX Global AI Challenge,26,4
+450,2289349,tareqalhmiedat/lidardataframes,LidarDataFrames,6,5
+168,9956053,sarveshchhetri/student-lifestyle-vs-academic-performance-dataset,Student Lifestyle & GPA Prediction Dataset,33,6
+600,8946136,ubobyclinton/mu-iot,MU-IoT,2,7
+126,9932487,sumeakash/how-ai-is-changing-student-life,AI Impact on Student Life Dataset,46,8
+215,2114557,williamhyun/amazon-bin-image-dataset-file-list,Amazon Bin Image Dataset File List,26,9
+543,11534283,kylefengkfeng209/validation-leakage-atlas,Validation Leakage Atlas,3,10
+518,2405194,madhuri15/tsla-stock-prices,TSLA Stock Prices,3,11
+334,6617923,fdemoribajolin/death-classification-icu,ICU Patient Outcome Prediction,12,12
+495,5189279,yekahaaagayeham/loantap-data,LoanTap data,4,13
+211,1190950,atharvaingle/video-games-dataset,Video Games Dataset,27,14
+258,9301424,garvsachdeva0205/ml-ready-breast-cancer-diagnosis-dataset,ML Ready Breast Cancer Diagnosis Dataset,20,15
+496,7399388,shaikhabdulrafay03/icc-mens-odi-world-cup-2003-2023,ICC Mens ODI World Cup 2003-2023,4,16
+455,2082521,easonlai/sample-telco-customer-churn-dataset,Sample Telco Customer Churn Dataset,5,17
+93,5372889,muhammadfaizan65/weather-radar-stations-dataset,Weather Radar Stations Dataset,57,18
+242,1508217,immortal3/codeforces-dataset,Codeforces Dataset,23,19
+169,2627305,pranav941/hows-that-dog-for-me,🐶*Best-Fit* a Dog for me?,32,20
+395,2419824,shubham8983/thyroid-dataset,Thyroid Dataset,8,21
+40,1694575,kukuroo3/starbucks-locations-worldwide-2021-version,Starbucks Locations Worldwide 2021 version,119,22
+45,1896889,vivovinco/league-of-legends-champion-stats,League of Legends Stats: S12,108,23
+117,3708874,uom190346a/emoji-presentation-dataset,Emoji Presentation Dataset,49,24
+83,11549447,stevenleehans/rsna-knee-llm-report-labels,RSNA Knee LLM Report Labels,64,25
+441,9754835,sakhawathossen/self-reported-canada-admissions-and-fund-dataset,Self-Reported Canada Admissions and Fund Dataset,6,26
+132,4246446,arnoldkakas/real-estate-dataset,Real Estate Dataset,43,27
+248,2859807,ulrikthygepedersen/car-kick,Car Kick,21,28
+515,11494218,atifkhan12/ciciot2026,CICIoT2026,4,29
+569,2081737,automlbenchmark/email-automl-benchmark-v1,Email - AutoML Benchmark - v1,2,30
+344,2019542,sayansh001/speech-accent-recognition,Global Speech Accent Recognition,11,31
+225,2442081,foziashareen/indian-unicorn,Indian Unicorn companies,25,32
+119,4019844,sujaykapadnis/whether-prediction-dataset,Whether Prediction dataset,49,33
+520,1618275,pedrohauy/sampledtftpattackcicddos2019,sampled-tftp-attack-cicddos2019,3,34
+513,12825345,krishujeniya/e-commerce-customer-satisfaction-and-orders,E-Commerce: Customer Satisfaction & Orders,4,35
+539,11276202,wladyslawkobcew/ueba-system-metrics-dataset-24h,UEBA System Metrics Dataset (24h),3,36
+537,6946630,hubashaikh/movies,Analyzing Movie Trends with Data,3,37
+535,6640632,amarahmedhamed/air-quality,Air Quality 🔥🧠,3,38
+134,8667749,syahrulapriansyah2/myanimelist-2025,MyAnimeList 2025,42,39
+268,799965,aayushmishra1512/911calls-historic-data,911-Calls Historic Data,19,40
+389,2369692,ivantha/sri-lanka-electronic-ads-dataset,Electronic Ads Dataset,8,41
+257,5554725,mustafakeser4/bigquery-fintech-dataset,BigQuery Fintech Dataset,20,42
+259,1246248,sakinak/philippine-drug-war-casualties,Philippine Drug War Casualties ,20,43
+476,1615431,edwincaleb/iris-data-set,iris Data Set,5,44
+529,1115257,brobear1995/rss-feed-topic-classifier,RSS Feed Topic Classifier,3,45
+522,1603356,stevenrferrer/tps-september-2021-preds,tps_september_2021_preds,3,46
+396,1338786,shubhamuttam/indian-names-by-gender,Indian Names by Gender,8,47
+503,2037698,neyyanjayesh/non-parametric-energy-aspects-data,Energy aspects data of house hold communities,4,48
+411,1144480,devzohaib/smoker-condition,Smoker Condition ,7,49
+138,2792970,erenakbulut/user-car-prices-barcelona-2022,User Car Prices Barcelona 2022,41,50
+114,5385269,abdelazizsami/wine-quality,Wine Quality,50,51
+70,5371198,Microsoft/microsoft-security-incident-prediction,Microsoft Security Incident Prediction,73,52
+183,2310962,adityaramachandran27/top-imdb-rated-tv-shows,Top IMDB Rated TV Shows,30,53
+432,1803274,foriinyou/lisa-in-coco,LISA in COCO,6,54
+597,3044262,anujshakya/google-play-store-reviews,Google Play Store Reviews Analysis,2,55
+549,10789400,reemmalih/wnba-player-statistics-with-mvp-votes-1997-2025,WNBA Player Statistics with MVP Votes 1997-2025,3,56
+332,7726411,xixama/gallstone-dataset-uci,Gallstone Dataset (UCI),12,57
+512,8113145,renvexed/books-dataset-for-library-management-system,Books Dataset For Library Management System,4,58
+538,6781303,kevinvagan/fraud-detection-dataset,Fraud Detection in E-Commerce Dataset,3,59
+64,2513996,greegtitan/indonesia-climate,Climate Data Daily IDN,76,60
+208,2916893,ahmadalijamali/british-literature-nlp-labeld-phrase,British_literature_NLP_Labelled_Phrase,27,61
+551,11435249,ganeshvkvk/student-performance-dataset,Student Performance Dataset,3,62
+232,2441615,kushasabzevari/handwritten-persian-numerals,Persian Handwritten Digits Dataset,24,63
+548,9051645,meenalsinha/mnist-handwritten-digits-csv-format,MNIST Handwritten Digits (CSV Format),3,64
+557,11499859,georgelaf/greek-super-league-match-stats-and-odds,Greek Super League: Match Stats & Odds,3,65
+46,8119432,uom190346a/global-coffee-health-dataset,Global Coffee Health Dataset,105,66
+139,3952277,morph1max/password-security-sber-dataset,Password Security: Sber Dataset,40,67
+382,2721182,sanchukanirupama/wifi-received-signal-strength-rssi-dataset,WI-FI Received Signal Strength (RSSI) Dataset ,9,68
+338,1627545,ankitkalauni/tps-october-2021-dataset,TPS October 2021 | Dataset,11,69
+345,2626606,micheldc55/predicting-response-based-on-engagement-kpis,Predicting response based on engagement KPIs,11,70
+240,9451106,d1ffic00lt/data-fusion-2026-case-1,Data Fusion 2026 Case 1,23,71
+249,9027153,nikee7/parkinsons-tremor-classification-dataset,Parkinson's Tremor Classification Dataset,21,72
+8,2289007,parisrohan/credit-score-classification,Credit score classification,362,73
+388,2369681,ivantha/sri-lanka-vehicle-ads-dataset,Vehicle Ads Dataset,8,74
+352,1421268,manishtripathi86/fedex-data,Fedex Data,10,75
+400,10432806,rentoda/japanese-names-with-gender,Japanese Names with Gender,8,76
+78,4839384,sujithmandala/simple-rainfall-classification-dataset,Simple Rainfall Classification Dataset,68,77
+506,7854429,muhamedumarjamil/pakistan-used-cars-dataset,Pakistan Used Cars Dataset,4,78
+405,2810705,dhoogla/nfcsecicids2018v2,NF-CSE-CIC-IDS2018-V2,8,79
+14,2156255,dhanushnarayananr/credit-card-fraud,Credit Card Fraud ,253,80
+262,2428267,iyadelwy/boxing-matches-dataset-predict-winner,Boxing Matches Dataset (Predict the Winner),20,81
+446,8745645,walekhwatlphilip/walsoftai-semi-categorized-1-user-call-behaviour,Walsoftai Semi-Categorized 1-User Call Behaviour,6,82
+271,9235136,kantesti/global-blood-test-health-insights-2025-2026,Global Blood Test Health Insights 2025-2026,19,83
+90,4333458,adilashrafi/product-classification-and-clustering,Product Classification and Clustering,58,84
+594,5937654,wayne127/2024-18,Identification of High-Risk Call Users,2,85
+52,1912907,anshulmehtakaggl/60k-responses-of-16-personalities-test-mbt,Personality classification Data: 16 Personalities,92,86
+536,4453408,rahulagrawal1025/stackoverflow-survey-demographic-data,Stackoverflow Survey Demographic Data,3,87
+293,4968212,rabieelkharoua/classification-of-physiotherapy-exercises-dataset,Classification of Physiotherapy Exercises Dataset,16,88
+58,11641045,mansiaggarwal88/diabetes-risk-prediction,Diabetes Risk Prediction,83,89
+228,2213521,aliaamiri/titanic-passengers-and-crew-complete-list,Titanic Passengers and Crew Complete List,25,90
+465,4524925,yuehengzeng/steel-plates-faults,Steel Plates Faults,5,91
+55,4310357,adilashrafi/bank-marketing-classification-task,Bank Marketing Classification Task🏛💰,90,92
+447,6262163,priyaroycse/juindoorloc-wifi-fingerprint-indoor-localization,JUIndoorLoc: Indoor Localization using WiFi,6,93
+462,4315050,silk1100/hms-features,hms-features,5,94
+255,8967048,victusadi/phishing-urls-dataset-with-extracted-features,Phishing URLs Dataset with Extracted Features,21,95
+143,4208930,conorsully1/credit-score,Credit Score,38,96
+239,4860816,rabieelkharoua/sirtuin6-small-molecules-dataset,Sirtuin6 Small Molecules Dataset,23,97
+469,6082250,ireddragonicy/netflix-clean,Fuzzy Logic: Netflix Movie Recommendation,5,98
+33,2623949,algord/fake-news,Fake News,129,99
+47,6415080,sebastianwillmann/beverage-sales,Beverage Sales,103,100
+105,3037308,ulrikthygepedersen/kickstarter-projects,Kickstarter Projects,52,101
+590,8114592,xubustein/used-car-prices-in-turkiye,Used Car Prices in Turkiye,2,102
+125,4522182,akeshkumarhp/electronics-products-amazon-10k-items,Amazon Electronics Products 10k items - 2023,46,103
+206,2518379,airiteam/kun-uz-yangiliklar,Kun uz yangiliklar,27,104
+319,10195446,omarameen99/football-matches-data-from-soccerway,Football Matches Data From Soccerway,13,105
+339,674547,podsyp/fraud-transactions-detection,Is this a bad transaction?,11,106
+575,2081754,automlbenchmark/ip-address-automl-benchmark-v4,IP Address - AutoML Benchmark - v4,2,107
+77,3580021,prasad22/mumbai-local-train-dataset,Mumbai Local Train Dataset ,68,108
+5,1142911,arashnic/the-depression-dataset,The Depression Dataset,456,109
+101,2388978,yoshifumimiya/6-ovarian-cancer-datasets,7 ovarian cancer datasets,53,110
+414,1226973,hunter0007/m1-data,M1 Purchase Prediction,7,111
+560,1551171,absipurampratyush/top-singers,Top Singers,2,112
+436,1120781,joolousada/test-case-prioritization-data,Test Case Prioritization Data,6,113
+315,5428010,stealthtechnologies/predict-bankruptcy-in-poland,Predict Bankruptcy in Poland,13,114
+546,8057872,samoilovmikhail/floral-bouquets-images-and-girlfriend-scores,Floral Bouquets: Images and Girlfriend Scores,3,115
+488,4710127,imalok/loan-data,loan_data,4,116
+95,4527413,faizaniftikharjanjua/metaverse-financial-transactions-dataset,Metaverse Financial Transactions Dataset,56,117
+98,2618735,salmankhaliq22/road-traffic-collision-dataset,UK Road Traffic Collision Dataset,54,118
+272,1795327,prasertk/unicorn-decacorn-hectocron-in-2021,"Unicorn, Decacorn and Hectocorn startups in 2021",18,119
+494,5560725,mustafakeser4/bigquery-churn-dataset,BigQuery Churn Dataset,4,120
+38,2021680,kuchhbhi/cpga-iq-placement,College Student Data,123,121
+61,1304147,gargmanas/parkinsonsdataset,Parkinson's Disease Dataset,78,122
+360,11009151,neevvv/human-procrastination-dataset,Human Procrastination Dataset,10,123
+415,2810704,dhoogla/nfuqnidsv2,NF-UQ-NIDS-V2,7,124
+468,11427544,cosmox23/healthcare-clinic-digital-presence,Healthcare Clinic Digital Presence,5,125
+74,2516833,muhammad4hmed/monkeypox-patients-dataset,Monkey-Pox PATIENTS Dataset.,71,126
+158,4866126,rabieelkharoua/auction-verification-dataset,Auction Verification Dataset,34,127
+34,1517440,purumalgi/music-genre-classification,Music Genre Classification,127,128
+246,5138953,chumajin/heterogeneity-human-activity-recognition-dataset,Heterogeneity Human Activity Recognition Dataset,22,129
+192,11826446,razanihababdellatif/smart-city-digital-twin-ecosystem-dataset,Smart City Digital Twin Ecosystem Dataset,30,130
+15,1108326,cdminix/us-drought-meteorological-data,Predict Droughts using Weather & Soil Data,246,131
+409,1548347,amirberenji/ultrasonic-flowmeter-diagnostics-data-set,Ultrasonic Flowmeter Diagnostics Data Set,7,132
+500,11556373,mansiaggarwal88/github-open-source-governance-and-health-dataset,"GitHub Governance,Popularity & Open Source Project",4,133
+32,9940154,sumeakash/impact-of-social-media-on-health,Impact of Social Media on Health,130,134
+195,588682,podsyp/is-this-a-good-customer,Is this a good customer?,29,135
+252,4967676,rabieelkharoua/retail-revelations-decoding-online-sales-trends,Retail Revelations: Decoding Online Sales Trends,21,136
+320,11421466,mobeenfatimah/mental-health-and-burnout-prediction-dataset,Mental Health & Burnout Prediction Dataset,13,137
+87,7802809,gmudit/employer-data,Employee Data,61,138
+502,1034330,harrotuin/dutch-news-headlines,Dutch news headlines for sarcasm detection,4,139
+519,1303097,nextbigwhat/dataset-1,Practice Dataset for binary classification ,3,140
+337,2704817,djokester/protein-benchmarks,Protein Benchmarks,11,141
+245,2426236,emirhanai/omicron-variant-rnn-ml-gen-prediction-ai-project,Omicron Variant RNN & ML Gen Prediction AI Project,22,142
+420,7647795,trijalvijaykhade/titanic-test-csv,Titanic test.csv,7,143
+197,3798860,tariqbashir/financial-application-behavior-dataset,Financial_ Application_ Behavior_ Dataset,28,144
+380,5073272,bcccdatasets/bccc-vulscs-2023,Vulnerable Smart Contracts Detection using ML/DL,9,145
+492,9996716,sumeakash/spaceship-titanic, Titanic 🔍 | EDA+Preprocessing+Ml Modals,4,146
+424,7233233,mightyglow/astronomical-image-and-csv-dataset,Astronomical Image and CSV Dataset,7,147
+274,9477464,payaldhokane/deepfake-and-synthetic-media-detection-dataset,Deepfake & Synthetic Media Detection Dataset,18,148
+552,12639299,jayangupta00/ev-battery-degradation-and-telemetry,EV Battery Degradation & Telemetry Dataset,3,149
+80,9486716,waddahali/order-delivery-dataset,Order Delivery Dataset,65,150
+375,9322527,kiranmehta1/indian-telecom-customer-churn-prediction-dataset,Indian Telecom Customer Churn Prediction Dataset,9,151
+493,5877482,sumit08/inter-state-portability-transactions-aug-2024,Inter-State Portability Transactions Aug 2024,4,152
+142,2297822,arashnic/har-1,Human Activity Recognition Dataset,38,153
+311,1530722,caiocampiao/loan-approval-systemlas,Loan approval system(LAS),13,154
+291,3082677,danushkhanna/dataset-fullcsv,Phising_Domain_Detection_URLs.csv,16,155
+294,946906,svenasai/japan-loto7-raw-data,Japan LOTO7 raw data,15,156
+110,1648109,quadeer15sh/windows-store-top-apps-games,Windows Store Top Apps & Games,51,157
+556,10954689,neevvv/tingkat-kemiskinan-di-negri-hytamputyh,Klasifikasi Tingkat Kemiskinan Seseorang,3,158
+403,7851416,sumedh1507/city-typeseda-and-model,City Types and Attributes,8,159
+362,9698084,sahandnamvar/phishing-url-detection-111k-urls-22-features,"Phishing URL Detection (111K URLs, 22 Features)",10,160
+423,2477278,foziashareen/floods,floods,7,161
+336,2810653,dhoogla/nftoniotv2,NF-ToN-IoT-V2,12,162
+28,1434901,shashwatwork/web-page-phishing-detection-dataset,Web page Phishing Detection Dataset,140,163
+580,1239475,gayathrirprog/vaers-data-as-of-19th-march-2021,VAERS Data as of 19th March 2021,2,164
+109,1184281,muhammad4hmed/malwaremicrosoftbig,BIG Malware Dataset from Microsoft ,51,165
+56,3598390,joebeachcapital/credit-card-fraud,Credit Card Fraud,84,166
+486,3845616,jayeshraokherkar/4th-sem-result,4th_sem_result,4,167
+127,3439120,soulcelestia/fbref-data,FBREF_DATA,45,168
+592,9767506,danishzulfiqar5050/heart-disease-prediction-using-machine-learning,Heart Disease Prediction using Machine Learning,2,169
+9,5194699,rabieelkharoua/alzheimers-disease-dataset,🧠 Alzheimer's Disease Dataset 🧠,343,170
+266,2250732,programmerrdai/nasdaq-listings,NASDAQ listings ,19,171
+92,8067190,alirezamehrad/red-and-white-wine-quality,Red and White Wine Quality,58,172
+20,4751341,fatemehmehrparvar/obesity-levels,Obesity Levels,202,173
+386,1591636,hrshuvo/tabular-sep-21,tabular_sep_21,8,174
+162,2233500,pmenshih/retail-chain-salespeople-engagement,Engagement and job fit of retail salespeople,33,175
+186,2200780,avikumart/hrdatasetclassif,HR-dataset/classif,30,176
+299,12713185,razanihababdellatif/food-spoilage-iot-dataset,Food Spoilage IoT Dataset,15,177
+478,1248519,siddharthchaini/unblinded-data-for-plasticc-challenge,Unblinded Data for PLAsTiCC Challenge,5,178
+401,4863798,armandokeller/wifi-csi-object-detection,WIFI CSI object detection,8,179
+308,12441506,deeplumiere/hospital-management-data,Hospital Management Data,14,180
+21,2157551,kukuroo3/body-signal-of-smoking,Body signal of smoking,170,181
+406,2570020,micheldc55/famous-tumor-prediction-problem-dataset,Famous tumor prediction problem Dataset,7,182
+137,5242199,rabieelkharoua/predict-smart-home-device-efficiency-dataset,🏠 Predict Smart Home Device Efficiency Dataset,41,183
+100,7604963,hbugrae/best-selling-steam-games-of-all-time,Best-Selling Steam Games of All Time,53,184
+521,1621216,jecs89/geometric-figures-dataset,Geometric Figures Dataset,3,185
+253,10797186,gauravjhaeigenvector/ai-impact-on-health,ai_impact_on_health,21,186
+151,9212811,ahmeduzaki/eeg-eye-state-detection-dataset,EEG Eye State Detection Dataset,36,187
+366,2675769,galijithendranath/onion-retailers-in-bangalore,Onion Retailers in Bangalore,9,188
+112,11045577,itzzomkar/ev-adoption-behavior-and-range-anxiety,EV Adoption Behavior and Range Anxiety,51,189
+350,1729153,adityasharma95/predicting-employee-attrition,Predicting Employee Attrition  ,10,190
+23,2055575,rinichristy/covid19-coronavirus-pandemic,COVID-19 Coronavirus Pandemic,165,191
+404,2810741,dhoogla/cicbotiot,CIC-BoT-IoT,8,192
+393,1599630,subhajournal/gender-detection,Gender Detection,8,193
+358,10454367,rentoda/japanese-names-with-gender-extended,Japanese Names with Gender: Extended,10,194
+166,2039713,datacertlaboratoria/projeto-3-segmentao-de-clientes-no-ecommerce,Projeto 3: Segmentação de clientes no ecommerce,33,195
+561,2471469,jinweitu/amexlastmonthfeather,amex-lastmonth-feather,2,196
+222,10638930,ledecanteur/fragrantica-perfumes,"Fragrantica Perfumes: Ratings, Notes, Votes & More",26,197
+427,2810623,dhoogla/nfbotiotv2,NF-BoT-IoT-V2,7,198
+121,2295587,arashnic/animal-behavior-analysis,Dog Behavior Analysis Dataset,48,199
+298,1965538,fridrichmrtn/user-churn-dataset,User churn dataset,15,200
+509,12906734,alirezanasirianfar/synthetic-credit-card-fraud-v4-2-10k-free,Synthetic Credit-Card Fraud V4.2 (10K Free),4,201
+588,9649037,prashantshukla91/cyber-threat-detection,Cyber-threat-detection,2,202
+103,3767429,iamsouravbanerjee/gender-development-index-dataset,Gender Development Index Dataset,52,203
+464,3339188,wesleyhowe/titanic-labelled-test-set,Titanic - Labelled Test Set,5,204
+270,3278507,shahriarrahman009/dubais-finest-eats-13k-restaurant-dataset,"""Dubai's Finest Eats: 13k+ Restaurant Dataset""",19,205
+333,2876180,jankondracki/titanic-combined-dataset-with-relatiships,Titanic Dataset with Relationships,12,206
+146,3234543,aymanmostafa11/eeg-motor-imagery-bciciv-2a,EEG Motor Imagery BCICIV_2a,37,207
+483,1879326,nitishraj/song-popularity-k-folds,Song Popularity Prediction | K Folds,4,208
+53,5228965,rabieelkharoua/predicting-manufacturing-defects-dataset,🏭 Predicting Manufacturing Defects Dataset,92,209
+373,9506493,anmol420/animal-disease-prediction,animal-disease-prediction,9,210
+555,5026758,srifqi/iot-23-cleaned-data,IoT-23 Cleaned,3,211
+251,9957660,saitejabandaruin/remote-work-productivity-dataset-2025,Remote Work Productivity Dataset 2025,21,212
+2,1866301,yasserh/wine-quality-dataset,Wine Quality Dataset,914,213
+203,2366811,mohdnazuan/harumanis-mango-physical-measurement,Harumanis Mango Physical Measurements,28,214
+179,9268058,ahmeduzaki/diagnostic-breast-cancer-dataset,Diagnostic Breast Cancer Dataset,31,215
+451,4350600,mcfly1/vehicle-collision-data-in-seattle-2005-2019,Vehicle collision data in Seattle 2005-2019,6,216
+582,3577334,kidrulit/hackernews-who-is-hiring-listings-from-2018,HackerNews Who Is Hiring listings 2018-2023,2,217
+216,1652950,intelai/dataset-accessibility-user-reviews,Dataset: Accessibility User Reviews,26,218
+6,1176727,prachi13/customer-analytics, E-Commerce Shipping Data ,452,219
+120,4206607,ravi20076/playgrounds3e26fe,PlaygroundS3E26|FE|Utils,48,220
+115,4977751,atifmasih/students-drugs-addiction-dataset,Students drugs Addiction Dataset,50,221
+571,2081746,automlbenchmark/email-automl-benchmark-v3,Email - AutoML Benchmark - v3,2,222
+111,3609813,taeefnajib/handwriting-data-to-detect-alzheimers-disease,Handwriting Data to Detect Alzheimer’s Disease,51,223
+226,1429324,wilstrup/cuneiform-language-identification,Cuneiform Language Identification,25,224
+280,1143711,shubamsumbria/statlog-heart-data-set,Statlog (Heart) Data Set,17,225
+429,4847924,ptdevsecops/cybria-federated-learning-network-security-iot,CYBRIA - Federated Learning Network Security - IoT,7,226
+510,12983536,abirambharathisa/mobile-usage-and-addiction-habits-2026,"Mobile Usage and Addiction Habits, 2026",4,227
+431,11108654,hamzbriel/early-stunting-risk-prediction-dataset,Early Stunting Risk,7,228
+221,11090798,kylefengkfeng209/the-ethics-of-self-driving-cars-who-dies,The Ethics of Self-Driving Cars: Who Dies?,26,229
+484,1583604,abirpaul/supermarket-sales,Supermarket sales,4,230
+17,1495083,bricevergnou/spotify-recommendation,Spotify Recommendation,228,231
+558,10219648,josephsatzl/predicting-the-2026-fifa-world-cup,Predicting the 2026 FIFA World Cup,3,232
+152,6046146,sameerk2004/fraud-detection-dataset,Fraud Detection Dataset,36,233
+25,4979752,jainaru/thyroid-disease-data,Thyroid Disease Data,158,234
+133,2327171,giorgiocarbone/complete-competitive-pokmon-datasets-may-2022,Complete Competitive Pokémon Database (2022),43,235
+85,5194886,rabieelkharoua/parkinsons-disease-dataset-analysis,🏥Parkinson's Disease Dataset Analysis🧠,62,236
+565,1847478,nilshmeier/bike-underground-detection,Bike Underground Detection,2,237
+416,5745469,brijlaldhankour/cloud-access-control-parameter-management,Cloud Access Control Parameter Management,7,238
+501,2785286,ahtshamzafar/tiawr6843aop-gesture-language-data,TI-AWR-6843-AOP Gesture Language Data,4,239
+209,10842732,jacopoferretti/iris-2-0-modern-flower-morphometrics-200k,Modern Flower Morphometrics (200k),27,240
+428,2810740,dhoogla/cictoniot,CIC-ToN-IoT,7,241
+150,10537313,amith1707/video-game-market-price-and-revenue-dataset,Video Game Market Price and Revenue Dataset,36,242
+69,4975286,rabieelkharoua/split-or-stay-divorce-predictor-dataset,💔 Split or Stay: Divorce Predictor Dataset 💍,73,243
+467,11686756,sezermehmetemre/dax40-financial-news-sentiment-llm-labeled,DAX40 Financial News Sentiment (LLM-labeled),5,244
+147,11196277,razanihababdellatif/bank-marketing-and-customer-behavior-dataset,Bank Marketing & Customer Behavior Dataset,37,245
+471,11767201,psychocoderxd/toolmaster-multi-task-prediction,ToolMaster: Multi-Task Prediction,5,246
+29,9900813,mubashirsidiki/student-academic-performance-500-students,Student Academic Performance - 500 Students,139,247
+170,1908404,brijlaldhankour/flight-vs-train,Flight_vs_Train,32,248
+27,1828813,yasserh/heart-disease-dataset,Heart Disease Dataset,145,249
+418,11324495,sarveshchhetri/ai-resume-screening-and-hiring-analytics-dataset,AI Resume Screening & Hiring Analytics Dataset,7,250
+149,9694327,zkyfauzi/food-delivery-dataset,Food Delivery Dataset,37,251
+113,3711247,rouzbeh/introds,IntroDS,50,252
+504,10823398,ameyachopade/telecom-customer-churn-dataset,Telecom Customer Churn Dataset,4,253
+174,2212429,ac1414/clean-classification-data,Clean Classification Data,32,254
+286,1612037,pritsheta/dlf-data-set-from25092019to23092021,DLF DATA SET FROM-25-09-2019-TO-23-09-2021,16,255
+364,2767978,dhoogla/nfbotiot,NF-BoT-IoT,10,256
+50,1934090,laavanya/stress-level-detection,Human Stress Detection,94,257
+231,2401925,yoshifumimiya/pharyngitis,676 cases of pharyngitis in children,24,258
+234,6696685,udaymalviya/bank-loan-data,bank_loan_data,24,259
+202,2063234,gonzalorecioc/color-polygon-images,Color Polygon Images,28,260
+454,2296538,mohammedzakishaikh/movie-ratings,Movie ratings data since 1902,5,261
+485,1710686,ban7002/example-churn-data,Example Churn Data,4,262
+306,12302568,dariushafshar/s6e10-golem-oof-library,S6E10 OOF library - 21 models + 247-pair stack,14,263
+51,3776285,kapturovalexander/predict-students-drop-out-of-the-course,🙄👩‍🎓 Predict student's drop out of the course,93,264
+269,2439379,foziashareen/floods-pakistan,Floods  Pakistan,19,265
+361,8261093,python16/cyclone-dataset,Cyclone Dataset,10,266
+329,5999559,hugoferquiroz/credit-default-only-numbers,credit default only numeric data,12,267
+444,4712082,emanafi/churndataset,Customer Churn,6,268
+136,3340952,abdullahorzan/moodify-dataset,278k Emotion Labeled Spotify Songs,41,269
+439,1449206,ameythakur20/unsupervisedlearning,Iris Dataset for Clustering and Pattern Analysis,6,270
+297,10901534,rahman4li/stack-overflow-tag-co-occurrence-network,Stack Overflow Tag Co-occurrence Network,15,271
+318,7545476,muhammadwaqas023/pipeline-dataset-in-oil-and-gas-sector,Pipeline dataset in oil and gas sector/fertilizer,13,272
+331,2932768,niraliivaghani/flipkart-dataset,Flipkart Products Review Dataset(363K Data),12,273
+3,5195702,rabieelkharoua/students-performance-dataset,📚 Students Performance Dataset 📚,878,274
+385,2860547,arthur1511/cblol-2021-dataset,CBLOL dataset,8,275
+481,2558040,girishvutukuri/back-orders,Back_Orders,4,276
+356,3296707,shahriarrahman009/tripadvisor-new-zealand-hotels-4k-dataset,"""Tripadvisor_New Zealand_Hotels_3k dataset""",10,277
+326,188142,rafay12/anti-freeze-protein-classification,Protein dataset classification,12,278
+160,2565120,oscarm524/fraud-detection-in-grocery-shopping-transactions,Fraud Detection at self-checkout in retail,34,279
+48,1208878,shashwatwork/android-malware-dataset-for-machine-learning,Android Malware Dataset for Machine Learning ,101,280
+343,1711021,adityasharma95/amexpert-2021-machine-learning-hackathon,AmExpert 2021 – Machine Learning Hackathon,11,281
+279,9029995,sarveshchhetri/play-tennis-practice-dataset-for-classification,PlayTennis Enhanced Weather Dataset,18,282
+526,1124220,anushiagrawal/effects-on-personality-due-to-covid19,Effects on personality due to Covid-19,3,283
+593,10614382,flexonafft/stellar-data,stellar_data,2,284
+256,3023613,meeratif/diabetes-specific-data-all-countries,🩸 Diabetes Specific Data for all Countries,20,285
+199,1590501,shelvigarg/wine-quality-dataset,Wine Quality Dataset,28,286
+283,10322851,hussnainmamoon1/global-antibiotic-resistance-2018-2024-glass,Global Antibiotic Resistance 2018-2023 | GLASS,17,287
+434,2438944,yasirabdaali/ted-talks-dataset-5600,Ted Talks Dataset (5600),6,288
+145,4745503,karlorusovan/league-of-legends-soloq-matches-at-10-minutes-2024,League of Legends SoloQ matches at 15 minutes 2024,37,289
+68,2488615,danushkumarv/glass-identification-data-set,Glass Identification Data Set,74,290
+579,598677,swaroopnath6/semantic-web-parsing-dataset-part-i,Semantic Web Parsing Dataset Part I,2,291
+397,4530829,muhriddinmalik/top-goal-scorer-football-players-over-500-goals,Top goal scorer football players over 500 goals,8,292
+62,3059016,abhishekrp1517/online-retail-transactions-dataset,Online Retail transactions Dataset,78,293
+187,1596130,subhajournal/keylogger-detection,Keylogger Detection,30,294
+184,8471099,ahmeduzaki/egypt-redsea-earthquake-dataset-1955-2024,Egypt-RedSea Earthquake Dataset (1955-2024),30,295
+159,9799230,waddahali/ai-stream-index-2026,🎬 AI-Stream Index 2026,34,296
+41,3233360,adityaramachandran27/world-air-quality-index-by-city-and-coordinates,World Air Quality Index by City and Coordinates,116,297
+354,3378587,patrickstarrrr/iris-dataset-encoded-by-gaussian-receptive-fields,Iris Dataset encoded by Gaussian receptive fields,10,298
+310,2462316,nitinchoudhary012/user-subscription-dummy-data,User Subscription Dummy Data,13,299
+349,3335645,mohammadbolandraftar/my-dataset,Bank Fraud Dataset,11,300
+302,2355972,sagarvarandekar/spacex-falcon9-launch-data,SpaceX_Falcon9_Launch_Data,14,301
+224,2024775,pritiraijain/covid19-go-away-2020-c19ga20,Covid-19 Go Away 2020 (C-19GA20),25,302
+227,2711346,davidgauthier/the-kaggle-dataset,The Kaggle Dataset,25,303
+545,11600257,amith1707/multi-font-character-skeleton-features-dataset,Multi-Font Characters' Skeleton Features Dataset,3,304
+213,1370146,aakashverma8900/portuguese-bank-marketing,Portuguese Bank Marketing,27,305
+508,1371721,kirankunapuli/credit-card-lead-prediction,Credit Card Lead Prediction,4,306
+235,1818655,yasserh/ibm-attrition-dataset,IBM Attrition Dataset,24,307
+325,4130729,akshatshaw7/national-poll-on-healthy-aging-npha,National Poll on Healthy Aging 🔥👨‍⚕️,12,308
+458,1281563,matevaradi/oscar-prediction-dataset,Oscar prediction dataset,5,309
+57,5187141,rabieelkharoua/chronic-kidney-disease-dataset-analysis,🩺 Chronic Kidney Disease Dataset 🩺,83,310
+570,2081742,automlbenchmark/email-automl-benchmark-v2,Email - AutoML Benchmark - v2,2,311
+516,9321029,purnamaridzkynugraha/bitcoin-historical-data,Bitcoin Market Analysis Dataset (2021-2025),4,312
+300,3469109,abhishekinnvonix/epilepsy-seizure-dataset-seina-scalp-complete,Epilepsy Seizure dataset Seina scalp complete,15,313
+180,4667471,miriamodeyianypeter/sentiment-analysis-amazon-product-reviews,Sentiment Analysis: Amazon Product Reviews,31,314
+359,11502158,dariushafshar/s6e8-golem-oof-library,"S6E8 OOF library - 7 models, frozen folds",10,315
+207,2493612,vijayaadithyanvg/rock-or-mine-classification,ROCK_OR_MINE CLASSIFICATION,27,316
+374,4078806,michau96/multiclass-syntetic-data-for-practice,MultiClass syntetic data for practice,9,317
+163,1419432,prabinraj/india-loksabha-elections-data19622019,India Loksabha elections data(1962-2019),33,318
+236,5628684,yuriykatser/power-transformers-fdd-and-rul,Power Transformers FDD and RUL,24,319
+247,4866284,rabieelkharoua/sundanese-twitter-dataset,Sundanese Twitter Dataset emotions classification,21,320
+433,2338222,serdartafrali/persona,Mobile_gaming_company_persona,6,321
+540,11375399,kasima022/west-yorkshire-stop-and-search-dataset,West Yorkshire Stop & Search Dataset,3,322
+490,6608507,arakawayuito/roadside-noise-level-dataset-with-labels,Roadside Noise Level Dataset with Labels,4,323
+544,11867751,scriptseeker/gallstone-prediction-from-bioimpedance-and-lab-data,Gallstone Prediction from Bioimpedance & Lab Data,3,324
+442,5743767,olgagmiufana1/aromo-ru-fragrance-dataset,Aromo.ru Fragrance Dataset,6,325
+30,1461623,arhamrumi/amazon-product-reviews,Amazon Product Reviews,135,326
+365,1818627,muhammadammarjamshed/monthly-orders-for-snacksmunchies-application,Monthly Orders for snacks-Munchies Application,9,327
+383,9489440,suhanigupta04/saas-customer-churn-prediction-dataset,SaaS Customer Churn Prediction Dataset,9,328
+267,2250738,programmerrdai/country-codes,Country Codes,19,329
+237,1726211,ikpeleambrose/irish-loan-data,Irish Loan Data,23,330
+351,1678404,jmourad100/mnad-moroccan-news-articles-dataset,MNAD : Moroccan News Articles Dataset,10,331
+584,3936983,seansaliga/spy-start-10312023,SPY Daily Stock Info (01/1993 - 12/2023),2,332
+324,2433520,saumitgp/occupancy-detection-dataset,Occupancy Detection Dataset,12,333
+410,1475864,sajjdeus/digikala-sentimentanalysis-3milioncomments,Digikala_3Mcomments,7,334
+185,4882385,adilashrafi/wine-quality,Wine Quality ||🔔🔔🔔📁,30,335
+369,2389705,poojarajesh12/quads,Query Based Agricultural Data System (QuADS),9,336
+261,11867450,dariushafshar/s6e9-golem-oof-library,"S6E9 OOF library - 19 models, frozen folds",20,337
+480,12301912,dariushafshar/s6e10-original-data-aligned,S6E10 Original Data + Lookup Tables + Model,5,338
+507,9383539,shinyunaa/compiled-jav-metadata,Compiled JAV Metadata.,4,339
+260,1501303,josh101/machinery-fault-database-induction-motor-fault,Machinery Fault Dataset,20,340
+533,5942914,harmannahal/nsl-kdd-dataset,"NSL-KDD Dataset (filtered, not original version)",3,341
+198,1131669,benjaminawd/new-york-times-articles-comments-2020,New York Times Articles & Comments (2020),28,342
+7,2969333,rkiattisak/student-performance-in-mathematics,Student performance prediction,377,343
+472,8212518,mohamedriyas72/tn-weather,TN Weather 2020-2025,5,344
+398,7623700,algovai/bd-ethnic-languages,Bd Ethnic Languages Classification,8,345
+367,2369689,ivantha/sri-lanka-property-ads-dataset,Property Ads Dataset,9,346
+402,3394090,saadbouhya/accidents-gouv,Accidents_gouv,8,347
+229,3567238,diraf0/sloan-digital-sky-survey-dr18,Sloan Digital Sky Survey - DR18,25,348
+376,2505677,saumitgp/absenteeism-at-work,Absenteeism At Work,9,349
+214,7438249,gzdekzlkaya/migraine-symptom-dataset-for-classification,Migraine Symptom Dataset for Classification,27,350
+19,2609801,stephanmatzka/predictive-maintenance-dataset-ai4i-2020,Predictive Maintenance Dataset (AI4I 2020),204,351
+43,1866450,datacertlaboratoria/proyecto-3-segmentacin-de-clientes-en-ecommerce,Proyecto 3: Segmentación de Clientes en ecommerce,111,352
+482,1760499,nitishraj/tps-dec21-5-folds,TPS Dec'21 - Multi folds,4,353
+60,5289801,lara311/diabetes-dataset-using-many-medical-metrics,Diabetes dataset ,79,354
+36,6152363,noeyislearning/weekly-hospital-respiratory-data-and-metrics,Weekly Hospital Respiratory Data and Metrics,125,355
+528,1114482,pratiksharm/mbti-personality,mbti_personality ,3,356
+440,8896518,roiiith/ai-fair-recrutment-dataset,Ai Fair recrutment Dataset,6,357
+292,1399041,zumarkhalid/a-test-case-data-set-with-requirements,A test case data set with requirements,16,358
+309,2737765,oscarm524/forecast-cyclically-demanded-products,Forecast Cyclically Demanded Products,13,359
+176,4370748,priyanshuganwani09/electric-vehicle-population-dataset,Electric Vehicle Population Dataset,32,360
+218,4487210,dannyrevaldo/android-malware-detection-dataset,Android Malware Detection Dataset,26,361
+511,4366862,banddaniel/musk-v2-multiple-instance-learning-data,Musk v2 (Multiple Instance Learning Data),4,362
+443,4517853,sergeynesteruk/minerals,MineralImage5k,6,363
+459,6709555,sheemamasood/diabetes-130-us-hospitals-for-years-1999-2008,Diabetes 130-US Hospitals for Years 1999-2008,5,364
+188,8690546,greenwarbler/malware-benignpe-files,Malware-Benign_PE-files,30,365
+12,5247613,teocalvo/analytical-base-table-churn,Analytical Base Table Churn,267,366
+541,10594006,udy061/clean-adult,Cleaned Adult Income Dataset,3,367
+4,1829286,yasserh/breast-cancer-dataset,Breast Cancer Dataset,707,368
+276,2031120,arunavakrchakraborty/financial-payment-services-fraud-data,Financial Payment Services Fraud Data,18,369
+129,9061705,priyangshumukherjee/mental-health-text-classification-dataset,Mental Health Text Classification Dataset,45,370
+574,2081752,automlbenchmark/ip-address-automl-benchmark-v3,IP Address - AutoML Benchmark - v3,2,371
+177,1475678,mcarujo/euro-cup-2020,UEFA  Euro Cup 2020,31,372
+263,3939170,michau96/classification-syntetic-data-for-practice,Classification syntetic data for practice,20,373
+37,5249362,rabieelkharoua/predict-conversion-in-digital-marketing-dataset,📈 Predict Conversion in Digital Marketing Dataset,125,374
+123,1991097,estebanmarcelloni/liga-argentina-futbol,Liga Argentina Fútbol,47,375
+346,1151237,sumeetsawant/pump-it-up-challenge-driven-data,Pump It Up Challenge : Driven Data ,11,376
+54,6821682,zahidmughal2343/employee-data,Employee Data,91,377
+591,5260437,dylanmoraes/credit-card-fraud-dataset,Credit Card Fraud Dataset,2,378
+63,5779086,mfarhaannazirkhan/heart-dataset,Heart Disease Prediction Dataset,77,379
+578,1266895,lejian/a04-data,A04_DATA,2,380
+91,1458765,heyrobin/space-x-launches-falcon9-and-falcon-heavy,SpaceX Launches Falcon9 and Falcon Heavy,58,381
+497,7439114,gzdekzlkaya/scoutium-player-attribute-ratings-dataset,Scoutium Player Attribute Ratings Dataset,4,382
+84,2803729,hemanthsai7/loandefault,Loan Default prediction dataset,63,383
+491,3581969,dylanyves/motion-data-for-badminton-shots,Motion Data for Badminton Shots,4,384
+372,5789233,mahipalkumarsingh/consultant-job-placement-data-2023,Consultant Job Placement Data (2023),9,385
+573,2081749,automlbenchmark/ip-address-automl-benchmark-v2,IP Address - AutoML Benchmark - v2,2,386
+118,2793101,sanskar457/fraud-transaction-detection,Fraudulent Transaction Detection,49,387
+35,8162411,nabihazahid/spotify-dataset-for-churn-analysis,Spotify Analysis Dataset 2025,126,388
+106,8459326,wafaaelhusseini/wine-and-food-pairing-dataset,Wine and Food Pairing Dataset,52,389
+26,1457162,tejashvi14/travel-insurance-prediction-data,Travel Insurance Prediction Data,147,390
+457,3586388,sourabhsingh03993493/question-and-answering,Question and Answering,5,391
+392,3477674,ibrahimonmars/45k-cnn-comments-likes-and-dates,CNN comments of past 1 week Dataset,8,392
+587,1966079,tulasiram574/students-dropout-and-academic-success,Students' dropout and academic success,2,393
+290,11665768,itsananya/cryptocurrency-news,Cryptocurrency News,16,394
+72,12660955,mkhoirulmustaqim/student-depression-detection-dataset,Student Depression Detection Dataset,73,395
+99,3913345,adeolaadesina/factors-affecting-children-anemia-level,Factors Affecting Children Anemia Level,54,396
+425,1595322,linkanjarad/contexttopic-classification-from-statement,Context/Topic Classification from Statement,7,397
+342,4396375,arnavsharma45/quora-insincere-questions-dataset,Quora Insincere Questions Dataset,11,398
+67,6165451,jacopoferretti/expedia-travel-dataset,Expedia Travel Dataset,75,399
+189,4018138,alessiasimone/lego-sets-and-price-1955-2023,Lego sets and price [1955 - 2023],30,400
+586,6658307,suryadeepthi/corporate-work-hours-productivity,Corporate_work_hours_productivity,2,401
+171,2297906,ac1414/clean-netflix-appetency-data,Clean Netflix Appetency  Data,32,402
+550,7951948,saicharan1206/ai-generated-skill-metadata-dataset-1800,"AI-Generated Skill Metadata Dataset (1,800+)",3,403
+155,9728082,rhythmghai/resume-screening-dataset-200k-candidates,💼 Resume Screening Dataset (200K Candidates),36,404
+305,9448826,xjoannax88/spacex-falcon-9-launches,SpaceX Falcon 9 & Falcon Heavy Launch History ,14,405
+378,9237934,gfbati/hdl-hand-drawn-digital-logic-gates-dataset,HDL: Hand-drawn Digital Logic Gates Dataset,9,406
+517,2577592,shreydan/stanford-dogs-csv,stanford dogs csv,3,407
+196,11532348,itzzomkar/buy-now-pay-later-bnpl-default-risk,Buy Now Pay Later (BNPL) Default Risk,29,408
+576,1405926,victorreznovblops2/iphone-12-predictive-dataset,iPhone 12 Predictive Dataset,2,409
+193,2859814,ulrikthygepedersen/diamonds,Diamonds,29,410
+154,8645792,nisargpatel344/student-course-completion-prediction-dataset,Student Course Completion Prediction Dataset,36,411
+182,5962469,umerfarooq09/skill-based-task-assignment,Skill-Based Task Assignment,31,412
+347,2419192,girishvutukuri/hepatitis,Hepatitis,11,413
+275,3807802,muhammadshahidazeem/customer-conversion-dataset-for-stuffmart-com,Customer Conversion Dataset for stuffmart.com,18,414
+284,1286530,gustavomodelli/waitlist-kidney-brazil,waitlist_kidney_brazil,17,415
+49,4819714,ikjotsingh221/machine-failure-cleaned,Machine Failure Prediction Cleaned,98,416
+489,2173090,h2020simargl/simargl2022,Simargl2022,4,417
+466,9715154,dhruvb2028/darwin,DARWIN Alzheimer’s Disease Dataset of Patients,5,418
+456,1273808,asimgulkhan/covid19-vaccine-tweets,Covid-19 vaccine tweets,5,419
+470,1416308,msarmi9/walch-apple-watch-sleep-dataset,Walch Apple Watch Sleep Dataset,5,420
+22,1936400,laavanya/human-stress-detection-in-and-through-sleep,Human Stress Detection in and through Sleep ,167,421
+340,1112344,oossiiris/machinehack-ml-merchandise-popularity-prediction,MachineHack ML - Merchandise Popularity Prediction,11,422
+422,8518340,sashankgarg23/crop-dataset,crop dataset,7,423
+200,4745893,ravi20076/belka2024ancillary,Belka2024|Ancillary,28,424
+553,10999126,abbas829/lone-dataset,Lone dataset,3,425
+250,1561260,hamzaghanmi/expresso-churn-prediction-challenge,Expresso Churn Prediction Challenge,21,426
+307,4546744,vinayjose/glioma-grading-clinical-and-mutation-features,Glioma Grading Clinical and Mutation Features,14,427
+217,1943836,sushantshetty/shabd-complete-hindi-characters-dataset,SHABD dataset (Complete Hindi characters),26,428
+554,9247136,sairupeshl/online-shoppers-purchase-intention,Online Shoppers Purchase Intention,3,429
+204,6454336,pooriamst/occupancy-detection,Occupancy Detection,28,430
+514,1599710,prateek146/loan-defaulter-classification,Loan Defaulter Classification,4,431
+273,3071909,ferrariboy4k/top5leagues,Top 5 European Football Leagues (2014-2022),18,432
+82,5373538,muhammadfaizan65/hospital-infections-dataset,Hospital Infections Dataset,64,433
+381,7666895,sarveshchhetri/mental-health-symptom-dataset-one-hot-encoded,Mental Health Symptoms & Illness Prediction,9,434
+303,2444628,ezalos/lol-victory-prediction-from-champion-selection,🔮 LoL : predicting victory before the game starts,14,435
+135,3760318,nuhmanpk/iphone-15-15-pro-pro-max-reviews,"Apple iPhone 15 (15 pro, plus and pro max) Reviews",41,436
+421,6544400,maggieakarn/lego-dataset,LEGO Dataset,7,437
+277,5006987,rabieelkharoua/masala-insights-cooking-comments-classification,Masala Insights: Cooking Comments Classification🍛,18,438
+191,1652093,singhnproud77/hr-attrition-dataset,HR Attrition data based on IBM attrition,30,439
+559,2749366,thefrenchguy/2-google-topics-for-top-1-million-domain-names,2 Google Topics for top 1 million domain names,2,440
+219,2267258,andrewabeles/dnd-stats,DnD Stats,26,441
+487,3501198,promac1234/advertisement-sale-prediction,Advertisement Sale Prediction,4,442
+124,9421970,tatheerabbas/car-price-classification-ready-data,car-price-classification-ready-data,46,443
+379,5147128,dellalkhaled/gold-reserves-list-of-countries,GOLD RESERVES,9,444
+530,3388566,socialanimal/social-animal-10k-articles-with-text-and-nlp-data,Social Animal 10K articles with text and NLP data,3,445
+426,7520041,jayeshrmohanani/dataset-for-microplastic-consumption-in-food-items,Dataset for Microplastic Consumption in Food Items,7,446
+445,1638344,mikeschmidtavemac/emailblog,email-blog,6,447
+86,2059492,rinichristy/2022-fuel-consumption-ratings,2022 Fuel Consumption Ratings,62,448
+167,5900046,iremnurtokuroglu/credit-score-classification-cleaned-dataset,Credit Score Classification Cleaned Dataset,33,449
+534,10808329,shes1r/fifa-world-cup-2026-winner-prediction,FIFA World Cup 2026 Winner Prediction,3,450
+598,3087647,fridrichmrtn/e-commerce-churn-dataset-retail-rocket,E-commerce churn dataset - Retail Rocket,2,451
+241,1153536,pankajbhowmik/bank-marketing-campaign-subscriptions,Bank Marketing Campaign Subscriptions,23,452
+435,1481274,livtoft/sirna-activity,siRNA Activity,6,453
+210,7666669,milapgohil/flavorsense-tastes-predicted-by-life-and-climate,🍽️FlavorSense: Tastes Predicted by Life & Climate,27,454
+341,2948638,viv6369/mls-season-2021-players-stats-and-their-salaries,MLS season 2021 players stats and their salaries,11,455
+71,2176461,aryashah2k/nfuqnidsv2-network-intrusion-detection-dataset,NF-UQ-NIDS-v2 Network Intrusion Detection Dataset,73,456
+94,5242440,rabieelkharoua/predict-pet-adoption-status-dataset,🐾 Predict Pet Adoption Status Dataset 🐾,57,457
+281,2613847,datazone25/bsl-british-sign-language-numbers-dataset,British Sign Numbers Dataset (BSL Numbers) ,17,458
+477,9500407,atharvapatil1905/global-gaming-companies-dataset,Global Gaming Companies Dataset,5,459
+413,4432988,hemachandiranmurugan/house-price-india-dataset,House_Price_India_Dataset,7,460
+190,7581696,hemajitpatel/superheros-abilities-dataset,Superheros_abilities_dataset,30,461
+547,8672551,nisargpatel344/bank-marketing-dataset-for-term-deposit-prediction,Bank Marketing Dataset for Term Deposit Prediction,3,462
+96,3398420,akki2703/ecg-of-cardiac-ailments-dataset,ECG of Cardiac Ailments Dataset,55,463
+563,1302922,yashaswitasingh/money-spent,Money_spent,2,464
+285,11274634,razanihababdellatif/diabetes-hospital-readmission-dataset,Diabetes Hospital Readmission Dataset,17,465
+312,5390918,wangboluo/human-activity-recognition-trondheim-harth,Human Activity Recognition Trondheim (HARTH),13,466
+75,2528857,die9origephit/human-activity-recognition,Human Activity Recognition,71,467
+355,4568523,fouadtrad2/evasive-pdf-samples,Evasive PDF Samples,10,468
+104,4518541,ravi20076/playgrounds4e03ancillary,PlaygroundS4E03|Ancillary,52,469
+148,10635298,serkantysz/490k-spotify-song-audio-embeddings-and-metadata,490K Spotify Song Audio Embeddings & Metadata,37,470
+542,10593559,sarveshchhetri/e-commerce-return-abuse-detection-dataset,E-Commerce Return Abuse Detection Dataset,3,471
+572,2081748,automlbenchmark/ip-address-automl-benchmark-v1,IP Address - AutoML Benchmark - v1,2,472
+181,11997560,razanihababdellatif/coffee-quality-and-pricing-benchmark,Coffee Quality & Pricing Benchmark,31,473
+368,2422042,girishvutukuri/weightheight,Weight - Height Gender Prediction ,9,474
+88,10002776,sumeakash/ai-impact-on-job-sector,AI Impact on Job Sector,60,475
+505,11500866,abbas829/bankruptcy,Bankruptcy,4,476
+131,5455179,raminhuseyn/dataset-from-tiktok,Dataset from TikTok,45,477
+449,5071421,bcccdatasets/bccc-cpacket-cloud-ddos-2024,Cloud-base DDoS Attack Classification using ML/DL,6,478
+230,4875372,rabieelkharoua/male-female-gait-classification-dataset,Male Female Gait Classification Dataset,24,479
+460,4096608,vittoriorossi/balanced-flight-cancellation-and-delay-2019-2023,Balanced flight cancellation and delay - 2019-2023,5,480
+1,522275,teejmahal20/airline-passenger-satisfaction,Airline Passenger Satisfaction,1100,481
+583,3448356,varunraskar/is-hcp,Health Care Professional ,2,482
+157,6738297,dagloxkankwanda/startup-failures,Startup Failures,35,483
+65,8299920,ahmeduzaki/earthquake-alert-prediction-dataset,Earthquake Alert Prediction Dataset,75,484
+577,816238,mohitduklan/namegender,NameGender,2,485
+430,11189967,itzzomkar/wearable-tech-sleep-quality-and-stress,Wearable Tech: Sleep Quality & Stress,7,486
+76,7027526,uom190346a/ai-generated-ghibli-style-image-trends-2025,AI Generated Ghibli Style Image Trends (2025),70,487
+295,3606115,deependraverma13/lending-club-loan-data-analysis-deep-learning,Lending Club Loan Data Analysis - Deep Learning,15,488
+595,4286092,arsenycheplukov/onliner-reviews-extended-raw,Onliner_reviews_extended_raw,2,489
+278,4393645,ravi20076/playgrounds4e02ancillary,PlaygroundS4E02|Ancillary,18,490
+461,9630004,kienngx/sms-spam-dataset-african-english-context,SMS-Spam-Dataset (African-English context),5,491
+407,2051771,chauhankaranraj/ceph-drive-telemetry-data,Ceph Drive Telemetry Data,7,492
+24,4180521,bhavikjikadara/fake-news-detection,Fake News Detection,164,493
+313,7438392,gzdekzlkaya/credit-card-fraud-detection-dataset,Credit Card Fraud Detection Dataset,13,494
+523,1897590,mafrojaakter/ad-click-data,Ad Click Data,3,495
+387,1595769,subhajournal/credit-card-fraud-dataset,Credit Card Fraud Dataset,8,496
+314,1538151,pritsheta/axis-bank,AXIS BANK,13,497
+437,3452353,ibrahimonmars/kaggle-unveiled-exploring-scraped-discourse,kaggle's top trending Discussions,6,498
+408,2360009,kentvejrupmadsen/dataset-performance,Hardware Performance Archive (Latest),7,499
+140,9682486,kaushalnandania/credit-card-fraud-detection,Credit Card Fraud Detection,40,500
+81,5200310,rabieelkharoua/air-quality-and-health-impact-dataset,🌍 Air Quality and Health Impact Dataset🌍,65,501
+44,3119852,ppb00x/credit-risk-customers,credit_risk_customers,110,502
+79,5236308,rabieelkharoua/predict-online-course-engagement-dataset,🎓 Predict Online Course Engagement Dataset,65,503
+31,5249173,rabieelkharoua/predict-online-gaming-behavior-dataset,🎮 Predict Online Gaming Behavior Dataset,135,504
+288,1610154,pritsheta/name-data-set,NAME DATA SET,16,505
+371,8209230,vivekumar001/fastagfrauddetection-csv,FastagFraudDetection.csv,9,506
+304,2105538,undersc0re/predict-the-churn-risk-rate,Customer Churn,14,507
+581,3551556,mikhailkaravaev/activity-table-short-dataset,Activity Table (short) dataset,2,508
+399,1515024,dshassan/loan-dataset,loan_dataset,8,509
+568,1923463,priyamkumarupadhyay/billboard-year-end-hot-100-singles,Billboard Year End Hot 100 singles,2,510
+370,928342,arpit3043/ten-ads-optimization,Ten Ads Optimization,9,511
+116,5242261,rabieelkharoua/consumer-electronics-sales-dataset,📱 Predict Consumer Electronics Sales Dataset 💻,50,512
+527,1102803,longtng/bank-marketing-data-set, Bank Marketing Data Set,3,513
+254,5417795,abdelazizsami/predictive-maintenance-dataset,Predictive Maintenance Dataset,21,514
+479,4350996,mcfly1/ssbu-fighter-and-mirror-match-data,SSBU fighter and mirror match data,5,515
+42,1450044,sagnik1511/car-insurance-data,Car Insurance Data,116,516
+178,9090081,ashishbadal18/32000-songs-ragas-mental-health-classification,"32000 Songs, Ragas , Mental Health Classification",31,517
+161,10704299,nawfeelrahman1124444/the-ultimate-fifa-world-cup-dataset-1930-to-2026,⚽ FIFA World Cup 1930-2026: Ultimate ML Dataset 🏆,34,518
+141,2884114,ulkutuncerkucuktas/turkey-earthquake-relief-tweets-dataset,Turkey Earthquake Relief Tweets Dataset,39,519
+391,1205311,datamunge/intrusion-detection-as-an-image-classifier,Intrusion Detection as an Image Classifier,8,520
+107,2807533,ulrikthygepedersen/star-wars-characters,Star Wars Characters,51,521
+317,8811710,deeplumiere/load-pred-dataset,Loan Prediction Dataset,13,522
+264,6319817,surendra365/recruitement-dataset,recruitment dataset,20,523
+130,7878304,neelagiriaditya/ufc-datasets-1994-2025,UFC DATASETS 1994-2026,45,524
+243,2117825,letslive/alpha-thalassemia-dataset,Alpha Thalassemia Dataset - Carriers VS Normal,23,525
+73,5236181,rabieelkharoua/predict-customer-purchase-behavior-dataset,🛍️ Predict Customer Purchase Behavior Dataset,72,526
+194,5724889,noahjanes/canadian-cheese-directory,Canadian Cheese Directory,29,527
+153,5229220,rabieelkharoua/fictional-character-battle-outcome-prediction,🦸 Fictional Character Battle Outcome Prediction,36,528
+212,1845089,vishushekhar/pokemonunitedataset,PokemonUniteDataset,27,529
+122,2008576,rajatrc1705/youtube-videos-dataset,Youtube Videos Dataset (~3400 videos),47,530
+289,9289621,chanchalsh05/student-placement-preparation-dataset,Student Placement Preparation Dataset,16,531
+473,11626261,nilesh2042/nyc-green-taxi-tripdata-jan-2026-to-may-2026,NYC Green Taxi Tripdata Jan-2026 to May 2026,5,532
+463,4694114,swish9/synthetic-indian-automobile-crash-data,Synthetic Indian Automobile Crash Data,5,533
+335,11439393,rockyt0/company-employee-dataset,Company Employee Dataset,12,534
+390,1403328,boss0ayush/salary-survey-data,Salary Survey Data,8,535
+498,11334323,alessandrodaldossi/dummysub,dummysub,4,536
+172,5086509,prasad22/economic-census-data,Economic Census Data,32,537
+10,3259501,fatihb/coffee-quality-data-cqi,Coffee Quality Data (CQI May-2023),299,538
+97,2060589,prasertk/forbes-worlds-billionaires-list-2022,Forbes World's Billionaires List 2022,54,539
+327,1189136,rupakroy/ethereum-fraud-detection,Ethereum_Fraud_Detection,12,540
+363,6388841,ramyapintchy/personal-finance-data,Personal Finance Data,10,541
+475,5543128,nilanjansamanta1210/airline-passenger-satisfaction,Airline Passenger Satisfaction,5,542
+353,1449208,ozgurdogan646/blog-or-not-dataset,Blog or Not Dataset,10,543
+474,11781219,maqdadali/credit-card-fraud-detection,Credit Card Fraud Detection Dataset,5,544
+244,1960907,samuelcortinhas/tps-feb-22-train-set-with-measurement-errors,TPS Feb 22 - Train set with measurement errors,22,545
+89,5228885,rabieelkharoua/predicting-hiring-decisions-in-recruitment-data,💼 Predicting Hiring Decisions in Recruitment Data,60,546
+175,10304952,waddahali/fraud-detection,Fraud Detection,32,547
+531,1282437,jorgemora/classification-of-human-poses-keypoints,Classification of human poses - keypoints,3,548
+165,5564681,mhmdkardosha/premier-league-matches,Premier League Matches,33,549
+39,1928170,gamersclub/brazilian-csgo-plataform-dataset-by-gamers-club,Brazilian CS:GO Platform Dataset by Gamers Club,119,550
+265,1246162,niloy333/kuhar,KU-HAR: Human Activity Recognition Dataset (v 1.0),20,551
+66,2123951,fabiochiusano/medium-articles,190k+ Medium Articles,75,552
+412,952929,baguspurnama/weather-dataset-2009-2018,Weather dataset 2009 - 2018,7,553
+453,2369196,mustafakeser4/classification-dataset-10-classes,Classification Dataset (10 classes),5,554
+524,2523222,calathea22/benchmarking-dataset-for-fair-ml,Benchmarking Dataset for Fair ML,3,555
+562,2553534,hosseinmousavi/phd-measures,PhD Measures,2,556
+419,9875720,kacperjarosik1/polish-sign-language-google-landmarks-csv-data,Polish Sign Language (PJM) Hand Landmarks,7,557
+205,1882033,varunnagpalspyz/precipitation-prediction-in-la,Precipitation Prediction in LA,28,558
+330,2420071,girishvutukuri/diabetes-binary-classification,Diabetes Binary Classification,12,559
+18,2673949,sgpjesus/bank-account-fraud-dataset-neurips-2022,Bank Account Fraud Dataset Suite (NeurIPS 2022),206,560
+384,7016683,sahideseker/spam-mail-classifier-dataset,Spam Mail Classifier Dataset,9,561
+128,4999163,rabieelkharoua/patient-ratings-identifying-best-drugs,🌟Patient Ratings: Identifying Best Drugs!,45,562
+11,3858024,rxnach/student-stress-factors-a-comprehensive-analysis,Student Stress Factors: A Comprehensive Analysis,273,563
+599,7903586,shankar3234/ping-pong-game-playing-dataset,Ping Pong Game Movement Dataset for SL,2,564
+59,9581443,alitaqishah/ckd-nhanes-2021-2023-staged-kidney-disease,CKD-NHANES 2021-2023: Staged Kidney Disease,81,565
+567,2032910,cherrycalosa/telco-leveraging,Telco Leveraging ,2,566
+323,1710725,ban7002/fraud-challenge-data,Fraud Challenge Data,12,567
+296,4657723,marcpaulo/titanic-huge-dataset-1m-passengers,Titanic Huge Dataset - 1M Passengers,15,568
+164,1405198,dhirajnirne/bank-marketing,Bank Marketing,33,569
+316,1788798,jayitabhattacharyya/estimation-of-obesity-levels-uci-dataset,Estimation of obesity levels UCI dataset,13,570
+173,6762489,gauravkumar2525/shark-attacks,Shark Attacks,32,571
+233,2879163,linnaeus/donacilla-cornea-shell-size-and-coloration-ua,Donacilla cornea shell size and coloration,24,572
+16,3698125,uom190346a/water-quality-and-potability,Water Quality and Potability,235,573
+328,3454125,farukalam/weather-timeseries-data-in-sylhet-bangladesh,Weather Timeseries Data in Bangladesh,12,574
+321,2810601,dhoogla/nfunswnb15v2,NF-UNSW-NB15-V2,13,575
+589,9491222,deviduttaparida/the-loan-prediction-data-compendium,The Loan Prediction Data Compendium,2,576
+585,8572953,seddiktrk/protein-go-annotations-taxonomy,Protein GO Annotations with Taxonomy,2,577
+448,2715956,aronpollner/us-fbi-nibrs-crime-data-2021-all-states,US FBI NIBRS CRIME DATA 2021 ALL STATES,6,578
+282,1620297,chiragtagadiya/genesdata,GenesData,17,579
+532,9646463,codingmaster24/access-to-electricity-percentage-of-population,Access to electricity percentage of population,3,580
+301,895928,kunalgupta2616/hackerearth-customer-segmentation-hackathon,HackerEarth HackLive: Customer Segmentation,14,581
+13,2093649,rupakroy/online-payments-fraud-detection-dataset,Online Payments Fraud Detection Dataset,262,582
+238,1129032,yamaerenay/mbtitypes,MBTI-Types & Enneagram Texts,23,583
+108,3616377,mcfurland/10-m-beatport-tracks-spotify-audio-features,10+ M. Beatport Tracks / Spotify Audio Features,51,584
+525,1547560,prakharkatiyar08/30days-folds,30days_folds,3,585
+596,4612501,adrienriaux/steel-plate-defect-extra-dataset,Steel Plate Defect Extra Dataset,2,586
+377,2675727,galijithendranath/onion-warehouse-locations-in-bangalore,Onion Warehouse locations in Bangalore,9,587
+564,2069734,vizdom/customer-orders,Customer Orders,2,588
+156,5127040,ravi20076/playgrounds4e06originaldata,PlaygroundS4E06|OriginalData,35,589
+223,12325958,alipakzad/telecom-customer-churn,Telecom Customer Churn,26,590
+357,2875684,satyampandey4229/iit-and-nit-colleges-admission-criteria,IIT and NIT Colleges Admission Criteria,10,591
+438,4545941,enrique4/activity-recognition-with-accelerometer-and-sound,Activity Recognition with Accelerometer and Sound,6,592
+201,5039509,akshayramakrishnan28/hotel-risk-classification-dataset,Hotel Risk Classification Dataset,28,593
+287,1523109,yudhaislamisulistya/dataset-aroma-tahu-berfomalin,Dataset of Formalin Tofu Aroma,16,594
+499,8235502,shikameow/dota-2-pro-scene-dataset,Dota 2 Pro Scene Dataset,4,595
+566,1741057,omarmuhamed/os-performance-counters-for-malware-detection,OS Performance counters for malware detection,2,596
+394,2385391,yasirabdaali/kaggle-trending-datasets-august-2022,kaggle trending datasets August 2022,8,597
+322,12630152,rishavraj1232/student-early-stress-detection,Student Early Stress Detection,13,598
+417,5833712,shafieeamir/ensemble-transformer-defect-data,Ensemble Transformer Defect Data,7,599
+102,1254446,rameshmehta/credit-risk-analysis,credit risk analysis,53,600

@@ -1,0 +1,31 @@
+{
+  "selector": "gbm_residual_fallback",
+  "tau": 0.02,
+  "source_manifest_sha256": "297a5c79d1172fbc6ff8263065cfe8f5f73222b989208eff1b063b4ad5be77fd",
+  "source_conditions_sha256": "57989a20894485ecbf7128b3cd07a959a8edcd37888140a7e6972b9b73e1c73f",
+  "source_split_seed": 20260917,
+  "repeats": 3,
+  "seed": 20261110,
+  "pipelines": [
+    "categorical_naive_bayes__laplace_histograms",
+    "categorical_naive_bayes__laplace_histograms_b8u",
+    "gnb__analytic_gaussian_equal",
+    "gnb__gaussian_zcdp_equal",
+    "gnb__laplace_equal",
+    "gnb__staircase_vector_equal",
+    "random_forest__analytic_gaussian_parallel_shards",
+    "random_forest__exponential_majority_parallel_shards",
+    "random_forest__laplace_parallel_shards_25",
+    "softmax__analytic_gaussian",
+    "softmax__dp_sgd",
+    "softmax__dp_sgd_clip2_lam0003",
+    "softmax__dp_sgd_clip2_lamrule",
+    "softmax__dp_sgd_clip2_reg003",
+    "softmax__dp_sgd_steps100"
+  ],
+  "estimand": "peso igual por familia semantica; dataset; epsilon",
+  "semantic_missing_policy": "astype(str), reproduz LODO existente; NaN forma grupo compartilhado",
+  "fallback": "categorical_naive_bayes__laplace_histograms_b8u",
+  "reference": "b8u frozen; empirical best reported separately",
+  "features": "own calibration + 15 option one-hot; width 99"
+}

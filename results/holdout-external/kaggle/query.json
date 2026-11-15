@@ -1,0 +1,16 @@
+{
+  "at": "2026-11-12T14:50:42.560922+00:00",
+  "endpoint": "https://www.kaggle.com/api/v1/datasets/list",
+  "query": {
+    "group": "public",
+    "sortBy": "votes",
+    "filetype": "csv",
+    "tagids": "tabular,classification"
+  },
+  "pages": 30,
+  "page_size": 20,
+  "limit": 600,
+  "seed": 20261112,
+  "catalog_sha256": "51c40a8a6ffcea13cc988e557ebc6e0c73f49e7cc3df2c007ff9f19762cf1001",
+  "order_sha256": "f473a7d6ad5c6a638689dcfe4f2ce23f86de84b363d2ca06d7a0e0e04e2d0cfb"
+}

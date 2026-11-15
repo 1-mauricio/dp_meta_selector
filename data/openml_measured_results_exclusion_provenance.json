@@ -1,0 +1,59 @@
+{
+  "condition_tables": [
+    {
+      "path": "results/openml-confirmatory-12-options-2026-09-23-invalidated-family-audit/conditions.csv",
+      "sha256": "85efd241458e02e0e166909f7c43e52fda7c8b1c19ff44dc0f10392a8687dd0d",
+      "size_bytes": 68654132
+    },
+    {
+      "path": "results/portfolio-250/conditions.csv",
+      "sha256": "e0ccd522e4de375ef7a9cac7dea6db91acf87210aae808b3304103e1291ef053",
+      "size_bytes": 118549525
+    },
+    {
+      "path": "results/portfolio-500/conditions.csv",
+      "sha256": "52bdc52fcf13809c2aba3c7207aee3a47d0899789e6dc557757ca50e0a4d30af",
+      "size_bytes": 528556909
+    },
+    {
+      "path": "results/portfolio-500-unique-rf1000/conditions.csv",
+      "sha256": "dc4d5fa6d6c8298e20e21bfddaad2ff2c5a3d460fc46540d43fd40346d384806",
+      "size_bytes": 548308989
+    },
+    {
+      "path": "results/portfolio-826-current-rf1000/conditions.csv",
+      "sha256": "af3aeac3fffdb23cbb3ae277fbe4b6029b5eaef5dad61f08d7c7794157e66929",
+      "size_bytes": 778244419
+    },
+    {
+      "path": "results/portfolio-862-cutoff10000-8pipelines-rf1000/conditions.csv",
+      "sha256": "0ec722d7674dc35639bb2cfa3cbc9e3c208374ca93302792db1003d9384fa761",
+      "size_bytes": 811345281
+    },
+    {
+      "path": "results/portfolio-862-cutoff10000-kfold-rf1000/conditions.csv",
+      "sha256": "116a23f86b771252604a6ea364add14375d119286c29563ca1f182216e48299f",
+      "size_bytes": 960989569
+    },
+    {
+      "path": "results/portfolio-984-completed-rf1000/conditions.csv",
+      "sha256": "7f656b478544051b55f2185017f1d5c97d55c5124dbfee45321dacfcb16c2b64",
+      "size_bytes": 1109146475
+    },
+    {
+      "path": "results/portfolio-984-current/conditions.csv",
+      "sha256": "080b491a172f4a8ffa3843e8cc0fa931f636d31eb05600f4f8a805d1636e4090",
+      "size_bytes": 3004623007
+    },
+    {
+      "path": "results/portfolio-984-h27-rf1000/conditions.csv",
+      "sha256": "a5539d94f6325a78171b9b9ed337fb611f20c7c9ca48de730fa4357437a4bb2a",
+      "size_bytes": 1681566172
+    }
+  ],
+  "created_before_new_holdout_scoring": true,
+  "exclusion_manifest": "data/openml_measured_results_exclusion.csv",
+  "exclusion_manifest_sha256": "17d972ecd3235fb2e68add62d57714d76803c62e649a4abc16c1c788ea614eb3",
+  "extraction": "only dataset_id and family_id columns were parsed from existing conditions tables; metric columns were not read for candidate selection",
+  "measured_dataset_ids": 1184
+}

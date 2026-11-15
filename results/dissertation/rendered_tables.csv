@@ -1,0 +1,21 @@
+label,source
+tab:vitorias-eps,win_share_by_epsilon.csv
+tab:resultados-opcoes,option_performance.csv
+tab:resultados-seletor,method_summary.csv
+tab:comparacao-portfolios,lodo_portfolio_comparison.csv
+tab:regret-eps,regret_by_epsilon.csv
+tab:estratos,extras/gain_by_stratum.csv
+tab:modos,modes/modes.csv
+tab:orcamento-total,modes/equal_total.csv
+tab:importancia,modes/importance_groups.csv
+tab:shapley,extras/shapley_primitives.csv
+tab:metamodelos,extras/metamodels.csv
+tab:curva-aprendizado,learning_curve/summary.csv
+tab:busca-idealizada,extras/idealized_private_search.csv
+tab:tamanho,size/sensitivity_by_size.csv
+tab:transformacao,results/GBM-13-dissertation (histórico)
+tab:colapso-softmax,results/GBM-13-dissertation (histórico)
+tab:holdout,holdout-openml/*/analysis.json
+tab:regra-limiar,rules/summary.csv
+tab:ap-vencedoras,appendix_modal_winners.csv; appendix_distinct_winners.csv
+tab:corpus,appendix_public_dimensions.csv

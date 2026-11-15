@@ -1,0 +1,870 @@
+position,dataset_id,name,status,error
+1,44613,cmc_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+2,44780,KDDCup99_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+3,44263,anneal,excluded_family,
+4,41803,FOREX_eurchf-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+5,1086,ovarianTumour,validation_failure,ValueError: public metadata/schema validator rejected candidate
+6,1515,micro-mass,excluded_family,
+7,43900,amazon_employee_access,excluded_family,
+8,45562,seismic-bumps,excluded_family,
+9,43923,mushroom,excluded_family,
+10,41779,FOREX_eursek-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+11,41827,FOREX_euraud-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+12,40595,scene,excluded_family,
+13,42493,airlines,excluded_family,
+14,958,segment,excluded_family,
+15,957,braziltourism,excluded_family,
+16,46358,Fraud-Detection-Updated),excluded_family,
+17,44266,anneal,excluded_family,
+18,46342,odds,validation_failure,ValueError: public metadata/schema validator rejected candidate
+19,46865,mental-health-in-tech-survey,validation_failure,ValueError: public metadata/schema validator rejected candidate
+20,300,isolet,excluded_family,
+21,41144,madeline,excluded_family,
+22,45687,schizo,excluded_family,
+23,1112,KDDCup09_churn,validation_failure,ValueError: public metadata/schema validator rejected candidate
+24,46049,Stylized_Meta_Album_PLT_DOC_STY_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+25,1019,pendigits,excluded_family,
+26,41158,gina,excluded_family,
+27,46901,TESTFORDESCRIPTION-anneal,excluded_family,
+28,40588,birds,excluded_family,
+29,44658,churn_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+30,44549,ozone-level-8hr_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+31,1163,AP_Lung_Kidney,validation_failure,ValueError: public metadata/schema validator rejected candidate
+32,44449,rl_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+33,42193,compas-two-years,excluded_family,
+34,1145,AP_Breast_Colon,validation_failure,ValueError: public metadata/schema validator rejected candidate
+35,46956,seismic-bumps,excluded_family,
+36,1084,BurkittLymphoma,validation_failure,ValueError: public metadata/schema validator rejected candidate
+37,41844,FOREX_eurgbp-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+38,44258,anneal,excluded_family,
+39,975,autos,excluded_family,
+40,44507,steel-plates-fault_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+41,4534,PhishingWebsites,excluded_family,
+42,44393,kdd_ipums_la_97-small_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+43,46365,Credit_Approval_Classification,excluded_family,
+44,41724,FOREX_chfjpy-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+45,44777,sf-police-incidents_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+46,44301,Meta_Album_ACT_410_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+47,45051,adult-test,excluded_family,
+48,44463,KDDCup09_upselling_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+49,44091,wine,excluded_family,
+50,43941,anneal,excluded_family,
+51,41760,FOREX_eurhuf-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+52,41734,FOREX_eurpln-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+53,26,nursery,excluded_family,
+54,41165,robert,excluded_family,
+55,44303,Meta_Album_PLT_DOC_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+56,44791,KDDCup09-Upselling_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+57,44540,albert_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+58,46881,melbourne_airbnb,validation_failure,ValueError: public metadata/schema validator rejected candidate
+59,44625,mfeat-factors_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+60,46467,IBRD_Loans_Classification,validation_failure,ValueError: public metadata/schema validator rejected candidate
+61,41733,FOREX_eurhkd-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+62,43950,electricity,excluded_family,
+63,44736,volkert_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+64,44633,segment_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+65,44260,anneal,excluded_family,
+66,44626,mfeat-factors_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+67,41788,FOREX_audnzd-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+68,474,analcatdata_marketing,excluded_family,
+69,22,mfeat-zernike,excluded_family,
+70,45093,Lung,validation_failure,ValueError: public metadata/schema validator rejected candidate
+71,397,tr12.wc,validation_failure,ValueError: public metadata/schema validator rejected candidate
+72,46047,Stylized_Meta_Album_MED_LF_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+73,45036,default-of-credit-card-clients,excluded_family,
+74,44710,Amazon_employee_access_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+75,46600,maternal_health_risk,excluded_family,
+76,46831,HCV_data,excluded_family,
+77,388,tr23.wc,validation_failure,ValueError: public metadata/schema validator rejected candidate
+78,42759,KDDCup09-Upselling,excluded_family,
+79,41811,FOREX_cadchf-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+80,46709,SOCC,validation_failure,ValueError: public metadata/schema validator rejected candidate
+81,982,heart-c,excluded_family,
+82,1017,arrhythmia,excluded_family,
+83,45707,cylinder-bands,excluded_family,
+84,47588,marketing-income,accepted,
+85,42178,telco-customer-churn,excluded_family,
+86,44562,madeline_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+87,44643,kr-vs-kp_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+88,460,analcatdata_reviewer,excluded_family,
+89,42716,anneal,excluded_family,
+90,46844,Predicting_Risk_Factors_of_Chronic_Kidney_Disease,excluded_family,
+91,44674,PhishingWebsites_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+92,4538,GesturePhaseSegmentationProcessed,excluded_family,
+93,44709,Amazon_employee_access_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+94,44468,yeast_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+95,42774,KDDCup09-Appetency,validation_failure,ValueError: public metadata/schema validator rejected candidate
+96,45028,california,excluded_family,
+97,41825,FOREX_audnzd-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+98,1159,AP_Endometrium_Ovary,validation_failure,ValueError: public metadata/schema validator rejected candidate
+99,46870,agriculture_dataset_karnataka,excluded_family,
+100,44383,pol_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+101,1160,AP_Colon_Uterus,validation_failure,ValueError: public metadata/schema validator rejected candidate
+102,44785,porto-seguro_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+103,1136,AP_Lung_Uterus,validation_failure,ValueError: public metadata/schema validator rejected candidate
+104,42477,default-of-credit-card-clients,excluded_family,
+105,1590,adult,excluded_family,
+106,46788,mice,validation_failure,ValueError: public metadata/schema validator rejected candidate
+107,46879,mental_health_detection,excluded_family,
+108,46785,deng-reads,validation_failure,ValueError: public metadata/schema validator rejected candidate
+109,44225,MembershipWoes,validation_failure,ValueError: public metadata/schema validator rejected candidate
+110,46529,Corporate_Credit_Rating_Classification,excluded_family,
+111,43976,eye_movements,excluded_family,
+112,44594,blood-transfusion-service-center_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+113,44596,blood-transfusion-service-center_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+114,41824,FOREX_eurgbp-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+115,1004,synthetic_control,excluded_family,
+116,48186,TabClustPFN-openml-18-v1-c1ab62f4,excluded_family,
+117,1044,eye_movements,excluded_family,
+118,44160,rl,excluded_family,
+119,44623,mfeat-factors_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+120,44111,electricity,excluded_family,
+121,43966,electricity,excluded_family,
+122,47589,thyroid-disease,excluded_family,
+123,44124,kdd_ipums_la_97-small,excluded_family,
+124,41818,FOREX_euraud-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+125,44609,pc4_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+126,44232,UCI_churn,validation_failure,ValueError: public metadata/schema validator rejected candidate
+127,43147,StackOverflow-polarity-train,validation_failure,ValueError: public metadata/schema validator rejected candidate
+128,48185,TabClustPFN-openml-16-v1-6c4e5550,excluded_family,
+129,43072,KDDCup09-Upselling,excluded_family,
+130,1162,AP_Ovary_Uterus,validation_failure,ValueError: public metadata/schema validator rejected candidate
+131,44071,bank-marketing,excluded_family,
+132,46906,anneal,excluded_family,
+133,41715,FOREX_eurhuf-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+134,44782,KDDCup99_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+135,44087,phoneme,excluded_family,
+136,46869,diabetes_risk_prediction_dataset,excluded_family,
+137,44740,robert_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+138,44551,ozone-level-8hr_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+139,1088,variousCancers_final,validation_failure,ValueError: public metadata/schema validator rejected candidate
+140,1504,steel-plates-fault,excluded_family,
+141,46072,Stylized_Meta_Album_TEX_DTD_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+142,41143,jasmine,excluded_family,
+143,44116,MagicTelescope,excluded_family,
+144,46825,SOCC,validation_failure,ValueError: public metadata/schema validator rejected candidate
+145,41799,FOREX_eurhkd-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+146,44156,electricity,excluded_family,
+147,1068,pc1,excluded_family,
+148,41782,FOREX_usdjpy-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+149,44118,phoneme,excluded_family,
+150,1486,nomao,excluded_family,
+151,44589,eucalyptus_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+152,45024,credit,excluded_family,
+153,44185,KDDCup09_upselling,excluded_family,
+154,44399,MagicTelescope_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+155,40590,enron,validation_failure,ValueError: public metadata/schema validator rejected candidate
+156,1128,OVA_Breast,validation_failure,ValueError: public metadata/schema validator rejected candidate
+157,42804,Midwest_survey,validation_failure,ValueError: public metadata/schema validator rejected candidate
+158,44768,okcupid-stem_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+159,41858,FOREX_usdchf-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+160,44261,anneal,excluded_family,
+161,41832,FOREX_nzdusd-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+162,42758,KDDCup09-Churn,validation_failure,ValueError: public metadata/schema validator rejected candidate
+163,44616,cmc_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+164,963,heart-h,excluded_family,
+165,996,prnn_fglass,excluded_family,
+166,41754,FOREX_eurjpy-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+167,44690,wine-quality-white_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+168,46449,Credit_Score_Classification_downsampled,validation_failure,ValueError: public metadata/schema validator rejected candidate
+169,1114,KDDCup09_upselling,excluded_family,
+170,43949,rl,excluded_family,
+171,44524,jasmine_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+172,44591,eucalyptus_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+173,44676,PhishingWebsites_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+174,46450,Credit_Score_Classification_downsampled,validation_failure,ValueError: public metadata/schema validator rejected candidate
+175,41082,USPS,excluded_family,
+176,44629,kc1_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+177,47000,QSAR_Bioconcentration_classification,excluded_family,
+178,45063,credit-approval,excluded_family,
+179,44456,road-safety_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+180,980,optdigits,excluded_family,
+181,44072,phoneme,excluded_family,
+182,46866,OSMI_Mental_Health_in_Tech_Survey,validation_failure,ValueError: public metadata/schema validator rejected candidate
+183,4136,Dexter,validation_failure,ValueError: public metadata/schema validator rejected candidate
+184,44080,electricity,excluded_family,
+185,44368,wine_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+186,994,vehicle,excluded_family,
+187,45497,timing-attack-dataset-20-micro-seconds-delay-2022-09-08,validation_failure,ValueError: public metadata/schema validator rejected candidate
+188,44083,house_16H,excluded_family,
+189,1010,dermatology,excluded_family,
+190,43979,california,excluded_family,
+191,1461,bank-marketing,excluded_family,
+192,41533,Domainome,validation_failure,ValueError: public metadata/schema validator rejected candidate
+193,393,la2s.wc,validation_failure,ValueError: public metadata/schema validator rejected candidate
+194,46864,Skin_Cancer_PAD-UFES-20,validation_failure,ValueError: public metadata/schema validator rejected candidate
+195,720,abalone,excluded_family,
+196,1233,eating,validation_failure,ValueError: public metadata/schema validator rejected candidate
+197,979,waveform-5000,excluded_family,
+198,44527,jasmine_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+199,43925,eucalyptus,excluded_family,
+200,953,splice,excluded_family,
+201,43920,kdd_internet_usage,excluded_family,
+202,44739,robert_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+203,44342,Meta_Album_PRT_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+204,46939,kddcup09_appetency,validation_failure,ValueError: public metadata/schema validator rejected candidate
+205,44410,phoneme_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+206,18,mfeat-morphological,excluded_family,
+207,44744,shuttle_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+208,1063,kc2,excluded_family,
+209,46943,MIC,excluded_family,
+210,46918,credit-g,excluded_family,
+211,44602,qsar-biodeg_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+212,43957,house_16H,excluded_family,
+213,41838,FOREX_cadchf-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+214,46526,Loan_Approval_Status_Classification,excluded_family,
+215,44488,wilt_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+216,1083,mouseType,validation_failure,ValueError: public metadata/schema validator rejected candidate
+217,46378,credit-g,excluded_family,
+218,46064,Stylized_Meta_Album_RSICB_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+219,42167,stress,validation_failure,ValueError: public metadata/schema validator rejected candidate
+220,44505,steel-plates-fault_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+221,41785,FOREX_eurtry-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+222,44125,MagicTelescope,excluded_family,
+223,46819,WBCAtt,excluded_family,
+224,44504,steel-plates-fault_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+225,44765,Click_prediction_small_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+226,44764,Click_prediction_small_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+227,44580,Diabetes130US_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+228,384,tr21.wc,validation_failure,ValueError: public metadata/schema validator rejected candidate
+229,44679,sylvine_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+230,41847,FOREX_eurdkk-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+231,44620,car_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+232,46811,data_scientist_salary,validation_failure,ValueError: public metadata/schema validator rejected candidate
+233,44186,KDDCup09_upselling,excluded_family,
+234,43972,bank-marketing,excluded_family,
+235,44384,pol_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+236,41828,FOREX_usdcad-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+237,46933,hiva_agnostic,excluded_family,
+238,44692,wine-quality-white_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+239,40702,solar-flare,excluded_family,
+240,43051,art_daily_nojump4,validation_failure,ValueError: public metadata/schema validator rejected candidate
+241,44754,riccardo_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+242,46959,steel-plates-fault,excluded_family,
+243,43149,StackOverflow-polarity,validation_failure,ValueError: public metadata/schema validator rejected candidate
+244,45510,timing-attack-dataset-25-micro-seconds-delay-2022-09-14,validation_failure,ValueError: public metadata/schema validator rejected candidate
+245,44265,anneal,excluded_family,
+246,399,ohscal.wc,validation_failure,ValueError: public metadata/schema validator rejected candidate
+247,990,eucalyptus,excluded_family,
+248,983,cmc,excluded_family,
+249,46910,bank-marketing,excluded_family,
+250,46826,SOCC,validation_failure,ValueError: public metadata/schema validator rejected candidate
+251,44452,rl_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+252,44430,jannis_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+253,46958,splice,excluded_family,
+254,44631,kc1_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+255,44734,volkert_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+256,44646,kr-vs-kp_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+257,41856,FOREX_eurdkk-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+258,41103,STL-10,validation_failure,ValueError: public metadata/schema validator rejected candidate
+259,48191,TabClustPFN-uci-glass-v1-8dffdcdf,excluded_family,
+260,46808,news_channel,validation_failure,ValueError: public metadata/schema validator rejected candidate
+261,41816,FOREX_usddkk-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+262,40597,yeast,excluded_family,
+263,48197,TabClustPFN-uci-seeds-v1-d7639bff,excluded_family,
+264,42530,Midwest_Survey,validation_failure,ValueError: public metadata/schema validator rejected candidate
+265,44737,volkert_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+266,44735,volkert_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+267,46845,regensburg_pediatric_appendicitis,validation_failure,ValueError: public metadata/schema validator rejected candidate
+268,46063,Stylized_Meta_Album_RSICB_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+269,44556,vehicle_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+270,45500,timing-attack-dataset-20-micro-seconds-delay-2022-09-14,validation_failure,ValueError: public metadata/schema validator rejected candidate
+271,44396,kdd_ipums_la_97-small_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+272,45714,PriceRunner,validation_failure,ValueError: public metadata/schema validator rejected candidate
+273,44773,sf-police-incidents_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+274,44411,phoneme_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+275,1130,OVA_Lung,validation_failure,ValueError: public metadata/schema validator rejected candidate
+276,46031,Stylized_Meta_Album_AWA_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+277,44581,Diabetes130US_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+278,42883,dgf_test,excluded_family,
+279,44074,bank-marketing,excluded_family,
+280,44398,MagicTelescope_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+281,44264,anneal,excluded_family,
+282,44457,road-safety_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+283,44495,numerai28.6_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+284,41160,rl,excluded_family,
+285,44548,ozone-level-8hr_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+286,44788,KDDCup09-Upselling_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+287,44610,pc4_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+288,41821,FOREX_eurpln-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+289,41763,FOREX_audcad-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+290,44093,eye_movements,excluded_family,
+291,1124,AP_Omentum_Uterus,validation_failure,ValueError: public metadata/schema validator rejected candidate
+292,44469,yeast_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+293,46055,Stylized_Meta_Album_PLT_NET_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+294,1152,AP_Prostate_Ovary,validation_failure,ValueError: public metadata/schema validator rejected candidate
+295,44531,airlines_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+296,44755,riccardo_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+297,1120,MagicTelescope,excluded_family,
+298,46752,student_lifestyle_dataset,excluded_family,
+299,1132,AP_Omentum_Lung,validation_failure,ValueError: public metadata/schema validator rejected candidate
+300,44530,airlines_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+301,42532,Midwest_Survey_nominal,validation_failure,ValueError: public metadata/schema validator rejected candidate
+302,45487,timing-attack-dataset-15-micro-seconds-delay-2022-09-08,validation_failure,ValueError: public metadata/schema validator rejected candidate
+303,43160,StackOverflow-polarity,validation_failure,ValueError: public metadata/schema validator rejected candidate
+304,41859,FOREX_eurnok-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+305,41820,FOREX_chfsgd-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+306,47003,melbourne_airbnb,validation_failure,ValueError: public metadata/schema validator rejected candidate
+307,44497,numerai28.6_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+308,41792,FOREX_usdchf-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+309,43904,law-school-admission-bianry,excluded_family,
+310,16,mfeat-karhunen,excluded_family,
+311,44073,MagicTelescope,excluded_family,
+312,41765,FOREX_eurtry-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+313,45517,timing-attack-dataset-30-micro-seconds-delay-2022-09-08,validation_failure,ValueError: public metadata/schema validator rejected candidate
+314,41833,FOREX_cadjpy-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+315,44767,Click_prediction_small_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+316,41846,FOREX_eursek-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+317,46556,Loan_Status,excluded_family,
+318,46664,data_scientist_salary,validation_failure,ValueError: public metadata/schema validator rejected candidate
+319,48188,TabClustPFN-uci-banknote-v1-b35c1796,excluded_family,
+320,44769,okcupid-stem_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+321,44498,credit-g_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+322,44661,churn_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+323,46603,regensburg_pediatric_appendicitis,validation_failure,ValueError: public metadata/schema validator rejected candidate
+324,46913,blood-transfusion-service-center,excluded_family,
+325,44621,car_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+326,44117,bank-marketing,excluded_family,
+327,44741,robert_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+328,45025,california,excluded_family,
+329,44566,philippine_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+330,44677,PhishingWebsites_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+331,41164,fabert,excluded_family,
+332,41712,FOREX_eurcad-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+333,44582,Diabetes130US_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+334,44502,credit-g_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+335,41731,FOREX_eursek-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+336,41805,FOREX_eurrub-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+337,1467,climate-model-simulation-crashes,excluded_family,
+338,1497,wall-robot-navigation,excluded_family,
+339,44586,micro-mass_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+340,44329,Meta_Album_APL_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+341,44455,road-safety_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+342,1524,vertebra-column,excluded_family,
+343,42810,PCam,validation_failure,ValueError: public metadata/schema validator rejected candidate
+344,44789,KDDCup09-Upselling_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+345,44465,KDDCup09_upselling_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+346,46446,Credit_Score_Classification_downsampled,validation_failure,ValueError: public metadata/schema validator rejected candidate
+347,46847,differentiated_thyroid_cancer_recurrence,excluded_family,
+348,40900,Satellite,excluded_family,
+349,42775,KDDCup09-Churn,validation_failure,ValueError: public metadata/schema validator rejected candidate
+350,42141,SVHN_medium,excluded_family,
+351,44595,blood-transfusion-service-center_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+352,44395,kdd_ipums_la_97-small_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+353,44712,Amazon_employee_access_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+354,44386,pol_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+355,44033,electricity,excluded_family,
+356,991,car,excluded_family,
+357,1166,OVA_Ovary,validation_failure,ValueError: public metadata/schema validator rejected candidate
+358,41815,FOREX_eurrub-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+359,41898,FOREX_audnzd-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+360,44696,Satellite_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+361,46042,Stylized_Meta_Album_INS2_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+362,44525,jasmine_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+363,44472,yeast_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+364,396,la1s.wc,validation_failure,ValueError: public metadata/schema validator rejected candidate
+365,897,colleges_aaup,excluded_family,
+366,44085,MagicTelescope,excluded_family,
+367,44624,mfeat-factors_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+368,46905,Amazon_employee_access,excluded_family,
+369,44601,qsar-biodeg_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+370,44552,ozone-level-8hr_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+371,14,mfeat-fourier,excluded_family,
+372,1050,pc3,excluded_family,
+373,1025,analcatdata_germangss,excluded_family,
+374,1127,AP_Breast_Omentum,validation_failure,ValueError: public metadata/schema validator rejected candidate
+375,1133,AP_Endometrium_Colon,validation_failure,ValueError: public metadata/schema validator rejected candidate
+376,1475,first-order-theorem-proving,excluded_family,
+377,40971,collins,excluded_family,
+378,41726,FOREX_audusd-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+379,43924,eucalyptus,excluded_family,
+380,44400,MagicTelescope_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+381,1139,OVA_Omentum,validation_failure,ValueError: public metadata/schema validator rejected candidate
+382,44784,porto-seguro_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+383,1600,SPECTF,excluded_family,
+384,42768,Midwest_survey,validation_failure,ValueError: public metadata/schema validator rejected candidate
+385,961,analcatdata_broadwaymult,excluded_family,
+386,46373,default-of-credit-card-clients,excluded_family,
+387,44759,kick_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+388,45058,credit-g,excluded_family,
+389,1005,glass,excluded_family,
+390,1557,abalone,excluded_family,
+391,1468,cnae-9,excluded_family,
+392,40593,langLog,validation_failure,ValueError: public metadata/schema validator rejected candidate
+393,46034,Stylized_Meta_Album_BRD_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+394,44770,okcupid-stem_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+395,41860,FOREX_eurusd-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+396,962,mfeat-morphological,excluded_family,
+397,45480,timing-attack-dataset-10-micro-seconds-delay-2022-09-14,validation_failure,ValueError: public metadata/schema validator rejected candidate
+398,44694,Satellite_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+399,44464,KDDCup09_upselling_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+400,43028,dgf_96f4164d-956d-4c1c-b161-68724eb0ccdc,excluded_family,
+401,43942,anneal,excluded_family,
+402,44401,MagicTelescope_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+403,970,analcatdata_authorship,excluded_family,
+404,42773,KDDCup09-Upselling,excluded_family,
+405,46689,sst5,validation_failure,ValueError: public metadata/schema validator rejected candidate
+406,44126,bank-marketing,excluded_family,
+407,46050,Stylized_Meta_Album_PLT_DOC_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+408,818,diggle_table_a2,excluded_family,
+409,1123,AP_Endometrium_Breast,validation_failure,ValueError: public metadata/schema validator rejected candidate
+410,41756,FOREX_audsgd-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+411,44689,wine-quality-white_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+412,44309,Meta_Album_BTS_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+413,46067,Stylized_Meta_Album_SPT_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+414,46948,PhishingWebsites,excluded_family,
+415,46760,Indicators_of_Anxiety_or_Depression,validation_failure,ValueError: public metadata/schema validator rejected candidate
+416,46719,mental-health-in-tech-survey,validation_failure,ValueError: public metadata/schema validator rejected candidate
+417,43891,communities-and-crime-binary,validation_failure,ValueError: public metadata/schema validator rejected candidate
+418,44431,jannis_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+419,44584,micro-mass_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+420,46045,Stylized_Meta_Album_MED_LF_STY_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+421,44162,compass,excluded_family,
+422,1003,primary-tumor,excluded_family,
+423,41713,FOREX_eurnzd-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+424,1156,AP_Omentum_Ovary,validation_failure,ValueError: public metadata/schema validator rejected candidate
+425,42809,kits,validation_failure,ValueError: public metadata/schema validator rejected candidate
+426,44745,shuttle_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+427,41857,FOREX_audjpy-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+428,46912,Bioresponse,excluded_family,
+429,44127,phoneme,excluded_family,
+430,1138,OVA_Uterus,validation_failure,ValueError: public metadata/schema validator rejected candidate
+431,44592,eucalyptus_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+432,1011,ecoli,excluded_family,
+433,45026,heloc,excluded_family,
+434,44772,okcupid-stem_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+435,44492,wilt_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+436,44090,california,excluded_family,
+437,44766,Click_prediction_small_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+438,46541,dataset_china,excluded_family,
+439,46878,Indicators_of_Anxiety_or_Depression,validation_failure,ValueError: public metadata/schema validator rejected candidate
+440,976,JapaneseVowels,excluded_family,
+441,46502,Credit_Approval_Classification,excluded_family,
+442,46617,mice,validation_failure,ValueError: public metadata/schema validator rejected candidate
+443,44792,KDDCup09-Upselling_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+444,41781,FOREX_audcad-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+445,1135,AP_Colon_Prostate,validation_failure,ValueError: public metadata/schema validator rejected candidate
+446,43946,eye_movements,excluded_family,
+447,41027,jungle_chess_2pcs_raw_endgame_complete,excluded_family,
+448,41146,sylvine,excluded_family,
+449,45027,credit,excluded_family,
+450,41759,FOREX_eurtry-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+451,44781,KDDCup99_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+452,45098,Ovarian,validation_failure,ValueError: public metadata/schema validator rejected candidate
+453,40670,dna,excluded_family,
+454,43993,isolet,excluded_family,
+455,44226,NewspaperChurn,validation_failure,ValueError: public metadata/schema validator rejected candidate
+456,42192,compas-two-years,excluded_family,
+457,44553,vehicle_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+458,43033,dgf_96f4164d-956d-4c1c-b161-68724eb0ccdc,excluded_family,
+459,978,mfeat-factors,excluded_family,
+460,44499,credit-g_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+461,44429,jannis_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+462,46060,Stylized_Meta_Album_RESISC_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+463,43895,ibm-employee-performance,excluded_family,
+464,40596,slashdot,validation_failure,ValueError: public metadata/schema validator rejected candidate
+465,27,colic,excluded_family,
+466,42812,PCam16k,validation_failure,ValueError: public metadata/schema validator rejected candidate
+467,44787,porto-seguro_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+468,1148,AP_Breast_Uterus,validation_failure,ValueError: public metadata/schema validator rejected candidate
+469,44259,anneal,excluded_family,
+470,44157,eye_movements,excluded_family,
+471,44550,ozone-level-8hr_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+472,44034,eye_movements,excluded_family,
+473,46652,news_channel,validation_failure,ValueError: public metadata/schema validator rejected candidate
+474,44475,KDDCup09_appetency_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+475,44474,KDDCup09_appetency_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+476,41831,FOREX_eurdkk-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+477,41839,FOREX_cadjpy-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+478,41737,FOREX_audusd-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+479,43607,WMO-Hurricane-Survival-Dataset,validation_failure,ValueError: public metadata/schema validator rejected candidate
+480,44644,kr-vs-kp_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+481,46838,Student_Performance_on_an_Entrance_Examination,excluded_family,
+482,46839,Student_Performance_on_an_Entrance_Examination,excluded_family,
+483,41783,FOREX_eurdkk-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+484,41163,dilbert,excluded_family,
+485,44416,MiniBooNE_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+486,44470,yeast_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+487,36,segment,excluded_family,
+488,44635,segment_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+489,41835,FOREX_euraud-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+490,44695,Satellite_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+491,46030,Stylized_Meta_Album_AWA_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+492,1111,KDDCup09_appetency,validation_failure,ValueError: public metadata/schema validator rejected candidate
+493,44713,nomao_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+494,41719,FOREX_eurjpy-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+495,1161,OVA_Colon,validation_failure,ValueError: public metadata/schema validator rejected candidate
+496,41736,FOREX_eurhuf-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+497,46843,Cirrhosis_Patient_Survival_Prediction,excluded_family,
+498,44611,pc4_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+499,1020,mfeat-karhunen,excluded_family,
+500,44409,phoneme_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+501,46070,Stylized_Meta_Album_TEX_DTD_STY_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+502,46800,AVIDa-SARS-CoV-2,validation_failure,ValueError: public metadata/schema validator rejected candidate
+503,44554,vehicle_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+504,44501,credit-g_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+505,1157,AP_Endometrium_Kidney,validation_failure,ValueError: public metadata/schema validator rejected candidate
+506,1489,phoneme,excluded_family,
+507,44618,car_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+508,46877,PostPartum_Depression,excluded_family,
+509,44708,Amazon_employee_access_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+510,44756,riccardo_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+511,1140,AP_Ovary_Lung,validation_failure,ValueError: public metadata/schema validator rejected candidate
+512,1458,arcene,excluded_family,
+513,46375,default-of-credit-card-clients,excluded_family,
+514,44539,albert_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+515,44369,wine_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+516,44120,electricity,excluded_family,
+517,398,wap.wc,validation_failure,ValueError: public metadata/schema validator rejected candidate
+518,44617,cmc_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+519,46979,jm1,excluded_family,
+520,46915,churn,excluded_family,
+521,46038,Stylized_Meta_Album_DOG_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+522,41718,FOREX_audjpy-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+523,46941,maternal_health_risk,excluded_family,
+524,44761,kick_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+525,44762,kick_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+526,40671,ecoli,excluded_family,
+527,44774,sf-police-incidents_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+528,48187,TabClustPFN-openml-22-v1-e6cc806a,excluded_family,
+529,41804,FOREX_gbpusd-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+530,151,electricity,excluded_family,
+531,44757,riccardo_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+532,967,cars,excluded_family,
+533,44579,Diabetes130US_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+534,43969,house_16H,excluded_family,
+535,999,audiology,excluded_family,
+536,44089,credit,excluded_family,
+537,44330,Meta_Album_PNU_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+538,46046,Stylized_Meta_Album_MED_LF_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+539,43973,phoneme,excluded_family,
+540,43327,Birds,excluded_family,
+541,41841,FOREX_chfsgd-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+542,44503,steel-plates-fault_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+543,44647,kr-vs-kp_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+544,44490,wilt_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+545,44158,KDDCup09_upselling,excluded_family,
+546,378,ipums_la_99-small,excluded_family,
+547,44660,churn_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+548,46952,qsar-biodeg,excluded_family,
+549,46552,Corporate_Credit_Rating_Classification,excluded_family,
+550,1119,adult-census,excluded_family,
+551,44494,numerai28.6_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+552,44557,vehicle_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+553,44367,wine_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+554,46376,credit,excluded_family,
+555,41797,FOREX_usdjpy-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+556,44432,jannis_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+557,41709,FOREX_audchf-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+558,971,mfeat-fourier,excluded_family,
+559,44123,house_16H,excluded_family,
+560,46039,Stylized_Meta_Album_DOG_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+561,44394,kdd_ipums_la_97-small_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+562,44084,kdd_ipums_la_97-small,excluded_family,
+563,41773,FOREX_eurtry-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+564,1000,hypothyroid,excluded_family,
+565,46448,Credit_Score_Classification_downsampled,validation_failure,ValueError: public metadata/schema validator rejected candidate
+566,44506,steel-plates-fault_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+567,43894,ibm-employee-attrition,excluded_family,
+568,46447,Credit_Score_Classification_downsampled,validation_failure,ValueError: public metadata/schema validator rejected candidate
+569,40687,solar-flare,excluded_family,
+570,40945,Titanic,excluded_family,
+571,44451,rl_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+572,46871,Advanced_IoT_Dataset,excluded_family,
+573,41727,FOREX_usdcad-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+574,44371,wine_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+575,44070,MagicTelescope,excluded_family,
+576,42169,epiparo_extract,validation_failure,ValueError: public metadata/schema validator rejected candidate
+577,41812,FOREX_eurnok-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+578,44560,madeline_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+579,43956,pol,excluded_family,
+580,45686,cylinder-bands,excluded_family,
+581,1144,AP_Prostate_Kidney,validation_failure,ValueError: public metadata/schema validator rejected candidate
+582,48193,TabClustPFN-uci-iono-v1-664472db,excluded_family,
+583,44587,micro-mass_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+584,41723,FOREX_cadchf-hour-High,validation_failure,"ReadTimeout: HTTPSConnectionPool(host='www.openml.org', port=443): Read timed out. (read timeout=15)"
+585,48204,TabClustPFN-uci-wisc-v1-d4dc6a1e,excluded_family,
+586,44035,KDDCup09_upselling,excluded_family,
+587,44682,sylvine_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+588,46553,Loan_Status,excluded_family,
+589,44717,nomao_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+590,1158,AP_Breast_Kidney,validation_failure,"ReadTimeout: HTTPSConnectionPool(host='www.openml.org', port=443): Read timed out. (read timeout=15)"
+591,44532,airlines_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+592,48200,TabClustPFN-uci-thyroid-v1-7ac1e77d,excluded_family,
+593,44615,cmc_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+594,41762,FOREX_audsgd-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+595,48183,us-ivf-clinic-price-check,validation_failure,ValueError: public metadata/schema validator rejected candidate
+596,40979,mfeat-pixel,excluded_family,
+597,45705,cylinder-bands,excluded_family,
+598,1021,page-blocks,excluded_family,
+599,41830,FOREX_nzdusd-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+600,41705,ASP-POTASSCO-classification,validation_failure,ValueError: public metadata/schema validator rejected candidate
+601,400,tr41.wc,validation_failure,ValueError: public metadata/schema validator rejected candidate
+602,44477,KDDCup09_appetency_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+603,41161,riccardo,excluded_family,
+604,44721,jungle_chess_2pcs_raw_endgame_complete_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+605,48198,TabClustPFN-uci-segment-v1-8636f4b9,excluded_family,
+606,40978,Internet-Advertisements,excluded_family,
+607,44779,KDDCup99_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+608,1016,vowel,excluded_family,
+609,44262,anneal,excluded_family,
+610,41826,FOREX_eurnzd-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+611,41967,cnae-9,excluded_family,
+612,44122,pol,excluded_family,
+613,45530,timing-attack-dataset-35-micro-seconds-delay-2022-09-14,validation_failure,ValueError: public metadata/schema validator rejected candidate
+614,46682,CodeXGLUE,validation_failure,ValueError: public metadata/schema validator rejected candidate
+615,46786,deng-reads,validation_failure,ValueError: public metadata/schema validator rejected candidate
+616,43964,electricity,excluded_family,
+617,989,anneal,excluded_family,
+618,1122,AP_Breast_Prostate,validation_failure,ValueError: public metadata/schema validator rejected candidate
+619,42733,Click_prediction_small,excluded_family,
+620,48192,TabClustPFN-uci-heart-v1-291653e5,excluded_family,
+621,44585,micro-mass_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+622,44722,jungle_chess_2pcs_raw_endgame_complete_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+623,43938,nursery,excluded_family,
+624,46840,Estimation_of_Obesity_Levels,excluded_family,
+625,1147,AP_Omentum_Kidney,validation_failure,ValueError: public metadata/schema validator rejected candidate
+626,46369,Is_fraud,excluded_family,
+627,41758,FOREX_eursgd-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+628,44652,Internet-Advertisements_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+629,46333,arrhythmia,excluded_family,
+630,44526,jasmine_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+631,1087,hepatitisC,validation_failure,ValueError: public metadata/schema validator rejected candidate
+632,46027,Stylized_Meta_Album_APL_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+633,44771,okcupid-stem_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+634,44385,pol_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+635,44612,pc4_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+636,44075,phoneme,excluded_family,
+637,44496,numerai28.6_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+638,23380,cjs,excluded_family,
+639,43035,dgf_96f4164d-956d-4c1c-b161-68724eb0ccdc,excluded_family,
+640,44619,car_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+641,1149,AP_Ovary_Kidney,validation_failure,ValueError: public metadata/schema validator rejected candidate
+642,46442,Success-Rates-2,validation_failure,ValueError: public metadata/schema validator rejected candidate
+643,46535,dataset_credit-approval,excluded_family,
+644,46532,dataset_credit-g,excluded_family,
+645,41851,FOREX_usdjpy-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+646,41787,FOREX_eurpln-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+647,20,mfeat-pixel,excluded_family,
+648,44680,sylvine_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+649,41766,FOREX_eurgbp-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+650,44450,rl_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+651,46550,Corporate_Credit,excluded_family,
+652,41780,FOREX_usdchf-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+653,1126,AP_Colon_Lung,validation_failure,ValueError: public metadata/schema validator rejected candidate
+654,44598,qsar-biodeg_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+655,48184,NovAsia_Property_Listing_Dedup_Synthetic,accepted,
+656,46481,Financial-Risk-Assessment,excluded_family,
+657,4134,Bioresponse,excluded_family,
+658,46374,default-of-credit-card-clients,excluded_family,
+659,44037,rl,excluded_family,
+660,43947,KDDCup09_upselling,excluded_family,
+661,44476,KDDCup09_appetency_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+662,44336,Meta_Album_PLT_DOC_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+663,41973,semeion,excluded_family,
+664,41806,FOREX_audjpy-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+665,43098,students_scores,excluded_family,
+666,41026,gisette,validation_failure,ValueError: public metadata/schema validator rejected candidate
+667,46822,Dynamically-Generated-Hate-Speech-Dataset,validation_failure,ValueError: public metadata/schema validator rejected candidate
+668,1143,AP_Colon_Omentum,validation_failure,ValueError: public metadata/schema validator rejected candidate
+669,41801,FOREX_eursgd-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+670,46377,credit-approval,excluded_family,
+671,44114,house_16H,excluded_family,
+672,46921,diabetes,excluded_family,
+673,44489,wilt_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+674,44691,wine-quality-white_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+675,44590,eucalyptus_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+676,43980,wine,excluded_family,
+677,46614,Ecoli,excluded_family,
+678,1565,heart-h,excluded_family,
+679,44786,porto-seguro_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+680,41849,FOREX_audsgd-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+681,41767,FOREX_cadjpy-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+682,387,tr11.wc,validation_failure,ValueError: public metadata/schema validator rejected candidate
+683,46531,dataset_china,excluded_family,
+684,1067,kc1,excluded_family,
+685,42757,KDDCup09-Appetency,validation_failure,ValueError: public metadata/schema validator rejected candidate
+686,44130,eye_movements,excluded_family,
+687,46043,Stylized_Meta_Album_INS2_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+688,1137,AP_Colon_Kidney,validation_failure,ValueError: public metadata/schema validator rejected candidate
+689,24,mushroom,excluded_family,
+690,966,analcatdata_halloffame,excluded_family,
+691,741,rmftsa_sleepdata,excluded_family,
+692,44466,KDDCup09_upselling_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+693,42717,Click_prediction_small,excluded_family,
+694,44473,KDDCup09_appetency_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+695,44599,qsar-biodeg_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+696,46459,Credit_Score_Classification_downsampled,validation_failure,ValueError: public metadata/schema validator rejected candidate
+697,41843,FOREX_audusd-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+698,44408,phoneme_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+699,41777,FOREX_eurjpy-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+700,46054,Stylized_Meta_Album_PLT_NET_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+701,1022,mfeat-pixel,excluded_family,
+702,45490,timing-attack-dataset-15-micro-seconds-delay-2022-09-14,validation_failure,ValueError: public metadata/schema validator rejected candidate
+703,44588,eucalyptus_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+704,44675,PhishingWebsites_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+705,46443,credit_risk_china,excluded_family,
+706,44637,segment_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+707,40591,genbase,validation_failure,ValueError: public metadata/schema validator rejected candidate
+708,48199,TabClustPFN-uci-spambase-v1-b86e2301,excluded_family,
+709,41768,FOREX_eurnok-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+710,385,tr31.wc,validation_failure,ValueError: public metadata/schema validator rejected candidate
+711,41790,FOREX_cadjpy-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+712,44096,credit-g,excluded_family,
+713,42811,PCam16k,validation_failure,ValueError: public metadata/schema validator rejected candidate
+714,44564,philippine_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+715,46551,Corporate_Credit,excluded_family,
+716,43970,kdd_ipums_la_97-small,excluded_family,
+717,44268,anneal,excluded_family,
+718,44082,pol,excluded_family,
+719,44467,KDDCup09_upselling_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+720,977,letter,excluded_family,
+721,46807,melbourne_airbnb,validation_failure,ValueError: public metadata/schema validator rejected candidate
+722,41720,FOREX_eurusd-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+723,44561,madeline_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+724,44332,Meta_Album_MED_LF_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+725,45059,sick,excluded_family,
+726,41829,FOREX_nzdusd-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+727,1146,OVA_Prostate,validation_failure,ValueError: public metadata/schema validator rejected candidate
+728,995,mfeat-zernike,excluded_family,
+729,46762,air-quality-and-pollution-assessment,excluded_family,
+730,722,pol,excluded_family,
+731,44559,madeline_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+732,43945,electricity,excluded_family,
+733,1514,micro-mass,excluded_family,
+734,1134,OVA_Kidney,validation_failure,ValueError: public metadata/schema validator rejected candidate
+735,44742,robert_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+736,997,balance-scale,excluded_family,
+737,1023,soybean,excluded_family,
+738,46980,MIC,excluded_family,
+739,45507,timing-attack-dataset-25-micro-seconds-delay-2022-09-08,validation_failure,ValueError: public metadata/schema validator rejected candidate
+740,46932,heloc,excluded_family,
+741,44115,kdd_ipums_la_97-small,excluded_family,
+742,44529,airlines_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+743,46809,fake_job_postings2,validation_failure,ValueError: public metadata/schema validator rejected candidate
+744,44614,cmc_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+745,48189,TabClustPFN-uci-biodeg-v1-d2ff223c,excluded_family,
+746,44632,kc1_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+747,44471,yeast_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+748,41159,guillermo,excluded_family,
+749,46683,Dynamically-Generated-Hate-Speech-Dataset,validation_failure,ValueError: public metadata/schema validator rejected candidate
+750,959,nursery,excluded_family,
+751,373,UNIX_user_data,validation_failure,ValueError: public metadata/schema validator rejected candidate
+752,41142,christine,excluded_family,
+753,46451,Credit_Score_Classification_downsampled,validation_failure,ValueError: public metadata/schema validator rejected candidate
+754,41834,FOREX_usdcad-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+755,46947,online_shoppers_intention,excluded_family,
+756,44500,credit-g_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+757,43952,electricity,excluded_family,
+758,44636,segment_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+759,44719,jungle_chess_2pcs_raw_endgame_complete_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+760,45706,cylinder-bands,excluded_family,
+761,1526,wall-robot-navigation,excluded_family,
+762,44335,Meta_Album_FNG_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+763,41769,FOREX_audcad-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+764,46071,Stylized_Meta_Album_TEX_DTD_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+765,46981,regensburg_pediatric_appendicitis,validation_failure,ValueError: public metadata/schema validator rejected candidate
+766,381,ipums_la_98-small,excluded_family,
+767,993,kdd_ipums_la_97-small,excluded_family,
+768,41434,Click_prediction_small,excluded_family,
+769,45520,timing-attack-dataset-30-micro-seconds-delay-2022-09-14,validation_failure,ValueError: public metadata/schema validator rejected candidate
+770,44763,Click_prediction_small_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+771,43893,ibm-employee-attrition,excluded_family,
+772,44697,Satellite_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+773,41145,philippine,excluded_family,
+774,41721,FOREX_audcad-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+775,44747,shuttle_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+776,41084,UMIST_Faces_Cropped,validation_failure,ValueError: public metadata/schema validator rejected candidate
+777,44078,eye_movements,excluded_family,
+778,44600,qsar-biodeg_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+779,179,adult,excluded_family,
+780,44010,isolet,excluded_family,
+781,42805,Midwest_survey,validation_failure,ValueError: public metadata/schema validator rejected candidate
+782,45554,FICO-HELOC-cleaned,excluded_family,
+783,44645,kr-vs-kp_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+784,41764,FOREX_gbpusd-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+785,48190,TabClustPFN-uci-breast-v1-8a61fc5f,excluded_family,
+786,44413,MiniBooNE_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+787,1024,cjs,excluded_family,
+788,45068,adult,excluded_family,
+789,41791,FOREX_eurusd-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+790,44711,Amazon_employee_access_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+791,41730,FOREX_usdchf-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+792,41842,FOREX_eurchf-hour-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+793,40704,Titanic,excluded_family,
+794,48196,TabClustPFN-pima-maxscaled-v1-2ce3e55c,excluded_family,
+795,44593,blood-transfusion-service-center_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+796,43953,electricity,excluded_family,
+797,1142,OVA_Endometrium,validation_failure,ValueError: public metadata/schema validator rejected candidate
+798,4329,thoracic_surgery,excluded_family,
+799,44622,car_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+800,43901,click_prediction_small,excluded_family,
+801,44634,segment_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+802,40498,wine-quality-white,excluded_family,
+803,44334,Meta_Album_ACT_410_Extended,validation_failure,ValueError: public metadata/schema validator rejected candidate
+804,44567,philippine_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+805,45067,okcupid_stem,validation_failure,ValueError: public metadata/schema validator rejected candidate
+806,46848,differentiated_thyroid_cancer_recurrence,excluded_family,
+807,44555,vehicle_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+808,41784,FOREX_gbpusd-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+809,43148,StackOverflow-polarity-test,validation_failure,ValueError: public metadata/schema validator rejected candidate
+810,44659,churn_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+811,44541,albert_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+812,44760,kick_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+813,46026,Stylized_Meta_Album_APL_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+814,44224,MembershipWoes,validation_failure,ValueError: public metadata/schema validator rejected candidate
+815,45477,timing-attack-dataset-10-micro-seconds-delay-2022-09-08,validation_failure,ValueError: public metadata/schema validator rejected candidate
+816,44715,nomao_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+817,1560,cardiotocography,excluded_family,
+818,1150,AP_Breast_Lung,validation_failure,ValueError: public metadata/schema validator rejected candidate
+819,43951,electricity,excluded_family,
+820,48202,TabClustPFN-uci-vote-v1-5bf3a6de,excluded_family,
+821,44491,wilt_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+822,1566,hill-valley,excluded_family,
+823,1165,AP_Breast_Ovary,validation_failure,ValueError: public metadata/schema validator rejected candidate
+824,44775,sf-police-incidents_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+825,44681,sylvine_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+826,41716,FOREX_eurcad-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+827,1014,analcatdata_dmft,excluded_family,
+828,46530,Corporate_Credit_Rating_Classification,excluded_family,
+829,44630,kc1_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+830,44542,albert_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+831,821,house_16H,excluded_family,
+832,46720,OSMI_Mental_Health_in_Tech_Survey,validation_failure,ValueError: public metadata/schema validator rejected candidate
+833,44720,jungle_chess_2pcs_raw_endgame_complete_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+834,48195,TabClustPFN-uci-landsat-v1-91fa8ff4,excluded_family,
+835,40998,jungle_chess_2pcs_endgame_panther_lion,excluded_family,
+836,44414,MiniBooNE_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+837,44086,bank-marketing,excluded_family,
+838,44716,nomao_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+839,44257,anneal,excluded_family,
+840,47154,vowel,excluded_family,
+841,43968,pol,excluded_family,
+842,41848,FOREX_chfjpy-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+843,41896,FOREX_eursek-hour-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+844,43958,kdd_ipums_la_97-small,excluded_family,
+845,43985,isolet,excluded_family,
+846,46806,product_sentiment_machine_hack,validation_failure,ValueError: public metadata/schema validator rejected candidate
+847,44113,pol,excluded_family,
+848,43971,MagicTelescope,excluded_family,
+849,44370,wine_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+850,41722,FOREX_usdjpy-day-Close,validation_failure,ValueError: public metadata/schema validator rejected candidate
+851,46630,Skin_Cancer_PAD-UFES-20,validation_failure,ValueError: public metadata/schema validator rejected candidate
+852,48201,TabClustPFN-uci-vehicle-v1-c3814bf0,excluded_family,
+853,1153,AP_Colon_Ovary,validation_failure,ValueError: public metadata/schema validator rejected candidate
+854,44776,sf-police-incidents_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,validation_failure,ValueError: public metadata/schema validator rejected candidate
+855,44662,churn_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+856,44627,mfeat-factors_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+857,44565,philippine_seed_2_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+858,1129,AP_Uterus_Kidney,validation_failure,ValueError: public metadata/schema validator rejected candidate
+859,383,tr45.wc,validation_failure,ValueError: public metadata/schema validator rejected candidate
+860,46058,Stylized_Meta_Album_RESISC_STY_Mini,validation_failure,ValueError: public metadata/schema validator rejected candidate
+861,41753,FOREX_usdcad-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+862,44746,shuttle_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+863,44415,MiniBooNE_seed_3_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+864,1222,letter-challenge-unlabeled.arff,validation_failure,ValueError: public metadata/schema validator rejected candidate
+865,43898,adult,excluded_family,
+866,44454,road-safety_seed_1_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+867,41725,FOREX_eurcad-day-High,validation_failure,ValueError: public metadata/schema validator rejected candidate
+868,44538,albert_seed_0_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,
+869,44597,blood-transfusion-service-center_seed_4_nrows_2000_nclasses_10_ncols_100_stratify_True,excluded_family,

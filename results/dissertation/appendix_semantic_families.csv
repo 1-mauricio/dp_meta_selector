@@ -1,0 +1,668 @@
+family_id,datasets
+fri,80
+timing_attack,76
+forex,35
+meta_album,33
+volcanoes,20
+jungle_chess,11
+autouniv,8
+rabe,7
+credit approval,4
+thyroid,3
+apple_stock_price_trends,3
+padding_attack,3
+monks,3
+german_credit,3
+weather,2
+waveform,2
+glass,2
+thoracic surgery,2
+autos,2
+primary tumor,2
+ipums_la,2
+analcatdata creditscore,2
+anneal,2
+default of credit card clients,2
+gas_drift,2
+,2
+cleveland,2
+credit score,2
+hayes roth,2
+give me some credit,2
+mortgage_ny,2
+credit_card_fraud,2
+bng,2
+jedit,2
+corporate credit rating,2
+autohorse,2
+credit g,2
+sick,2
+pc4,2
+hmeq,2
+spam,2
+diabetes,2
+credit,2
+ilpd,2
+gametes heterogeneity 20atts het edm,2
+satellite,1
+volkert,1
+is fraud,1
+fashion mnist,1
+texture,1
+banana,1
+christine,1
+gesturephasesegmentationprocessed,1
+bioresponse,1
+philippine,1
+madeline,1
+gina,1
+mobile price,1
+fabert,1
+dilbert,1
+apsfailure,1
+phishingwebsites,1
+compass,1
+dionis,1
+guillermo,1
+jannis,1
+first order theorem proving,1
+miniboone,1
+wall robot navigation,1
+page blocks,1
+ada,1
+rl,1
+road safety,1
+robert,1
+dis,1
+riccardo,1
+financial indicators us stocks,1
+fetal cardiotocography,1
+hazelnut spread contaminant detection,1
+pumpkin seeds,1
+students dropout and academic success,1
+led7,1
+led24,1
+gina prior2,1
+employee,1
+gina prior,1
+gina agnostic,1
+us stocks financial indicators,1
+speech,1
+fraud detection updated,1
+allbp,1
+corporate credit ratings,1
+helena,1
+allrep,1
+connect,1
+adult,1
+kddcup99,1
+air quality and pollution assessment,1
+nomao,1
+multiclass for corporate credit ratings,1
+compas two years,1
+porto seguro,1
+diabetes130us,1
+national longitudinal survey binary,1
+jasmine,1
+internet advertisements,1
+dna,1
+airlines,1
+kick,1
+kddcup09 upselling,1
+olivetti faces,1
+pol,1
+prnn cushings,1
+numerai28.,1
+kc1,1
+higgs,1
+hate vects,1
+trains,1
+fakemovie,1
+shuttle landing control,1
+analcatdata uktrainacc,1
+eye movements,1
+parity5,1
+lung cancer,1
+sleuth case1102,1
+pasture,1
+ar5,1
+schlvote,1
+chscase adopt,1
+sylvine,1
+kdd ipums la small,1
+hutsof99 child witness,1
+phoneme,1
+one hundred plants shape,1
+gametes epistasis way 20atts .4h edm,1
+gametes epistasis way 20atts .1h edm,1
+gametes epistasis way 20atts .2h edm,1
+mic,1
+is this a good customer,1
+car evaluation,1
+student lifestyle,1
+house 16h,1
+electricity,1
+bank marketing,1
+california,1
+shuttle,1
+covertype,1
+magictelescope,1
+wine quality white,1
+bolts,1
+sleuth ex1221,1
+pbcseq,1
+toxicity,1
+biosses,1
+automlselectormulticlass,1
+chowdary,1
+appendicitis edsa,1
+ricci vs destefano,1
+iriiiiiis,1
+divorce prediction,1
+darwin,1
+lymphoma 11classes,1
+optdigits,1
+water treatment,1
+isolet,1
+dgf 96f4164d 956d 4c1c b161 68724eb0ccdc,1
+dailybike,1
+amazon commerce reviews,1
+gametes epistasis way 1000atts .4h edm edm,1
+arcene,1
+lymphoma 9classes,1
+analcatdata fraud,1
+analcatdata vehicle,1
+visualizing slope,1
+wind correlations,1
+lymphoma 2classes,1
+sleuth ex1714,1
+robot failures lp2,1
+robot failures lp3,1
+diggle table a1,1
+syskillwebert bands,1
+desharnais,1
+dbworld subjects stemmed,1
+dbworld subjects,1
+syskillwebert sheep,1
+syskillwebert goats,1
+braidflow,1
+meta features,1
+metafeaturesarff,1
+pc2,1
+kr vs kp,1
+bachchoralharmony,1
+stylized meta album plt doc mini,1
+hcv,1
+ponys ai six language character catalog,1
+student performance on an entrance examination,1
+company quality and valuation finance,1
+qsar bioconcentration,1
+stylized meta album spt mini,1
+stylized meta album brd mini,1
+stylized meta album apl mini,1
+imdb genre prediction,1
+stylized meta album med lf mini,1
+stylized meta album awa mini,1
+stylized meta album dog mini,1
+stylized meta album ins2 mini,1
+stylized meta album plt net mini,1
+stylized meta album resisc mini,1
+stylized meta album rsicb mini,1
+loan predication,1
+emotions,1
+mental health detection,1
+cpmp,1
+botanical growth and performance logs for plus flora species,1
+mental disorders,1
+syskillwebert biomedical,1
+bone marrow transplant children,1
+zombies apocalypse,1
+predicting risk factors of chronic kidney disease,1
+mip,1
+heart statlog uci,1
+heart disease prediction,1
+soybean large,1
+drsongslyrics,1
+differentiated thyroid cancer recurrence,1
+cirrhosis patient survival prediction,1
+birds,1
+diabetes risk prediction,1
+stylized meta album tex dtd mini,1
+glioma grading clinical and mutation features,1
+credit risk file,1
+student depression,1
+stylized meta album brd extended,1
+hmeq new,1
+support2,1
+coil2000 insurance policies,1
+wbcatt,1
+in vehicle coupon recommendation,1
+hr analytics job change of scientists,1
+employee turnover at techco,1
+creditability german credit,1
+braidflowsessionlevel,1
+binary alpha digits,1
+online shoppers,1
+advanced iot,1
+amazon employee access,1
+bank marketing set uci,1
+padding_attack_dataset_facebook_2023_12_05,1
+football player position,1
+stylized meta album spt extended,1
+dgf,1
+agriculture karnataka,1
+students scores,1
+studentsperformance,1
+german credit risk with target,1
+qsar,1
+mabbob ela as 2d classify,1
+mabbob ela as 5d classify,1
+credit risk,1
+postpartum depression,1
+south asian churn,1
+image,1
+reuters,1
+corporate credit,1
+estimation of obesity levels,1
+stylized meta album plt doc extended,1
+marketing campaign,1
+credit risk modeling,1
+tamilnadu electricity,1
+polish companies bankruptcy,1
+mc1,1
+cpu act,1
+puma32h,1
+bank32nh,1
+speeddating,1
+visualizing soil,1
+indian pines,1
+loan type,1
+delta elevators,1
+kdd internet usage,1
+insurance company,1
+fico heloc cleaned,1
+japanesevowels,1
+electrical grid stability simulated,1
+bank customer churn,1
+heloc,1
+phishing legitimate full,1
+cpu small,1
+puma8nh,1
+kin8nm,1
+bank8fm,1
+aztrees3,1
+aztrees4,1
+satimage,1
+wind,1
+clean2,1
+musk,1
+taiwanese bankruptcy prediction,1
+telco customer churn,1
+blastchar,1
+delta ailerons,1
+ringnorm,1
+twonorm,1
+one hundred plants texture,1
+naticusdroid,1
+mushroom,1
+internet usage,1
+artificial characters,1
+meta stream intervals.arff,1
+credit card clients default,1
+house 8l,1
+bitcoinheist ransomware,1
+china,1
+credit risk china,1
+kr vs k,1
+king rook vs king,1
+kropt,1
+interest rate,1
+har,1
+customer churn,1
+click prediction small,1
+2dplanes,1
+fried,1
+mv,1
+loan approval status,1
+loan status,1
+law school admission bianry,1
+california housing,1
+houses,1
+microaggregation2,1
+jm1,1
+pendigits,1
+e commereshippingdata,1
+mammography,1
+online shoppers intention,1
+nursery,1
+ailerons,1
+creditcardsubset,1
+sylva prior,1
+eeg eye state,1
+financial risk assessment,1
+mozilla4,1
+elevators,1
+pulsar htru2,1
+letter,1
+one hundred plants margin,1
+cnae,1
+wine quality red,1
+fitness club,1
+no2,1
+chscase geyser1,1
+chscase census6,1
+chscase census5,1
+chscase census4,1
+chscase census3,1
+chscase census2,1
+balloon,1
+plasma retinol,1
+visualizing galaxy,1
+colleges usnews,1
+disclosure z,1
+socmob,1
+chscase whale,1
+arsenic male bladder,1
+arsenic female bladder,1
+arsenic female lung,1
+mu284,1
+pollen,1
+vinnie,1
+boston corrected,1
+disclosure x tampered,1
+cpu,1
+cholesterol,1
+pbc,1
+rmftsa ctoarrivals,1
+chscase vine2,1
+chatfield,1
+sensory,1
+hungarian,1
+disclosure x noise,1
+autompg,1
+kdd el nino small,1
+stock,1
+breasttumor,1
+tecator,1
+boston,1
+arsenic male lung,1
+prnn fglass,1
+spectrometer,1
+wholesale customers,1
+cardiotocography,1
+hill valley,1
+leaf,1
+qualitative bankruptcy,1
+sa heart,1
+seeds,1
+user knowledge,1
+heart long beach,1
+piechart2,1
+vertebra column,1
+witmer census,1
+analcatdata bankruptcy,1
+sleuth case1201,1
+chscase health,1
+aids,1
+vineyard,1
+piechart3,1
+piechart1,1
+analcatdata birthday,1
+mw1,1
+analcatdata draft,1
+analcatdata marketing,1
+collins,1
+analcatdata reviewer,1
+ada prior,1
+usp05,1
+kc3,1
+popularkids,1
+castmetal1,1
+badges2,1
+pc1 req,1
+lungcancer gse31210,1
+megawatt1,1
+pizzacutter1,1
+pizzacutter3,1
+costamadre1,1
+bodyfat,1
+disclosure x bias,1
+quake,1
+audiology,1
+steel plates fault,1
+climate model simulation crashes,1
+wilt,1
+car,1
+segment,1
+churn,1
+arrhythmia,1
+breast cancer,1
+dresses sales,1
+colic,1
+dermatology,1
+ecoli,1
+sonar,1
+soybean,1
+haberman,1
+heart c,1
+miceprotein,1
+cylinder bands,1
+heart statlog,1
+vowel,1
+mfeat,1
+breast w,1
+cmc,1
+splice,1
+tic tac toe,1
+vehicle,1
+eucalyptus,1
+analcatdata authorship,1
+blood transfusion service center,1
+analcatdata dmft,1
+wdbc,1
+qsar biodeg,1
+semeion,1
+madelon,1
+ozone level 8hr,1
+banknote authentication,1
+heart h,1
+vote,1
+strikes,1
+analcatdata vineyard,1
+analcatdata germangss,1
+biomed,1
+colleges aaup,1
+rmftsa sleepdata,1
+diggle table a2,1
+rmftsa ladata,1
+pwlinear,1
+analcatdata supreme,1
+profb,1
+machine cpu,1
+space ga,1
+pm10,1
+meta,1
+analcatdata apnea3,1
+analcatdata apnea2,1
+analcatdata apnea1,1
+cjs,1
+schizo,1
+hypothyroid,1
+yeast ml8,1
+ionosphere,1
+yeast,1
+abalone,1
+baseball,1
+braziltourism,1
+oil spill,1
+scene,1
+spect,1
+prnn synth,1
+spectf,1
+synthetic control,1
+prnn crabs,1
+analcatdata lawsuit,1
+irish,1
+analcatdata broadwaymult,1
+cars,1
+analcatdata japansolvent,1
+chscase vine1,1
+squash stored,1
+pharynx,1
+chscase funds,1
+triazines,1
+lowbwt,1
+wisconsin,1
+knuggetchase3,1
+flags,1
+parkinsons,1
+regime alimentaire,1
+backache,1
+mip par10,1
+algerian forest fires,1
+conference attendance,1
+touch2,1
+breast cancer dropped missing attributes values,1
+diabeticmellitus,1
+sat11 hand runtime,1
+planning relax,1
+smartphone based recognition of human activities,1
+solar flare,1
+fishcatch,1
+iris,1
+iris example,1
+tae,1
+teachingassistant,1
+hepatitis,1
+grub damage,1
+tuningsvms,1
+autoprice,1
+wine,1
+analcatdata gsssexsurvey,1
+auto price,1
+corral,1
+mc2,1
+analcatdata wildcat,1
+robot failures lp5,1
+servo,1
+cleve,1
+penguins,1
+sleuth case2002,1
+asp potassco,1
+xd6,1
+dummy,1
+1studentperfromance,1
+maternal health risk,1
+flare,1
+balance scale,1
+parity5 plus,1
+mofn,1
+tokyo1,1
+website phishing,1
+hepatitis c virus hcv for egyptian patients,1
+usps,1
+depression,1
+ibm employee performance,1
+ibm employee attrition,1
+canadafiresd,1
+mammographic mass set,1
+tour and travels customer churn prediction,1
+engine1,1
+doa bwin,1
+cars1,1
+calendardow,1
+clean1,1
+led display domain 7digit,1
+accidents prediction,1
+threeof9,1
+cpmp runtime,1
+bwin amlb,1
+testfordescription anneal,1
+micro mass,1
+australian,1
+doa bwin balanced,1
+total score,1
+energy efficiency,1
+cervical cancer risk factors,1
+titanic,1
+lymph,1
+kc1 binary,1
+squash unstored,1
+kidney,1
+visualizing hamster,1
+analcatdata gviolence,1
+pyrim,1
+meta batchincremental.arff,1
+meta ensembles.arff,1
+meta instanceincremental.arff,1
+olindda outliers,1
+sponge,1
+meta all.arff,1
+analcatdata asbestos,1
+lupus,1
+sleuth ex2016,1
+visualizing ethanol,1
+postoperative patient,1
+robot failures lp1,1
+cm1 req,1
+confidence,1
+hutsof99 logis,1
+analcatdata cyyoung9302,1
+analcatdata runshoes,1
+hip,1
+elusage,1
+labor,1
+analcatdata bondrate,1
+sleuth ex2015,1
+analcatdata happiness,1
+pollution,1
+mbagrade,1
+fl2000,1
+prnn viruses,1
+sleuth ex1605,1
+sleep,1
+ar3,1
+white clover,1
+analcatdata olympic2000,1
+analcatdata election2000,1
+analcatdata negotiation,1
+sleuth case1202,1
+kc1 top5,1
+datatrieve,1
+heart switzerland,1
+kungchi3,1
+fruitfly,1
+mindcave2,1
+lsvt,1
+mux6,1
+humandevel,1
+echomonths,1
+analcatdata boxing1,1
+visualizing livestock,1
+transplant,1
+analcatdata seropositive,1
+analcatdata boxing2,1
+veteran,1
+analcatdata challenger,1
+newton hema,1
+ar1,1
+acute inflammations,1
+auto93,1
+ar6,1
+analcatdata broadway,1
+baskball,1
+analcatdata cyyoung8092,1
+analcatdata neavote,1
+fertility,1
+analcatdata chlamydia,1
+blogger,1
+zoo,1
+robot failures lp4,1
+bridges,1
+breast tissue,1
+molecular biology promoters,1
+ar4,1
+cloud,1
+analcatdata michiganacc,1
+visualizing environmental,1
+padding_attack_dataset_openssl_1_1_1k_2021_07_23,1

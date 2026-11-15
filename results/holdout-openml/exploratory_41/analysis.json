@@ -1,0 +1,90 @@
+{
+  "exploratory": true,
+  "completed_at": "2026-11-11T22:37:29.883764+00:00",
+  "protocol_sha256": "66933d771548a8048b38c5952dbc4a9e1675c31694421c0b39d5063af5dfc183",
+  "datasets": 41,
+  "families": 41,
+  "n_range": [
+    65,
+    1000000
+  ],
+  "primary": {
+    "gain": 0.006772125101963694,
+    "ci_low": 0.00020253888398376983,
+    "ci_high": 0.01618422150270929,
+    "families": 41,
+    "reference": "b8u",
+    "sign_flip_p_two_sided": 0.02643947121057579,
+    "exploratory": true,
+    "p_holm": null,
+    "holm_reject_05": null
+  },
+  "success_criterion": "lower percentile family bootstrap CI95 > 0",
+  "success": true,
+  "tails": {
+    "fraction_loss_gt_1pp": 0.003048780487804878,
+    "fraction_ci95": [
+      0.0,
+      0.009146341463414634
+    ],
+    "cvar90_loss": 0.000794462762177572,
+    "cvar90_ci95": [
+      2.8460595512831005e-06,
+      0.002272825948557936
+    ],
+    "definition": "signed loss = b8u BA - selector BA; mean largest max(1,floor(0.1*N)) losses; family bootstrap",
+    "bootstrap_draws": 20000,
+    "seed": 20261111
+  },
+  "secondaries": [
+    {
+      "gain": 0.09223499429443745,
+      "ci_low": 0.04980300471640395,
+      "ci_high": 0.14222982677152585,
+      "families": 41,
+      "reference": "H27",
+      "sign_flip_p_two_sided": 3.999920001599968e-05,
+      "exploratory": true,
+      "p_holm": 0.00015999680006399873,
+      "holm_reject_05": true
+    },
+    {
+      "gain": 0.016716693247092625,
+      "ci_low": -5.348433331657597e-06,
+      "ci_high": 0.032935197450478335,
+      "families": 41,
+      "reference": "old_NB",
+      "sign_flip_p_two_sided": 0.051858962820743586,
+      "exploratory": true,
+      "p_holm": 0.10371792564148717,
+      "holm_reject_05": false
+    },
+    {
+      "gain": 0.0024289446175172072,
+      "ci_low": 0.0002435811374599998,
+      "ci_high": 0.00605203516768175,
+      "families": 41,
+      "reference": "gbm13_selector",
+      "sign_flip_p_two_sided": 0.015339693206135877,
+      "exploratory": true,
+      "p_holm": 0.046019079618407635,
+      "holm_reject_05": true
+    },
+    {
+      "gain": 0.01420048725920832,
+      "ci_low": -0.0014769938047179522,
+      "ci_high": 0.02919537657996365,
+      "families": 41,
+      "reference": "rf12_selector",
+      "sign_flip_p_two_sided": 0.07567848643027139,
+      "exploratory": true,
+      "p_holm": 0.10371792564148717,
+      "holm_reject_05": false
+    }
+  ],
+  "bootstrap_draws": 20000,
+  "bootstrap_seed": 20261111,
+  "secondary_test": "paired family sign-flip, two-sided, 50000 draws; Holm across exactly four",
+  "selector_recommendations_public_only": true,
+  "recommendation_frequency": "{('rf12', 'categorical_naive_bayes__laplace_histograms'): 0.7835365853658537, ('rf12', 'softmax__dp_sgd_clip2_reg003'): 0.125, ('rf12', 'softmax__dp_sgd'): 0.057926829268292686, ('rf12', 'softmax__dp_sgd_steps100'): 0.03353658536585366, ('gbm13', 'categorical_naive_bayes__laplace_histograms_b8u'): 0.875, ('gbm13', 'softmax__dp_sgd_clip2_reg003'): 0.11585365853658537, ('gbm13', 'categorical_naive_bayes__laplace_histograms'): 0.003048780487804878, ('gbm13', 'softmax__analytic_gaussian'): 0.003048780487804878, ('gbm13', 'softmax__dp_sgd'): 0.003048780487804878, ('gbm13_1', 'categorical_naive_bayes__laplace_histograms_b8u'): 0.8658536585365854, ('gbm13_1', 'softmax__dp_sgd_clip2_reg003'): 0.0701219512195122, ('gbm13_1', 'softmax__dp_sgd_clip2_lamrule'): 0.036585365853658534, ('gbm13_1', 'categorical_naive_bayes__laplace_histograms'): 0.012195121951219513, ('gbm13_1', 'softmax__dp_sgd_clip2_lam0003'): 0.012195121951219513, ('gbm13_1', 'softmax__dp_sgd_steps100'): 0.003048780487804878}"
+}

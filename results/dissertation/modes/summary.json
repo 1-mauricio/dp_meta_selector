@@ -1,0 +1,69 @@
+{
+  "selector": "GBM residual + fallback",
+  "families": 667,
+  "folds": 5,
+  "permutation_repeats": 5,
+  "impurity": "não definida para HistGradientBoostingRegressor",
+  "metadata_epsilon": 1.0,
+  "source_descriptors": "results/portfolio-984-current/conditions.csv",
+  "new_option_features": "own calibration + 15 one-hot",
+  "modes": [
+    {
+      "mode": "dp_research_rich",
+      "metadata_epsilon": 1.0,
+      "regret_mean": 0.14026543334427025,
+      "regret_median": 0.10069914171476661,
+      "regret_q90": 0.3192121484049687,
+      "regret_cvar90": 0.450689071388312,
+      "gain_vs_best_fixed": 0.0139266649400492,
+      "gain_ci95_low": 0.01082040108968792,
+      "gain_ci95_high": 0.017225002173094653
+    },
+    {
+      "mode": "public_plus_dp",
+      "metadata_epsilon": 0.0,
+      "regret_mean": 0.13980683206326,
+      "regret_median": 0.10174798716313732,
+      "regret_q90": 0.3228587962962962,
+      "regret_cvar90": 0.45002034336713653,
+      "gain_vs_best_fixed": 0.014385266221059475,
+      "gain_ci95_low": 0.011346497917847625,
+      "gain_ci95_high": 0.017622969249993792
+    },
+    {
+      "mode": "public_schema_only",
+      "metadata_epsilon": 0.0,
+      "regret_mean": 0.14107458539099385,
+      "regret_median": 0.10069914171476661,
+      "regret_q90": 0.3228587962962962,
+      "regret_cvar90": 0.45381779446001436,
+      "gain_vs_best_fixed": 0.01311751289332562,
+      "gain_ci95_low": 0.01003022181822698,
+      "gain_ci95_high": 0.01640140750652093
+    },
+    {
+      "mode": "research_privileged",
+      "metadata_epsilon": null,
+      "regret_mean": 0.13884811689241908,
+      "regret_median": 0.1006944444444444,
+      "regret_q90": 0.3159450853498405,
+      "regret_cvar90": 0.44593076645865304,
+      "gain_vs_best_fixed": 0.015343981391900357,
+      "gain_ci95_low": 0.012092049260568746,
+      "gain_ci95_high": 0.01873670931155853
+    },
+    {
+      "mode": "research_rich",
+      "metadata_epsilon": null,
+      "regret_mean": 0.13887897483095632,
+      "regret_median": 0.10198412698412694,
+      "regret_q90": 0.3159450853498405,
+      "regret_cvar90": 0.44570998876472145,
+      "gain_vs_best_fixed": 0.015313123453363135,
+      "gain_ci95_low": 0.012089828122648923,
+      "gain_ci95_high": 0.01870687740096136
+    }
+  ],
+  "tau": 0.02,
+  "fallback": "categorical_naive_bayes__laplace_histograms_b8u"
+}

@@ -1,0 +1,11 @@
+.venv/
+.DS_Store
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.cache/
+.env
+*.zip
+*.joblib
+*.parquet
+*.log

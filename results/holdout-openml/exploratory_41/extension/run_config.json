@@ -1,0 +1,37 @@
+{
+  "manifest_sha256": "739b43653c5d65f8d6147a9a791044e56dbd792fd8228ae47d5eb2dbc0e15fbf",
+  "frozen_sha256": "c86ee76f287d4b46ef8f87f1af5a75aa0553db94888a70048b2acaece3b27e4b",
+  "numerical": "7c6f7d37937194c13eac12238bf49f7835538638cbde8438eb5e6354d39b647d",
+  "runtime": {
+    "python": "3.11.16",
+    "dependencies": {
+      "numpy": "1.26.4",
+      "pandas": "2.2.2",
+      "scipy": "1.13.1",
+      "scikit-learn": "1.5.1",
+      "openml": "0.15.1",
+      "threadpoolctl": "3.7.0"
+    }
+  },
+  "pipes": [
+    "softmax__dp_sgd_clip2_lamrule",
+    "softmax__dp_sgd_clip2_lam0003"
+  ],
+  "epsilons": [
+    0.1,
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    16.0
+  ],
+  "repeats": 3,
+  "seed": 20260918,
+  "numeric_transform": "tanh",
+  "workers": 8,
+  "omp_num_threads": 1,
+  "min_free_bytes": 5368709120,
+  "executor_sha256": "f2492e093bb558a063855a060075143aa3a3fe69cfb89bb3fcd9f12ec610a877"
+}

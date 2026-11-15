@@ -1,0 +1,39 @@
+{
+  "executor_sha256": "e1b1be42c1caecda420c8567d01445b7491144b809ce289a61e245cd20b562c1",
+  "numerical": "7c6f7d37937194c13eac12238bf49f7835538638cbde8438eb5e6354d39b647d",
+  "runtime": {
+    "python": "3.11.16",
+    "dependencies": {
+      "numpy": "1.26.4",
+      "pandas": "2.2.2",
+      "scipy": "1.13.1",
+      "scikit-learn": "1.5.1",
+      "openml": "0.15.1",
+      "threadpoolctl": "3.7.0"
+    }
+  },
+  "source_sha256": "571631972451d0117372dd02d20ff4e1a247a78c9c636be865f9b1a6f24ff037",
+  "manifest_sha256": "e6b65549e4197c16a6bfe60a39c588308947cc289da703819134ecf8a02ee846",
+  "frozen_sha256": "c86ee76f287d4b46ef8f87f1af5a75aa0553db94888a70048b2acaece3b27e4b",
+  "public_rule_sha256": "59cf8728396640de7dbddeb46dfec885d8efe70cd89eb4a25efc3c881df0ade0",
+  "pipes": [
+    "softmax__dp_sgd_clip2_lamrule",
+    "softmax__dp_sgd_clip2_lam0003"
+  ],
+  "seed": 20260918,
+  "repeats": 3,
+  "epsilons": [
+    0.1,
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    16.0
+  ],
+  "workers": 8,
+  "omp_num_threads": 1,
+  "numeric_transform": "tanh",
+  "clean_metrics_evaluated": false
+}

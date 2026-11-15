@@ -1,0 +1,527 @@
+position,uci_id,name
+1,755,Accelerometer Gyro Mobile Phone
+2,158,Poker Hand
+3,555,Apartment for Rent Classified
+4,890,AIDS Clinical Trials Group Study 175
+5,483,Behavior of the urban traffic of the city of Sao Paulo in Brazil
+6,247,ISTANBUL STOCK EXCHANGE
+7,11,Badges
+8,139,Synthetic Control Chart Time Series
+9,145,Statlog (Heart)
+10,229,Skin Segmentation
+11,186,Wine Quality
+12,752,Bosch CNC Machining Dataset 
+13,295,Urban Land Cover
+14,472,Caesarian Section Classification Dataset
+15,196,Localization Data for Person Activity
+16,770,NASA Flood Extent Detection
+17,214,Vicon Physical Action Data Set
+18,742,SoDA
+19,263,ser Knowledge Modeling Data (Students' Knowledge Levels on DC Electrical Machines)
+20,94,Spambase
+21,475,Audit Data
+22,837,Product Classification and Clustering
+23,1277,Human Activity Recognition Using 9-axis Accelerometer
+24,1125,Inflation Research Abstracts Classification
+25,516,Kitsune Network Attack
+26,697,Predict Students' Dropout and Academic Success
+27,461,Drug Reviews (Druglib.com)
+28,188,p53 Mutants
+29,83,Primary Tumor
+30,104,University
+31,187,URL Reputation
+32,419,Autistic Spectrum Disorder Screening Data for Children  
+33,208,Online Handwritten Assamese Characters Dataset
+34,212,Vertebral Column
+35,485,Travel Review Ratings
+36,481,EMG Data for Gestures
+37,447,Condition monitoring of hydraulic systems
+38,476,BuddyMove Data Set
+39,163,Reuters Transcribed Subset
+40,80,Optical Recognition of Handwritten Digits
+41,536,Pedestrians in Traffic
+42,713,Auction Verification
+43,327,Phishing Websites
+44,846,Accelerometer
+45,101,Tic-Tac-Toe Endgame
+46,105,Congressional Voting Records
+47,18,Pittsburgh Bridges
+48,148,Statlog (Shuttle)
+49,571,HCV data
+50,176,Blood Transfusion Service Center
+51,589,Anticancer peptides
+52,298,Bach Choral Harmony
+53,204,PEMS-SF
+54,251,Gas sensor arrays in open sampling settings
+55,108,Waveform Database Generator (Version 2)
+56,277,Thoracic Surgery Data
+57,166,Hill-Valley
+58,290,Tamilnadu Electricity Board Hourly Readings
+59,222,Bank Marketing
+60,62,Lung Cancer
+61,223,YouTube Comedy Slam Preference Data
+62,722,NATICUSdroid (Android Permissions)
+63,344,Heterogeneity Activity Recognition
+64,43,Haberman's Survival
+65,540,3W dataset
+66,966,An eye on the vine - a dataset for fungi segmentation in microscopic vine wood images
+67,319,MHEALTH
+68,428,Immunotherapy Dataset
+69,330,HIV-1 protease cleavage
+70,436,Container Crane Controller Data Set
+71,827,Sepsis Survival Minimal Clinical Records
+72,892,TCGA Kidney Cancers
+73,575,Guitar Chords finger positions
+74,467,Student Academics Performance
+75,17,Breast Cancer Wisconsin (Diagnostic)
+76,845,TamilSentiMix
+77,856,Higher Education Students Performance Evaluation
+78,341,Smartphone-Based Recognition of Human Activities and Postural Transitions
+79,378,DrivFace
+80,541,Malware static and dynamic features VxHeaven and Virus Total
+81,556,: Simulated Data set of Iraqi tourism places
+82,349,Open University Learning Analytics dataset
+83,852,Gender Gap in Spanish WP
+84,34,Diabetes
+85,51,Internet Advertisements
+86,465,WESAD (Wearable Stress and Affect Detection)
+87,73,Mushroom
+88,194,Wall-Following Robot Navigation Data
+89,366,Activity Recognition system based on Multisensor data fusion (AReM)
+90,1031,Assessing Mathematics Learning in Higher Education
+91,780,HAR70+
+92,455,Simulated Falls and Daily Living Activities Data Set
+93,351,Mesothelioma's disease data set 
+94,138,Robot Execution Failures
+95,695,Sundanese Twitter Dataset
+96,348,Indoor User Movement Prediction from RSS data
+97,563,Iranian Churn
+98,613,Smartphone Dataset for Anomaly Detection in Crowds
+99,44,Hayes-Roth
+100,170,Gisette
+101,500,MEx
+102,301,Parkinson's Speech with Multiple Types of Sound Recordings
+103,743,MaskReminder
+104,487,Gas sensor array temperature modulation
+105,322,Gas sensor array under dynamic gas mixtures
+106,26,Connect-4
+107,408,Gastrointestinal Lesions in Regular Colonoscopy
+108,565,Bone marrow transplant: children
+109,283,Dataset for ADL Recognition with Wrist-worn Accelerometer
+110,576,Russian Corpus of Biographical Texts
+111,572,Taiwanese Bankruptcy Prediction
+112,601,AI4I 2020 Predictive Maintenance Dataset
+113,403,chestnut - LARVIC
+114,799,Single Elder Home Monitoring: Gas and Position
+115,168,Dexter
+116,236,Seeds
+117,331,Sentiment Labelled Sentences
+118,732,DARWIN
+119,528,Amphibians
+120,130,KDD Cup 1999 Data
+121,411,extention of Z-Alizadeh sani dataset
+122,359,News Aggregator
+123,412,Z-Alizadeh Sani
+124,49,ICU
+125,763,Land Mines
+126,320,Student Performance
+127,6,Artificial Characters
+128,178,Semeion Handwritten Digit
+129,308,Gas sensor array under flow modulation
+130,696,Open Web Text Corpus
+131,151,"Connectionist Bench (Sonar, Mines vs. Rocks)"
+132,244,Fertility
+133,347,HEPMASS
+134,486,Rice Leaf Diseases
+135,864,Room Occupancy Estimation
+136,2,Adult
+137,936,National Poll on Healthy Aging (NPHA)
+138,7,Audiology (Original)
+139,354,GPS Trajectories
+140,171,Madelon
+141,167,Arcene
+142,431,Discrete Tone Image Dataset
+143,529,Early Stage Diabetes Risk Prediction
+144,20,Census Income
+145,887,National Health and Nutrition Health Survey 2013-2014 (NHANES) Age Prediction Subset
+146,525,Crop mapping using fused optical-radar data set
+147,530,Turkish Spam V01
+148,848,Secondary Mushroom
+149,453,Dishonest Internet users Dataset
+150,542,Internet Firewall Data
+151,221,KEGG Metabolic Reaction Network (Undirected)
+152,93,Low Resolution Spectrometer
+153,567,COVID-19 Surveillance
+154,218,Farm Ads
+155,1186,Paddy Dataset
+156,38,Echocardiogram
+157,286,User Identification From Walking Activity
+158,326,TV News Channel Commercial Detection Dataset
+159,312,Dow Jones Index
+160,169,Dorothea
+161,545,Rice (Cammeo and Osmancik)
+162,878,Cirrhosis Patient Survival Prediction
+163,65,Meta-data
+164,458,Roman Urdu Data Set
+165,337,Machine Learning based ZZAlpha Ltd. Stock Recommendations 2012-2014
+166,67,Molecular Biology (Promoter Gene Sequences)
+167,539,Divorce Predictors data set
+168,508,QSAR oral toxicity
+169,535,Youtube cookery channels viewers comments in Hinglish
+170,582,Student Performance on an Entrance Examination
+171,198,Steel Plates Faults
+172,375,Miskolc IIS Hybrid IPS
+173,306,Newspaper and magazine images segmentation dataset
+174,445,Absenteeism at work
+175,267,Banknote Authentication
+176,857,Risk Factor Prediction of Chronic Kidney Disease
+177,338,Folio
+178,1013,Synthetic Circle Data Set
+179,362,Gas sensors for home activity monitoring
+180,3,Annealing
+181,361,Twin gas sensor arrays
+182,526,Bitcoin Heist Ransomware Address
+183,142,Volcanoes on Venus - JARtool experiment
+184,554,CNNpred: CNN-based stock market prediction using a diverse set of variables
+185,577,Codon usage
+186,220,KEGG Metabolic Relation Network (Directed)
+187,484,Travel Reviews
+188,313,sEMG for Basic Hand movements
+189,376,KDC-4007 dataset Collection
+190,377,Geo-Magnetic field and WLAN dataset for indoor localisation from wristband and smartphone
+191,28,Japanese Credit Screening
+192,599,LastFM Asia Social Network
+193,855,TUANDROMD (Tezpur University Android Malware Dataset)
+194,213,EMG Physical Action Data Set
+195,393,Data for Software Engineering Teamwork Assessment in Education Setting
+196,281,Qualitative_Bankruptcy
+197,469,PMU-UD
+198,63,Lymphography
+199,33,Dermatology
+200,417,Character Font Images
+201,215,Amazon Commerce Reviews
+202,91,Soybean (Small)
+203,552,Activity recognition using wearable physiological measurements
+204,395,Parkinson Disease Spiral Drawings Using Digitized Graphics Tablet
+205,429,Cryotherapy Dataset 
+206,564,Unmanned Aerial Vehicle (UAV) Intrusion Detection
+207,195,Spoken Arabic Digit
+208,241,One-hundred plant species leaves data set
+209,81,Pen-Based Recognition of Handwritten Digits
+210,268,"USPTO Algorithm Challenge, run by NASA-Harvard Tournament Lab and TopCoder    Problem: Pat"
+211,264,EEG Eye State
+212,230,Planning Relax
+213,68,Molecular Biology (Protein Secondary Structure)
+214,147,Statlog (Image Segmentation)
+215,52,Ionosphere
+216,473,BAUM-1
+217,59,Letter Recognition
+218,382,Cargo 2000 Freight Tracking and Tracing
+219,358,Improved Spiral Test Using Digitized Graphics Tablet for Monitoring Parkinson's Disease
+220,506,Human Activity Recognition from Continuous Ambient Sensor Data
+221,231,PAMAP2 Physical Activity Monitoring
+222,379,Website Phishing
+223,557,Nasarian CAD Dataset
+224,111,Zoo
+225,303,Perfume Data
+226,58,Lenses
+227,346,Educational Process Mining (EPM): A Learning Analytics Data Set
+228,31,Covertype
+229,74,Musk (Version 1)
+230,523,Exasens
+231,566,Exasens
+232,174,Parkinsons
+233,604,Gait Classification
+234,257,User Knowledge Modeling
+235,121,EEG Database
+236,69,Molecular Biology (Splice-junction Gene Sequences)
+237,426,Autism Screening Adult
+238,296,Diabetes 130-US Hospitals for Years 1999-2008
+239,410,Paper Reviews
+240,237,Northix
+241,332,Online News Popularity
+242,470,Parkinson's Disease Classification
+243,115,Australian Sign Language Signs (High Quality)
+244,357,Occupancy Detection 
+245,591,Gender by Name
+246,352,Online Retail
+247,1158,High-Resolution Load Dataset from Smart Meters Across Various Cities in Morocco
+248,463,Physical Unclonable Functions
+249,318,NoisyOffice
+250,245,Daphnet Freezing of Gait
+251,750,Similarity Prediction
+252,479,Somerville Happiness Survey
+253,177,UJI Pen Characters (Version 2)
+254,39,Ecoli
+255,509,QSAR androgen receptor
+256,315,Geographical Origin of Music
+257,418,DeliciousMIL: A Data Set for Multi-Label Multi-Instance Learning with Instance Labels
+258,333,Forest type mapping
+259,384,Quality Assessment of Digital Colposcopies
+260,1081,Gas sensor array low-concentration 
+261,446,SCADI
+262,266,seismic-bumps
+263,365,Polish Companies Bankruptcy
+264,380,YouTube Spam Collection
+265,364,Smartphone Dataset for Human Activity Recognition (HAR) in Ambient Assisted Living (AAL)
+266,507,WISDM Smartphone and Smartwatch Activity and Biometrics Dataset 
+267,285,Wilt
+268,8,Audiology (Standardized)
+269,519,Heart Failure Clinical Records
+270,400,Crowdsourced Mapping
+271,454,Victorian Era Authorship Attribution
+272,324,Firm-Teacher_Clave-Direction_Classification
+273,691,CIFAR-10
+274,760,Multivariate Gait Data
+275,54,ISOLET
+276,1101,PIRvision_FoG_presence_detection
+277,78,Page Blocks Classification
+278,46,Hepatitis
+279,588,GitHub MUSAE
+280,253,MicroMass
+281,310,UJIIndoorLoc
+282,597,Productivity Prediction of Garment Employees
+283,480,2.4 GHZ Indoor Channel Measurements
+284,1128,RecGym: Gym Workouts Recognition Dataset with IMU and Capacitive Sensor
+285,269,YouTube Multiview Video Games Dataset
+286,830,Visegrad Group companies data
+287,5,Arrhythmia
+288,389,Devanagari Handwritten Character Dataset
+289,990,Printed Circuit Board Processed Image
+290,963,UR3 CobotOps
+291,719,Bengali Hate Speech Detection Dataset
+292,47,Horse Colic
+293,863,Maternal Health Risk
+294,70,MONK's Problems
+295,82,Post-Operative Patient
+296,482,Parking Birmingham
+297,137,Reuters-21578 Text Categorization Collection
+298,114,Australian Sign Language Signs
+299,503,Hepatitis C Virus (HCV) for Egyptian patients
+300,911,Recipe Reviews and User Feedback
+301,175,Character Trajectories
+302,45,Heart Disease
+303,159,MAGIC Gamma Telescope
+304,32,Cylinder Bands
+305,515,Bar Crawl: Detecting Heavy Drinking
+306,407,TTC-3600: Benchmark dataset for Turkish text categorization
+307,96,SPECTF Heart
+308,967,PhiUSIIL Phishing URL (Website)
+309,1162,Neurofibromatosis Type 1; Clinical Symptoms of Familial and Sporadic Cases
+310,90,Soybean (Large)
+311,270,Gas Sensor Array Drift at Different Concentrations
+312,248,Buzz in social media 
+313,995,ApisTox
+314,226,OPPORTUNITY Activity Recognition
+315,425,University of Tehran Question Dataset 2016 (UTQD.2016)
+316,568,Refractive errors
+317,282,LSVT Voice Rehabilitation
+318,920,Jute Pest
+319,279,SUSY
+320,225,ILPD (Indian Liver Patient Dataset)
+321,262,Turkiye Student Evaluation
+322,386,FMA: A Dataset For Music Analysis
+323,401,gene expression cancer RNA-Seq
+324,693,ImageNet
+325,730,Physical Therapy Exercises
+326,877,MOVER: Medical Informatics Operating Room Vitals and Events Repository
+327,517,Shoulder Implant X-Ray Manufacturer Classification
+328,27,Credit Approval
+329,287,Activity Recognition from Single Chest-Mounted Accelerometer
+330,350,Default of Credit Card Clients
+331,427,Activity recognition with healthy older people using a batteryless wearable sensor
+332,309,Gas sensor array exposed to turbulent gas mixtures
+333,471,Electrical Grid Stability Simulated Data 
+334,292,Wholesale customers
+335,600,Wisesight Sentiment Corpus
+336,383,Cervical Cancer (Risk Factors)
+337,110,Yeast
+338,423,HCC Survival
+339,587,Basketball dataset
+340,391,MoCap Hand Postures
+341,273,Weight Lifting Exercises monitored with Inertial Measurement Units
+342,853,Non Verbal Tourists
+343,311,Sentence Classification
+344,533,Detect Malware Types
+345,184,Acute Inflammations
+346,596,Wheat Kernels
+347,117,Census-Income (KDD)
+348,242,Energy Efficiency
+349,602,Dry Bean
+350,1192,Amaranthus Viridis leaves
+351,340,Cuff-Less Blood Pressure Estimation
+352,300,Tennis Major Tournament Match Statistics
+353,595,LastFM Asia Social Network
+354,95,SPECT Heart
+355,140,Syskill and Webert Web Page Ratings
+356,854,Roman Urdu Sentiment Analysis Dataset (RUSAD)
+357,524,Swarm Behaviour
+358,271,Activities of Daily Living (ADLs) Recognition Using Binary Sensors
+359,759,Glioma Grading Clinical and Mutation Features
+360,143,Statlog (Australian Credit Approval)
+361,862,Turkish Music Emotion
+362,402,"Hybrid Indoor Positioning Dataset from WiFi RSSI, Bluetooth and magnetometer"
+363,433,Ultrasonic flowmeter diagnostics
+364,102,Thyroid Disease
+365,499,Opinion Corpus for Lebanese Arabic Reviews (OCLAR)
+366,152,Connectionist Bench (Vowel Recognition - Deterding Data)
+367,219,DBWorld e-mails
+368,522,South German Credit
+369,908,RealWaste
+370,259,"Reuters RCV1 RCV2 Multilingual, Multiview Text Categorization Test collection"
+371,518,Speaker Accent Recognition
+372,124,CMU Face Images
+373,942,RT-IoT2022 
+374,193,Cardiotocography
+375,325,Dataset for Sensorless Drive Diagnosis
+376,1,Abalone
+377,1050,Twitter Geospatial Data
+378,228,SMS Spam Collection
+379,86,Quadruped Mammals
+380,1134,BEED: Bangalore EEG Epilepsy Dataset 
+381,103,Trains
+382,413,Dynamic Features of VirusShare Executables
+383,392,Early biomarkers of Parkinson’s disease based on natural connected speech
+384,30,Contraceptive Method Choice
+385,434,ICMLA 2014 Accepted Papers Data Set
+386,578,Intelligent Media Accelerometer and Gyroscope (IM-AccGyro) Dataset
+387,435,BLE RSSI Dataset for Indoor localization and Navigation
+388,209,PubChem Bioassay Data
+389,109,Wine
+390,57,LED Display Domain
+391,107,Waveform Database Generator (Version 1)
+392,40,Flags
+393,858,Rocket League Skillshots
+394,562,Shill Bidding Dataset
+395,424,CSM (Conventional and Social Media Movies) Dataset 2014 and 2015
+396,1025,Turkish Crowdfunding Startups
+397,880,SUPPORT2
+398,773,DeFungi
+399,172,Ozone Level Detection
+400,586,BLE RSSI dataset for Indoor localization
+401,355,Detect Malacious Executable(AntiVirus)
+402,521,selfBACK
+403,891,CDC Diabetes Health Indicators
+404,256,Daily and Sports Activities
+405,12,Balance Scale
+406,53,Iris
+407,512,A study of  Asian Religious and Biblical Texts
+408,255,BLOGGER
+409,813,TUNADROMD
+410,42,Glass Identification
+411,233,CNAE-9
+412,210,Record Linkage Comparison Patterns
+413,544,Estimation of Obesity Levels Based On Eating Habits and Physical Condition 
+414,160,UJI Pen Characters
+415,442,detection_of_IoT_botnet_attacks_N_BaIoT
+416,372,HTRU2
+417,192,Breast Tissue
+418,422,Wireless Indoor Localization
+419,342,Mice Protein Expression
+420,100,Teaching Assistant Evaluation
+421,280,HIGGS
+422,197,AutoUniv
+423,224,Gas Sensor Array Drift Dataset
+424,302,Gesture Phase Segmentation
+425,913,Forty Soybean Cultivars from Subsequent Harvests
+426,474,BAUM-2
+427,179,SECOM
+428,406,Anuran Calls (MFCCs)
+429,779,HARTH
+430,584,Labeled Text Forum Threads Dataset
+431,561,Person Classification Gait Data
+432,553,Clickstream Data for Online Shopping
+433,468,Online Shoppers Purchasing Intention Dataset
+434,397,Las Vegas Strip
+435,543,User Profiling and Abusive Language Detection Dataset
+436,420,Autistic Spectrum Disorder Screening Data for Adolescent   
+437,367,Dota2 Games Results
+438,850,Raisin
+439,305,REALDISP Activity Recognition Dataset
+440,64,Mechanical Analysis
+441,249,First-order theorem proving
+442,430,OCT data & Color Fundus Images of Left & Right Eyes
+443,199,MiniBooNE particle identification
+444,13,Balloons
+445,683,MNIST Database of Handwritten Digits
+446,144,Statlog (German Credit Data)
+447,456,Multimodal Damage Identification for Humanitarian Computing
+448,254,QSAR biodegradation
+449,510,QSAR Bioconcentration classes dataset
+450,489,Parkinson Dataset with replicated acoustic features 
+451,72,Multiple Features
+452,538,Sattriya_Dance_Single_Hand_Gestures Dataset
+453,146,Statlog (Landsat Satellite)
+454,343,UJIIndoorLoc-Mag
+455,128,Japanese Vowels
+456,75,Musk (Version 2)
+457,869,Shell Commands Used by Participants of Hands-on Cybersecurity Training
+458,22,Chess (King-Rook vs. King-Pawn)
+459,299,StoneFlakes
+460,240,Human Activity Recognition Using Smartphones
+461,520,Deepfakes: Medical Image Tamper Detection
+462,50,Image Segmentation
+463,373,Drug Consumption (Quantified)
+464,88,Shuttle Landing Control
+465,573,South German Credit
+466,748,Sirtuin6 Small Molecules
+467,791,MetroPT-3 Dataset
+468,15,Breast Cancer Wisconsin (Original)
+469,217,Reuter_50_50
+470,861,Influenza Outbreak Event Prediction via Twitter
+471,289,Dresses_Attribute_Sales
+472,866,9mers from cullpdb
+473,860,REJAFADA
+474,293,Twitter Data set for Arabic Sentiment Analysis
+475,459,Avila
+476,603,In-Vehicle Coupon Recommendation
+477,728,Toxicity
+478,21,Chess (King-Rook vs. King-Knight)
+479,537,Cervical Cancer Behavior Risk
+480,938,Regensburg Pediatric Appendicitis
+481,583,Chemical Composition of Ceramic Samples
+482,190,Demospongiae
+483,14,Breast Cancer
+484,181,Libras Movement
+485,1202,HLS-CMDS: Heart and Lung Sounds Dataset Recorded from a Clinical Manikin using Digital Stethoscope
+486,76,Nursery
+487,252,Climate Model Simulation Crashes
+488,496,Alcohol QCM Sensor
+489,879,Ajwa or Medjool
+490,451,Breast Cancer Coimbra
+491,414,IDA2016Challenge
+492,323,microblogPCU
+493,239,Legal Case Reports
+494,439,chipseq
+495,250,Wearable Computing: Classification of Body Postures and Movements (PUC-Rio)
+496,329,Diabetic Retinopathy Debrecen
+497,19,Car Evaluation
+498,457,EEG Steady-State Visual Evoked Potential Signals
+499,449,Optical Interconnection Network 
+500,1104,Drug Induced Autoimmunity Prediction 
+501,1035,CAN-MIRGU
+502,405,Motion Capture Hand Postures
+503,547,Algerian Forest Fires
+504,729,Period Changer
+505,399,MEU-Mobile KSD
+506,570,CLINC150
+507,191,Opinosis Opinion / Review
+508,598,Multi-view Brain Networks
+509,23,Chess (King-Rook vs. King)
+510,421,APS Failure at Scania Trucks
+511,1150,Gallstone
+512,16,Breast Cancer Wisconsin (Prognostic)
+513,336,Chronic Kidney Disease
+514,161,Mammographic Mass
+515,527,Facebook Large Page-Page Network
+516,227,Nomao
+517,317,Grammatical Facial Expressions
+518,502,Online Retail II
+519,690,Palmer Penguins
+520,288,Leaf
+521,404,Burst Header Packet (BHP) flooding attack on Optical Burst Switching (OBS) Network
+522,915,Differentiated Thyroid Cancer Recurrence
+523,548,Breath Metabolomics
+524,450,Sports articles for objectivity analysis
+525,579,Myocardial infarction complications
+526,149,Statlog (Vehicle Silhouettes)

@@ -1,0 +1,21 @@
+{
+  "at": "2026-11-12T14:40:42.424633+00:00",
+  "amendment_sha256": "6a9264b5a59527f1be954417f9b7b4572646901e784e6ec3cd7af9fe6086f2d1",
+  "manifest_sha256": "fbf5437da9e2a41777c9aed85d6af70a0f304fff86f67e9bdd11f680fe6c4a74",
+  "frozen_models_and_dependencies_verified": true,
+  "protected_tree_files_verified": 189,
+  "complete": true,
+  "conditions": 1800,
+  "ledger_audits": 1800,
+  "recommendations": 120,
+  "public_features_only": true,
+  "resume_completed": 5,
+  "resume_pending": 0,
+  "tests_passed": 111,
+  "primary_analysis_computed": false,
+  "elapsed_seconds": 808.805458,
+  "model_wall_seconds": 7.545266,
+  "worker_seconds": 16.789226250024512,
+  "stage2_required": true,
+  "disk_free_bytes": 13844480000
+}

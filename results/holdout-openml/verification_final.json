@@ -1,0 +1,36 @@
+{
+  "completed_at": "2026-11-11T22:39:24.235118+00:00",
+  "checks": {
+    "protocol_models_development_and_dpmeta_hashes_unchanged": true,
+    "all_21_exclusion_sources_unchanged": true,
+    "complete_720_confirmatory_and_14760_exploratory_grids": true,
+    "all_12792_old_13_option_rows_preserved_exactly": true,
+    "exact_alignment_54_additional_audits_and_no_fabricated_clean_metrics": true,
+    "all_2688_new_fit_ledger_audits_and_payload_hashes": 2688,
+    "no_model_run_failures": true,
+    "ordered_freeze_selection_confirmatory_analysis_exploratory": true,
+    "all_six_pdf_png_artifacts_valid": {
+      "fig14_holdout_gains_vs_b8u": {
+        "png_dimensions": [
+          3559,
+          2651
+        ],
+        "pdf_bytes": 16244
+      },
+      "fig13_holdout_cd": {
+        "png_dimensions": [
+          4766,
+          2950
+        ],
+        "pdf_bytes": 15959
+      },
+      "gains_by_epsilon": {
+        "png_dimensions": [
+          2355,
+          1451
+        ],
+        "pdf_bytes": 13088
+      }
+    }
+  }
+}
